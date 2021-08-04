@@ -9,6 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d("First example", "Not first example")
+        Log.d("First example", "1231345215e")
     }
 }
