@@ -8,8 +8,8 @@ enum class SharedPreferencesKey {
 }
 
 class SharedPreferencesManager(context: Context) {
-    val context = context
-    val title = "ToDoSharedPreferences"
+    private val context = context
+    private val title = "ToDoSharedPreferences"
 
     fun setBoolValueFor(key: SharedPreferencesKey, value: Boolean) {
         val pref: SharedPreferences = context.getSharedPreferences(title, Context.MODE_PRIVATE)
