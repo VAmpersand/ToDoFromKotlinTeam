@@ -29,4 +29,8 @@ class WelcomeActivity : AppCompatActivity() {
             .setBlurAutoUpdate(true)
             .setHasFixedTransformationMatrix(true)
     }
+
+    fun onClickNext(view: View) {
+        finish()
+    }
 }
