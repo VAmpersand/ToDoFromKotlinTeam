@@ -22,4 +22,5 @@ class SharedPreferencesManager(context: Context) {
         val pref: SharedPreferences = context.getSharedPreferences(title, Context.MODE_PRIVATE)
         return pref?.getBoolean("key.toString()", false)
     }
+
 }
