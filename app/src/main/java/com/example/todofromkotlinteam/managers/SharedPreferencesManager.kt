@@ -3,6 +3,7 @@ package com.example.todofromkotlinteam.managers
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import android.view.View
 
 enum class SharedPreferencesKey {
     WelcomeActivityWasShown
@@ -22,4 +23,13 @@ sealed class SharedPreferencesManager : Activity() {
         val pref: SharedPreferences = getSharedPreferences(title, Context.MODE_PRIVATE)
         return pref?.getBoolean("key.toString()", false)
     }
+
+    fun deleteAll(){
+        val pref: SharedPreferences = context.getSharedPreferences(title, Context.MODE_PRIVATE)
+        val editor = pref?.edit()
+        editor?.clear()
+        editor?.apply()
+    }
+
+
 }

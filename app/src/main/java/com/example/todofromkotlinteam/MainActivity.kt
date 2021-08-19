@@ -5,7 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
 
@@ -15,10 +15,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         showWelcomeActivityIfNeeded()
+
     }
 
     private fun showWelcomeActivityIfNeeded() {
-//        val manager = SharedPreferencesManager()
+        val manager = SharedPreferencesManager(thi)
         val value = getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown)
 
         if (value != true) {
@@ -27,19 +28,11 @@ class MainActivity : AppCompatActivity() {
 
            setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true)
         }
+
     }
 
-    val title = "ToDoSharedPreferences"
-
-    fun setBoolValueFor(key: SharedPreferencesKey, value: Boolean) {
-        val pref: SharedPreferences = getSharedPreferences(title, Context.MODE_PRIVATE)
-        val editor = pref?.edit()
-        editor?.putBoolean(key.toString(), value)
-        editor?.apply()
+    fun onDeleteClick(view: View) {
+        val value = SharedPreferencesManager(this).deleteAll()
     }
 
-    fun getBoolValueFor(key: SharedPreferencesKey): Boolean? {
-        val pref: SharedPreferences = getSharedPreferences(title, Context.MODE_PRIVATE)
-        return pref?.getBoolean(key.toString(), false)
-    }
 }
