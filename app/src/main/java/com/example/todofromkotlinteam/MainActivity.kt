@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickRestart(view: View) {
-        SharedPreferencesManager(this).resetSharedPreferences()
+        val manager = SharedPreferencesManager(this)
+        manager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, false)
     }
 }
