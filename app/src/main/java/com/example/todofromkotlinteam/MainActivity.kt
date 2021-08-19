@@ -3,6 +3,7 @@ package com.example.todofromkotlinteam
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
 
@@ -21,8 +22,12 @@ class MainActivity : AppCompatActivity() {
         if (value != true) {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivityForResult(intent, 2)
-
             manager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true)
         }
+    }
+
+    fun onClickRestart(view: View) {
+        val manager = SharedPreferencesManager(this)
+        manager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, false)
     }
 }

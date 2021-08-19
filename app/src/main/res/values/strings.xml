@@ -4,4 +4,5 @@
     <string name="welcome_subtitle">This is a different kind of calendar from what you might be used to.
 Solar calendar will try to put you in sync with a more natural rest and work cycle</string>
     <string name="welcome_button">NEXT</string>
+    <string name="restart">Restart</string>
 </resources>
