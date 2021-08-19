@@ -1,8 +1,6 @@
 package com.example.todofromkotlinteam
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,20 +17,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showWelcomeActivityIfNeeded() {
-        val manager = SharedPreferencesManager(thi)
-        val value = getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown)
+        val manager = SharedPreferencesManager(this)
+        val value = manager.getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown)
+
 
         if (value != true) {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivityForResult(intent, 2)
 
-           setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true)
+            manager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true)
         }
-
     }
-
     fun onDeleteClick(view: View) {
-        val value = SharedPreferencesManager(this).deleteAll()
+        SharedPreferencesManager(this).deleteAll()
+
     }
 
 }
