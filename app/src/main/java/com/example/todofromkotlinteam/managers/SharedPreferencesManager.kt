@@ -24,12 +24,10 @@ class SharedPreferencesManager(context: Context) {
         return pref?.getBoolean("key.toString()", false)
     }
 
-    fun deleteAll(){
+    fun resetSharedPreferences(){
         val pref: SharedPreferences = context.getSharedPreferences(title, Context.MODE_PRIVATE)
         val editor = pref?.edit()
         editor?.clear()
         editor?.apply()
     }
-
-
 }

@@ -14,8 +14,8 @@
         android:layout_marginBottom="52dp"
         android:background="@drawable/cirlce"
         android:backgroundTint="#FF8552"
-        android:onClick="onDeleteClick"
-        android:text="Delete"
+        android:onClick="onClickRestart"
+        android:text="@string/restart"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

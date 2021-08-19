@@ -13,24 +13,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         showWelcomeActivityIfNeeded()
-
     }
 
     private fun showWelcomeActivityIfNeeded() {
         val manager = SharedPreferencesManager(this)
         val value = manager.getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown)
 
-
         if (value != true) {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivityForResult(intent, 2)
-
             manager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true)
         }
     }
-    fun onDeleteClick(view: View) {
-        SharedPreferencesManager(this).deleteAll()
 
+    fun onClickRestart(view: View) {
+        SharedPreferencesManager(this).resetSharedPreferences()
     }
-
 }
