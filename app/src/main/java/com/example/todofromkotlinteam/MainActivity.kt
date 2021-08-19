@@ -22,15 +22,11 @@ class MainActivity : AppCompatActivity() {
         if (value != true) {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivityForResult(intent, 2)
-
             manager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true)
         }
     }
 
-
-    fun onClickReturn(view: View) {
-        val managerReturn = SharedPreferencesManager(this)
-        managerReturn.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, false)
-
+    fun onClickRestart(view: View) {
+        SharedPreferencesManager(this).resetSharedPreferences()
     }
 }
