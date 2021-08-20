@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="52dp"
-        android:background="@drawable/cirlce"
+        android:background="@drawable/circle"
         android:backgroundTint="#FF8552"
         android:onClick="onClickRestart"
         android:text="@string/restart"
