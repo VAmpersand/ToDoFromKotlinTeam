@@ -9,24 +9,25 @@ enum class SharedPreferencesKey {
 }
 
 class SharedPreferencesManager(context: Context) {
-    private val context = context
     private val title = "ToDoSharedPreferences"
+    private var preferences: SharedPreferences? = null
+
+    init {
+        preferences = context.getSharedPreferences(title, Context.MODE_PRIVATE)
+    }
 
     fun setBoolValueFor(key: SharedPreferencesKey, value: Boolean) {
-        val pref: SharedPreferences = context.getSharedPreferences(title, Context.MODE_PRIVATE)
-        val editor = pref?.edit()
-        editor?.putBoolean("key.toString()", value)
+        val editor = preferences?.edit()
+        editor?.putBoolean(key.toString(), value)
         editor?.apply()
     }
 
     fun getBoolValueFor(key: SharedPreferencesKey): Boolean? {
-        val pref: SharedPreferences = context.getSharedPreferences(title, Context.MODE_PRIVATE)
-        return pref?.getBoolean("key.toString()", false)
+        return preferences?.getBoolean(key.toString(), false)
     }
 
     fun resetSharedPreferences(){
-        val pref: SharedPreferences = context.getSharedPreferences(title, Context.MODE_PRIVATE)
-        val editor = pref?.edit()
+        val editor = preferences?.edit()
         editor?.clear()
         editor?.apply()
     }
