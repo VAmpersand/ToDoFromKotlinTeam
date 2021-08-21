@@ -97,4 +97,12 @@
         app:layout_constraintTop_toTopOf="@+id/timeEvent"
         app:srcCompat="@drawable/people" />
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:background="@drawable/circle"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="45dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

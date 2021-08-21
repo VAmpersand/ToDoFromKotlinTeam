@@ -35,7 +35,7 @@ class NavigationBarActivity : AppCompatActivity() {
             var seletedFragment: Fragment? = null
 
             when (item.itemId) {
-                R.id.plan -> seletedFragment = PlansFragment()
+                R.id.plan -> seletedFragment = PlansFragment(this)
                 R.id.ideas -> seletedFragment = IdeasFragment()
                 R.id.profile -> seletedFragment = ProfileFragment()
                 R.id.settings -> seletedFragment = SettingsFragment(this)

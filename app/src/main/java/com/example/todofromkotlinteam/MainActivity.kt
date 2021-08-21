@@ -49,13 +49,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showWelcomeActivityIfNeeded() {
-        val manager = SharedPreferencesManager(this)
-        val value = manager.getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown)
+        val value = SharedPreferencesManager.getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, this)
 
         if (value != true) {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivityForResult(intent, 2)
-            manager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true)
+            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true, this)
         }
     }
 
