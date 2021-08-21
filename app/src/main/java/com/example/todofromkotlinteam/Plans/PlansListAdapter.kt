@@ -11,8 +11,8 @@ import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.Model.ListEvent
 
 class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context): RecyclerView.Adapter<PlansListAdapter.ViewHolder>() {
-    var adapterEventR = eventArray
-    var contextR = context
+    private var events = eventArray
+    private var parentContext = context
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val colorEvent = view.findViewById<ImageView>(R.id.eventColorView)
@@ -20,7 +20,6 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context): Recy
         val subTitleEvent = view.findViewById<TextView>(R.id.subTitleEvent)
         val timeEvent = view.findViewById<TextView>(R.id.timeEvent)
         val doctorEvent = view.findViewById<TextView>(R.id.doctorEvent)
-
 
         fun bind(listEvent: ListEvent, context: Context) {
             colorEvent.setImageResource(listEvent.color)
@@ -34,16 +33,16 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context): Recy
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(contextR)
-        return ViewHolder(inflater.inflate(R.layout.activity_event,parent,false))
+        val inflater = LayoutInflater.from(parentContext)
+        return ViewHolder(inflater.inflate(R.layout.activity_event, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var listEvent = adapterEventR.get(position)
-        holder.bind(listEvent, contextR)
+        var listEvent = events.get(position)
+        holder.bind(listEvent, parentContext)
     }
 
     override fun getItemCount(): Int {
-        return adapterEventR.size
+        return events.size
     }
 }
