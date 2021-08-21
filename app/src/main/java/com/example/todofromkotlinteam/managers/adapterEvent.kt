@@ -22,15 +22,13 @@ class adapterEvent (eventArray:ArrayList<ListEvent>,context: Context): RecyclerV
         val doctorEvent = view.findViewById<TextView>(R.id.doctorEvent)
 
 
-        fun bide(listEvent: ListEvent, context: Context) {
-
+        fun bind(listEvent: ListEvent, context: Context) {
             colorEvent.setImageResource(listEvent.colorEvent_id)
             titleEvent.text = listEvent.titleEventText
             subTitleEvent.text = listEvent.subTitleEventText
             timeEvent.text = listEvent.timeEventText
             doctorEvent.text = listEvent.doctorEventText
             itemView.setOnClickListener(){
-
             }
         }
     }
@@ -44,7 +42,7 @@ class adapterEvent (eventArray:ArrayList<ListEvent>,context: Context): RecyclerV
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var listEvent = adapterEventR.get(position)
-        holder.bide(listEvent,contextR)
+        holder.bind(listEvent,contextR)
     }
 
 
