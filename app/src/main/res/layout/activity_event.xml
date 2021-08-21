@@ -1,0 +1,116 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/eventSample"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:drawable/editbox_background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titleEvent"
+        android:layout_width="284dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="74dp"
+        android:fontFamily="@font/gill_sans_regular"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/colorEvent"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="79dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/titleEvent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mini_circle_blue" />
+
+    <TextView
+        android:id="@+id/subTitleEvent"
+        android:layout_width="324dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="47dp"
+        android:fontFamily="@font/gill_sans_regular"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleEvent" />
+
+    <TextView
+        android:id="@+id/timeEvent"
+        android:layout_width="119dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="189dp"
+        android:layout_marginBottom="17dp"
+        android:fontFamily="@font/gill_sans_regular"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subTitleEvent" />
+
+    <TextView
+        android:id="@+id/doctorEvent"
+        android:layout_width="130dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="17dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/timeEvent"
+        app:layout_constraintTop_toBottomOf="@+id/subTitleEvent" />
+
+    <ImageView
+        android:id="@+id/imageTimeEvent"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/timeEvent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorEvent"
+        app:srcCompat="@drawable/time" />
+
+    <ImageView
+        android:id="@+id/imagePeopleEvent"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/doctorEvent"
+        app:layout_constraintStart_toEndOf="@+id/timeEvent"
+        app:layout_constraintTop_toBottomOf="@+id/subTitleEvent"
+        app:srcCompat="@drawable/people" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
