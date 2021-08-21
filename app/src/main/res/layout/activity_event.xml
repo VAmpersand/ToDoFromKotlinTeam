@@ -1,14 +1,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/eventSample"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     android:background="@android:drawable/editbox_background"
-    android:padding="10dp"
-    tools:context=".MainActivity">
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/titleEvent"
@@ -20,18 +18,18 @@
         android:text="textView"
         android:textColor="@android:color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/colorEvent"
+        app:layout_constraintBottom_toBottomOf="@+id/eventColorView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/colorEvent"
-        app:layout_constraintTop_toTopOf="@+id/colorEvent" />
+        app:layout_constraintStart_toEndOf="@+id/eventColorView"
+        app:layout_constraintTop_toTopOf="@+id/eventColorView" />
 
     <ImageView
-        android:id="@+id/colorEvent"
+        android:id="@+id/eventColorView"
         android:layout_width="19dp"
         android:layout_height="19dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mini_circle_blue" />
@@ -80,12 +78,13 @@
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/subTitleEvent"
         app:layout_constraintTop_toBottomOf="@+id/subTitleEvent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/time" />
+        app:srcCompat="@drawable/ic_watch"
+        app:tint="@color/text_subtitle" />
 
     <ImageView
         android:id="@+id/imagePeopleEvent"
@@ -95,14 +94,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/timeEvent"
         app:layout_constraintStart_toEndOf="@+id/timeEvent"
         app:layout_constraintTop_toTopOf="@+id/timeEvent"
-        app:srcCompat="@drawable/people" />
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="19dp"
-        android:layout_height="19dp"
-        android:background="@drawable/circle"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="45dp" />
+        app:srcCompat="@drawable/ic_people"
+        app:tint="@color/text_subtitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
