@@ -11,4 +11,7 @@
     <color name="text_title">#39393A</color>
     <color name="text_subtitle">#8A817C</color>
     <color name="clear">#00FFFFFF</color>
+    <color name="purple_800">#343D8F</color>
+    <color name="purple_900">#5263FF</color>
+    <color name="teal_800">#55A738</color>
 </resources>
