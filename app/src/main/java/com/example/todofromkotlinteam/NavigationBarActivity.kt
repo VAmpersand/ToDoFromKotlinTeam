@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.todofromkotlinteam.Plans.PlansFragment
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
 import kotlinx.android.synthetic.main.navigation_bar_activity.*
@@ -30,14 +31,16 @@ class NavigationBarActivity : AppCompatActivity() {
     private fun configureNavigationBar() {
         navigationView.background = null
         navigationView.menu.getItem(2).isEnabled = false
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView, PlansFragment(this)).commit()
 
         navigationView.setOnNavigationItemSelectedListener { item ->
             var seletedFragment: Fragment? = null
 
             when (item.itemId) {
-                R.id.plan -> seletedFragment = PlansFragment()
-                R.id.ideas -> seletedFragment = IdeasFragment()
-                R.id.profile -> seletedFragment = ProfileFragment()
+                R.id.plan -> seletedFragment = PlansFragment(this)
+                R.id.ideas -> seletedFragment = IdeasFragment(this)
+                R.id.profile -> seletedFragment = ProfileFragment(this)
                 R.id.settings -> seletedFragment = SettingsFragment(this)
             }
             supportFragmentManager.beginTransaction()

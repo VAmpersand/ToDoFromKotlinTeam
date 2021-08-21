@@ -11,7 +11,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.todofromkotlinteam.PlansFragment"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -47,6 +47,5 @@
         app:layout_anchor="@id/bottomAppBar"
         app:maxImageSize="30dp"
         tools:ignore="SpeakableTextPresentCheck" />
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
