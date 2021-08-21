@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string-array name="title">
+       <item>Virtual Doctjrs' Appointmen</item>
+   </string-array>
+
+    <string-array name="content">
+        <item>Regular virutal catchup with the doctor…</item>
+    </string-array>
+
+    <string-array name="time">
+        <item>12:00 - 12:30</item>
+    </string-array>
+
+    <string-array name="name">
+        <item>Dr. Juliean Adams</item>
+    </string-array>
+</resources>
