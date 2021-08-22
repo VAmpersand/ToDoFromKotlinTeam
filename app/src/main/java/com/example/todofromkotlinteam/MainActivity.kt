@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         list.add(ListItem("Guided group meditation","Group meditation session at the office ","13:00 - 13:30","Yoga instructor"))
         list.add(ListItem("Sprint planning ","Catchup to plan for next week’s sprint","14:00-15:00","Dev. Team "))
         list.add(ListItem("Evening. yoga session","Home yoga session for sleep.","19:00 - 19:30"," Dr. Juliean Adams"))
-        
+
         recyclerView.hasFixedSize()
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = MyAdapter(list, this)

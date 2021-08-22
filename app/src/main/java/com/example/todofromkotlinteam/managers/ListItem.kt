@@ -1,8 +1,8 @@
 package com.example.todofromkotlinteam.managers
 
 data class ListItem(
-    var titleText: String,
-    var contentText: String,
-    var timeText: String,
-    var nameText: String
+    var title: String,
+    var content: String,
+    var time: String,
+    var name: String
 )

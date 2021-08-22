@@ -19,12 +19,11 @@ class MyAdapter(listArray:ArrayList<ListItem>,context: Context): RecyclerView.Ad
         val tvInform = view.findViewById<TextView>(R.id.nameView)
 
         fun  bind(listItem: ListItem, context: Context){
-            tvTitle.text = listItem.titleText
-            tvContent.text = listItem.contentText
-            tvTime.text = listItem.timeText
-            tvInform.text = listItem.nameText
+            tvTitle.text = listItem.title
+            tvContent.text = listItem.content
+            tvTime.text = listItem.time
+            tvInform.text = listItem.name
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
