@@ -9,9 +9,7 @@ enum class SharedPreferencesKey {
 object SharedPreferencesManager {
     private val title = "ToDoSharedPreferences"
 
-    init {
-        println("Singleton initialized")
-    }
+    init {}
 
     fun setBoolValueFor(key: SharedPreferencesKey, value: Boolean, context: Context) {
         val preferences = context.getSharedPreferences(title, Context.MODE_PRIVATE)

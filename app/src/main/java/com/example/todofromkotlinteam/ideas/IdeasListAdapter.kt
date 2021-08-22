@@ -19,7 +19,7 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
         val tvTime = view.findViewById<TextView>(R.id.timeView)
         val tvInform = view.findViewById<TextView>(R.id.nameView)
 
-        fun  bind(listItem: ListEvent, context: Context){
+        fun bind(listItem: ListEvent, context: Context){
             tvTitle.text = listItem.title
             tvContent.text = listItem.subtitle
             tvTime.text = listItem.time
@@ -29,11 +29,11 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(contextR)
-        return  ViewHolder(inflater.inflate(R.layout.shablon_events, parent,false))
+        return ViewHolder(inflater.inflate(R.layout.shablon_events, parent,false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var listItem =listArrayR.get(position)
+        var listItem = listArrayR.get(position)
         holder.bind(listItem, contextR)
     }
 
