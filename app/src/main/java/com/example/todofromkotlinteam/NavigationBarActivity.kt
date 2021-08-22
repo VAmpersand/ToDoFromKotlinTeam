@@ -29,7 +29,6 @@ class NavigationBarActivity : AppCompatActivity() {
     }
 
     private fun configureNavigationBar() {
-        navigationView.background = null
         navigationView.menu.getItem(2).isEnabled = false
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView, PlansFragment(this)).commit()
