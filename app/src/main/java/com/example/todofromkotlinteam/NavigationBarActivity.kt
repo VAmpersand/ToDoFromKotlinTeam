@@ -17,7 +17,9 @@ class NavigationBarActivity : AppCompatActivity() {
 
         showWelcomeActivityIfNeeded()
         configureNavigationBar()
+//        window.statusBarColor = ContextCompat.getColor(this, R.color.black)
     }
+
 
     private fun showWelcomeActivityIfNeeded() {
         val value = SharedPreferencesManager.getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, this)
