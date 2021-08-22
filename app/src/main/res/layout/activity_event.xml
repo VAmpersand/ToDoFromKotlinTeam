@@ -1,5 +1,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/eventSample"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,20 +10,88 @@
     android:background="@drawable/item_background"
     android:elevation="19dp">
 
-    <TextView
-        android:id="@+id/titleEvent"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/gill_sans_regular"
-        android:text="textView"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/eventColorView"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/eventColorView"
-        app:layout_constraintTop_toTopOf="@+id/eventColorView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/titleEvent"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:fontFamily="@font/gill_sans_regular"
+            android:text="textView"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/subTitleEvent"
+            android:layout_width="match_parent"
+            android:layout_height="21dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/gill_sans_regular"
+            android:text="TextView"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="clip_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageTimeEvent"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                app:srcCompat="@drawable/ic_watch"
+                app:tint="@color/text_subtitle" />
+
+            <TextView
+                android:id="@+id/timeEvent"
+                android:layout_width="120dp"
+                android:layout_height="21dp"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/gill_sans_regular"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/imagePeopleEvent"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                app:srcCompat="@drawable/ic_people"
+                app:tint="@color/text_subtitle" />
+
+            <TextView
+                android:id="@+id/doctorEvent"
+                android:layout_width="120dp"
+                android:layout_height="21dp"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/gill_sans_regular"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/eventColorView"
@@ -33,78 +102,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mini_circle_blue" />
-
-    <TextView
-        android:id="@+id/subTitleEvent"
-        android:layout_width="match_parent"
-        android:layout_height="21dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/gill_sans_regular"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/titleEvent"
-        app:layout_constraintTop_toBottomOf="@+id/titleEvent" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="clip_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subTitleEvent">
-
-        <ImageView
-            android:id="@+id/imageTimeEvent"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            app:srcCompat="@drawable/ic_watch"
-            app:tint="@color/text_subtitle" />
-
-        <TextView
-            android:id="@+id/timeEvent"
-            android:layout_width="120dp"
-            android:layout_height="21dp"
-            android:layout_marginLeft="8dp"
-            android:fontFamily="@font/gill_sans_regular"
-            android:text="TextView"
-            android:textSize="18sp" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/imagePeopleEvent"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            app:srcCompat="@drawable/ic_people"
-            app:tint="@color/text_subtitle" />
-
-        <TextView
-            android:id="@+id/doctorEvent"
-            android:layout_width="120dp"
-            android:layout_height="21dp"
-            android:layout_marginLeft="8dp"
-            android:fontFamily="@font/gill_sans_regular"
-            android:text="TextView"
-            android:textSize="18sp" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

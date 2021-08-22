@@ -15,7 +15,7 @@
         android:layout_height="match_parent" />
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/tabBarShadowView"
         android:layout_width="match_parent"
         android:layout_height="91dp"
         android:layout_gravity="bottom"
