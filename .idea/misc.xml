@@ -18,6 +18,8 @@
         <entry key="app/src/main/res/drawable/ic_profile.xml" value="0.2921875" />
         <entry key="app/src/main/res/drawable/ic_settings.xml" value="0.259375" />
         <entry key="app/src/main/res/drawable/icon_colors.xml" value="0.2553846153846154" />
+        <entry key="app/src/main/res/drawable/item_background.xml" value="0.30564102564102563" />
+        <entry key="app/src/main/res/drawable/item_background_2.xml" value="0.30564102564102563" />
         <entry key="app/src/main/res/drawable/mini_circle_blue.xml" value="0.2791666666666667" />
         <entry key="app/src/main/res/drawable/mini_circle_dark_blue.xml" value="0.2791666666666667" />
         <entry key="app/src/main/res/drawable/shadow.xml" value="0.3104166666666667" />
