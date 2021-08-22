@@ -50,7 +50,7 @@ class PlansFragment(context: Context): Fragment() {
             ListEvent(
                 R.drawable.mini_circle_red, "Virtual Doctors' Appointment ",
             "Regular virtual catchup with the doctor...", "12:00 - 12:30",
-            "Dr. Julian Adams")
+            "Dr. Julian")
         )
         event.add(
             ListEvent(
@@ -74,5 +74,4 @@ class PlansFragment(context: Context): Fragment() {
         recyclerEvent.layoutManager = LinearLayoutManager(parentContext)
         recyclerEvent.adapter = PlansListAdapter(event, parentContext)
     }
-
 }

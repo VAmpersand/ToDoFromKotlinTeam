@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.todofromkotlinteam.Plans.PlansFragment
+import com.example.todofromkotlinteam.ideas.IdeasFragment
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
 import kotlinx.android.synthetic.main.navigation_bar_activity.*
@@ -29,7 +30,6 @@ class NavigationBarActivity : AppCompatActivity() {
     }
 
     private fun configureNavigationBar() {
-        navigationView.background = null
         navigationView.menu.getItem(2).isEnabled = false
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView, PlansFragment(this)).commit()
