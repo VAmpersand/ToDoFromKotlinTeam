@@ -5,8 +5,8 @@
 Solar calendar will try to put you in sync with a more natural rest and work cycle</string>
     <string name="welcome_button">NEXT</string>
     <string name="restart">Restart</string>
-    <string name="title">Guided group meditation</string>
-    <string name="sub_title">Group meditation session at the office</string>
-    <string name="time">13:00-13:30</string>
-    <string name="doctor">Yoga instructor</string>
+    <string name="plan_tab_title">Your Plan</string>
+    <string name="ideas_tab_title">Your Ideas</string>
+    <string name="profile_tab_title">Profile</string>
+    <string name="settings_tab_title">Settings</string>
 </resources>
