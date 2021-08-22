@@ -11,8 +11,10 @@
     <color name="text_title">#39393A</color>
     <color name="text_subtitle">#8A817C</color>
     <color name="clear">#00FFFFFF</color>
+    <color name="red">#FF5252</color>
     <color name="blue">#5263FF</color>
     <color name="green">#55A738</color>
     <color name="dark_blue">#343D8F</color>
-    <color name="red">#FF5252</color>
+    <color name="background">#FAFAFA</color>
+
 </resources>

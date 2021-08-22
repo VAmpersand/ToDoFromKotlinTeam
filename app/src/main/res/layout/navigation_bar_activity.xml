@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:drawingCacheQuality="auto"
+    android:fadeScrollbars="false"
+    tools:context=".NavigationBarActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        app:fabCradleMargin="12dp"
+        app:fabCradleRoundedCornerRadius="15dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            app:itemIconSize="26dp"
+            app:itemIconTint="@drawable/icon_colors"
+            app:itemTextColor="@drawable/icon_colors"
+            app:menu="@menu/navigation_bar_menu" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addButton"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:backgroundTint="@color/main_orange"
+        android:src="@drawable/ic_add"
+        app:borderWidth="0dp"
+        app:fabCustomSize="84dp"
+        app:layout_anchor="@id/bottomAppBar"
+        app:maxImageSize="30dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
