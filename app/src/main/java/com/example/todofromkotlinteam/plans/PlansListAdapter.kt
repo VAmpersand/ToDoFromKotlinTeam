@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.Plans
+package com.example.todofromkotlinteam.plans
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.R
-import com.example.todofromkotlinteam.Model.ListEvent
+import com.example.todofromkotlinteam.model.ListEvent
 
 class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context): RecyclerView.Adapter<PlansListAdapter.ViewHolder>() {
     private var events = eventArray

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todofromkotlinteam.Model.ListEvent
+import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.R
 
 class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): RecyclerView.Adapter<IdeasListAdapter.ViewHolder>() {
