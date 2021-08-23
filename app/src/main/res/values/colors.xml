@@ -17,4 +17,6 @@
     <color name="dark_blue">#343D8F</color>
     <color name="background">#FAFAFA</color>
     <color name="shadow">#8A817C</color>
+    <color name="separator">#DBDCDD</color>
+
 </resources>

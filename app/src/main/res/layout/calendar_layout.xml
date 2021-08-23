@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/customCalendar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="InvalidId">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingTop="29dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="25dp">
+
+        <ImageButton
+            android:id="@+id/prevButton"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:background="@drawable/ic_left_arrow" />
+
+        <TextView
+            android:id="@+id/currentDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_weight="2"
+            android:fontFamily="@font/gill_sans_bold"
+            android:gravity="center"
+            android:text="Aug 2016"
+            android:textColor="@color/text_title"
+            android:textSize="21sp" />
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:background="@drawable/ic_right_arrow" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/gill_sans_light"
+            android:gravity="center"
+            android:text="SUN"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/gill_sans_light"
+            android:gravity="center"
+            android:text="MON"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/gill_sans_light"
+            android:gravity="center"
+            android:text="TUE"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/gill_sans_light"
+            android:gravity="center"
+            android:text="WED"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/gill_sans_light"
+            android:gravity="center"
+            android:text="THU"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/gill_sans_light"
+            android:gravity="center"
+            android:text="FRI"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/gill_sans_light"
+            android:gravity="center"
+            android:text="SAT"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/separator"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"/>
+    
+    <GridView
+        android:id="@+id/grindView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="7"/>
+
+</LinearLayout>

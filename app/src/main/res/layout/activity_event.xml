@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:orientation="vertical"
@@ -57,19 +57,16 @@
 
             <TextView
                 android:id="@+id/timeEvent"
-                android:layout_width="120dp"
+                android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_marginLeft="8dp"
                 android:fontFamily="@font/gill_sans_regular"
                 android:text="TextView"
-                android:textSize="18sp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:textSize="18sp"
+                android:layout_weight="2"/>
 
             <ImageView
+                android:layout_marginLeft="8dp"
                 android:id="@+id/imagePeopleEvent"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
@@ -78,17 +75,13 @@
 
             <TextView
                 android:id="@+id/doctorEvent"
-                android:layout_width="120dp"
+                android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_marginLeft="8dp"
                 android:fontFamily="@font/gill_sans_regular"
                 android:text="TextView"
-                android:textSize="18sp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:textSize="18sp"
+                android:layout_weight="2"/>
 
         </LinearLayout>
     </LinearLayout>
