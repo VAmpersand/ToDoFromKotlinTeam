@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.plans
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context): Recy
     private var parentContext = context
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
+        val eventView = view.findViewById<ImageView>(R.id.eventSample)
         val colorEvent = view.findViewById<ImageView>(R.id.eventColorView)
         val titleEvent = view.findViewById<TextView>(R.id.titleEvent)
         val subTitleEvent = view.findViewById<TextView>(R.id.subTitleEvent)
@@ -22,6 +24,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context): Recy
         val doctorEvent = view.findViewById<TextView>(R.id.doctorEvent)
 
         fun bind(listEvent: ListEvent, context: Context) {
+
             colorEvent.setImageResource(listEvent.color)
             titleEvent.text = listEvent.title
             subTitleEvent.text = listEvent.subtitle
