@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.Model
+package com.example.todofromkotlinteam.model
 
 data class ListEvent(
     var color: Int,

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.todofromkotlinteam.Model.ListEvent
+import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.R
 import kotlinx.android.synthetic.main.ideas_fragment.*
 
@@ -25,48 +25,48 @@ class IdeasFragment(context: Context) : Fragment() {
         val list = ArrayList<ListEvent>()
         list.add(
             ListEvent(
-                R.drawable.mini_circle_red, "Virtual Doctors' Appointment ",
+                R.drawable.circle, "Virtual Doctors' Appointment ",
                 "Regular virtual catchup with the doctor...", "12:00 - 12:30",
                 "Dr. Julian Adams")
         )
         list.add(
             ListEvent(
-                R.drawable.mini_circle_blue, "Guided group meditation",
+                R.drawable.circle, "Guided group meditation",
                 "Group meditation session at the office", "13:00 - 13:30",
                 "Yoga instructor")
         )
         list.add(
             ListEvent(
-                R.drawable.mini_circle_green, "Sprint planning",
+                R.drawable.circle, "Sprint planning",
                 "Catchup to plan for next week's sprint", "14:00 - 15:00",
                 "Dev.Team")
         )
         list.add(
             ListEvent(
-                R.drawable.mini_circle_dark_blue, "Evening. yoga session",
+                R.drawable.circle, "Evening. yoga session",
                 "Home yoga session for slip.", "19:00 - 19:30","")
         )
         list.add(
             ListEvent(
-                R.drawable.mini_circle_red, "Virtual Doctors' Appointment ",
+                R.drawable.circle, "Virtual Doctors' Appointment ",
                 "Regular virtual catchup with the doctor...", "12:00 - 12:30",
                 "Dr. Julian Adams")
         )
         list.add(
             ListEvent(
-                R.drawable.mini_circle_blue, "Guided group meditation",
+                R.drawable.circle, "Guided group meditation",
                 "Group meditation session at the office", "13:00 - 13:30",
                 "Yoga instructor")
         )
         list.add(
             ListEvent(
-                R.drawable.mini_circle_green, "Sprint planning",
+                R.drawable.circle, "Sprint planning",
                 "Catchup to plan for next week's sprint", "14:00 - 15:00",
                 "Dev.Team")
         )
         list.add(
             ListEvent(
-                R.drawable.mini_circle_dark_blue, "Evening. yoga session",
+                R.drawable.circle, "Evening. yoga session",
                 "Home yoga session for slip.", "19:00 - 19:30","")
         )
         recyclerView.hasFixedSize()
