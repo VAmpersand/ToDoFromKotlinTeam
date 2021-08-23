@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEvent
+import com.example.todofromkotlinteam.model.ListEventType
 import kotlinx.android.synthetic.main.plans_fragment.*
 
 class PlansFragment(context: Context): Fragment() {
@@ -24,10 +25,11 @@ class PlansFragment(context: Context): Fragment() {
         val event = ArrayList<ListEvent>()
 
         event.add(
-            ListEvent(
-                R.drawable.circle, "Virtual Doctors' Appointment ",
-            "Regular virtual catchup with the doctor...", "12:00 - 12:30",
-            "Dr. Julian Adams")
+            ListEvent(ListEventType("Doctor", "000000"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+
+            )
         )
         event.add(
             ListEvent(
