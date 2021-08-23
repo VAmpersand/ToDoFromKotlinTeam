@@ -155,8 +155,8 @@ class PlansFragment(context: Context): Fragment() {
 //            "Home yoga session for slip.", "19:00 - 19:30","")
 //        )
 
-        recyclerEvent.hasFixedSize()
-        recyclerEvent.layoutManager = LinearLayoutManager(parentContext)
-        recyclerEvent.adapter = PlansListAdapter(events, parentContext)
+        recycleView.hasFixedSize()
+        recycleView.layoutManager = LinearLayoutManager(parentContext)
+        recycleView.adapter = PlansListAdapter(events, parentContext)
     }
 }

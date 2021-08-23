@@ -116,8 +116,8 @@ class IdeasFragment(context: Context) : Fragment() {
             )
         )
 
-        recyclerView.hasFixedSize()
-        recyclerView.layoutManager = LinearLayoutManager(parentContext)
-        recyclerView.adapter = IdeasListAdapter(events, parentContext)
+        recycleView.hasFixedSize()
+        recycleView.layoutManager = LinearLayoutManager(parentContext)
+        recycleView.adapter = IdeasListAdapter(events, parentContext)
     }
 }
