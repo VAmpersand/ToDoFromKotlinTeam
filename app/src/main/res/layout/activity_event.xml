@@ -63,7 +63,7 @@
                 android:fontFamily="@font/gill_sans_regular"
                 android:text="TextView"
                 android:textSize="18sp"
-                android:layout_weight="2"/>
+                android:layout_weight="1"/>
 
             <ImageView
                 android:layout_marginLeft="8dp"
@@ -81,7 +81,7 @@
                 android:fontFamily="@font/gill_sans_regular"
                 android:text="TextView"
                 android:textSize="18sp"
-                android:layout_weight="2"/>
+                android:layout_weight="1"/>
 
         </LinearLayout>
     </LinearLayout>
