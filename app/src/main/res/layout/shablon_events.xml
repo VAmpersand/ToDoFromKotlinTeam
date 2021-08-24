@@ -9,7 +9,6 @@
     android:background="@drawable/item_background"
     android:elevation="30dp">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/titleView"
+            android:id="@+id/titleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -33,7 +32,7 @@
             android:textSize="21sp" />
 
         <TextView
-            android:id="@+id/contentView"
+            android:id="@+id/descriptionTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -54,6 +53,7 @@
                 app:srcCompat="@drawable/ic_watch" />
 
             <TextView
+
                 android:id="@+id/timeView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 app:srcCompat="@drawable/ic_people" />
 
             <TextView
-                android:id="@+id/nameView"
+                android:id="@+id/partnerTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
