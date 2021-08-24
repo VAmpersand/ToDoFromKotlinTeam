@@ -1,6 +1,7 @@
 package com.example.todofromkotlinteam.plans
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.DrawableContainer
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
@@ -12,6 +13,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEvent
+import com.example.todofromkotlinteam.model.ListEventType
+import kotlin.coroutines.EmptyCoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext.hashCode
 
 class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : RecyclerView.Adapter<PlansListAdapter.ViewHolder>() {
     private var events = eventArray
@@ -52,11 +56,16 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
 
             if (listEvent.isDone) eventView.alpha = 0.5f
 
+//            val color = colorView.getBackground()
+            colorView.setBackgroundColor(ArrayList<ListEvent>().get(1).toString().toInt())
+
             titleTV.text = listEvent.title
             descriptionTV.text = listEvent.description
             timeTV.text = "${listEvent.startTime} - ${listEvent.finishTime}"
             partnerTV.text = listEvent.partner
+
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
