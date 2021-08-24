@@ -53,8 +53,7 @@
                 app:srcCompat="@drawable/ic_watch" />
 
             <TextView
-
-                android:id="@+id/timeView"
+                android:id="@+id/timeTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"

@@ -18,10 +18,10 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val eventView = view.findViewById<ConstraintLayout>(R.id.eventIdeasView)
         val colorView = view.findViewById<View>(R.id.colorView)
-        val titleTV = view.findViewById<TextView>(R.id.timeTV)
+        val titleTV = view.findViewById<TextView>(R.id.titleTV)
         val descriptionTV = view.findViewById<TextView>(R.id.descriptionTV)
         val imageTime = view.findViewById<ImageView>(R.id.imageTime)
-        val timeTV = view.findViewById<TextView>(R.id.timeView)
+        val timeTV = view.findViewById<TextView>(R.id.timeTV)
         val imagePartner = view.findViewById<ImageView>(R.id.imagePeople)
         val partnerTV = view.findViewById<TextView>(R.id.partnerTV)
 
@@ -55,9 +55,6 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
             descriptionTV.text = listEvent.description
             timeTV.text = "${listEvent.startTime} - ${listEvent.finishTime}"
             partnerTV.text = listEvent.partner
-
-
-
         }
     }
 
