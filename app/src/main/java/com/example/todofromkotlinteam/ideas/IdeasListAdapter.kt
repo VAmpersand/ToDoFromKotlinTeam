@@ -60,7 +60,7 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parentContext)
-        return ViewHolder(inflater.inflate(R.layout.activity_event, parent,false))
+        return ViewHolder(inflater.inflate(R.layout.shablon_events, parent,false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
