@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <com.example.todofromkotlinteam.plans.CustomCalendarView
+    <com.example.todofromkotlinteam.plans.customCalendarView.CustomCalendarView
         android:id="@+id/customCalendarView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

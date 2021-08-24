@@ -22,12 +22,12 @@ class NavigationBarActivity : AppCompatActivity() {
 
 
     private fun showWelcomeActivityIfNeeded() {
-        val value = SharedPreferencesManager.getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, this)
+        val value = SharedPreferencesManager.getBoolValueFor(SharedPreferencesKey.WELCOME_ACTIVITY_WAS_SHOWN, this)
 
         if (value != true) {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivityForResult(intent, 2)
-            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true, this)
+            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WELCOME_ACTIVITY_WAS_SHOWN, true, this)
         }
     }
 

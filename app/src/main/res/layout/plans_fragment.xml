@@ -12,7 +12,6 @@
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
         android:clipToPadding="false"
-        android:paddingTop="16dp"
         android:paddingBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

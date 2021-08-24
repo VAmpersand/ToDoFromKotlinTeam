@@ -21,7 +21,7 @@ class SettingsFragment(context: Context) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         resetButton.setOnClickListener {
-            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown,false, parentContext)
+            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WELCOME_ACTIVITY_WAS_SHOWN,false, parentContext)
         }
     }
 }

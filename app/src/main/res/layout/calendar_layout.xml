@@ -20,7 +20,8 @@
             android:id="@+id/prevButton"
             android:layout_width="41dp"
             android:layout_height="41dp"
-            android:background="@drawable/ic_left_arrow" />
+            android:background="@drawable/ic_left_arrow"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/currentDateTitle"
@@ -129,9 +130,23 @@
         android:layout_marginLeft="18dp"/>
     
     <GridView
-        android:id="@+id/grindView"
+        android:id="@+id/gridView"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="7"/>
+        android:layout_height="260dp"
+        android:numColumns="7"
+        android:verticalSpacing="5dp"
+        android:horizontalSpacing="5dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="25dp"
+        android:background="@color/separator"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"/>
 
 </LinearLayout>
