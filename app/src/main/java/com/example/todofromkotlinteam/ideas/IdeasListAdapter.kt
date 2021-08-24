@@ -28,24 +28,24 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
         fun bind(listEvent: ListEvent, context: Context) {
 
             if (listEvent.isPriority) {
-                val eventViewShape = eventView.getBackground()
-                eventViewShape.setTint(context.getResources().getColor(R.color.main_orange))
-                val colorViewShape = colorView.getBackground()
-                colorViewShape.setTint(context.getResources().getColor(R.color.white))
+                val eventViewShape = eventView.background
+                eventViewShape.setTint(context.resources.getColor(R.color.main_orange))
+                val colorViewShape = colorView.background
+                colorViewShape.setTint(context.resources.getColor(R.color.white))
 
-                titleTV.setTextColor(context.getResources().getColor(R.color.white))
-                descriptionTV.setTextColor(context.getResources().getColor(R.color.white))
-                timeTV.setTextColor(context.getResources().getColor(R.color.white))
-                partnerTV.setTextColor(context.getResources().getColor(R.color.white))
+                titleTV.setTextColor(context.resources.getColor(R.color.white))
+                descriptionTV.setTextColor(context.resources.getColor(R.color.white))
+                timeTV.setTextColor(context.resources.getColor(R.color.white))
+                partnerTV.setTextColor(context.resources.getColor(R.color.white))
 
-                imageTime.setColorFilter(context.getResources().getColor(R.color.white))
-                imagePartner.setColorFilter(context.getResources().getColor(R.color.white))
+                imageTime.setColorFilter(context.resources.getColor(R.color.white))
+                imagePartner.setColorFilter(context.resources.getColor(R.color.white))
 
             } else {
-                val eventViewShape = eventView.getBackground()
-                eventViewShape.setTint(context.getResources().getColor(R.color.white))
-                val colorViewShape = colorView.getBackground()
-                colorViewShape.setTint(context.getResources().getColor(R.color.blue))
+                val eventViewShape = eventView.background
+                eventViewShape.setTint(context.resources.getColor(R.color.white))
+                val colorViewShape = colorView.background
+                colorViewShape.setTint(context.resources.getColor(R.color.blue))
             }
 
             if (listEvent.isDone) eventView.alpha = 0.5f
@@ -54,6 +54,8 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
             descriptionTV.text = listEvent.description
             timeTV.text = "${listEvent.startTime} - ${listEvent.finishTime}"
             partnerTV.text = listEvent.partner
+
+
 
         }
     }
