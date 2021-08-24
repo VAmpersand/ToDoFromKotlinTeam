@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.model.ListEvent
@@ -14,16 +15,26 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
     var contextR = context
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
+        val tvEventType = view.findViewById<ImageView>(R.id.evenIdeas)
+        val tvColor = view.findViewById<ImageView>(R.id.colorView)
         val tvTitle = view.findViewById<TextView>(R.id.titleView)
-        val tvContent = view.findViewById<TextView>(R.id.contentView)
-        val tvTime = view.findViewById<TextView>(R.id.timeView)
-        val tvInform = view.findViewById<TextView>(R.id.nameView)
+        val tvDescription = view.findViewById<TextView>(R.id.contentView)
+        val tvStartTime = view.findViewById<TextView>(R.id.startTimeView)
+        val tvFinishTime = view.findViewById<TextView>(R.id.finishTimeView)
+        val tvPartner = view.findViewById<TextView>(R.id.nameView)
 
-        fun bind(listItem: ListEvent, context: Context){
-            tvTitle.text = listItem.title
-            tvContent.text = listItem.subtitle
-            tvTime.text = listItem.time
-            tvInform.text = listItem.partner
+        fun bind(listEvent: ListEvent, context: Context){
+
+            if(listEvent.isPriority) {
+                tvEventType.background = listEvent.eventType.color
+                tvTitle.setTextColor(R.color.white)
+                tvDescription.setTextColor(R.color.white)
+            }
+            tvTitle.text = listEvent.title
+            tvDescription.text = listEvent.description
+            tvStartTime.text = listEvent.startTime
+            tvFinishTime.text = listEvent.finishTime
+            tvPartner.text = listEvent.partner
         }
     }
 
