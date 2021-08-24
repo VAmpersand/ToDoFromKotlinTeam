@@ -17,7 +17,6 @@ class NavigationBarActivity : AppCompatActivity() {
 
         showWelcomeActivityIfNeeded()
         configureNavigationBar()
-//        window.statusBarColor = ContextCompat.getColor(this, R.color.black)
     }
 
 

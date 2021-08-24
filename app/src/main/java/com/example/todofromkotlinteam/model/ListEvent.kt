@@ -10,8 +10,3 @@ data class ListEvent(
     var isDone: Boolean,
     var isPriority: Boolean
 )
-
-data class ListEventType(
-    var title: String,
-    var color: String, // hex #000000
-)
