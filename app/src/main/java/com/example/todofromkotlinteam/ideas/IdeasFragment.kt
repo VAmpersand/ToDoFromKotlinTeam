@@ -40,12 +40,25 @@ class IdeasFragment(context: Context) : Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "000000"),
-                "Virtual Doctors' Appointment",
-                "Regular virtual catchup with the doctor...",
+                ListEventType("Doctor", "123445"),
+                "Guided group meditation",
+                "Group meditation session at the office",
                 "13:00",
+                "13:30",
+                "Yoga instructor",
+                false,
+                false
+            )
+        )
+
+        events.add(
+            ListEvent(
+                ListEventType("Doctor", "000000"),
+                "Sprint planning",
+                "Catchup to plan for next week's sprint",
                 "14:00",
-                "Dr. Julian",
+                "15:00",
+                "Dev.Team",
                 false,
                 false
             )
@@ -102,20 +115,6 @@ class IdeasFragment(context: Context) : Fragment() {
                 false
             )
         )
-
-        events.add(
-            ListEvent(
-                ListEventType("Doctor", "000000"),
-                "Virtual Doctors' Appointment",
-                "Regular virtual catchup with the doctor...",
-                "13:00",
-                "14:00",
-                "Dr. Julian",
-                false,
-                false
-            )
-        )
-
         recycleView.hasFixedSize()
         recycleView.layoutManager = LinearLayoutManager(parentContext)
         recycleView.adapter = IdeasListAdapter(events, parentContext)

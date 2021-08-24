@@ -16,14 +16,14 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
     private var parentContext = context
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
+        val eventView = view.findViewById<ConstraintLayout>(R.id.eventIdeasView)
         val colorView = view.findViewById<View>(R.id.colorView)
-        val titleTV = view.findViewById<TextView>(R.id.titleTV)
-        val descriptionTV = view.findViewById<TextView>(R.id.descriptionTV)
+        val titleTV = view.findViewById<TextView>(R.id.titleView)
+        val descriptionTV = view.findViewById<TextView>(R.id.contentView)
         val imageTime = view.findViewById<ImageView>(R.id.imageTime)
-        val timeTV = view.findViewById<TextView>(R.id.timeTV)
-        val imagePartner = view.findViewById<ImageView>(R.id.imagePartner)
-        val partnerTV = view.findViewById<TextView>(R.id.partnerTV)
+        val timeTV = view.findViewById<TextView>(R.id.timeView)
+        val imagePartner = view.findViewById<ImageView>(R.id.imagePeople)
+        val partnerTV = view.findViewById<TextView>(R.id.nameView)
 
         fun bind(listEvent: ListEvent, context: Context) {
 
@@ -45,7 +45,7 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
                 val eventViewShape = eventView.getBackground()
                 eventViewShape.setTint(context.getResources().getColor(R.color.white))
                 val colorViewShape = colorView.getBackground()
-                colorViewShape.setTint(context.getResources().getColor(R.color.blue))
+                colorViewShape.setTint(context.getResources().getColor(R.color.main_orange))
             }
 
             if (listEvent.isDone) eventView.alpha = 0.5f
@@ -60,7 +60,7 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parentContext)
-        return ViewHolder(inflater.inflate(R.layout.activity_event, parent,false))
+        return ViewHolder(inflater.inflate(R.layout.shablon_events, parent,false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
