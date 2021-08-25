@@ -11,7 +11,7 @@ import com.example.todofromkotlinteam.managers.SharedPreferencesManager
 import kotlinx.android.synthetic.main.settings_fragment.*
 
 class SettingsFragment(context: Context) : Fragment() {
-    private val parentContext = context
+    private val appContext = context
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.settings_fragment, container, false)
@@ -21,7 +21,7 @@ class SettingsFragment(context: Context) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         resetButton.setOnClickListener {
-            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown,false, parentContext)
+            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown,false, appContext)
         }
     }
 }

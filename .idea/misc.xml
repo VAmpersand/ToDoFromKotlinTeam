@@ -24,15 +24,19 @@
         <entry key="app/src/main/res/drawable/icon_colors.xml" value="0.2553846153846154" />
         <entry key="app/src/main/res/drawable/item_background.xml" value="0.30564102564102563" />
         <entry key="app/src/main/res/drawable/item_background_2.xml" value="0.30564102564102563" />
+        <entry key="app/src/main/res/drawable/item_background_shape.xml" value="0.30256410256410254" />
         <entry key="app/src/main/res/drawable/mini_circle_blue.xml" value="0.2791666666666667" />
         <entry key="app/src/main/res/drawable/mini_circle_dark_blue.xml" value="0.2791666666666667" />
         <entry key="app/src/main/res/drawable/shadow.xml" value="0.3104166666666667" />
+        <entry key="app/src/main/res/drawable/shadow_gradient.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/drawable/shapes.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/layout/activity_event.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21603260869565216" />
-        <entry key="app/src/main/res/layout/calendar_layout.xml" value="0.34167360459204266" />
+        <entry key="app/src/main/res/layout/calendar_date_layout.xml" value="0.3503316040801383" />
+        <entry key="app/src/main/res/layout/calendar_layout.xml" value="0.22839506172839505" />
         <entry key="app/src/main/res/layout/calendar_view.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/event_activity.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/layout/event_list_layout.xml" value="0.165625" />
         <entry key="app/src/main/res/layout/events_activity.xml" value="0.1515625" />
         <entry key="app/src/main/res/layout/ideas_fragment.xml" value="0.18568840579710144" />
         <entry key="app/src/main/res/layout/navigation_bar_activity.xml" value="0.1" />
@@ -40,7 +44,7 @@
         <entry key="app/src/main/res/layout/profile_fragment.xml" value="0.18568840579710144" />
         <entry key="app/src/main/res/layout/settings_fragment.xml" value="0.335" />
         <entry key="app/src/main/res/layout/shablon_activity.xml" value="0.19384057971014493" />
-        <entry key="app/src/main/res/layout/shablon_events.xml" value="0.6482035928143712" />
+        <entry key="app/src/main/res/layout/shablon_events.xml" value="0.4694220470198482" />
         <entry key="app/src/main/res/layout/welcome_activity.xml" value="0.25" />
         <entry key="app/src/main/res/menu/navigation_bar_menu.xml" value="0.24322916666666666" />
       </map>
