@@ -27,12 +27,9 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
         val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
 
         fun bind(listEvent: ListEvent, context: Context) {
-
             if (listEvent.isPriority) {
-                val eventBackground = eventView.background
-                eventBackground.setTint(Color.parseColor(listEvent.eventType.color))
-                val colorBackground = colorView.background
-                colorBackground.setTint(context.resources.getColor(R.color.white))
+                eventView.background.setTint(Color.parseColor(listEvent.eventType.color))
+                colorView.background.setTint(context.resources.getColor(R.color.white))
 
                 titleTextView.setTextColor(context.resources.getColor(R.color.white))
                 descriptionTextView.setTextColor(context.resources.getColor(R.color.white))
@@ -41,12 +38,9 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
 
                 timeIcon.setColorFilter(context.resources.getColor(R.color.white))
                 partnerIcon.setColorFilter(context.resources.getColor(R.color.white))
-
             } else {
-                val eventBackground = eventView.background
-                eventBackground.setTint(context.resources.getColor(R.color.white))
-                val colorBackground = colorView.background
-                colorBackground.setTint(Color.parseColor(listEvent.eventType.color))
+                eventView.background.setTint(context.resources.getColor(R.color.white))
+                colorView.background.setTint(Color.parseColor(listEvent.eventType.color))
             }
 
             if (listEvent.isDone) eventView.alpha = 0.5f
