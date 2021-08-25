@@ -15,24 +15,19 @@ class CustomCalendarView: LinearLayout {
     private val maxDays = 42
     private val calendar = Calendar.getInstance(Locale.ENGLISH)
     private var dates: ArrayList<Date> = ArrayList()
-    private var parrentContext: Context? = null
     private val titleDateFormat = SimpleDateFormat("MMM yyyy", Locale.ENGLISH)
-
     private lateinit var gridAdapter: CustomCalendarGridAdapter
 
     constructor(context: Context) : this(context, null)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
-        parrentContext = context
-
         initializeLayout()
         configureCalendar()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
-
     private fun initializeLayout() {
-        val inflater = parrentContext?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.calendar_layout, this)
     }
 
@@ -60,11 +55,11 @@ class CustomCalendarView: LinearLayout {
             configureCalendar()
         }
 
-        gridAdapter = CustomCalendarGridAdapter(parrentContext!!, dates, calendar)
+        gridAdapter = CustomCalendarGridAdapter(context, dates, calendar)
         gridView.adapter = gridAdapter
 
         gridView.setOnItemClickListener { adapterView, view, position, l ->
-            Toast.makeText(parrentContext, position.toString(), Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 }

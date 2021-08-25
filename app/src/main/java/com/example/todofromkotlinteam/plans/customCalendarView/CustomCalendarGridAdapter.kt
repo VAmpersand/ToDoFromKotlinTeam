@@ -25,7 +25,7 @@ public class CustomCalendarGridAdapter : ArrayAdapter<Date> {
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val date = dates.get(position)
+        val date = dates[position]
         val dateCalendar = Calendar.getInstance()
 
         val todayMonth = dateCalendar.get(Calendar.MONTH) + 1
@@ -51,11 +51,11 @@ public class CustomCalendarGridAdapter : ArrayAdapter<Date> {
         val background = backgroundView?.background
 
         if (currentMonth == todayMonth && currentYear == todayYear && currentDate == displayDay) {
-            background?.setTint(parentContext.resources.getColor(R.color.main_orange))
-            dateTV?.setTextColor(parentContext.resources.getColor(R.color.white))
+            background?.setTint(parentContext.resources.getColor(R.color.main_orange, null))
+            dateTV?.setTextColor(parentContext.resources.getColor(R.color.white, null))
         } else {
-            background?.setTint(parentContext.resources.getColor(R.color.background))
-            dateTV?.setTextColor(parentContext.resources.getColor(R.color.text_title))
+            background?.setTint(parentContext.resources.getColor(R.color.background, null))
+            dateTV?.setTextColor(parentContext.resources.getColor(R.color.text_title, null))
         }
 
         dateTV?.text = displayDay.toString()
