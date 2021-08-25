@@ -19,7 +19,6 @@ class NavigationBarActivity : AppCompatActivity() {
         configureNavigationBar()
     }
 
-
     private fun showWelcomeActivityIfNeeded() {
         val value = SharedPreferencesManager.getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, this)
 

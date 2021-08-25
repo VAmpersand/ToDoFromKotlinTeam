@@ -7,7 +7,6 @@ import eightbitlab.com.blurview.RenderScriptBlur
 import android.graphics.drawable.Drawable
 import android.view.View
 
-
 class WelcomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
