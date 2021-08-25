@@ -9,10 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.R
+import com.example.todofromkotlinteam.model.ListEventType
 import kotlinx.android.synthetic.main.ideas_fragment.*
 
 class IdeasFragment(context: Context) : Fragment() {
-    private val parentContext = context
+    private val appContext = context
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.ideas_fragment, container, false)
@@ -22,55 +23,100 @@ class IdeasFragment(context: Context) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val list = ArrayList<ListEvent>()
-        list.add(
+        val events = ArrayList<ListEvent>()
+
+        events.add(
             ListEvent(
-                R.drawable.circle, "Virtual Doctors' Appointment ",
-                "Regular virtual catchup with the doctor...", "12:00 - 12:30",
-                "Dr. Julian Adams")
+                ListEventType("Doctor", "#55A738"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                false,
+                false
+            )
         )
-        list.add(
+
+        events.add(
             ListEvent(
-                R.drawable.circle, "Guided group meditation",
-                "Group meditation session at the office", "13:00 - 13:30",
-                "Yoga instructor")
+                ListEventType("Doctor", "#FF5252"),
+                "Guided group meditation",
+                "Group meditation session at the office Group meditation session at the office Group meditation session at the office vGroup meditation session at the office",
+                "13:00",
+                "13:30",
+                "Yoga instructor",
+                false,
+                true
+            )
         )
-        list.add(
+
+        events.add(
             ListEvent(
-                R.drawable.circle, "Sprint planning",
-                "Catchup to plan for next week's sprint", "14:00 - 15:00",
-                "Dev.Team")
+                ListEventType("Doctor", "#5263FF"),
+                "Sprint planning",
+                "Catchup to plan for next week's sprint",
+                "14:00",
+                "15:00",
+                "Dev.Team",
+                true,
+                true
+            )
         )
-        list.add(
+
+        events.add(
             ListEvent(
-                R.drawable.circle, "Evening. yoga session",
-                "Home yoga session for slip.", "19:00 - 19:30","")
+                ListEventType("Doctor", "#343D8F"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                true,
+                false
+            )
         )
-        list.add(
+
+        events.add(
             ListEvent(
-                R.drawable.circle, "Virtual Doctors' Appointment ",
-                "Regular virtual catchup with the doctor...", "12:00 - 12:30",
-                "Dr. Julian Adams")
+                ListEventType("Doctor", "#FF8552"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                false,
+                false
+            )
         )
-        list.add(
+
+        events.add(
             ListEvent(
-                R.drawable.circle, "Guided group meditation",
-                "Group meditation session at the office", "13:00 - 13:30",
-                "Yoga instructor")
+                ListEventType("Doctor", "#55A738"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                false,
+                false
+            )
         )
-        list.add(
+
+        events.add(
             ListEvent(
-                R.drawable.circle, "Sprint planning",
-                "Catchup to plan for next week's sprint", "14:00 - 15:00",
-                "Dev.Team")
+                ListEventType("Doctor", "#FF5252"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                false,
+                false
+            )
         )
-        list.add(
-            ListEvent(
-                R.drawable.circle, "Evening. yoga session",
-                "Home yoga session for slip.", "19:00 - 19:30","")
-        )
-        recyclerView.hasFixedSize()
-        recyclerView.layoutManager = LinearLayoutManager(parentContext)
-        recyclerView.adapter = IdeasListAdapter(list, parentContext)
+        recycleView.hasFixedSize()
+        recycleView.layoutManager = LinearLayoutManager(appContext)
+        recycleView.adapter = IdeasListAdapter(events, appContext)
     }
 }
