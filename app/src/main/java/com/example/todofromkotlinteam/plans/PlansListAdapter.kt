@@ -17,29 +17,29 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
     private var appContext = context
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
-        val colorView = view.findViewById<View>(R.id.colorView)
-        val titleTextView = view.findViewById<TextView>(R.id.titleTextView)
-        val descriptionTextView = view.findViewById<TextView>(R.id.descriptionTextView)
-        val timeIcon = view.findViewById<ImageView>(R.id.timeIcon)
-        val timeTexxtView = view.findViewById<TextView>(R.id.timeTextView)
-        val partnerIcon = view.findViewById<ImageView>(R.id.partnerIcon)
-        val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
+        private val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
+        private val colorView = view.findViewById<View>(R.id.colorView)
+        private val titleTextView = view.findViewById<TextView>(R.id.titleTextView)
+        private val descriptionTextView = view.findViewById<TextView>(R.id.descriptionTextView)
+        private val timeIcon = view.findViewById<ImageView>(R.id.timeIcon)
+        private val timeTextView = view.findViewById<TextView>(R.id.timeTextView)
+        private val partnerIcon = view.findViewById<ImageView>(R.id.partnerIcon)
+        private val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
 
         fun bind(listEvent: ListEvent, context: Context) {
             if (listEvent.isPriority) {
                 eventView.background.setTint(Color.parseColor(listEvent.eventType.color))
-                colorView.background.setTint(context.resources.getColor(R.color.white))
+                colorView.background.setTint(context.resources.getColor(R.color.white, null))
 
-                titleTextView.setTextColor(context.resources.getColor(R.color.white))
-                descriptionTextView.setTextColor(context.resources.getColor(R.color.white))
-                timeTexxtView.setTextColor(context.resources.getColor(R.color.white))
-                partnerTextView.setTextColor(context.resources.getColor(R.color.white))
+                titleTextView.setTextColor(context.resources.getColor(R.color.white, null))
+                descriptionTextView.setTextColor(context.resources.getColor(R.color.white, null))
+                timeTextView.setTextColor(context.resources.getColor(R.color.white, null))
+                partnerTextView.setTextColor(context.resources.getColor(R.color.white, null))
 
-                timeIcon.setColorFilter(context.resources.getColor(R.color.white))
-                partnerIcon.setColorFilter(context.resources.getColor(R.color.white))
+                timeIcon.setColorFilter(context.resources.getColor(R.color.white, null))
+                partnerIcon.setColorFilter(context.resources.getColor(R.color.white, null))
             } else {
-                eventView.background.setTint(context.resources.getColor(R.color.white))
+                eventView.background.setTint(context.resources.getColor(R.color.white, null))
                 colorView.background.setTint(Color.parseColor(listEvent.eventType.color))
             }
 
@@ -47,7 +47,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
 
             titleTextView.text = listEvent.title
             descriptionTextView.text = listEvent.description
-            timeTexxtView.text = "${listEvent.startTime} - ${listEvent.finishTime}"
+            timeTextView.text = "${listEvent.startTime} - ${listEvent.finishTime}"
             partnerTextView.text = listEvent.partner
         }
     }
@@ -58,7 +58,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var listEvent = events.get(position)
+        val listEvent = events.get(position)
         holder.bind(listEvent, appContext)
     }
 

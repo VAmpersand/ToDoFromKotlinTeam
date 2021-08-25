@@ -30,7 +30,5 @@ class WelcomeActivity : AppCompatActivity() {
             .setHasFixedTransformationMatrix(true)
     }
 
-    fun onClickNext(view: View) {
-        finish()
-    }
+    fun onClickNext(view: View) { finish() }
 }

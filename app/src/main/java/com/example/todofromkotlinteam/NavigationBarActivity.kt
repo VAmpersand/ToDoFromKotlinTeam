@@ -25,7 +25,7 @@ class NavigationBarActivity : AppCompatActivity() {
 
         if (value != true) {
             val intent = Intent(this, WelcomeActivity::class.java)
-            startActivityForResult(intent, 2)
+            startActivity(intent)
             SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true, this)
         }
     }
@@ -35,7 +35,7 @@ class NavigationBarActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView, PlansFragment(this)).commit()
 
-        navigationView.setOnNavigationItemSelectedListener { item ->
+        navigationView.setOnItemSelectedListener { item ->
             var seletedFragment: Fragment? = null
 
             when (item.itemId) {
