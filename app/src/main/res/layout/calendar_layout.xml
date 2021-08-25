@@ -52,72 +52,72 @@
         android:paddingRight="18dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
             android:gravity="center"
-            android:text="SUN"
+            android:text="@string/sunday"
             android:textColor="@color/text_subtitle"
             android:textSize="18sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
             android:gravity="center"
-            android:text="MON"
+            android:text="@string/monday"
             android:textColor="@color/text_subtitle"
             android:textSize="18sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
             android:gravity="center"
-            android:text="TUE"
+            android:text="@string/tuesday"
             android:textColor="@color/text_subtitle"
             android:textSize="18sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
             android:gravity="center"
-            android:text="WED"
+            android:text="@string/wednesday"
             android:textColor="@color/text_subtitle"
             android:textSize="18sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
             android:gravity="center"
-            android:text="THU"
+            android:text="@string/thursday"
             android:textColor="@color/text_subtitle"
             android:textSize="18sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
             android:gravity="center"
-            android:text="FRI"
+            android:text="@string/friday"
             android:textColor="@color/text_subtitle"
             android:textSize="18sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
             android:gravity="center"
-            android:text="SAT"
+            android:text="@string/saturday"
             android:textColor="@color/text_subtitle"
             android:textSize="18sp" />
     </LinearLayout>

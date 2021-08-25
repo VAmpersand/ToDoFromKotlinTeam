@@ -23,7 +23,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
         private val titleTextView = view.findViewById<TextView>(R.id.titleTextView)
         private val descriptionTextView = view.findViewById<TextView>(R.id.descriptionTextView)
         private val timeIcon = view.findViewById<ImageView>(R.id.timeIcon)
-        private val timeTextView = view.findViewById<TextView>(R.id.titleTextView)
+        private val timeTextView = view.findViewById<TextView>(R.id.timeTextView)
         private val partnerIcon = view.findViewById<ImageView>(R.id.partnerIcon)
         private val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
 
@@ -72,20 +72,9 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
                 )
                 return CaendarViewHolder(calendar)
             }
-            else -> return EventsViewHolder(
-                inflater.inflate(R.layout.event_list_layout, parent,false)
-            )
+            else -> return EventsViewHolder(inflater.inflate(R.layout.event_list_layout, parent,false))
         }
     }
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        val inflater = LayoutInflater.from(appContext)
-//        return ViewHolder(inflater.inflate(R.layout.event_list_layout, parent, false))
-//    }
-
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        val listEvent = events.get(position)
-//        holder.bind(listEvent, appContext)>>>>>>> dev
-//    }
 
     override fun getItemCount(): Int {
         return events.size
@@ -93,11 +82,8 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
-            0 -> println("Calendar was shown")//(holder as CaendarViewHolder).bind(parentContext)
-            else -> {
-                var listEvent = events.get(position)
-                (holder as EventsViewHolder).bind(listEvent, appContext)
-            }
+            0 -> println("Calendar view")
+            else -> (holder as EventsViewHolder).bind(events[position - 1], appContext)
         }
     }
 }
