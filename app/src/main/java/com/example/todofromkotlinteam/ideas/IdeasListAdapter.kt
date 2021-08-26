@@ -16,13 +16,13 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
     private var parentContext = context
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val eventView = view.findViewById<ConstraintLayout>(R.id.eventIdeasView)
+        val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
         val colorView = view.findViewById<View>(R.id.colorView)
         val titleTV = view.findViewById<TextView>(R.id.titleTV)
         val descriptionTV = view.findViewById<TextView>(R.id.descriptionTV)
         val imageTime = view.findViewById<ImageView>(R.id.imageTime)
         val timeTV = view.findViewById<TextView>(R.id.timeTV)
-        val imagePartner = view.findViewById<ImageView>(R.id.imagePeople)
+        val imagePartner = view.findViewById<ImageView>(R.id.imagePartner)
         val partnerTV = view.findViewById<TextView>(R.id.partnerTV)
 
         fun bind(listEvent: ListEvent, context: Context) {
@@ -60,7 +60,7 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parentContext)
-        return ViewHolder(inflater.inflate(R.layout.shablon_events, parent,false))
+        return ViewHolder(inflater.inflate(R.layout.activity_event, parent,false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
