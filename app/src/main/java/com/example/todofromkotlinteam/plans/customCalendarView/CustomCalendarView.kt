@@ -16,7 +16,7 @@ import kotlin.collections.ArrayList
 
 class CustomCalendarView: LinearLayout {
     private val maxDays = 42
-    private val calendar = Calendar.getInstance(Locale.ENGLISH)
+    private lateinit var calendar: Calendar
     private var dates: ArrayList<Date> = ArrayList()
     private val titleDateFormat = SimpleDateFormat("MMM yyyy", Locale.ENGLISH)
     private lateinit var gridAdapter: CustomCalendarGridAdapter
@@ -25,9 +25,11 @@ class CustomCalendarView: LinearLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
+        calendar = (context as NavigationBarActivity).calendar
+
         initializeLayout()
         configureCalendar()
-        configureListeners(context)
+        configureListeners()
     }
 
     private fun initializeLayout() {
@@ -53,7 +55,7 @@ class CustomCalendarView: LinearLayout {
         gridView.adapter = gridAdapter
     }
 
-    private fun configureListeners(context: Context) {
+    private fun configureListeners() {
         prevButton.setOnClickListener {
             calendar.add(Calendar.MONTH, -1)
             (context as NavigationBarActivity).updateFragment(calendar)

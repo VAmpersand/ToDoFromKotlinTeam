@@ -127,7 +127,7 @@ class PlansFragment(context: Context): Fragment() {
         recycleView.layoutManager = LinearLayoutManager(appContext)
         recycleView.adapter = PlansListAdapter(events, appContext)
 
-        weekView.configureWeek(Calendar.getInstance(Locale.ENGLISH))
+        weekView.configureWeek(appContext)
         configureListener()
     }
 

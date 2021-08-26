@@ -5,7 +5,9 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
+import kotlinx.android.synthetic.main.calendar_layout.*
 import kotlinx.android.synthetic.main.calendar_layout.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -13,7 +15,7 @@ import kotlin.collections.ArrayList
 
 class WeekTopView: LinearLayout {
     private val maxDays = 7
-    private var calendar = Calendar.getInstance(Locale.ENGLISH)
+//    private var calendar = Calendar.getInstance(Locale.ENGLISH)
     private var dates: ArrayList<Date> = ArrayList()
     private val titleDateFormat = SimpleDateFormat("MMM yyyy", Locale.ENGLISH)
     private lateinit var gridAdapter: WeekTopGridAdapter
@@ -23,7 +25,7 @@ class WeekTopView: LinearLayout {
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
         initializeLayout()
-//        configureWeek()
+        configureWeek(context)
         configureListeners()
     }
 
@@ -32,7 +34,8 @@ class WeekTopView: LinearLayout {
         inflater.inflate(R.layout.week_top_view_layout, this)
     }
 
-    fun configureWeek(calendar: Calendar) {
+    fun configureWeek(context: Context) {
+        val calendar = (context as NavigationBarActivity).calendar
         currentDateTitle.text = titleDateFormat.format(calendar.time)
 
         dates.clear()

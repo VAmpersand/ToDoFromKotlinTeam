@@ -19,6 +19,8 @@ class NavigationBarActivity : AppCompatActivity() {
     private val profileFragment = ProfileFragment(this)
     private val settingsFragment = SettingsFragment(this)
 
+    var calendar = Calendar.getInstance(Locale.ENGLISH)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_bar_activity)
@@ -58,6 +60,7 @@ class NavigationBarActivity : AppCompatActivity() {
     }
 
     fun updateFragment(calendar: Calendar) {
-        plansFragment.weekView.configureWeek(calendar)
+        this.calendar = calendar
+        plansFragment.weekView.configureWeek(this)
     }
 }
