@@ -53,8 +53,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
         }
     }
 
-    class CaendarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+    class CalendarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -70,7 +69,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
-                return CaendarViewHolder(calendar)
+                return CalendarViewHolder(calendar)
             }
             else -> return EventsViewHolder(inflater.inflate(R.layout.event_list_layout, parent,false))
         }

@@ -51,8 +51,7 @@ class NavigationBarActivity : AppCompatActivity() {
                 R.id.profile -> seletedFragment = profileFragment
                 R.id.settings -> seletedFragment = settingsFragment
             }
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerView, seletedFragment!!).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, seletedFragment!!).commit()
 
             true
         }
@@ -60,6 +59,5 @@ class NavigationBarActivity : AppCompatActivity() {
 
     fun updateFragment(calendar: Calendar) {
         plansFragment.weekView.configureWeek(calendar)
-        Log.d("updateFragment", "updateFragment")
     }
 }
