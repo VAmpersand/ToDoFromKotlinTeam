@@ -5,8 +5,11 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
+import com.example.todofromkotlinteam.plans.PlansFragment
 import kotlinx.android.synthetic.main.calendar_layout.view.*
+import kotlinx.android.synthetic.main.plans_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -24,6 +27,7 @@ class CustomCalendarView: LinearLayout {
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
         initializeLayout()
         configureCalendar()
+        configureListeners(context)
     }
 
     private fun initializeLayout() {
@@ -40,23 +44,27 @@ class CustomCalendarView: LinearLayout {
         val firstDayOfMonth = monthCalendar.get(Calendar.DAY_OF_WEEK) - 1
         monthCalendar.add(Calendar.DAY_OF_MONTH, -firstDayOfMonth)
 
-        while (dates.size< maxDays) {
+        while (dates.size < maxDays) {
             dates.add(monthCalendar.time)
             monthCalendar.add(Calendar.DAY_OF_MONTH, 1)
         }
 
+        gridAdapter = CustomCalendarGridAdapter(context, dates, calendar)
+        gridView.adapter = gridAdapter
+    }
+
+    private fun configureListeners(context: Context) {
         prevButton.setOnClickListener {
             calendar.add(Calendar.MONTH, -1)
+            (context as NavigationBarActivity).updateFragment(calendar)
             configureCalendar()
         }
 
         nextButton.setOnClickListener {
             calendar.add(Calendar.MONTH, 1)
+            (context as NavigationBarActivity).updateFragment(calendar)
             configureCalendar()
         }
-
-        gridAdapter = CustomCalendarGridAdapter(context, dates, calendar)
-        gridView.adapter = gridAdapter
 
         gridView.setOnItemClickListener { adapterView, view, position, l ->
             Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
