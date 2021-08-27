@@ -69,20 +69,25 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
-                return CalendarViewHolder(calendar)
+                val holder = CalendarViewHolder(calendar)
+                holder.setIsRecyclable(false)
+                return holder
             }
             else -> return EventsViewHolder(inflater.inflate(R.layout.event_list_layout, parent,false))
         }
     }
 
     override fun getItemCount(): Int {
-        return events.size
+        return events.size + 1
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
-            0 -> println("Calendar view")
-            else -> (holder as EventsViewHolder).bind(events[position - 1], appContext)
+            0 -> println("Calendar is bind")
+            else -> {
+                (holder as EventsViewHolder).bind(events[position - 1], appContext)
+                holder.setIsRecyclable(false)
+            }
         }
     }
 }

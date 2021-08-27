@@ -14,13 +14,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.model.ListEventType
+import com.example.todofromkotlinteam.plans.customCalendarView.CustomCalendarView
+import kotlinx.android.synthetic.main.calendar_layout.*
 import kotlinx.android.synthetic.main.plans_fragment.*
+import kotlinx.android.synthetic.main.plans_fragment.view.*
 import kotlinx.android.synthetic.main.profile_fragment.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class PlansFragment(context: Context): Fragment() {
-    private val appContext = context
+class PlansFragment: Fragment() {
     private var listOffset = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -124,10 +126,9 @@ class PlansFragment(context: Context): Fragment() {
         )
 
         recycleView.hasFixedSize()
-        recycleView.layoutManager = LinearLayoutManager(appContext)
-        recycleView.adapter = PlansListAdapter(events, appContext)
+        recycleView.layoutManager = LinearLayoutManager(context)
+        recycleView.adapter = PlansListAdapter(events, requireContext())
 
-        weekView.configureWeek(appContext)
         configureListener()
     }
 
@@ -137,4 +138,11 @@ class PlansFragment(context: Context): Fragment() {
             weekView.isVisible = (listOffset < -798)
         }
     }
+
+    fun configureFragment() {
+        recycleView.adapter?.notifyDataSetChanged()
+
+        weekView.configureWeek()
+    }
+
 }

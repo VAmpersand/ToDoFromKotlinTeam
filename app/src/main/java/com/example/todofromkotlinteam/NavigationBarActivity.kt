@@ -10,16 +10,16 @@ import com.example.todofromkotlinteam.ideas.IdeasFragment
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
 import kotlinx.android.synthetic.main.navigation_bar_activity.*
-import kotlinx.android.synthetic.main.plans_fragment.*
 import java.util.*
 
 class NavigationBarActivity : AppCompatActivity() {
-    private val plansFragment = PlansFragment(this)
-    private val ideasFragment = IdeasFragment(this)
-    private val profileFragment = ProfileFragment(this)
-    private val settingsFragment = SettingsFragment(this)
+    private val plansFragment = PlansFragment()
+    private val ideasFragment = IdeasFragment()
+    private val profileFragment = ProfileFragment()
+    private val settingsFragment = SettingsFragment()
 
-    var calendar = Calendar.getInstance(Locale.ENGLISH)
+    var currentCalendar = Calendar.getInstance(Locale.ENGLISH)
+    var selectedDate = Date()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,8 +59,8 @@ class NavigationBarActivity : AppCompatActivity() {
         }
     }
 
-    fun updateFragment(calendar: Calendar) {
-        this.calendar = calendar
-        plansFragment.weekView.configureWeek(this)
+    fun selectDate(date: Date) {
+        selectedDate = date
+        plansFragment.configureFragment()
     }
 }
