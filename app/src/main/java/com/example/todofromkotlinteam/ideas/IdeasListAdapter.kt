@@ -16,7 +16,7 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
     private var parentContext = context
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
+        val eventView = view.findViewById<ConstraintLayout>(R.id.eventView)
         val colorView = view.findViewById<View>(R.id.colorView)
         val titleTV = view.findViewById<TextView>(R.id.titleTV)
         val descriptionTV = view.findViewById<TextView>(R.id.descriptionTV)

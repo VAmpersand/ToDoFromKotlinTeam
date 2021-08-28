@@ -1,7 +1,9 @@
 package com.example.todofromkotlinteam.plans
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
+import android.provider.CalendarContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.model.ListEventType
+import kotlinx.android.synthetic.main.activity_event.*
 import kotlinx.android.synthetic.main.plans_fragment.*
+
 
 class PlansFragment(context: Context): Fragment() {
     private val parentContext = context
@@ -19,14 +23,15 @@ class PlansFragment(context: Context): Fragment() {
         return inflater.inflate(R.layout.plans_fragment, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val events = ArrayList<ListEvent>()
+         val events = ArrayList<ListEvent>()
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "39393A"),
+                ListEventType("Doctor", "#39393A"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",

@@ -2,8 +2,6 @@ package com.example.todofromkotlinteam.plans
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.DrawableContainer
-import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,16 +11,14 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEvent
-import com.example.todofromkotlinteam.model.ListEventType
-import kotlin.coroutines.EmptyCoroutineContext
-import kotlin.coroutines.EmptyCoroutineContext.hashCode
+import kotlinx.android.synthetic.main.welcome_activity.view.*
 
 class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : RecyclerView.Adapter<PlansListAdapter.ViewHolder>() {
     private var events = eventArray
     private var parentContext = context
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
+        val eventView = view.findViewById<ConstraintLayout>(R.id.eventView)
         val colorView = view.findViewById<View>(R.id.colorView)
         val titleTV = view.findViewById<TextView>(R.id.titleTV)
         val descriptionTV = view.findViewById<TextView>(R.id.descriptionTV)
@@ -30,6 +26,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
         val timeTV = view.findViewById<TextView>(R.id.timeTV)
         val imagePartner = view.findViewById<ImageView>(R.id.imagePartner)
         val partnerTV = view.findViewById<TextView>(R.id.partnerTV)
+
 
         fun bind(listEvent: ListEvent, context: Context) {
 
@@ -56,16 +53,12 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
 
             if (listEvent.isDone) eventView.alpha = 0.5f
 
-//            val color = colorView.getBackground()
-            colorView.setBackgroundColor(ArrayList<ListEvent>().get(1).toString().toInt())
-
+            colorView.background.setTint(Color.parseColor(listEvent.eventType.color))
             titleTV.text = listEvent.title
             descriptionTV.text = listEvent.description
             timeTV.text = "${listEvent.startTime} - ${listEvent.finishTime}"
             partnerTV.text = listEvent.partner
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -74,7 +67,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var listEvent = events.get(position)
+        val listEvent = events.get(position)
         holder.bind(listEvent, parentContext)
     }
 
@@ -82,3 +75,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
         return events.size
     }
 }
+
+
+
+
