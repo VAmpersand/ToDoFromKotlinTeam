@@ -13,7 +13,7 @@ import com.example.todofromkotlinteam.model.ListEventType
 import kotlinx.android.synthetic.main.ideas_fragment.*
 
 class IdeasFragment(context: Context) : Fragment() {
-    private val parentContext = context
+    private val appContext = context
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.ideas_fragment, container, false)
@@ -27,7 +27,7 @@ class IdeasFragment(context: Context) : Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "000000"),
+                ListEventType("Doctor", "#55A738"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -40,7 +40,46 @@ class IdeasFragment(context: Context) : Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "000000"),
+                ListEventType("Doctor", "#FF5252"),
+                "Guided group meditation",
+                "Group meditation session at the office Group meditation session at the office Group meditation session at the office vGroup meditation session at the office",
+                "13:00",
+                "13:30",
+                "Yoga instructor",
+                false,
+                true
+            )
+        )
+
+        events.add(
+            ListEvent(
+                ListEventType("Doctor", "#5263FF"),
+                "Sprint planning",
+                "Catchup to plan for next week's sprint",
+                "14:00",
+                "15:00",
+                "Dev.Team",
+                true,
+                true
+            )
+        )
+
+        events.add(
+            ListEvent(
+                ListEventType("Doctor", "#343D8F"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                true,
+                false
+            )
+        )
+
+        events.add(
+            ListEvent(
+                ListEventType("Doctor", "#FF8552"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -53,7 +92,7 @@ class IdeasFragment(context: Context) : Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "000000"),
+                ListEventType("Doctor", "#55A738"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -66,7 +105,7 @@ class IdeasFragment(context: Context) : Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "000000"),
+                ListEventType("Doctor", "#FF5252"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -76,48 +115,8 @@ class IdeasFragment(context: Context) : Fragment() {
                 false
             )
         )
-
-        events.add(
-            ListEvent(
-                ListEventType("Doctor", "000000"),
-                "Virtual Doctors' Appointment",
-                "Regular virtual catchup with the doctor...",
-                "13:00",
-                "14:00",
-                "Dr. Julian",
-                false,
-                false
-            )
-        )
-
-        events.add(
-            ListEvent(
-                ListEventType("Doctor", "000000"),
-                "Virtual Doctors' Appointment",
-                "Regular virtual catchup with the doctor...",
-                "13:00",
-                "14:00",
-                "Dr. Julian",
-                false,
-                false
-            )
-        )
-
-        events.add(
-            ListEvent(
-                ListEventType("Doctor", "000000"),
-                "Virtual Doctors' Appointment",
-                "Regular virtual catchup with the doctor...",
-                "13:00",
-                "14:00",
-                "Dr. Julian",
-                false,
-                false
-            )
-        )
-
         recycleView.hasFixedSize()
-        recycleView.layoutManager = LinearLayoutManager(parentContext)
-        recycleView.adapter = IdeasListAdapter(events, parentContext)
+        recycleView.layoutManager = LinearLayoutManager(appContext)
+        recycleView.adapter = IdeasListAdapter(events, appContext)
     }
 }

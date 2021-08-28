@@ -1,9 +1,7 @@
 package com.example.todofromkotlinteam.plans
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
-import android.provider.CalendarContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,26 +10,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.model.ListEventType
-import kotlinx.android.synthetic.main.activity_event.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 
-
 class PlansFragment(context: Context): Fragment() {
-    private val parentContext = context
+    private val appContext = context
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.plans_fragment, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-         val events = ArrayList<ListEvent>()
+        val events = ArrayList<ListEvent>()
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#39393A"),
+                ListEventType("Doctor", "#FF5252"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -44,7 +39,7 @@ class PlansFragment(context: Context): Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#39393A"),
+                ListEventType("Doctor", "#FF5252"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -57,7 +52,7 @@ class PlansFragment(context: Context): Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#39393A"),
+                ListEventType("Doctor", "#5263FF"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -70,7 +65,7 @@ class PlansFragment(context: Context): Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#39393A"),
+                ListEventType("Doctor", "#343D8F"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -83,7 +78,7 @@ class PlansFragment(context: Context): Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#39393A"),
+                ListEventType("Doctor", "#FF8552"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -96,7 +91,7 @@ class PlansFragment(context: Context): Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#39393A"),
+                ListEventType("Doctor", "#55A738"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -109,7 +104,7 @@ class PlansFragment(context: Context): Fragment() {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#39393A"),
+                ListEventType("Doctor", "#FF5252"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -119,49 +114,9 @@ class PlansFragment(context: Context): Fragment() {
                 false
             )
         )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Guided group meditation",
-//            "Group meditation session at the office", "13:00 - 13:30",
-//            "Yoga instructor")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Sprint planning",
-//            "Catchup to plan for next week's sprint", "14:00 - 15:00",
-//            "Dev.Team")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Evening. yoga session",
-//            "Home yoga session for slip.", "19:00 - 19:30","")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Virtual Doctors' Appointment ",
-//            "Regular virtual catchup with the doctor...", "12:00 - 12:30",
-//            "Dr. Julian")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Guided group meditation",
-//            "Group meditation session at the office", "13:00 - 13:30",
-//            "Yoga instructor")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Sprint planning",
-//            "Catchup to plan for next week's sprint", "14:00 - 15:00",
-//            "Dev.Team")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Evening. yoga session",
-//            "Home yoga session for slip.", "19:00 - 19:30","")
-//        )
 
         recycleView.hasFixedSize()
-        recycleView.layoutManager = LinearLayoutManager(parentContext)
-        recycleView.adapter = PlansListAdapter(events, parentContext)
+        recycleView.layoutManager = LinearLayoutManager(appContext)
+        recycleView.adapter = PlansListAdapter(events, appContext)
     }
 }
