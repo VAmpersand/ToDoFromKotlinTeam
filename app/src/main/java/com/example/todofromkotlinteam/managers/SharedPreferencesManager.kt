@@ -3,7 +3,7 @@ package com.example.todofromkotlinteam.managers
 import android.content.Context
 
 enum class SharedPreferencesKey {
-    WelcomeActivityWasShown
+    WELCOME_ACTIVITY_WAS_SHOWN
 }
 
 object SharedPreferencesManager {

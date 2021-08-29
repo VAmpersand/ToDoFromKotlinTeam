@@ -2,18 +2,28 @@ package com.example.todofromkotlinteam.plans
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
+import android.widget.ImageButton
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.model.ListEventType
+import com.example.todofromkotlinteam.plans.customCalendarView.CustomCalendarView
+import kotlinx.android.synthetic.main.calendar_layout.*
 import kotlinx.android.synthetic.main.plans_fragment.*
+import kotlinx.android.synthetic.main.plans_fragment.view.*
+import kotlinx.android.synthetic.main.profile_fragment.*
+import java.util.*
+import kotlin.collections.ArrayList
 
-class PlansFragment(context: Context): Fragment() {
-    private val appContext = context
+class PlansFragment: Fragment() {
+    private var listOffset = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.plans_fragment, container, false)
@@ -116,7 +126,23 @@ class PlansFragment(context: Context): Fragment() {
         )
 
         recycleView.hasFixedSize()
-        recycleView.layoutManager = LinearLayoutManager(appContext)
-        recycleView.adapter = PlansListAdapter(events, appContext)
+        recycleView.layoutManager = LinearLayoutManager(context)
+        recycleView.adapter = PlansListAdapter(events, requireContext())
+
+        configureListener()
+    }
+
+    private fun configureListener() {
+        recycleView.setOnScrollChangeListener { _, _, _, _, dx ->
+            listOffset += dx
+
+            weekView.isVisible = (listOffset < -798)
+        }
+    }
+
+    fun configureFragment() {
+        recycleView.adapter?.notifyDataSetChanged()
+
+        weekView.configureWeek()
     }
 }

@@ -9,8 +9,17 @@ import com.example.todofromkotlinteam.ideas.IdeasFragment
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
 import kotlinx.android.synthetic.main.navigation_bar_activity.*
+import java.util.*
 
 class NavigationBarActivity : AppCompatActivity() {
+    private val plansFragment = PlansFragment()
+    private val ideasFragment = IdeasFragment()
+    private val profileFragment = ProfileFragment()
+    private val settingsFragment = SettingsFragment()
+
+    var currentCalendar = Calendar.getInstance(Locale.ENGLISH)
+    var selectedDate = Date()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_bar_activity)
@@ -20,33 +29,37 @@ class NavigationBarActivity : AppCompatActivity() {
     }
 
     private fun showWelcomeActivityIfNeeded() {
-        val value = SharedPreferencesManager.getBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, this)
+        val value = SharedPreferencesManager.getBoolValueFor(SharedPreferencesKey.WELCOME_ACTIVITY_WAS_SHOWN, this)
 
         if (value != true) {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
-            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown, true, this)
+
+            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WELCOME_ACTIVITY_WAS_SHOWN, true, this)
         }
     }
 
     private fun configureNavigationBar() {
         navigationView.menu.getItem(2).isEnabled = false
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainerView, PlansFragment(this)).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, plansFragment).commit()
 
         navigationView.setOnItemSelectedListener { item ->
             var seletedFragment: Fragment? = null
 
             when (item.itemId) {
-                R.id.plan -> seletedFragment = PlansFragment(this)
-                R.id.ideas -> seletedFragment = IdeasFragment(this)
-                R.id.profile -> seletedFragment = ProfileFragment(this)
-                R.id.settings -> seletedFragment = SettingsFragment(this)
+                R.id.plan -> seletedFragment = plansFragment
+                R.id.ideas -> seletedFragment = ideasFragment
+                R.id.profile -> seletedFragment = profileFragment
+                R.id.settings -> seletedFragment = settingsFragment
             }
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerView, seletedFragment!!).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, seletedFragment!!).commit()
 
             true
         }
+    }
+
+    fun selectDate(date: Date) {
+        selectedDate = date
+        plansFragment.configureFragment()
     }
 }

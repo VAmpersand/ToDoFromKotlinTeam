@@ -11,12 +11,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEvent
+import com.example.todofromkotlinteam.plans.customCalendarView.CustomCalendarView
 
-class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : RecyclerView.Adapter<PlansListAdapter.ViewHolder>() {
+class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var events = eventArray
     private var appContext = context
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class EventsViewHolder(view: View) : RecyclerView.ViewHolder(view){
         private val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
         private val colorView = view.findViewById<View>(R.id.colorView)
         private val titleTextView = view.findViewById<TextView>(R.id.titleTextView)
@@ -52,17 +53,42 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(appContext)
-        return ViewHolder(inflater.inflate(R.layout.event_list_layout, parent, false))
+    class CalendarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val listEvent = events.get(position)
-        holder.bind(listEvent, appContext)
+    override fun getItemViewType(position: Int): Int {
+        return if (position == 0) 0 else 1
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(appContext)
+        when (viewType) {
+            0 -> {
+                val calendar = CustomCalendarView(appContext)
+                calendar.layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                val holder = CalendarViewHolder(calendar)
+                holder.setIsRecyclable(false)
+                return holder
+            }
+            else -> return EventsViewHolder(inflater.inflate(R.layout.event_list_layout, parent,false))
+        }
     }
 
     override fun getItemCount(): Int {
-        return events.size
+        return events.size + 1
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder.itemViewType) {
+            0 -> println("Calendar is bind")
+            else -> {
+                (holder as EventsViewHolder).bind(events[position - 1], appContext)
+                holder.setIsRecyclable(false)
+            }
+        }
     }
 }
+
