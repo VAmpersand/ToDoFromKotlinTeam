@@ -82,13 +82,12 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
     }
 
     override fun getItemViewType(position: Int): Int {
-//
+
         when (position){
             0 -> return R.id.customCalendar
             1 -> return R.id.titleListLayout
             else -> return R.id.eventItemView
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -105,12 +104,9 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
                 holder.setIsRecyclable(false)
                 return holder}
             R.id.titleListLayout ->  return TitleViewHolder(inflater.inflate(R.layout.title_list_layout, parent, false))
-
             else -> return EventsViewHolder(inflater.inflate(R.layout.event_list_layout, parent, false))
-
         }
     }
-
 
     override fun getItemCount(): Int {
         return events.size + 2
