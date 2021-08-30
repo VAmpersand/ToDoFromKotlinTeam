@@ -26,6 +26,9 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
         private val timeTextView = view.findViewById<TextView>(R.id.timeTextView)
         private val partnerIcon = view.findViewById<ImageView>(R.id.partnerIcon)
         private val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
+        private val titleP = view.findViewById<TextView>(R.id.titleProba)
+
+
 
         fun bind(listEvent: ListEvent, context: Context) {
             if (listEvent.isPriority) {
@@ -50,18 +53,24 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
             descriptionTextView.text = listEvent.description
             timeTextView.text = "${listEvent.startTime} - ${listEvent.finishTime}"
             partnerTextView.text = listEvent.partner
+            titleP.text = "Accepted events"
         }
     }
 
     class CalendarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 
+    class TitleViewHolder(view: TextView) : RecyclerView.ViewHolder(view) {
+
+    }
+
     override fun getItemViewType(position: Int): Int {
-        return if (position == 0) 0 else 1
+        return if (position <= 1) 0 or 1 else 2
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(appContext)
+
         when (viewType) {
             0 -> {
                 val calendar = CustomCalendarView(appContext)
@@ -71,11 +80,19 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
                 )
                 val holder = CalendarViewHolder(calendar)
                 holder.setIsRecyclable(false)
-                return holder
+                return holder}
+            1 -> {
+                inflater.inflate(R.layout.proba_title, parent, false)
+                val text = TextView(appContext)
+                val titleProba = TitleViewHolder(text)
+                return titleProba
             }
-            else -> return EventsViewHolder(inflater.inflate(R.layout.event_list_layout, parent,false))
+            else -> return EventsViewHolder(inflater.inflate(R.layout.event_list_layout, parent, false))
+
         }
     }
+
+
 
     override fun getItemCount(): Int {
         return events.size + 1
@@ -84,6 +101,7 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
             0 -> println("Calendar is bind")
+            1 -> println("Title is bind")
             else -> {
                 (holder as EventsViewHolder).bind(events[position - 1], appContext)
                 holder.setIsRecyclable(false)
@@ -91,4 +109,8 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : Rec
         }
     }
 }
+
+
+
+
 
