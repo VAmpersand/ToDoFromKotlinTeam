@@ -23,7 +23,7 @@ class CustomCalendarGridAdapter : ArrayAdapter<Date> {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var calendar = Calendar.getInstance()
-        val todayDate = calendar.get(Calendar.DAY_OF_MONTH)
+        val todayDay = calendar.get(Calendar.DAY_OF_MONTH)
         val todayMonth = calendar.get(Calendar.MONTH) + 1
         val todayYear = calendar.get(Calendar.YEAR)
 
@@ -38,7 +38,6 @@ class CustomCalendarGridAdapter : ArrayAdapter<Date> {
         val selecteYear = calendar.get(Calendar.YEAR)
 
         calendar = (context as NavigationBarActivity).currentCalendar
-        val currentDate = calendar.get(Calendar.DAY_OF_MONTH)
         val currentMonth = calendar.get(Calendar.MONTH) + 1
         val currentYear = calendar.get(Calendar.YEAR)
 
@@ -49,19 +48,19 @@ class CustomCalendarGridAdapter : ArrayAdapter<Date> {
         dateTextView?.isVisible = (currentMonth == displayMonth && currentYear == displayYear)
 
         val backgroundView = view?.findViewById<View>(R.id.dateBackground)
-        val background = backgroundView?.background
+        backgroundView?.isVisible = (currentMonth == displayMonth && currentYear == displayYear)
 
         if (displayDay == selecteDay && displayMonth == selecteMonth && displayYear == selecteYear && dateTextView?.isVisible == true) {
-            background?.setTint(context.resources.getColor(R.color.text_subtitle, null))
+            backgroundView?.background?.setTint(context.resources.getColor(R.color.text_subtitle, null))
             dateTextView?.setTextColor(context.resources.getColor(R.color.white, null))
 
         } else {
-            background?.setTint(context.resources.getColor(R.color.background, null))
+            backgroundView?.background?.setTint(context.resources.getColor(R.color.background, null))
             dateTextView?.setTextColor(context.resources.getColor(R.color.text_title, null))
         }
 
-        if (displayDay == todayDate && displayMonth == todayMonth && displayYear == todayYear) {
-            background?.setTint(context.resources.getColor(R.color.main_orange, null))
+        if (displayDay == todayDay && displayMonth == todayMonth && displayYear == todayYear) {
+            backgroundView?.background?.setTint(context.resources.getColor(R.color.main_orange, null))
             dateTextView?.setTextColor(context.resources.getColor(R.color.white, null))
         }
 
