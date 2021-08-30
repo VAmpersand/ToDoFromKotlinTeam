@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
+
 class ProfileFragment(context: Context) : Fragment() {
     private val parentContext = context
 

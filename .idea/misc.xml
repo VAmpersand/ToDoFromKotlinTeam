@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.33645833333333336" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable-hdpi/shadow_gradient_top.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/circle.xml" value="0.1" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/ic_add.xml" value="0.1" />
@@ -19,7 +20,8 @@
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/icon_colors.xml" value="0.1" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/item_background.xml" value="0.1" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow.xml" value="0.1" />
-        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/activity_event.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow_gradient_bottom.xml" value="0.2734375" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/activity_event.xml" value="0.1" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_date_layout.xml" value="0.5" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_layout.xml" value="0.25729166666666664" />

@@ -1,139 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/calenderView"
+    android:id="@+id/customCalendar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginTop="25dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    android:layout_marginBottom="16dp">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingTop="18dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="18dp">
 
         <ImageButton
             android:id="@+id/prevButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:backgroundTint="@color/background"
-            android:src="@drawable/ic_left"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:background="@drawable/ic_left_arrow"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/currentDateTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/currentDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="41dp"
             android:layout_weight="1"
+            android:fontFamily="@font/gill_sans_bold"
             android:gravity="center"
-            android:text="Avg 2016"
-            android:fontFamily="@font/gill_sans_regular"
-            android:textSize="21dp"/>
+            android:text="Aug 2016"
+            android:textColor="@color/text_title"
+            android:textSize="21sp" />
 
         <ImageButton
             android:id="@+id/nextButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:backgroundTint="@color/background"
-            android:src="@drawable/ic_right"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:background="@drawable/ic_right_arrow" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="top"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="SUN"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
-            android:textSize="21dp"/>
+            android:gravity="center"
+            android:text="@string/sunday"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="MON"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
-            android:textSize="21dp"/>
+            android:gravity="center"
+            android:text="@string/monday"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TUE"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
-            android:textSize="21dp"/>
+            android:gravity="center"
+            android:text="@string/tuesday"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="WED"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
-            android:textSize="21dp"/>
+            android:gravity="center"
+            android:text="@string/wednesday"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="THU"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
-            android:textSize="21dp"/>
+            android:gravity="center"
+            android:text="@string/thursday"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="FRI"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
-            android:textSize="21dp"/>
+            android:gravity="center"
+            android:text="@string/friday"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="SAT"
             android:layout_weight="1"
             android:fontFamily="@font/gill_sans_light"
-            android:textSize="21dp"/>
-
+            android:gravity="center"
+            android:text="@string/saturday"
+            android:textColor="@color/text_subtitle"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/text_subtitle"
-        android:layout_marginTop="10dp"/>
+        android:background="@color/separator"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"/>
     
     <GridView
         android:id="@+id/gridView"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:numColumns="7"
+        android:listSelector="@color/clear"
         android:verticalSpacing="5dp"
-        android:horizontalSpacing="5dp"/>
+        android:horizontalSpacing="5dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/text_subtitle"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginBottom="25dp"
+        android:background="@color/separator"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"/>
+
 
 </LinearLayout>

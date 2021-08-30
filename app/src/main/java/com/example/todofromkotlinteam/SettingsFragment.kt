@@ -10,6 +10,7 @@ import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
 import kotlinx.android.synthetic.main.settings_fragment.*
 
+
 class SettingsFragment(context: Context) : Fragment() {
     private val parentContext = context
 
@@ -21,7 +22,8 @@ class SettingsFragment(context: Context) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         resetButton.setOnClickListener {
-            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WelcomeActivityWasShown,false, parentContext)
+            SharedPreferencesManager.setBoolValueFor(SharedPreferencesKey.WELCOME_ACTIVITY_WAS_SHOWN,false, requireContext())
+
         }
     }
 }

@@ -12,8 +12,8 @@ import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEventType
 import kotlinx.android.synthetic.main.ideas_fragment.*
 
-class IdeasFragment(context: Context) : Fragment() {
-    private val parentContext = context
+
+class IdeasFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.ideas_fragment, container, false)
@@ -116,7 +116,8 @@ class IdeasFragment(context: Context) : Fragment() {
             )
         )
         recycleView.hasFixedSize()
-        recycleView.layoutManager = LinearLayoutManager(parentContext)
-        recycleView.adapter = IdeasListAdapter(events, parentContext)
+        recycleView.layoutManager = LinearLayoutManager(context)
+        recycleView.adapter = IdeasListAdapter(events, requireContext())
+
     }
 }

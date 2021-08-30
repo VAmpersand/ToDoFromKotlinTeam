@@ -55,23 +55,20 @@
                 app:tint="@color/text_subtitle" />
 
             <TextView
-                android:id="@+id/timeTV"
-                android:layout_width="120dp"
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_marginLeft="8dp"
+                android:layout_weight="1"
                 android:fontFamily="@font/gill_sans_regular"
                 android:text="TextView"
                 android:textSize="18sp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
+            
             <ImageView
                 android:id="@+id/imagePartner"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
+                android:layout_marginLeft="8dp"
                 app:srcCompat="@drawable/ic_people"
                 app:tint="@color/text_subtitle" />
 
@@ -80,15 +77,10 @@
                 android:layout_width="120dp"
                 android:layout_height="21dp"
                 android:layout_marginLeft="8dp"
+                android:layout_weight="1"
                 android:fontFamily="@font/gill_sans_regular"
                 android:text="TextView"
                 android:textSize="18sp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
         </LinearLayout>
     </LinearLayout>
 

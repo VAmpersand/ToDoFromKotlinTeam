@@ -5,58 +5,73 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.example.todofromkotlinteam.R
+import androidx.core.view.isVisible
+import com.example.todofromkotlinteam.NavigationBarActivity
+import kotlinx.android.synthetic.main.calendar_date_layout.view.*
 import kotlinx.android.synthetic.main.calendar_layout.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 class CustomCalendarView: LinearLayout {
-    private val maxDays = 42
-    private var parrentContext: Context? = null
-    private val calendar = Calendar.getInstance(Locale.ENGLISH)
-    private val titleDateFormat = SimpleDateFormat("MMM yyyy", Locale.ENGLISH)
+    private var calendar = Calendar.getInstance()
     private var dates: ArrayList<Date> = ArrayList()
+    private val titleDateFormat = SimpleDateFormat("MMM yyyy", Locale.ENGLISH)
+    private lateinit var gridAdapter: CustomCalendarGridAdapter
 
-    private lateinit var adapter: CustomCalendarGridAdapter
+    constructor(context: Context) : this(context, null)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
 
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs){
-        parrentContext = context
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
         initializeLayout()
-        configureClendar()
-    }
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-
-    private fun initializeLayout(){
-        val inflater = parrentContext?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.calendar_layout,this)
+        configureCalendar()
+        configureListeners()
     }
 
-    private fun configureClendar(){
-        currentDateTV.text = titleDateFormat.format(calendar.time)
+    private fun initializeLayout() {
+        val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        inflater.inflate(R.layout.calendar_layout, this)
+    }
+
+    fun configureCalendar() {
+        val maxDays = 42
+        calendar = (context as NavigationBarActivity).currentCalendar
+        currentDateTitle.text = titleDateFormat.format(calendar.time)
 
         dates.clear()
+
         val monthCalendar = calendar.clone() as Calendar
         monthCalendar.set(Calendar.DAY_OF_MONTH, 1)
         val firstDayOfMonth = monthCalendar.get(Calendar.DAY_OF_WEEK) - 1
-        monthCalendar.add(Calendar.DAY_OF_MONTH, - firstDayOfMonth)
+        monthCalendar.add(Calendar.DAY_OF_MONTH, -firstDayOfMonth)
 
-        while (dates.size < maxDays){
+        while (dates.size < maxDays) {
             dates.add(monthCalendar.time)
             monthCalendar.add(Calendar.DAY_OF_MONTH, 1)
         }
-        adapter = CustomCalendarGridAdapter(parrentContext!!, dates, calendar)
-        gridView.adapter = adapter
 
-        prevButton.setOnClickListener{
+        gridAdapter = CustomCalendarGridAdapter(context, dates)
+        gridView.adapter = gridAdapter
+    }
+
+    private fun configureListeners() {
+        prevButton.setOnClickListener {
             calendar.add(Calendar.MONTH, -1)
-            configureClendar()
+            (context as NavigationBarActivity).currentCalendar = calendar
+            configureCalendar()
         }
 
-        nextButton.setOnClickListener{
+        nextButton.setOnClickListener {
             calendar.add(Calendar.MONTH, 1)
-            configureClendar()
+            (context as NavigationBarActivity).currentCalendar = calendar
+            configureCalendar()
         }
-        
+
+        gridView.setOnItemClickListener { _, view, position, _ ->
+            if (view.dateTextView.isVisible) {
+                (context as NavigationBarActivity).selectDate(dates[position])
+                configureCalendar()
+            }
+        }
     }
 }

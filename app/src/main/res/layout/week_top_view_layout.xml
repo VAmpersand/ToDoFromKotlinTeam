@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:orientation="vertical"
+        android:paddingTop="18dp">
+
+        <TextView
+            android:id="@+id/currentDateTitle"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:fontFamily="@font/gill_sans_bold"
+            android:gravity="center"
+            android:text="Aug 2016"
+            android:textColor="@color/text_title"
+            android:textSize="21sp" />
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="10dp"
+            android:horizontalSpacing="5dp"
+            android:numColumns="7"
+            android:verticalSpacing="5dp"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="19dp"
+        android:background="@drawable/shadow_gradient_top"/>
+
+</LinearLayout>
