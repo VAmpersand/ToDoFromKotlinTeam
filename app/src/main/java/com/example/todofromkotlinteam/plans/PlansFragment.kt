@@ -114,46 +114,6 @@ class PlansFragment(context: Context): Fragment() {
                 false
             )
         )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Guided group meditation",
-//            "Group meditation session at the office", "13:00 - 13:30",
-//            "Yoga instructor")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Sprint planning",
-//            "Catchup to plan for next week's sprint", "14:00 - 15:00",
-//            "Dev.Team")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Evening. yoga session",
-//            "Home yoga session for slip.", "19:00 - 19:30","")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Virtual Doctors' Appointment ",
-//            "Regular virtual catchup with the doctor...", "12:00 - 12:30",
-//            "Dr. Julian")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Guided group meditation",
-//            "Group meditation session at the office", "13:00 - 13:30",
-//            "Yoga instructor")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Sprint planning",
-//            "Catchup to plan for next week's sprint", "14:00 - 15:00",
-//            "Dev.Team")
-//        )
-//        event.add(
-//            ListEvent(
-//                R.drawable.circle, "Evening. yoga session",
-//            "Home yoga session for slip.", "19:00 - 19:30","")
-//        )
 
         recycleView.hasFixedSize()
         recycleView.layoutManager = LinearLayoutManager(parentContext)
