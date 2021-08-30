@@ -22,7 +22,7 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
         val titleTV = view.findViewById<TextView>(R.id.titleTV)
         val descriptionTV = view.findViewById<TextView>(R.id.descriptionTV)
         val imageTime = view.findViewById<ImageView>(R.id.imageTime)
-        val timeTV = view.findViewById<TextView>(R.id.timeTV)
+        val timeTV = view.findViewById<TextView>(R.id.timeTextView)
         val imagePartner = view.findViewById<ImageView>(R.id.imagePartner)
         val partnerTV = view.findViewById<TextView>(R.id.partnerTV)
 

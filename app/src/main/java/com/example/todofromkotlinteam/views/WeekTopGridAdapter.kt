@@ -77,6 +77,6 @@ class WeekTopGridAdapter : ArrayAdapter<Date> {
     }
 
     override fun getItem(position: Int): Date? {
-        return dates.get(position)
+        return dates[position]
     }
 }
