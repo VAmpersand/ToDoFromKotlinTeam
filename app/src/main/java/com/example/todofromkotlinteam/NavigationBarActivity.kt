@@ -3,6 +3,8 @@ package com.example.todofromkotlinteam
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.todofromkotlinteam.plans.PlansFragment
 import com.example.todofromkotlinteam.ideas.IdeasFragment
@@ -17,6 +19,7 @@ class NavigationBarActivity : AppCompatActivity() {
     private val profileFragment = ProfileFragment()
     private val settingsFragment = SettingsFragment()
 
+
     var currentCalendar = Calendar.getInstance(Locale.ENGLISH)
     var selectedDate = Date()
 
@@ -26,6 +29,7 @@ class NavigationBarActivity : AppCompatActivity() {
 
         showWelcomeActivityIfNeeded()
         configureNavigationBar()
+
     }
 
     private fun showWelcomeActivityIfNeeded() {
@@ -62,4 +66,8 @@ class NavigationBarActivity : AppCompatActivity() {
         selectedDate = date
         plansFragment.configureFragment()
     }
+
+    fun newIventClick(view: View){
+        val intent = Intent(this, NewIventActivity::class.java)
+        startActivity(intent)}
 }

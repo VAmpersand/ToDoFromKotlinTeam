@@ -18,5 +18,6 @@
     <color name="background">#FAFAFA</color>
     <color name="shadow">#8A817C</color>
     <color name="separator">#DBDCDD</color>
-
+    <color name="view_new_event">#E6E6E6</color>
+    <color name="text_new_event">#BCB8B1</color>
 </resources>

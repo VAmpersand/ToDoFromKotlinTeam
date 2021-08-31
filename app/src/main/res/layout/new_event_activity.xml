@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/eventFilling"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_orange">
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="23dp"
+        android:text="New event"
+        android:textSize="32sp"
+        android:fontFamily="@font/gill_sans_semibold"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:textStyle="italic"
+        android:textColor="@color/white"/>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="65dp"
+        android:background="@drawable/item_background_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gill_sans_regular"
+                android:paddingLeft="35dp"
+                android:paddingTop="43dp"
+                android:text="Enter event name here"
+                android:textColor="@color/text_new_event"
+                android:textSize="21sp" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="23dp"
+                android:background="@color/view_new_event" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gill_sans_regular"
+                android:paddingLeft="35dp"
+                android:paddingTop="41dp"
+                android:text="Select event type"
+                android:textColor="@color/text_new_event"
+                android:textSize="21sp" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="23dp"
+                android:background="@color/view_new_event" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gill_sans_regular"
+                android:paddingLeft="35dp"
+                android:paddingTop="41dp"
+                android:text="Set event date"
+                android:textColor="@color/text_new_event"
+                android:textSize="21sp" />
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="23dp"
+                android:background="@color/view_new_event" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gill_sans_regular"
+                android:paddingLeft="35dp"
+                android:paddingTop="41dp"
+                android:text="Event start time"
+                android:textColor="@color/text_new_event"
+                android:textSize="21sp" />
+
+            <View
+                android:id="@+id/view7"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="23dp"
+                android:background="@color/view_new_event" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gill_sans_regular"
+                android:paddingLeft="35dp"
+                android:paddingTop="41dp"
+                android:text="Event end time"
+                android:textColor="@color/text_new_event"
+                android:textSize="21sp" />
+
+            <View
+                android:id="@+id/view8"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="23dp"
+                android:background="@color/view_new_event" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gill_sans_regular"
+                android:paddingLeft="35dp"
+                android:paddingTop="41dp"
+                android:text="Describe the event"
+                android:textColor="@color/text_new_event"
+                android:textSize="21sp" />
+
+            <View
+                android:id="@+id/view10"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="23dp"
+                android:background="@color/view_new_event" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gill_sans_regular"
+                android:paddingLeft="35dp"
+                android:paddingTop="41dp"
+                android:text="Whois the event with"
+                android:textColor="@color/text_new_event"
+                android:textSize="21sp" />
+
+            <View
+                android:id="@+id/view11"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="23dp"
+                android:background="@color/view_new_event" />
+
+           
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
