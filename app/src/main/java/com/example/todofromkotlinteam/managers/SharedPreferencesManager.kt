@@ -7,7 +7,7 @@ enum class SharedPreferencesKey {
 }
 
 object SharedPreferencesManager {
-    private val title = "ToDoSharedPreferences"
+    private const val title = "ToDoSharedPreferences"
 
     init {}
 
