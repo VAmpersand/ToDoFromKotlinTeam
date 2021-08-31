@@ -12,9 +12,18 @@
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
         android:clipToPadding="false"
-        android:paddingTop="16dp"
+        android:paddingTop="105dp"
         android:paddingBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <com.example.todofromkotlinteam.views.WeekTopView
+        android:id="@+id/ideasWeekView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
