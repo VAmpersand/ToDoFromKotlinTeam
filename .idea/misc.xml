@@ -21,27 +21,18 @@
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/item_background.xml" value="0.1" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow.xml" value="0.1" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow_gradient_bottom.xml" value="0.2734375" />
-        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/activity_event.xml" value="0.1" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/item_background_shape.xml" value="0.20416666666666666" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow_gradient_bottom.xml" value="0.20416666666666666" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_layout.xml" value="0.23489583333333333" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/event_list_layout.xml" value="0.4" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/navigation_bar_activity.xml" value="0.18802083333333333" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/new_event_layout.xml" value="0.152" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/plans_fragment.xml" value="0.18802083333333333" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/proba_title.xml" value="0.4" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/profile_fragment.xml" value="0.18802083333333333" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/title_list_layout.xml" value="0.12635869565217392" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/week_top_view_layout.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/activity_event.xml" value="0.15" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_date_layout.xml" value="0.5" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_layout.xml" value="0.25729166666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/ideas_fragment.xml" value="0.25729166666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/navigation_bar_activity.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/new_event_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/plans_fragment.xml" value="0.25729166666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/profile_fragment.xml" value="0.25729166666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/settings_fragment.xml" value="0.25729166666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/shablon_events.xml" value="0.5" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/title_list_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/week_top_view_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/welcom_activity.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/welcome_activity.xml" value="0.25729166666666664" />

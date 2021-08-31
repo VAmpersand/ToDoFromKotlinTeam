@@ -8,15 +8,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.R
+import com.example.todofromkotlinteam.plans.PlansListAdapter
+import com.example.todofromkotlinteam.plans.customCalendarView.CustomCalendarView
+import java.util.*
+import kotlin.collections.ArrayList
 
-class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): RecyclerView.Adapter<IdeasListAdapter.ViewHolder>() {
+class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var events = listArray
-    private var parentContext = context
+    private var appContext = context
 
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class EventsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
         val colorView = view.findViewById<View>(R.id.colorView)
         val titleTV = view.findViewById<TextView>(R.id.titleTV)
@@ -59,17 +64,57 @@ class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context): Recycl
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(parentContext)
-        return ViewHolder(inflater.inflate(R.layout.activity_event, parent,false))
+    class TitleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private val title = view.findViewById<TextView>(R.id.titleTextView)
+
+        fun bind(context: Context){
+            var calendar = Calendar.getInstance()
+            val todayDay = calendar.get(Calendar.DAY_OF_MONTH)
+            val todayMonth = calendar.get(Calendar.MONTH) + 1
+            val todayYear = calendar.get(Calendar.YEAR)
+
+            calendar.time = (context as NavigationBarActivity).selectedDate
+            val displayDay = calendar.get(Calendar.DAY_OF_MONTH)
+            val displayMonth = calendar.get(Calendar.MONTH) + 1
+            val displayYear = calendar.get(Calendar.YEAR)
+
+            if (displayDay == todayDay && displayMonth == todayMonth && displayYear == todayYear) {
+                title.text = "Today's events"
+            } else {
+                title.text = "Accepted events"
+            }
+        }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var listItem = events.get(position)
-        holder.bind(listItem, parentContext)
+    override fun getItemViewType(position: Int): Int {
+
+        when (position){
+            0 -> return R.id.titleListLayout
+            else -> return R.id.eventItemView
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(appContext)
+        when (viewType) {
+            R.id.titleListLayout -> return TitleViewHolder(inflater.inflate(R.layout.title_list_layout,
+                    parent,false))
+            else -> return EventsViewHolder(
+                inflater.inflate(R.layout.event_list_layout, parent, false))
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder.itemViewType) {
+            R.id.titleListLayout -> (holder as TitleViewHolder).bind(appContext)
+            else -> {
+                (holder as EventsViewHolder).bind(events[position - 1], appContext)
+                holder.setIsRecyclable(false)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
-        return events.size
+        return events.size + 1
     }
 }
