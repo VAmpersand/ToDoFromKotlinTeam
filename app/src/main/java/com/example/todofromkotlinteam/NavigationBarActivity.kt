@@ -65,6 +65,7 @@ class NavigationBarActivity : AppCompatActivity() {
     fun selectDate(date: Date) {
         selectedDate = date
         plansFragment.configureFragment()
+        ideasFragment.configureFragment()
     }
 
     fun newIventClick(view: View){

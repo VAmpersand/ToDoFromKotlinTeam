@@ -11,6 +11,8 @@ import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEventType
 import kotlinx.android.synthetic.main.ideas_fragment.*
+import kotlinx.android.synthetic.main.ideas_fragment.recycleView
+import kotlinx.android.synthetic.main.plans_fragment.*
 
 class IdeasFragment : Fragment() {
 
@@ -114,8 +116,12 @@ class IdeasFragment : Fragment() {
                 false
             )
         )
-        recycleView.hasFixedSize()
-        recycleView.layoutManager = LinearLayoutManager(context)
-        recycleView.adapter = IdeasListAdapter(events, requireContext())
+        recycleView?.hasFixedSize()
+        recycleView?.layoutManager = LinearLayoutManager(context)
+        recycleView?.adapter = IdeasListAdapter(events, requireContext())
+    }
+
+    fun configureFragment() {
+        recycleView?.adapter?.notifyDataSetChanged()
     }
 }

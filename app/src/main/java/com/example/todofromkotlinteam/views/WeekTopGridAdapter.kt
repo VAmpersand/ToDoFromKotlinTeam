@@ -36,11 +36,6 @@ class WeekTopGridAdapter : ArrayAdapter<Date> {
         val selecteMonth = calendar.get(Calendar.MONTH) + 1
         val selecteYear = calendar.get(Calendar.YEAR)
 
-        calendar = (context as NavigationBarActivity).currentCalendar
-        val currentDate = calendar.get(Calendar.DAY_OF_MONTH)
-        val currentMonth = calendar.get(Calendar.MONTH) + 1
-        val currentYear = calendar.get(Calendar.YEAR)
-
         var view = convertView
         if (view == null) view = inflater.inflate(R.layout.calendar_date_layout, null)
 
@@ -77,6 +72,6 @@ class WeekTopGridAdapter : ArrayAdapter<Date> {
     }
 
     override fun getItem(position: Int): Date? {
-        return dates.get(position)
+        return dates[position]
     }
 }

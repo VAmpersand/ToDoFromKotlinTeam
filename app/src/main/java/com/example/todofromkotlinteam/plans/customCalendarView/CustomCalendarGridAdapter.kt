@@ -33,9 +33,9 @@ class CustomCalendarGridAdapter : ArrayAdapter<Date> {
         val displayYear = calendar.get(Calendar.YEAR)
 
         calendar.time = (context as NavigationBarActivity).selectedDate // Selected day args
-        val selecteDay = calendar.get(Calendar.DAY_OF_MONTH)
-        val selecteMonth = calendar.get(Calendar.MONTH) + 1
-        val selecteYear = calendar.get(Calendar.YEAR)
+        val selectedDay = calendar.get(Calendar.DAY_OF_MONTH)
+        val selectedMonth = calendar.get(Calendar.MONTH) + 1
+        val selectedYear = calendar.get(Calendar.YEAR)
 
         calendar = (context as NavigationBarActivity).currentCalendar
         val currentMonth = calendar.get(Calendar.MONTH) + 1
@@ -50,7 +50,7 @@ class CustomCalendarGridAdapter : ArrayAdapter<Date> {
         val backgroundView = view?.findViewById<View>(R.id.dateBackground)
         backgroundView?.isVisible = (currentMonth == displayMonth && currentYear == displayYear)
 
-        if (displayDay == selecteDay && displayMonth == selecteMonth && displayYear == selecteYear && dateTextView?.isVisible == true) {
+        if (displayDay == selectedDay && displayMonth == selectedMonth && displayYear == selectedYear && dateTextView?.isVisible == true) {
             backgroundView?.background?.setTint(context.resources.getColor(R.color.text_subtitle, null))
             dateTextView?.setTextColor(context.resources.getColor(R.color.white, null))
 
@@ -78,6 +78,6 @@ class CustomCalendarGridAdapter : ArrayAdapter<Date> {
     }
 
     override fun getItem(position: Int): Date? {
-        return dates.get(position)
+        return dates[position]
     }
 }
