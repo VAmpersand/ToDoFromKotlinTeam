@@ -5,44 +5,47 @@
     android:id="@+id/eventFilling"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_orange">
+    android:background="@color/main_orange"
+    android:elevation="32dp"
+    >
 
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="23dp"
-        android:text="New event"
-        android:textSize="32sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/gill_sans_semibold"
+        android:text="New event"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        android:textStyle="italic"
-        android:textColor="@color/white"/>
+        tools:ignore="MissingConstraints" />
 
     <View
         android:id="@+id/view3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="105dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="28dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/item_background_shape"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/view12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintBottom_toTopOf="@+id/view9"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toTopOf="@+id/view3"
@@ -82,7 +85,8 @@
                 android:paddingTop="41dp"
                 android:text="Select event type"
                 android:textColor="@color/text_new_event"
-                android:textSize="21sp" />
+                android:textSize="21sp"
+                tools:ignore="TextContrastCheck" />
 
             <View
                 android:id="@+id/view5"
@@ -191,11 +195,53 @@
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginRight="23dp"
+                android:layout_marginBottom="40dp"
                 android:background="@color/view_new_event" />
 
-           
+
         </LinearLayout>
     </ScrollView>
+
+    <View
+        android:id="@+id/view9"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/circle_event"
+        android:backgroundTint="@color/main_orange"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+        app:layout_constraintStart_toStartOf="@+id/scrollView3" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="CREATE EVENT"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/view9"
+        app:layout_constraintEnd_toEndOf="@+id/view9"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/view9" />
+
+    <View
+        android:id="@+id/view12"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/circle_event"
+        android:backgroundTint="@color/text_new_event"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="103dp"
+        android:layout_marginLeft="102dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
