@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,7 @@ import kotlin.collections.ArrayList
 
 class PlansFragment: Fragment() {
     private var listOffset = 0
+    private var weekViewIsVisible = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.plans_fragment, container, false)
@@ -120,13 +122,33 @@ class PlansFragment: Fragment() {
         recycleView?.layoutManager = LinearLayoutManager(context)
         recycleView?.adapter = PlansListAdapter(events, requireContext())
 
+        plansWeekView?.alpha = 0f
+
         configureListener()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        plansWeekView?.alpha = if (weekViewIsVisible) 1f else 0f
     }
 
     private fun configureListener() {
         recycleView?.setOnScrollChangeListener { _, _, _, _, dx ->
             listOffset += dx
-            plansWeekView?.isVisible = (listOffset < -785)
+
+            if (weekViewIsVisible != (listOffset < -785)) {
+                weekViewIsVisible = (listOffset < -785)
+
+                plansWeekView?.alpha = if (weekViewIsVisible) 0f else 1f
+                plansWeekView?.animate()?.apply {
+                    interpolator = android.view.animation.AccelerateInterpolator()
+                    duration = if (weekViewIsVisible) 200 else 100
+                    alpha(if (weekViewIsVisible) 1f else 0f)
+                    startDelay = 0
+                    start()
+                }
+            }
         }
     }
 
