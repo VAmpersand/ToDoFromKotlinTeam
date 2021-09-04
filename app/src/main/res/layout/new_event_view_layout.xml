@@ -18,18 +18,24 @@
         <ImageButton
             android:layout_width="41dp"
             android:layout_height="41dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginLeft="13dp"
             android:background="@drawable/ic_left_arrow"
+            android:backgroundTint="@color/white"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:layout_marginRight="65dp"
             android:text="New event"
             android:textColor="@color/white"
             android:textSize="32sp" />
 
+        <View
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginRight="13dp"/>
 
     </LinearLayout>
 
@@ -39,7 +45,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="108dp"
         android:layout_marginEnd="28dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/circle_event"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,12 +56,57 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/new_event_element"/>
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/new_event_element"
+                />
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/new_event_element"/>
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/new_event_element"/>
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/new_event_element"/>
+
+            <include
+                layout="@layout/new_event_element"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/new_event_element"/>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="67dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginBottom="30dp"
+                android:backgroundTint="@color/main_orange"
+                android:text="CREATE EVENT"
+                app:cornerRadius="37dp" />
 
         </LinearLayout>
-
-
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
