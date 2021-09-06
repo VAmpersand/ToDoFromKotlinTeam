@@ -135,10 +135,10 @@ class PlansFragment: Fragment() {
 
     private fun configureListener() {
         recycleView?.setOnScrollChangeListener { _, _, _, _, dx ->
-            listOffset += dx
+            listOffset -= dx
 
-            if (weekViewIsVisible != (listOffset < -785)) {
-                weekViewIsVisible = (listOffset < -785)
+            if (weekViewIsVisible != (listOffset > 785)) {
+                weekViewIsVisible = (listOffset > 785)
 
                 plansWeekView?.alpha = if (weekViewIsVisible) 0f else 1f
                 plansWeekView?.animate()?.apply {

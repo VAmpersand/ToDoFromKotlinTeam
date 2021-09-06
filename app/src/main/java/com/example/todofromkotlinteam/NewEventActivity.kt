@@ -4,14 +4,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
+import kotlinx.android.synthetic.main.plans_fragment.*
 
 class NewEventActivity: AppCompatActivity() {
+    private var weekViewIsVisible = false
+    private var listOffset = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
 
         configureFields()
+        configureListener()
     }
 
     fun onClickBack(view : View) { finish() }
@@ -24,5 +28,17 @@ class NewEventActivity: AppCompatActivity() {
         eventEndTimeField?.configureField("Event end time", R.drawable.ic_watch)
         eventDescriptionField?.configureField("Describe the event", R.drawable.ic_forum)
         eventPartnerField?.configureField("Whois the event with", R.drawable.ic_people)
+    }
+
+    private fun configureListener() {
+        recycleView?.setOnScrollChangeListener { _, _, _, _, dx ->
+            listOffset -= dx
+
+            if (weekViewIsVisible != (listOffset < 108)) {
+                weekViewIsVisible = (listOffset < 108)
+
+                displayNewEvent?.alpha = if (weekViewIsVisible) 1f else 0f
+            }
+        }
     }
 }
