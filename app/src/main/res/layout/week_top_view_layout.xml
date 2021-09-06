@@ -10,7 +10,9 @@
         android:layout_height="wrap_content"
         android:background="@color/background"
         android:orientation="vertical"
-        android:paddingTop="18dp">
+        android:paddingTop="18dp"
+        android:elevation="19dp"
+        android:layout_marginBottom="19dp">
 
         <TextView
             android:id="@+id/currentDateTitle"
@@ -34,10 +36,5 @@
             android:verticalSpacing="5dp"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="19dp"
-        android:background="@drawable/shadow_gradient_top"/>
 
 </LinearLayout>
