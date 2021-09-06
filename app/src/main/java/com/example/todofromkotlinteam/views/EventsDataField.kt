@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.example.todofromkotlinteam.R
-import kotlinx.android.synthetic.main.new_event_element.view.*
+import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 
 class EventsDataField: LinearLayout {
 
@@ -17,7 +17,7 @@ class EventsDataField: LinearLayout {
 
     private fun initializeLayout() {
         val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.new_event_element, this)
+        inflater.inflate(R.layout.new_event_field_layout, this)
     }
 
     public fun configureField(title: String, iconId: Int?) {

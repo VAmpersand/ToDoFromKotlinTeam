@@ -48,7 +48,7 @@
         android:id="@+id/addButton"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:onClick="onClickNewEvent"
+        android:onClick="onClickAddEvent"
         android:backgroundTint="@color/main_orange"
         android:src="@drawable/ic_add"
         app:borderWidth="0dp"

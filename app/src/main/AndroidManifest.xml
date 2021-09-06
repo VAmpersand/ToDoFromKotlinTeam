@@ -23,7 +23,7 @@
             android:theme="@style/Theme.ToDoFromKotlinTeam">
         </activity>
         <activity android:name=".NewEventActivity"
-            android:theme="@style/Theme.StatusBarTeam">
+            android:theme="@style/Theme.NewEventAdditing">
         </activity>
     </application>
 
