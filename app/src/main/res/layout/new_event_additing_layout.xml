@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_orange">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="108dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:background="@drawable/item_background_shape"
+                    android:elevation="32dp"
+                    android:orientation="vertical">
+
+                    <com.example.todofromkotlinteam.views.EventsDataField
+                        android:id="@+id/eventNameField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="43dp" />
+
+                    <com.example.todofromkotlinteam.views.EventsDataField
+                        android:id="@+id/eventTypeField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="41dp" />
+
+                    <com.example.todofromkotlinteam.views.EventsDataField
+                        android:id="@+id/eventDateField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="41dp" />
+
+                    <com.example.todofromkotlinteam.views.EventsDataField
+                        android:id="@+id/eventStartTimeField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="41dp" />
+
+                    <com.example.todofromkotlinteam.views.EventsDataField
+                        android:id="@+id/eventEndTimeField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="41dp" />
+
+                    <com.example.todofromkotlinteam.views.EventsDataField
+                        android:id="@+id/eventDescriptionField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="41dp" />
+
+                    <com.example.todofromkotlinteam.views.EventsDataField
+                        android:id="@+id/eventPartnerField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="41dp" />
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="67dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginBottom="30dp"
+                        android:backgroundTint="@color/main_orange"
+                        android:text="CREATE EVENT"
+                        android:textSize="18sp"
+                        app:cornerRadius="37dp" />
+
+                </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginLeft="13dp"
+            android:background="@drawable/ic_left_arrow"
+            android:backgroundTint="@color/white"
+            android:onClick="onClickBack"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="54dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/gill_sans_bold"
+            android:gravity="center"
+            android:text="New event"
+            android:textColor="@color/black"
+            android:textSize="32sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

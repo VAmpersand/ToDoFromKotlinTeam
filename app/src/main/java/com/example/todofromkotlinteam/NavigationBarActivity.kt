@@ -3,6 +3,7 @@ package com.example.todofromkotlinteam
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.todofromkotlinteam.plans.PlansFragment
 import com.example.todofromkotlinteam.ideas.IdeasFragment
@@ -62,5 +63,10 @@ class NavigationBarActivity : AppCompatActivity() {
         selectedDate = date
         plansFragment.configureFragment()
         ideasFragment.configureFragment()
+    }
+
+    fun onClickAddEvent(view : View){
+        val intent = Intent(this,NewEventActivity::class.java)
+        startActivity(intent)
     }
 }
