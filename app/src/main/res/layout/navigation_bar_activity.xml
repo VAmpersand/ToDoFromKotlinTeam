@@ -50,7 +50,7 @@
         android:layout_height="84dp"
         android:backgroundTint="@color/main_orange"
         android:src="@drawable/ic_add"
-        android:onClick="newIventClick"
+        android:onClick="newEventClick"
         app:borderWidth="0dp"
         app:fabCustomSize="84dp"
         app:layout_anchor="@id/bottomAppBar"

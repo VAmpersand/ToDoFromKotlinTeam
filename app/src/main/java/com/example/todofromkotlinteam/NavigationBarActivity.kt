@@ -68,7 +68,7 @@ class NavigationBarActivity : AppCompatActivity() {
         ideasFragment.configureFragment()
     }
 
-    fun newIventClick(view: View){
-        val intent = Intent(this, NewIventActivity::class.java)
+    fun newEventClick(view: View){
+        val intent = Intent(this, NewEventActivity::class.java)
         startActivity(intent)}
 }

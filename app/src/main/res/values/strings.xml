@@ -16,5 +16,13 @@ Solar calendar will try to put you in sync with a more natural rest and work cyc
     <string name="thursday">THU</string>
     <string name="friday">FRI</string>
     <string name="saturday">SAT</string>
+    <string name="name_event">Enter event name here</string>
+    <string name="type_event">Select event type</string>
+    <string name="date_event">Set event date</string>
+    <string name="start_event">Event start time</string>
+    <string name="end_event">Event end time</string>
+    <string name="describe_event">Describe the event</string>
+    <string name="partner_event">Whois the event with</string>
+
 
 </resources>
