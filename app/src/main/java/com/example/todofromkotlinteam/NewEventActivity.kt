@@ -1,10 +1,12 @@
 package com.example.todofromkotlinteam
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.plans_fragment.*
+import kotlin.math.log
 
 class NewEventActivity: AppCompatActivity() {
     private var weekViewIsVisible = false
@@ -34,10 +36,10 @@ class NewEventActivity: AppCompatActivity() {
         recycleView?.setOnScrollChangeListener { _, _, _, _, dx ->
             listOffset -= dx
 
-            if (weekViewIsVisible != (listOffset < 108)) {
-                weekViewIsVisible = (listOffset < 108)
+            if (weekViewIsVisible != (listOffset > 2)) {
+                weekViewIsVisible = (listOffset > 2)
 
-                displayNewEvent?.alpha = if (weekViewIsVisible) 1f else 0f
+                newEvent?.alpha = if (weekViewIsVisible) 0f else 1f
             }
         }
     }

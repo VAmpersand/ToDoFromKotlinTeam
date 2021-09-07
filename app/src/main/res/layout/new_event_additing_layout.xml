@@ -22,6 +22,7 @@
             android:orientation="vertical">
 
             <View
+                android:id="@+id/newEvent"
                 android:layout_width="match_parent"
                 android:layout_height="108dp" />
 
@@ -99,6 +100,12 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:background="@color/main_orange"
+        android:alpha="0.2"/>
 
     <LinearLayout
         android:layout_width="match_parent"
