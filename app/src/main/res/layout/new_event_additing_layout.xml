@@ -135,7 +135,7 @@
             android:fontFamily="@font/gill_sans_bold"
             android:gravity="center"
             android:text="@string/new_event"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="32sp" />
 
     </LinearLayout>
