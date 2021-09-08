@@ -48,25 +48,29 @@
                         android:id="@+id/eventTypeField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp" />
+                        android:layout_marginTop="41dp"
+                        android:onClick="onClickField" />
 
                     <com.example.todofromkotlinteam.views.EventsDataField
                         android:id="@+id/eventDateField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp" />
+                        android:layout_marginTop="41dp"
+                        android:onClick="onClickField" />
 
                     <com.example.todofromkotlinteam.views.EventsDataField
                         android:id="@+id/eventStartTimeField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp" />
+                        android:layout_marginTop="41dp"
+                        android:onClick="onClickField" />
 
                     <com.example.todofromkotlinteam.views.EventsDataField
                         android:id="@+id/eventEndTimeField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp" />
+                        android:layout_marginTop="41dp"
+                        android:onClick="onClickField" />
 
                     <com.example.todofromkotlinteam.views.EventsDataField
                         android:id="@+id/eventDescriptionField"
@@ -89,6 +93,7 @@
                         android:layout_marginRight="18dp"
                         android:layout_marginBottom="30dp"
                         android:backgroundTint="@color/main_orange"
+                        android:onClick="onClickAddEvent"
                         android:text="CREATE EVENT"
                         android:textColor="@color/white"
                         android:textSize="18sp"

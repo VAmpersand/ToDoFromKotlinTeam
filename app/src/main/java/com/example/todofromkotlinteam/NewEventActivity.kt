@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.views.EventDataFieldType
+import com.example.todofromkotlinteam.views.EventsDataField
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 
@@ -17,6 +18,19 @@ class NewEventActivity: AppCompatActivity() {
     }
 
     fun onClickBack(view : View) { finish() }
+    fun onClickAddEvent(view : View) { finish() }
+
+    fun onClickField(view: View) {
+        view as EventsDataField
+
+        when (view.id) {
+            R.id.eventTypeField -> println("eventTypeField")
+            R.id.eventDateField -> println("eventDateField")
+            R.id.eventStartTimeField -> println("eventStartTimeField")
+            R.id.eventEndTimeField -> println("eventEndTimeField")
+            else -> println("Another field tapped")
+        }
+    }
 
     private fun configureFields() {
         eventNameField?.configureField(EventDataFieldType.NAME)
