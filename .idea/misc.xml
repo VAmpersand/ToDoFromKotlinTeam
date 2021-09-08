@@ -29,13 +29,14 @@
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/item_background_shape.xml" value="0.2890625" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow_gradient_bottom.xml" value="0.2890625" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow_gradient_center.xml" value="0.2890625" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow_gradient_new_event.xml" value="0.1111111111111111" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_date_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/event_list_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/ideas_fragment.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/navigation_bar_activity.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/new_event_additing_layout.xml" value="0.1" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/new_event_additing_layout.xml" value="0.22" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/new_event_element.xml" value="0.1" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/new_event_field_edit_layout.xml" value="0.33" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/new_event_field_layout.xml" value="0.27291666666666664" />

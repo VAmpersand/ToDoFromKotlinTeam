@@ -5,7 +5,9 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.example.todofromkotlinteam.R
+import kotlinx.android.synthetic.main.new_event_field_edit_layout.view.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
+import kotlinx.android.synthetic.main.new_event_field_layout.view.iconEvent
 
 class EventsDataField: LinearLayout {
 

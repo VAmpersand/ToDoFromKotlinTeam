@@ -21,6 +21,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_weight="1"
+            android:cursorVisible="false"
+            android:editable="false"
             android:hint='Enter event name here"'
             android:inputType="textPersonName"
             android:paddingLeft="4dp"

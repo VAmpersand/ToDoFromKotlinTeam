@@ -16,5 +16,6 @@ Solar calendar will try to put you in sync with a more natural rest and work cyc
     <string name="thursday">THU</string>
     <string name="friday">FRI</string>
     <string name="saturday">SAT</string>
+    <string name="new_event">New event</string>
 
 </resources>
