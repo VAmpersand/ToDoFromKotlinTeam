@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.plans_fragment.*
 import kotlin.collections.ArrayList
 
 class PlansFragment: Fragment() {
-    private var listOffset = 0
+    private var curentOffset = 0
     private var weekViewIsVisible = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -135,10 +135,10 @@ class PlansFragment: Fragment() {
 
     private fun configureListener() {
         recycleView?.setOnScrollChangeListener { _, _, _, _, dx ->
-            listOffset -= dx
+            curentOffset -= dx
 
-            if (weekViewIsVisible != (listOffset > 785)) {
-                weekViewIsVisible = (listOffset > 785)
+            if (weekViewIsVisible != (curentOffset > 785)) {
+                weekViewIsVisible = (curentOffset > 785)
 
                 plansWeekView?.alpha = if (weekViewIsVisible) 0f else 1f
                 plansWeekView?.animate()?.apply {

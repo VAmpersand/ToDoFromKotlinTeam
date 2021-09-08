@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.views
+package com.example.todofromkotlinteam.views.weekView
 
 import android.content.Context
 import android.view.LayoutInflater
