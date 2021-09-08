@@ -3,6 +3,7 @@ package com.example.todofromkotlinteam
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.todofromkotlinteam.views.EventDataFieldType
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 
@@ -18,12 +19,12 @@ class NewEventActivity: AppCompatActivity() {
     fun onClickBack(view : View) { finish() }
 
     private fun configureFields() {
-        eventNameField?.configureField("Enter event name here", null)
-        eventTypeField?.configureField("Select event type", R.drawable.ic_down_arrow)
-        eventDateField?.configureField("Set event date", R.drawable.ic_today)
-        eventStartTimeField?.configureField("Event start time", R.drawable.ic_watch)
-        eventEndTimeField?.configureField("Event end time", R.drawable.ic_watch)
-        eventDescriptionField?.configureField("Describe the event", R.drawable.ic_forum)
-        eventPartnerField?.configureField("Whois the event with", R.drawable.ic_people)
+        eventNameField?.configureField(EventDataFieldType.NAME)
+        eventTypeField?.configureField(EventDataFieldType.TYPE)
+        eventDateField?.configureField(EventDataFieldType.DATE)
+        eventStartTimeField?.configureField(EventDataFieldType.START_TIME)
+        eventEndTimeField?.configureField(EventDataFieldType.END_TIME)
+        eventDescriptionField?.configureField(EventDataFieldType.DESCRIPTION)
+        eventPartnerField?.configureField(EventDataFieldType.PARTNER)
     }
 }
