@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.LinearInterpolator
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
@@ -15,7 +13,7 @@ import kotlinx.android.synthetic.main.plans_fragment.*
 import kotlin.collections.ArrayList
 
 class PlansFragment: Fragment() {
-    private var curentOffset = 0
+    private var currentOffset = 0
     private var weekViewIsVisible = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -135,10 +133,10 @@ class PlansFragment: Fragment() {
 
     private fun configureListener() {
         recycleView?.setOnScrollChangeListener { _, _, _, _, dx ->
-            curentOffset -= dx
+            currentOffset -= dx
 
-            if (weekViewIsVisible != (curentOffset > 785)) {
-                weekViewIsVisible = (curentOffset > 785)
+            if (weekViewIsVisible != (currentOffset > 785)) {
+                weekViewIsVisible = (currentOffset > 785)
 
                 plansWeekView?.alpha = if (weekViewIsVisible) 0f else 1f
                 plansWeekView?.animate()?.apply {
