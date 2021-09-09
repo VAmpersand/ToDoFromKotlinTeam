@@ -17,5 +17,8 @@ Solar calendar will try to put you in sync with a more natural rest and work cyc
     <string name="friday">FRI</string>
     <string name="saturday">SAT</string>
     <string name="new_event">New event</string>
+    <string name="ok">OK</string>
+    <string name="enterStartTimeTitle">Enter start time</string>
+    <string name="enterEndTimeTitle">Enter end time</string>
 
 </resources>

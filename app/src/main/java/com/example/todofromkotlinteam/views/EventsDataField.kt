@@ -1,6 +1,7 @@
 package com.example.todofromkotlinteam.views
 
 import android.content.Context
+import android.text.InputType
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
@@ -34,23 +35,31 @@ class EventsDataField: LinearLayout {
                 inputField?.hint = "Enter event name here"
             }
             EventDataFieldType.TYPE -> {
-                inputField?.isEnabled = false
                 inputField?.hint = "Select event type"
+                inputField?.isCursorVisible = false
+                inputField?.isFocusable = false
+                inputField?.inputType = InputType.TYPE_NULL
                 iconEvent?.setImageResource(R.drawable.ic_down_arrow)
             }
             EventDataFieldType.DATE -> {
-                inputField?.isEnabled = false
                 inputField?.hint = "Set event date"
+                inputField?.isCursorVisible = false
+                inputField?.isFocusable = false
+                inputField?.inputType = InputType.TYPE_NULL
                 iconEvent?.setImageResource(R.drawable.ic_today)
             }
             EventDataFieldType.START_TIME -> {
-                inputField?.isEnabled = false
                 inputField?.hint = "Event start time"
+                inputField?.isCursorVisible = false
+                inputField?.isFocusable = false
+                inputField?.inputType = InputType.TYPE_NULL
                 iconEvent?.setImageResource(R.drawable.ic_watch)
             }
             EventDataFieldType.END_TIME -> {
-                inputField?.isEnabled = false
                 inputField?.hint = "Event end time"
+                inputField?.isCursorVisible = false
+                inputField?.isFocusable = false
+                inputField?.inputType = InputType.TYPE_NULL
                 iconEvent?.setImageResource(R.drawable.ic_watch)
             }
             EventDataFieldType.DESCRIPTION -> {
