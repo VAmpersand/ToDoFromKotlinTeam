@@ -1,29 +1,40 @@
 package com.example.todofromkotlinteam
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.view.View.OnFocusChangeListener
-import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.views.EventDataFieldType
-import com.example.todofromkotlinteam.views.EventsDataField
+import kotlinx.android.synthetic.main.date_input_dialog_layout.*
+import kotlinx.android.synthetic.main.date_input_dialog_layout.view.*
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
+import kotlinx.android.synthetic.main.settings_fragment.*
+import kotlinx.android.synthetic.main.settings_fragment.view.*
 import kotlinx.android.synthetic.main.time_input_dialog_layout.view.*
-import org.w3c.dom.Text
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class NewEventActivity: AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+       override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
-
         configureFields()
+
+
     }
 
     fun onClickBack(view : View) { finish() }
     fun onClickAddEvent(view : View) { finish() }
+
+    fun onClickOkDate(view: View) {
+
+
+        }
 
     private fun configureFields() {
         eventNameField?.configureField(EventDataFieldType.NAME)
@@ -37,6 +48,7 @@ class NewEventActivity: AppCompatActivity() {
 
         eventDateField?.configureField(EventDataFieldType.DATE)
         eventDateField?.inputField?.setOnClickListener {
+              showSetDateDialog()
 
         }
         eventStartTimeField?.configureField(EventDataFieldType.START_TIME)
@@ -64,4 +76,21 @@ class NewEventActivity: AppCompatActivity() {
             dialog.hide()
         }
     }
+
+    private fun showSetDateDialog() {
+
+        val view = View.inflate(this, R.layout.date_input_dialog_layout, null)
+        val builder = AlertDialog.Builder(this)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+//        view.okButtonDate?.setOnClickListener {
+//            dialog.hide()
+//        }
+    }
+
+
 }
