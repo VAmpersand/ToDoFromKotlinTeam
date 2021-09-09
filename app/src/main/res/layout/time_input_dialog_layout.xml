@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:paddingLeft="19dp"
+    android:paddingRight="19dp"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_background_shape"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gill_sans_regular"
+            android:text="@string/enterStartTimeTitle"
+            android:textColor="@color/text_title"
+            android:textSize="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/startHoursEditText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="19dp"
+                android:background="@android:drawable/editbox_background_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="h" />
+
+            <EditText
+                android:id="@+id/startMinutesEditText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:background="@android:drawable/editbox_background_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="m" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:fontFamily="@font/gill_sans_regular"
+            android:text="@string/enterEndTimeTitle"
+            android:textColor="@color/text_title"
+            android:textSize="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <EditText
+                android:id="@+id/endHoursEditText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="19dp"
+                android:background="@android:drawable/editbox_background_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="h" />
+
+            <EditText
+                android:id="@+id/endMinutesEditText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:background="@android:drawable/editbox_background_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="m" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="150dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="-37dp"
+        android:layout_marginRight="19dp"
+        android:background="@drawable/circle_shape"
+        android:fontFamily="@font/gill_sans_semibold"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>

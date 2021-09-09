@@ -19,14 +19,13 @@ class WelcomeActivity : AppCompatActivity() {
     private fun setBlurView() {
         val radius = 25f
         val decorView: View = window.decorView
-        val windowBackground: Drawable = decorView.getBackground()
 
-        blurView.setupWith(decorView.findViewById(android.R.id.content))
-            .setFrameClearDrawable(windowBackground)
-            .setBlurAlgorithm(RenderScriptBlur(this))
-            .setBlurRadius(radius)
-            .setBlurAutoUpdate(true)
-            .setHasFixedTransformationMatrix(true)
+        blurView?.setupWith(decorView.findViewById(android.R.id.content))
+            ?.setFrameClearDrawable(decorView.background)
+            ?.setBlurAlgorithm(RenderScriptBlur(this))
+            ?.setBlurRadius(radius)
+            ?.setBlurAutoUpdate(true)
+            ?.setHasFixedTransformationMatrix(true)
     }
 
     fun onClickNext(view: View) { finish() }

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_orange">
+    android:background="@color/main_orange"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -27,79 +29,76 @@
                 android:layout_width="match_parent"
                 android:layout_height="108dp" />
 
-                <LinearLayout
-                    android:id="@+id/displayNewEvent"
+            <LinearLayout
+                android:id="@+id/displayNewEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/item_background_shape"
+                android:elevation="32dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.example.todofromkotlinteam.views.EventsDataField
+                    android:id="@+id/eventNameField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginEnd="18dp"
-                    android:background="@drawable/item_background_shape"
-                    android:elevation="32dp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="43dp" />
 
-                    <com.example.todofromkotlinteam.views.EventsDataField
-                        android:id="@+id/eventNameField"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="43dp" />
+                <com.example.todofromkotlinteam.views.EventsDataField
+                    android:id="@+id/eventTypeField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="41dp" />
 
-                    <com.example.todofromkotlinteam.views.EventsDataField
-                        android:id="@+id/eventTypeField"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp"
-                        android:onClick="onClickField" />
+                <com.example.todofromkotlinteam.views.EventsDataField
+                    android:id="@+id/eventDateField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="41dp" />
 
-                    <com.example.todofromkotlinteam.views.EventsDataField
-                        android:id="@+id/eventDateField"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp"
-                        android:onClick="onClickField" />
+                <com.example.todofromkotlinteam.views.EventsDataField
+                    android:id="@+id/eventStartTimeField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="41dp" />
 
-                    <com.example.todofromkotlinteam.views.EventsDataField
-                        android:id="@+id/eventStartTimeField"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp"
-                        android:onClick="onClickField" />
+                <com.example.todofromkotlinteam.views.EventsDataField
+                    android:id="@+id/eventEndTimeField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="41dp" />
 
-                    <com.example.todofromkotlinteam.views.EventsDataField
-                        android:id="@+id/eventEndTimeField"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp"
-                        android:onClick="onClickField" />
+                <com.example.todofromkotlinteam.views.EventsDataField
+                    android:id="@+id/eventDescriptionField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="41dp" />
 
-                    <com.example.todofromkotlinteam.views.EventsDataField
-                        android:id="@+id/eventDescriptionField"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp" />
+                <com.example.todofromkotlinteam.views.EventsDataField
+                    android:id="@+id/eventPartnerField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="41dp" />
 
-                    <com.example.todofromkotlinteam.views.EventsDataField
-                        android:id="@+id/eventPartnerField"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="41dp" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="74dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginBottom="30dp"
+                    android:backgroundTint="@color/main_orange"
+                    android:fontFamily="@font/gill_sans_semibold"
+                    android:onClick="onClickAddEvent"
+                    android:text="CREATE EVENT"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:cornerRadius="37dp" />
 
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="match_parent"
-                        android:layout_height="75dp"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="67dp"
-                        android:layout_marginRight="18dp"
-                        android:layout_marginBottom="30dp"
-                        android:backgroundTint="@color/main_orange"
-                        android:onClick="onClickAddEvent"
-                        android:text="CREATE EVENT"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        app:cornerRadius="37dp" />
-
-                </LinearLayout>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -112,10 +111,10 @@
         android:id="@+id/navBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/shadow_gradient_new_event"
         android:orientation="horizontal"
         android:paddingTop="30dp"
         android:paddingBottom="30dp"
-        android:background="@drawable/shadow_gradient_new_event"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

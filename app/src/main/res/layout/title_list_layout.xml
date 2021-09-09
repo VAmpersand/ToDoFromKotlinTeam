@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/gill_sans_regular"
-        android:gravity="left"
         android:paddingLeft="18dp"
         android:paddingTop="19dp"
         android:paddingBottom="17dp"
@@ -22,4 +21,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
