@@ -7,6 +7,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.views.EventDataFieldType
+import com.example.todofromkotlinteam.views.EventsDataField
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.time_input_dialog_layout.view.*
