@@ -33,7 +33,7 @@ class NewEventActivity: AppCompatActivity() {
 
         eventDateField?.configureField(EventDataFieldType.DATE)
         eventDateField?.inputField?.setOnClickListener {
-
+            showSetDataDiolog()
         }
         eventStartTimeField?.configureField(EventDataFieldType.START_TIME)
         eventStartTimeField?.inputField?.setOnClickListener {
@@ -63,6 +63,21 @@ class NewEventActivity: AppCompatActivity() {
 
     private fun showSetTypeDiolog() {
         val view = View.inflate(this, R.layout.type_project_dialog_layout, null)
+
+        val builder = AlertDialog.Builder(this)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        view.okButton?.setOnClickListener {
+            dialog.hide()
+        }
+    }
+
+    private fun showSetDataDiolog() {
+        val view = View.inflate(this, R.layout.calendar_data_layout, null)
 
         val builder = AlertDialog.Builder(this)
         builder.setView(view)
