@@ -6,15 +6,15 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.views.EventDataFieldType
 import com.example.todofromkotlinteam.views.EventType
+import com.example.todofromkotlinteam.views.InputTypeDialogView
 import com.example.todofromkotlinteam.views.InputTypeProjectView
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.time_input_dialog_layout.view.okButton
+import kotlinx.android.synthetic.main.type_project_dialog_layout.*
 import kotlinx.android.synthetic.main.type_project_dialog_layout.view.*
 
 class NewEventActivity: AppCompatActivity() {
-    private var currentType: EventType? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
@@ -66,37 +66,47 @@ class NewEventActivity: AppCompatActivity() {
     }
 
     private fun showSetTypeDialog() {
-        val view = View.inflate(this, R.layout.type_project_dialog_layout, null)
-        view.checkPlans?.isChecked = currentType == EventType.PLANS
-        view.checkIdeas?.isChecked = currentType == EventType.IDEAS
+//        val view = View.inflate(this, R.layout.type_project_dialog_layout, null)
+//        view.checkPlans?.isChecked = currentType == EventType.PLANS
+//        view.checkIdeas?.isChecked = currentType == EventType.IDEAS
+//
+//        val builder = AlertDialog.Builder(this)
+//        builder.setView(view)
 
-        val builder = AlertDialog.Builder(this)
-        builder.setView(view)
+        val dialog = InputTypeDialogView()
+//        dialog.show()
+        dialog.show(supportFragmentManager, "MyCustomFragment")
 
-        val dialog = builder.create()
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
-        view.checkPlans?.setOnClickListener {
-            currentType = EventType.PLANS
-            view.checkPlans?.isChecked = true
-            view.checkIdeas?.isChecked = false
-        }
-
-        view.checkIdeas?.setOnClickListener {
-            currentType = EventType.IDEAS
-            view.checkPlans?.isChecked = false
-            view.checkIdeas?.isChecked = true
-        }
-
-        view.okButton?.setOnClickListener {
-            if (currentType == EventType.PLANS) {
+        dialog.okButton?.setOnClickListener {
+            if (dialog.currentType == EventType.PLANS) {
                 eventTypeField?.inputField?.setText(R.string.plans)
-            } else if (currentType == EventType.IDEAS) {
+            } else if (dialog.currentType == EventType.IDEAS) {
                 eventTypeField?.inputField?.setText(R.string.ideas)
             }
             dialog.hide()
         }
+//        dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+//        view.checkPlans?.setOnClickListener {
+//            currentType = EventType.PLANS
+//            view.checkPlans?.isChecked = true
+//            view.checkIdeas?.isChecked = false
+//        }
+//
+//        view.checkIdeas?.setOnClickListener {
+//            currentType = EventType.IDEAS
+//            view.checkPlans?.isChecked = false
+//            view.checkIdeas?.isChecked = true
+//        }
+//
+//        view.okButton?.setOnClickListener {
+//            if (currentType == EventType.PLANS) {
+//                eventTypeField?.inputField?.setText(R.string.plans)
+//            } else if (currentType == EventType.IDEAS) {
+//                eventTypeField?.inputField?.setText(R.string.ideas)
+//            }
+//            dialog.hide()
+//        }
     }
 
     private fun showSetDataDiolog() {
