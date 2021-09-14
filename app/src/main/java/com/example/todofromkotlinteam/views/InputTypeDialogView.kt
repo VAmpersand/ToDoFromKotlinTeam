@@ -19,7 +19,7 @@ class InputTypeDialogView(currentType: EventType?, listener: OnTypeDialogButtonC
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        return inflater.inflate(R.layout.type_project_dialog_layout, container, false)
+        return inflater.inflate(R.layout.type_input_dialog_layout, container, false)
     }
 
     override fun onStart() {
