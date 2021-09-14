@@ -5,11 +5,15 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.views.EventDataFieldType
+import com.example.todofromkotlinteam.views.EventType
+import com.example.todofromkotlinteam.views.InputTypeProjectView
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
-import kotlinx.android.synthetic.main.time_input_dialog_layout.view.*
+import kotlinx.android.synthetic.main.time_input_dialog_layout.view.okButton
+import kotlinx.android.synthetic.main.type_project_dialog_layout.view.*
 
 class NewEventActivity: AppCompatActivity() {
+    private var currentType: EventType? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +32,7 @@ class NewEventActivity: AppCompatActivity() {
 
         eventTypeField?.configureField(EventDataFieldType.TYPE)
         eventTypeField?.inputField?.setOnClickListener {
-            showSetTypeDiolog()
+            showSetTypeDialog()
         }
 
         eventDateField?.configureField(EventDataFieldType.DATE)
@@ -61,8 +65,10 @@ class NewEventActivity: AppCompatActivity() {
         }
     }
 
-    private fun showSetTypeDiolog() {
+    private fun showSetTypeDialog() {
         val view = View.inflate(this, R.layout.type_project_dialog_layout, null)
+        view.checkPlans?.isChecked = currentType == EventType.PLANS
+        view.checkIdeas?.isChecked = currentType == EventType.IDEAS
 
         val builder = AlertDialog.Builder(this)
         builder.setView(view)
@@ -71,13 +77,30 @@ class NewEventActivity: AppCompatActivity() {
         dialog.show()
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
+        view.checkPlans?.setOnClickListener {
+            currentType = EventType.PLANS
+            view.checkPlans?.isChecked = true
+            view.checkIdeas?.isChecked = false
+        }
+
+        view.checkIdeas?.setOnClickListener {
+            currentType = EventType.IDEAS
+            view.checkPlans?.isChecked = false
+            view.checkIdeas?.isChecked = true
+        }
+
         view.okButton?.setOnClickListener {
+            if (currentType == EventType.PLANS) {
+                eventTypeField?.inputField?.setText(R.string.plans)
+            } else if (currentType == EventType.IDEAS) {
+                eventTypeField?.inputField?.setText(R.string.ideas)
+            }
             dialog.hide()
         }
     }
 
     private fun showSetDataDiolog() {
-        val view = View.inflate(this, R.layout.calendar_data_layout, null)
+        val view = InputTypeProjectView(this)
 
         val builder = AlertDialog.Builder(this)
         builder.setView(view)
