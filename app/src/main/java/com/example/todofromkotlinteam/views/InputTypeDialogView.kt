@@ -6,7 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
-import kotlinx.android.synthetic.main.type_project_dialog_layout.*
+import kotlinx.android.synthetic.main.type_input_dialog_layout.*
+
+
+enum class EventType {
+    PLANS, IDEAS
+}
 
 interface OnTypeDialogButtonClickListener {
     fun onTypeOkClickListener(type: EventType? = null)

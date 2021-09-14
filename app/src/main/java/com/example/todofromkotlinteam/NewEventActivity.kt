@@ -8,8 +8,6 @@ import com.example.todofromkotlinteam.views.*
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.time_input_dialog_layout.view.okButton
-import kotlinx.android.synthetic.main.type_project_dialog_layout.*
-import kotlinx.android.synthetic.main.type_project_dialog_layout.view.*
 
 class NewEventActivity: AppCompatActivity(), OnTypeDialogButtonClickListener {
     private var currentType: EventType? = null
@@ -41,7 +39,7 @@ class NewEventActivity: AppCompatActivity(), OnTypeDialogButtonClickListener {
 
         eventDateField?.configureField(EventDataFieldType.DATE)
         eventDateField?.inputField?.setOnClickListener {
-            showSetDataDiolog()
+            showSetDataDialog()
         }
         eventStartTimeField?.configureField(EventDataFieldType.START_TIME)
         eventStartTimeField?.inputField?.setOnClickListener {
@@ -69,19 +67,7 @@ class NewEventActivity: AppCompatActivity(), OnTypeDialogButtonClickListener {
         }
     }
 
-    private fun showSetDataDiolog() {
-        val view = InputTypeProjectView(this)
-
-        val builder = AlertDialog.Builder(this)
-        builder.setView(view)
-
-        val dialog = builder.create()
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
-        view.okButton?.setOnClickListener {
-            dialog.hide()
-        }
+    private fun showSetDataDialog() {
     }
 
     override fun onTypeOkClickListener(type: EventType?) {
