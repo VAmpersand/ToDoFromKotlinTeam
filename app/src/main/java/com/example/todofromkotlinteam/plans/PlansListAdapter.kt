@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import com.example.todofromkotlinteam.model.ListEvent
-import com.example.todofromkotlinteam.plans.customCalendarView.CustomCalendarView
+import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
 import kotlin.collections.ArrayList
 
 class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : TDRecycleListAdapter() {

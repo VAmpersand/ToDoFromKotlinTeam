@@ -25,7 +25,8 @@ import java.util.*
 
 
 class NewEventActivity : AppCompatActivity() {
-
+    private var currentDate = Date()
+    private val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)
 
     @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,9 +34,7 @@ class NewEventActivity : AppCompatActivity() {
         setContentView(R.layout.new_event_additing_layout)
 
         configureFields()
-
     }
-
 
     fun onClickBack(view: View) {
         finish()
@@ -44,7 +43,6 @@ class NewEventActivity : AppCompatActivity() {
     fun onClickAddEvent(view: View) {
         finish()
     }
-
 
     private fun configureFields() {
         eventNameField?.configureField(EventDataFieldType.NAME)
@@ -89,24 +87,25 @@ class NewEventActivity : AppCompatActivity() {
     }
 
     private fun showSetDateDialog() {
-
         val view = View.inflate(this, R.layout.date_input_dialog_layout, null)
+        view.calendarView?.setDate(currentDate.time)
+
         val builder = AlertDialog.Builder(this)
         builder.setView(view)
         val dialog = builder.create()
-//        val calendar = findViewById<CalendarView>(R.id.calendarView)
+
         dialog.show()
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-//        calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
-//            val correctMonth = month + 1
-//            inputField?.setText("$year-$correctMonth-$dayOfMonth")
-//        }
-        view.okButtonDate?.setOnClickListener {
 
+        view.calendarView?.setOnDateChangeListener { view, year, month, dayOfMonth ->
+            currentDate.time = view.date
 
-         dialog.hide()
+            eventDateField?.inputField?.setText("$year-${month+1}-$dayOfMonth")
         }
 
+        view.okButtonDate?.setOnClickListener {
+         dialog.hide()
+        }
     }
 
 //    private fun showSetDateDialog() {

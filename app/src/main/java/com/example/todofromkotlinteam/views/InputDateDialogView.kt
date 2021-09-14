@@ -12,7 +12,6 @@ import com.example.todofromkotlinteam.R
 
 class InputDateDialogView: LinearLayout {
 
-
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context,attrs,defStyleAttr)
 
@@ -33,7 +32,7 @@ class InputDateDialogView: LinearLayout {
 
     private fun initializeLayout() {
         val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(com.example.todofromkotlinteam.R.layout.date_input_dialog_layout, this)
+        inflater.inflate(R.layout.date_input_dialog_layout, this)
     }
 
     @SuppressLint("WrongConstant")
