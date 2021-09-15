@@ -61,12 +61,6 @@ class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWe
         }
     }
 
-//    fun selectDate(date: Date) {
-//        selectedDate = date
-//        plansFragment.configureFragment()
-//        ideasFragment.configureFragment()
-//    }
-
     fun onClickAddEvent(view : View){
         val intent = Intent(this,NewEventActivity::class.java)
         startActivity(intent)

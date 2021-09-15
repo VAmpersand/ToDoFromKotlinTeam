@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:gravity="right"
     android:orientation="vertical"
-    android:paddingLeft="19dp"
-    android:paddingRight="19dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
