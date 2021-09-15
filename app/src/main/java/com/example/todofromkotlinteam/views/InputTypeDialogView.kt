@@ -8,13 +8,12 @@ import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
 import kotlinx.android.synthetic.main.type_input_dialog_layout.*
 
-
 enum class EventType {
     PLANS, IDEAS
 }
 
 interface OnTypeDialogButtonClickListener {
-    fun onTypeOkClickListener(type: EventType? = null)
+    fun onTypeOkClickListener(type: EventType)
 }
 
 class InputTypeDialogView(currentType: EventType?, listener: OnTypeDialogButtonClickListener) : DialogFragment() {
@@ -23,7 +22,6 @@ class InputTypeDialogView(currentType: EventType?, listener: OnTypeDialogButtonC
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         return inflater.inflate(R.layout.type_input_dialog_layout, container, false)
     }
 
@@ -32,13 +30,10 @@ class InputTypeDialogView(currentType: EventType?, listener: OnTypeDialogButtonC
 
         configureDialogAlert()
         configureListeners()
-//        checkPlans?.isChecked = currentType == EventType.PLANS
-//        checkIdeas?.isChecked = currentType == EventType.IDEAS
-
-//        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     private fun configureDialogAlert() {
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         checkPlans?.isChecked = currentType == EventType.PLANS
         checkIdeas?.isChecked = currentType == EventType.IDEAS
     }
@@ -57,8 +52,10 @@ class InputTypeDialogView(currentType: EventType?, listener: OnTypeDialogButtonC
         }
 
         okButton?.setOnClickListener {
-            alertClickListener.onTypeOkClickListener(currentType)
-            dialog?.hide()
+            if (currentType != null) {
+                alertClickListener.onTypeOkClickListener(currentType!!)
+                dialog?.hide()
+            }
         }
     }
 }

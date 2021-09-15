@@ -14,9 +14,13 @@ import java.util.*
 class CustomCalendarGridAdapter : ArrayAdapter<Date> {
     private var dates: List<Date>
     private var inflater: LayoutInflater
+    private var currentCalendar = Calendar.getInstance(Locale.ENGLISH)
+    private var selectedDate = Date()
 
-    constructor(context: Context, dates: List<Date>) : super(context, R.layout.calendar_date_layout) {
+    constructor(context: Context, dates: List<Date>, currentCalendar: Calendar, selectedDate: Date) : super(context, R.layout.calendar_date_layout) {
         this.dates = dates
+        this.currentCalendar = currentCalendar
+        this.selectedDate = selectedDate
 
         inflater = LayoutInflater.from(context)
     }
@@ -32,12 +36,12 @@ class CustomCalendarGridAdapter : ArrayAdapter<Date> {
         val displayMonth = calendar.get(Calendar.MONTH) + 1
         val displayYear = calendar.get(Calendar.YEAR)
 
-        calendar.time = (context as NavigationBarActivity).selectedDate // Selected day args
+        calendar.time = selectedDate // Selected day args
         val selectedDay = calendar.get(Calendar.DAY_OF_MONTH)
         val selectedMonth = calendar.get(Calendar.MONTH) + 1
         val selectedYear = calendar.get(Calendar.YEAR)
 
-        calendar = (context as NavigationBarActivity).currentCalendar
+        calendar = currentCalendar
         val currentMonth = calendar.get(Calendar.MONTH) + 1
         val currentYear = calendar.get(Calendar.YEAR)
 

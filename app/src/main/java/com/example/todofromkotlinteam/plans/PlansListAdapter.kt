@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
+import java.util.*
 import kotlin.collections.ArrayList
 
 class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : TDRecycleListAdapter() {
@@ -36,6 +38,11 @@ class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : TDR
         when (viewType) {
             R.id.customCalendar -> {
                 val calendar = CustomCalendarView(appContext)
+                calendar.setupParent(appContext as NavigationBarActivity)
+                calendar.configureCalendar(
+                    (appContext as NavigationBarActivity)?.currentCalendar,
+                    (appContext as NavigationBarActivity)?.selectedDate
+                )
                 calendar.layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT

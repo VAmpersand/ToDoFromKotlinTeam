@@ -11,10 +11,15 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
+interface OnWeekTopClickListener {
+    fun onWeekDateClickListener(date: Date)
+}
+
 class WeekTopView: LinearLayout {
     private var dates: ArrayList<Date> = ArrayList()
     private val titleDateFormat = SimpleDateFormat("MMM yyyy", Locale.ENGLISH)
     private lateinit var gridAdapter: WeekTopGridAdapter
+    private lateinit var listener: OnWeekTopClickListener
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
@@ -56,9 +61,14 @@ class WeekTopView: LinearLayout {
 
     private fun configureListeners() {
         gridView.setOnItemClickListener { _, _, position, _ ->
-            (context as NavigationBarActivity).currentCalendar.time = dates[position]
-            (context as NavigationBarActivity).selectDate(dates[position])
+            listener.onWeekDateClickListener(dates[position])
             configureWeek()
         }
+    }
+
+    fun setupParent(listener: OnWeekTopClickListener) {
+        this.listener = listener
+
+        configureListeners()
     }
 }

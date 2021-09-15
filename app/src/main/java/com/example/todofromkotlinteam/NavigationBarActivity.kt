@@ -9,10 +9,12 @@ import com.example.todofromkotlinteam.plans.PlansFragment
 import com.example.todofromkotlinteam.ideas.IdeasFragment
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
+import com.example.todofromkotlinteam.views.customCalendarView.OnCalendarClickListener
+import com.example.todofromkotlinteam.views.weekView.OnWeekTopClickListener
 import kotlinx.android.synthetic.main.navigation_bar_activity.*
 import java.util.*
 
-class NavigationBarActivity : AppCompatActivity() {
+class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWeekTopClickListener {
     private val plansFragment = PlansFragment()
     private val ideasFragment = IdeasFragment()
     private val profileFragment = ProfileFragment()
@@ -59,14 +61,35 @@ class NavigationBarActivity : AppCompatActivity() {
         }
     }
 
-    fun selectDate(date: Date) {
+//    fun selectDate(date: Date) {
+//        selectedDate = date
+//        plansFragment.configureFragment()
+//        ideasFragment.configureFragment()
+//    }
+
+    fun onClickAddEvent(view : View){
+        val intent = Intent(this,NewEventActivity::class.java)
+        startActivity(intent)
+    }
+
+    // MARK: - OnCalendarClickListener
+    override fun onDateClickListener(date: Date) {
         selectedDate = date
         plansFragment.configureFragment()
         ideasFragment.configureFragment()
     }
 
-    fun onClickAddEvent(view : View){
-        val intent = Intent(this,NewEventActivity::class.java)
-        startActivity(intent)
+    override fun onSetCalendarClickListener(calendar: Calendar) {
+        currentCalendar = calendar
+        plansFragment.configureFragment()
+        ideasFragment.configureFragment()
+    }
+
+    // MARK: - OnWeekTopClickListener
+    override fun onWeekDateClickListener(date: Date) {
+        currentCalendar.time = date
+        selectedDate = date
+        plansFragment.configureFragment()
+        ideasFragment.configureFragment()
     }
 }

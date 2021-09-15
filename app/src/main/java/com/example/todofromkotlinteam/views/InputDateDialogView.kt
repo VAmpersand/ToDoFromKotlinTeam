@@ -1,22 +1,64 @@
 package com.example.todofromkotlinteam.views
 
-import android.content.Context
-import android.util.AttributeSet
+import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.LinearLayout
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
+import com.example.todofromkotlinteam.views.customCalendarView.OnCalendarClickListener
+import kotlinx.android.synthetic.main.date_input_dialog_layout.*
+import java.util.*
 
-class InputDateDialogView: LinearLayout {
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs){
-        initializeLayout()
+
+interface OnDateDialogButtonClickListener {
+    fun onDateOkClickListener(date: Date)
+}
+
+class InputDateDialogView(currentDate: Date?, listener: OnDateDialogButtonClickListener) : DialogFragment(), OnCalendarClickListener {
+    private var calendar = Calendar.getInstance()
+    private val listener = listener
+    private var currentDate: Date? = currentDate
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        return inflater.inflate(R.layout.date_input_dialog_layout, container, false)
     }
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
+    override fun onStart() {
+        super.onStart()
 
-    private fun initializeLayout() {
-        val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.date_input_dialog_layout, this)
+        configureDialogAlert()
+        configureListeners()
+    }
+
+    private fun configureDialogAlert() {
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        calendar.time = currentDate
+        if (currentDate == null) currentDate = Date()
+        calendarView?.configureCalendar(calendar, currentDate!!)
+        calendarView?.setupParent(this)
+    }
+
+    private fun configureListeners() {
+        okButton?.setOnClickListener {
+            if (currentDate == null) currentDate = Date()
+            listener.onDateOkClickListener(currentDate!!)
+            dialog?.hide()
+        }
+    }
+
+    // MARK: - OnCalendarClickListener
+    override fun onDateClickListener(date: Date) {
+        currentDate = date
+        calendarView?.configureCalendar(calendar, date)
+    }
+
+    override fun onSetCalendarClickListener(calendar: Calendar) {
+        this.calendar = calendar
+        if (currentDate == null) currentDate = Date()
+        calendarView?.configureCalendar(calendar, currentDate!!)
     }
 }
 

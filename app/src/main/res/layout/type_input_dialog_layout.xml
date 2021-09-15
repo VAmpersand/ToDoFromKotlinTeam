@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
+    android:gravity="right"
     android:orientation="vertical"
     android:paddingLeft="19dp"
     android:paddingRight="19dp">
@@ -11,26 +11,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/item_background_shape"
         android:orientation="vertical"
-        android:padding="18dp"
-        android:background="@drawable/item_background_shape">
+        android:padding="18dp">
 
-    <CheckBox
-        android:id="@+id/checkPlans"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/plans"
-        android:textSize="28sp"
-        tools:ignore="TouchTargetSizeCheck" />
+        <CheckBox
+            android:id="@+id/checkPlans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/plans"
+            android:textSize="28sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
-    <CheckBox
-        android:id="@+id/checkIdeas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/ideas"
-        android:textSize="28sp"
-        tools:ignore="TouchTargetSizeCheck" />
+        <CheckBox
+            android:id="@+id/checkIdeas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/ideas"
+            android:textSize="28sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 
@@ -38,8 +39,8 @@
         android:id="@+id/okButton"
         android:layout_width="150dp"
         android:layout_height="74dp"
-        android:layout_marginLeft="170dp"
         android:layout_marginTop="-37dp"
+        android:layout_marginRight="19dp"
         android:background="@drawable/circle_shape"
         android:fontFamily="@font/gill_sans_semibold"
         android:text="@string/ok"

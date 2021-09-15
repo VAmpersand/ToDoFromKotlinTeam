@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEventType
@@ -119,6 +120,8 @@ class IdeasFragment : Fragment() {
         recycleView?.hasFixedSize()
         recycleView?.layoutManager = LinearLayoutManager(context)
         recycleView?.adapter = IdeasListAdapter(events, requireContext())
+
+        ideasWeekView?.setupParent(context as NavigationBarActivity)
     }
 
     fun configureFragment() {

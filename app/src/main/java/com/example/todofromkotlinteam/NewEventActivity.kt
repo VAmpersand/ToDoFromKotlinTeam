@@ -1,29 +1,21 @@
 package com.example.todofromkotlinteam
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
-import kotlinx.android.synthetic.main.date_input_dialog_layout.*
-import kotlinx.android.synthetic.main.date_input_dialog_layout.view.*
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
-import kotlinx.android.synthetic.main.new_event_field_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.time_input_dialog_layout.view.okButton
-import kotlinx.android.synthetic.main.time_input_dialog_layout.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-class NewEventActivity : AppCompatActivity(), OnTypeDialogButtonClickListener {
+class NewEventActivity : AppCompatActivity(), OnTypeDialogButtonClickListener, OnDateDialogButtonClickListener {
     private var currentType: EventType? = null
     private var currentDate = Date()
-//    private val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
@@ -46,12 +38,12 @@ class NewEventActivity : AppCompatActivity(), OnTypeDialogButtonClickListener {
 
         eventTypeField?.configureField(EventDataFieldType.TYPE)
         eventTypeField?.inputField?.setOnClickListener {
-            InputTypeDialogView(currentType, this).show(supportFragmentManager, "MyCustomFragment")
+            InputTypeDialogView(currentType, this).show(supportFragmentManager, "TypeDialog")
         }
 
         eventDateField?.configureField(EventDataFieldType.DATE)
         eventDateField?.inputField?.setOnClickListener {
-            showSetDateDialog()
+            InputDateDialogView(currentDate, this).show(supportFragmentManager, "DateDialog")
         }
         eventStartTimeField?.configureField(EventDataFieldType.START_TIME)
         eventStartTimeField?.inputField?.setOnClickListener {
@@ -79,7 +71,8 @@ class NewEventActivity : AppCompatActivity(), OnTypeDialogButtonClickListener {
         }
     }
 
-    override fun onTypeOkClickListener(type: EventType?) {
+    // MARK: - OnTypeDialogButtonClickListener
+    override fun onTypeOkClickListener(type: EventType) {
         currentType = type
 
         if (type == EventType.PLANS) {
@@ -89,63 +82,16 @@ class NewEventActivity : AppCompatActivity(), OnTypeDialogButtonClickListener {
         }
     }
 
-    private fun showSetDateDialog() {
-        val view = View.inflate(this, R.layout.date_input_dialog_layout, null)
-        view.calendarView?.setDate(currentDate.time)
+    // MARK: - OnDateDialogButtonClickListener
+    override fun onDateOkClickListener(date: Date) {
+        currentDate = date!!
 
-        val builder = AlertDialog.Builder(this)
-        builder.setView(view)
-        val dialog = builder.create()
+        val calendar = Calendar.getInstance(Locale.ENGLISH)
+        val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)
+        calendar.time = date
 
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
-        view.calendarView?.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            currentDate.time = view.date
-
-            eventDateField?.inputField?.setText("$year-${month+1}-$dayOfMonth")
-        }
-
-        view.okButtonDate?.setOnClickListener {
-         dialog.hide()
-        }
+        eventDateField?.inputField?.setText(dateFormat.format(calendar.time))
     }
-
-//    private fun showSetDateDialog() {
-//
-//        val view = View.inflate(this, R.layout.date_input_dialog_layout, null)
-//        val builder = AlertDialog.Builder(this)
-//        builder.setView(view)
-//        val dialog = builder.create()
-//        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-//        val editText = EventDataFieldType.DATE as TextView
-//        val calendar = findViewById<CalendarView>(R.id.calendarView)
-//        dialog.show()
-//        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-//        calendar.setOnDateChangeListener { view1: CalendarView, year: Int, month: Int, dayOfMonth: Int ->
-//            val correctMonth = month + 1
-//            editText.text = "$year-$correctMonth-$dayOfMonth"
-//
-//            view.okButtonDate?.setOnClickListener {
-//
-//
-//                dialog.hide()
-//            }
-//
-//        }
-//    }
-
-//     fun onClickOkDate(view: View){
-//         val calendar = findViewById<CalendarView>(R.id.calendarView)
-//         val editText = EventDataFieldType.DATE as TextView
-//         calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
-//             val correctMonth = month + 1
-//
-//             inputField?.setText("$year-$correctMonth-$dayOfMonth")
-//             editText.setText("$year-$correctMonth-$dayOfMonth")
-//         }
-//     }
-
 }
 
 

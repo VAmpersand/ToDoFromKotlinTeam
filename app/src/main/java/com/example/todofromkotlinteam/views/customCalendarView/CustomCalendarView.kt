@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
-import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import kotlinx.android.synthetic.main.calendar_date_layout.view.*
 import kotlinx.android.synthetic.main.calendar_layout.view.*
@@ -13,19 +12,23 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CustomCalendarView: LinearLayout {
+interface OnCalendarClickListener {
+    fun onDateClickListener(date: Date)
+    fun onSetCalendarClickListener(calendar: Calendar)
+}
+
+class CustomCalendarView : LinearLayout {
     private var calendar = Calendar.getInstance()
     private var dates: ArrayList<Date> = ArrayList()
     private val titleDateFormat = SimpleDateFormat("MMM yyyy", Locale.ENGLISH)
     private lateinit var gridAdapter: CustomCalendarGridAdapter
+    private lateinit var listener: OnCalendarClickListener
 
     constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
         initializeLayout()
-        configureCalendar()
-        configureListeners()
     }
 
     private fun initializeLayout() {
@@ -33,9 +36,8 @@ class CustomCalendarView: LinearLayout {
         inflater.inflate(R.layout.calendar_layout, this)
     }
 
-    fun configureCalendar() {
+    fun configureCalendar(calendar: Calendar, selectedDate: Date) {
         val maxDays = 42
-        calendar = (context as NavigationBarActivity).currentCalendar
         currentDateTitle.text = titleDateFormat.format(calendar.time)
 
         dates.clear()
@@ -50,28 +52,31 @@ class CustomCalendarView: LinearLayout {
             monthCalendar.add(Calendar.DAY_OF_MONTH, 1)
         }
 
-        gridAdapter = CustomCalendarGridAdapter(context, dates)
+        gridAdapter = CustomCalendarGridAdapter(context, dates, calendar, selectedDate)
         gridView.adapter = gridAdapter
     }
 
     private fun configureListeners() {
         prevButton.setOnClickListener {
             calendar.add(Calendar.MONTH, -1)
-            (context as NavigationBarActivity)?.currentCalendar = calendar
-            configureCalendar()
+            listener.onSetCalendarClickListener(calendar)
         }
 
         nextButton.setOnClickListener {
             calendar.add(Calendar.MONTH, 1)
-            (context as NavigationBarActivity)?.currentCalendar = calendar
-            configureCalendar()
+            listener.onSetCalendarClickListener(calendar)
         }
 
         gridView.setOnItemClickListener { _, view, position, _ ->
             if (view.dateTextView.isVisible) {
-                (context as NavigationBarActivity)?.selectDate(dates[position])
-                configureCalendar()
+                listener.onDateClickListener(dates[position])
             }
         }
+    }
+
+    fun setupParent(listener: OnCalendarClickListener) {
+        this.listener = listener
+
+        configureListeners()
     }
 }
