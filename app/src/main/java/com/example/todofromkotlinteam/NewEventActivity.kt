@@ -2,19 +2,23 @@ package com.example.todofromkotlinteam
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
-import kotlinx.android.synthetic.main.time_input_dialog_layout.view.okButton
 import java.text.SimpleDateFormat
 import java.util.*
 
-class NewEventActivity : AppCompatActivity(), OnTypeDialogButtonClickListener, OnDateDialogButtonClickListener {
+class NewEventActivity : AppCompatActivity(),
+    OnTypeDialogButtonClickListener,
+    OnDateDialogButtonClickListener,
+    OnTimeDialogButtonClickListener {
+
     private var currentType: EventType? = null
     private var currentDate = Date()
+    private var currentStartTime: Date? = null
+    private var currentEndTime: Date? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,29 +49,15 @@ class NewEventActivity : AppCompatActivity(), OnTypeDialogButtonClickListener, O
         eventDateField?.inputField?.setOnClickListener {
             InputDateDialogView(currentDate, this).show(supportFragmentManager, "DateDialog")
         }
+
         eventStartTimeField?.configureField(EventDataFieldType.START_TIME)
         eventStartTimeField?.inputField?.setOnClickListener {
-            showSetTimeDialog()
+            InputTimeDialogView(currentStartTime, currentEndTime,this).show(supportFragmentManager, "TimeDialog")
         }
 
         eventEndTimeField?.configureField(EventDataFieldType.END_TIME)
         eventEndTimeField?.inputField?.setOnClickListener {
-            showSetTimeDialog()
-        }
-    }
-
-    private fun showSetTimeDialog() {
-        val view = View.inflate(this, R.layout.time_input_dialog_layout, null)
-
-        val builder = AlertDialog.Builder(this)
-        builder.setView(view)
-
-        val dialog = builder.create()
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
-        view.okButton?.setOnClickListener {
-            dialog.hide()
+            InputTimeDialogView(currentStartTime, currentEndTime,this).show(supportFragmentManager, "TimeDialog")
         }
     }
 
@@ -84,13 +74,28 @@ class NewEventActivity : AppCompatActivity(), OnTypeDialogButtonClickListener, O
 
     // MARK: - OnDateDialogButtonClickListener
     override fun onDateOkClickListener(date: Date) {
-        currentDate = date!!
+        currentDate = date
 
         val calendar = Calendar.getInstance(Locale.ENGLISH)
         val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)
         calendar.time = date
 
         eventDateField?.inputField?.setText(dateFormat.format(calendar.time))
+    }
+
+    // MARK: - OnTimeDialogButtonClickListener
+    override fun onTimeOkClickListener(startTime: Date, endTime: Date) {
+        currentStartTime = startTime
+        currentEndTime = endTime
+
+        val calendar = Calendar.getInstance(Locale.ENGLISH)
+        val dateFormat = SimpleDateFormat("HH:mm", Locale.ENGLISH)
+
+        calendar.time = startTime
+        eventStartTimeField?.inputField?.setText(dateFormat.format(calendar.time))
+
+        calendar.time = endTime
+        eventEndTimeField?.inputField?.setText(dateFormat.format(calendar.time))
     }
 }
 

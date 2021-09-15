@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
+import com.example.todofromkotlinteam.views.InputTimeDialogView
 import kotlinx.android.synthetic.main.settings_fragment.*
 
 class SettingsFragment() : Fragment() {

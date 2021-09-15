@@ -11,8 +11,7 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/item_background_shape"
-        android:weekNumberColor="@color/main_orange" />
+        android:background="@drawable/item_background_shape" />
 
     <Button
         android:id="@+id/okButton"

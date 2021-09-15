@@ -16,8 +16,8 @@ interface OnDateDialogButtonClickListener {
 }
 
 class InputDateDialogView(currentDate: Date?, listener: OnDateDialogButtonClickListener) : DialogFragment(), OnCalendarClickListener {
-    private var calendar = Calendar.getInstance()
     private val listener = listener
+    private var calendar = Calendar.getInstance()
     private var currentDate: Date? = currentDate
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
