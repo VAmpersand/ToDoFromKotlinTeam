@@ -146,6 +146,7 @@ class PlansFragment: Fragment() {
                     startDelay = 0
                     start()
                 }
+
             }
         }
     }

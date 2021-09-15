@@ -1,8 +1,7 @@
-package com.example.todofromkotlinteam.plans.customCalendarView
+package com.example.todofromkotlinteam.views.customCalendarView
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
@@ -58,19 +57,19 @@ class CustomCalendarView: LinearLayout {
     private fun configureListeners() {
         prevButton.setOnClickListener {
             calendar.add(Calendar.MONTH, -1)
-            (context as NavigationBarActivity).currentCalendar = calendar
+            (context as NavigationBarActivity)?.currentCalendar = calendar
             configureCalendar()
         }
 
         nextButton.setOnClickListener {
             calendar.add(Calendar.MONTH, 1)
-            (context as NavigationBarActivity).currentCalendar = calendar
+            (context as NavigationBarActivity)?.currentCalendar = calendar
             configureCalendar()
         }
 
         gridView.setOnItemClickListener { _, view, position, _ ->
             if (view.dateTextView.isVisible) {
-                (context as NavigationBarActivity).selectDate(dates[position])
+                (context as NavigationBarActivity)?.selectDate(dates[position])
                 configureCalendar()
             }
         }

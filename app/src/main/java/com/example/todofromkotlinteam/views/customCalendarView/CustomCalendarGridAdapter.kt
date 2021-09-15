@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.plans.customCalendarView
+package com.example.todofromkotlinteam.views.customCalendarView
 
 import android.content.Context
 import android.view.LayoutInflater
