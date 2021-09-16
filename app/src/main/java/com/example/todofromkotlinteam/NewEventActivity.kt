@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -13,12 +14,15 @@ import java.util.*
 class NewEventActivity : AppCompatActivity(),
     OnTypeDialogButtonClickListener,
     OnDateDialogButtonClickListener,
-    OnTimeDialogButtonClickListener {
+    OnTimeDialogButtonClickListener,
+     OnHexDialogButtonClickListener
+{
 
     private var currentType: EventType? = null
     private var currentDate = Date()
     private var currentStartTime: Date? = null
     private var currentEndTime: Date? = null
+    private var currentColor: Color? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +63,11 @@ class NewEventActivity : AppCompatActivity(),
         eventEndTimeField?.inputField?.setOnClickListener {
             InputTimeDialogView(currentStartTime, currentEndTime,this).show(supportFragmentManager, "TimeDialog")
         }
+
+        eventEndTimeField?.configureField(EventDataFieldType.DESCRIPTION)
+        eventEndTimeField?.inputField?.setOnClickListener {
+            HexSelectColorDialogView(this).show(supportFragmentManager, "HexDialog")
+        }
     }
 
     // MARK: - OnTypeDialogButtonClickListener
@@ -96,6 +105,11 @@ class NewEventActivity : AppCompatActivity(),
 
         calendar.time = endTime
         eventEndTimeField?.inputField?.setText(dateFormat.format(calendar.time))
+    }
+
+    override fun onHexOkClickListener() {
+
+
     }
 }
 
