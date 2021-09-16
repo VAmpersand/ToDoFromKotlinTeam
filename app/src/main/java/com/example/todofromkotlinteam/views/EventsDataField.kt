@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.iconEvent
 
 enum class EventDataFieldType {
-    NAME, TYPE, DATE, START_TIME, END_TIME, DESCRIPTION, PARTNER
+    NAME, TYPE, DATE, START_TIME, END_TIME, DESCRIPTION, PARTNER,COLOR
 }
 
 class EventsDataField: LinearLayout {
@@ -69,6 +69,12 @@ class EventsDataField: LinearLayout {
             EventDataFieldType.PARTNER -> {
                 inputField?.hint = "Whois the event with"
                 iconEvent?.setImageResource(R.drawable.ic_people)
+            }
+            EventDataFieldType.COLOR ->{
+                inputField?.hint = "Color tema"
+                inputField?.isCursorVisible = false
+                inputField?.isFocusable = false
+                iconEvent?.setImageResource(R.drawable.circle_shape)
             }
         }
     }

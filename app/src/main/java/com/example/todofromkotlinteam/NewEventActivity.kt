@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -59,6 +60,12 @@ class NewEventActivity : AppCompatActivity(),
         eventEndTimeField?.inputField?.setOnClickListener {
             InputTimeDialogView(currentStartTime, currentEndTime,this).show(supportFragmentManager, "TimeDialog")
         }
+
+        buttonColor?.configureField(EventDataFieldType.COLOR)
+        buttonColor?.inputField?.setOnClickListener {
+            InputColorDialogView().show(supportFragmentManager, "ColorDialog")
+        }
+
     }
 
     // MARK: - OnTypeDialogButtonClickListener

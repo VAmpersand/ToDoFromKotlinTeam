@@ -26,6 +26,7 @@
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/ic_settings.xml" value="0.13703703703703704" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/ic_today.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/ic_watch.xml" value="0.10462962962962963" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/icon_colors.xml" value="0.2890625" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/item_background_shape.xml" value="0.2890625" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow_gradient_bottom.xml" value="0.2890625" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow_gradient_center.xml" value="0.2890625" />
@@ -33,6 +34,12 @@
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_date_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_layout.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/color_dialog_layout.xml" value="0.33" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/color_tema_dialog.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/color_tema_field_layout.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/color_theme_dialog.xml" value="0.25" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/color_theme_field_layout.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/date_input_dialog_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/event_list_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/ideas_fragment.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/navigation_bar_activity.xml" value="0.27291666666666664" />
@@ -45,7 +52,9 @@
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/plans_fragment.xml" value="0.22685185185185186" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/profile_fragment.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/settings_fragment.xml" value="0.22685185185185186" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/time_input_dialog_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/title_list_layout.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/type_input_dialog_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/week_top_view_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/Documents/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/welcome_activity.xml" value="0.27291666666666664" />
         <entry key="app/src/main/res/drawable-anydpi/ic_add.xml" value="0.2553846153846154" />
