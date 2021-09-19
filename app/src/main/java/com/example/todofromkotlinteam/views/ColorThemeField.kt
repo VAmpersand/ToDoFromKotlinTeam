@@ -1,11 +1,16 @@
 package com.example.todofromkotlinteam.views
 
 import android.content.Context
+import android.graphics.Color
+import android.os.Bundle
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.LinearLayout
 import com.example.todofromkotlinteam.R
+import com.example.todofromkotlinteam.model.ListEvent
+import com.example.todofromkotlinteam.model.ListEventType
 import kotlinx.android.synthetic.main.color_theme_dialog.view.*
 import kotlinx.android.synthetic.main.color_theme_field_layout.view.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
@@ -28,42 +33,52 @@ class ColorTemaField: LinearLayout {
         inflater.inflate(R.layout.color_theme_field_layout, this)
     }
 
-    fun configureField(type: ColorThemeType , title: String? = null) {
-        nameTheme?.setText(title)
-
-        when (type) {
-            ColorThemeType.HEALTH -> {
-                nameTheme?.hint = "Health"
-                inputField?.isCursorVisible = false
-
-            }
-            ColorThemeType.STUDY -> {
-                nameTheme?.hint = "Study"
-                inputField?.isCursorVisible = false
-
-            }
-            ColorThemeType.HOBBY -> {
-                nameTheme?.hint = "Hobby"
-                inputField?.isCursorVisible = false
-
-            }
-            ColorThemeType.WORK -> {
-                nameTheme?.hint = "Work"
-                inputField?.isCursorVisible = false
-
-            }
-            ColorThemeType.SPORT -> {
-                nameTheme?.hint = "Sport"
-                inputField?.isCursorVisible = false
-
-            }
-            ColorThemeType.MEETING -> {
-                nameTheme?.hint = "Meeting"
-                inputField?.isCursorVisible = false
-
-            }
 
 
-        }
-    }
+
+
+//    fun configureField(type: ColorThemeType , title: String? = null) {
+//        nameTheme?.setText(title)
+//
+//        when (type) {
+//            ColorThemeType.HEALTH -> {
+//                nameTheme?.hint = "Health"
+//                nameTheme?.isCursorVisible = false
+//                nameTheme?.isFocusable = false
+//                nameTheme?.inputType = InputType.TYPE_NULL
+//            }
+//            ColorThemeType.STUDY -> {
+//                nameTheme?.hint = "Study"
+//                nameTheme?.isCursorVisible = false
+//                nameTheme?.isFocusable = false
+//                nameTheme?.inputType = InputType.TYPE_NULL
+//            }
+//            ColorThemeType.HOBBY -> {
+//                nameTheme?.hint = "Hobby"
+//                nameTheme?.isCursorVisible = false
+//                nameTheme?.isFocusable = false
+//                nameTheme?.inputType = InputType.TYPE_NULL
+//            }
+//            ColorThemeType.WORK -> {
+//                nameTheme?.hint = "Work"
+//                nameTheme?.isCursorVisible = false
+//                nameTheme?.isFocusable = false
+//                nameTheme?.inputType = InputType.TYPE_NULL
+//            }
+//            ColorThemeType.SPORT -> {
+//                nameTheme?.hint = "Sport"
+//                nameTheme?.isCursorVisible = false
+//                nameTheme?.isFocusable = false
+//                nameTheme?.inputType = InputType.TYPE_NULL
+//            }
+//            ColorThemeType.MEETING -> {
+//                nameTheme?.hint = "Meeting"
+//                nameTheme?.isCursorVisible = false
+//                nameTheme?.isFocusable = false
+//                nameTheme?.inputType = InputType.TYPE_NULL
+//            }
+//
+//
+//        }
+//    }
 }
