@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.views
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,12 +25,13 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
 
     private val listener = listener
 
+
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.rgb_select_color_layout, container, false)
     }
 
-    override fun onStart() {
+     override fun onStart() {
         super.onStart()
         configureDialogAlert()
         updateColor()
@@ -37,6 +39,7 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
         seekBarRed?.setOnSeekBarChangeListener(seekBarChangeListener)
         seekBarGreen?.setOnSeekBarChangeListener(seekBarChangeListener)
         seekBarBlue?.setOnSeekBarChangeListener(seekBarChangeListener)
+
         configureListeners()
     }
 
@@ -48,9 +51,10 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
     }
 
     private fun configureListeners() {
-        okButton?.setOnClickListener {
 
-            dialog?.hide()
+        okButton?.setOnClickListener {
+          if (editTextTitle.text.isEmpty()){editTextTitle.setError("Enter the title new event")}
+          else dialog?.hide()
         }
     }
 
