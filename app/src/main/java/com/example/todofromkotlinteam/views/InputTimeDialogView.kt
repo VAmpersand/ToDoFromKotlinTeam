@@ -1,17 +1,13 @@
 package com.example.todofromkotlinteam.views
 
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
 import kotlinx.android.synthetic.main.time_input_dialog_layout.*
-import kotlinx.android.synthetic.main.type_input_dialog_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 import java.util.*
 
@@ -39,7 +35,7 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
     private fun configureDialogAlert() {
         dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-        val calendar = Calendar.getInstance(Locale.ENGLISH)
+        val calendar = Calendar.getInstance(Locale.UK)
 
         if (startTime != null && endTime != null) {
             calendar.time = startTime
@@ -54,16 +50,16 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
 
     private fun configureListeners() {
         okButton?.setOnClickListener {
-            val calendar = Calendar.getInstance(Locale.ENGLISH)
+            val calendar = Calendar.getInstance(Locale.UK)
 
             val startHours = startHoursEditText?.text
-            calendar.set(Calendar.HOUR, 13)
-            calendar.set(Calendar.MINUTE, 44)
+            calendar.get(Calendar.HOUR)
+            calendar.get(Calendar.MINUTE)
 
             var startTime = calendar.time
 
-            calendar.set(Calendar.HOUR, 14)
-            calendar.set(Calendar.MINUTE, 14)
+            calendar.get(Calendar.HOUR)
+            calendar.get(Calendar.MINUTE)
 
             var endTime = calendar.time
 

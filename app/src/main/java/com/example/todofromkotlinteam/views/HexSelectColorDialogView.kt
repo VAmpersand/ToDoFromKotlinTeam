@@ -4,58 +4,53 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
+import kotlinx.android.synthetic.main.rgb_select_color_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.*
+import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 import java.util.*
 
-interface OnHexDialogButtonClickListener{
+interface OnHexDialogButtonClickListener {
     fun onHexOkClickListener()
 }
 
 class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : DialogFragment() {
 
     private val listener = listener
-    private var redSeekBar: SeekBar? = null
-    private var greenSeekBar: SeekBar? = null
-    private var blueSeekBar: SeekBar? = null
-    private var hexView: View? = null
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.rgb_select_color_layout, container, false)
-
-
-
-         }
+    }
 
     override fun onStart() {
         super.onStart()
-        redSeekBar = view?.findViewById(R.id.seekBarRed)
-        greenSeekBar = view?.findViewById(R.id.seekBarGreen)
-        blueSeekBar = view?.findViewById(R.id.seekBarBlue)
-        hexView = view?.findViewById(R.id.viewHexColor)
         configureDialogAlert()
         updateColor()
-        redSeekBar?.setOnSeekBarChangeListener(seekBarChangeListener)
-        greenSeekBar?.setOnSeekBarChangeListener(seekBarChangeListener)
-        blueSeekBar?.setOnSeekBarChangeListener(seekBarChangeListener)
+
+        seekBarRed?.setOnSeekBarChangeListener(seekBarChangeListener)
+        seekBarGreen?.setOnSeekBarChangeListener(seekBarChangeListener)
+        seekBarBlue?.setOnSeekBarChangeListener(seekBarChangeListener)
         configureListeners()
     }
 
     private fun configureDialogAlert() {
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT
+        dialog?.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
     }
 
-    private fun configureListeners(){
+    private fun configureListeners() {
         okButton?.setOnClickListener {
 
-             dialog?.hide()
+            dialog?.hide()
         }
     }
 
@@ -70,13 +65,12 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
     }
 
     private fun updateColor() {
-        val redValue: Int = redSeekBar!!.progress
-        val greenValue: Int = greenSeekBar!!.progress
-        val blueValue: Int = blueSeekBar!!.progress
+        val redValue: Int = seekBarRed.progress
+        val greenValue: Int = seekBarGreen.progress
+        val blueValue: Int = seekBarBlue.progress
 
-        hexView!!.setBackgroundColor(-0x1000000 + redValue * 0x10000 + greenValue * 0x100 + blueValue)
+        viewHexColor?.background?.setTint(-0x1000000 + redValue * 0x10000 + greenValue * 0x100 + blueValue)
     }
-
 
 }
 

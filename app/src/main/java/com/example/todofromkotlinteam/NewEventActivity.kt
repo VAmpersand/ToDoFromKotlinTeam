@@ -31,6 +31,7 @@ class NewEventActivity : AppCompatActivity(),
         configureFields()
     }
 
+
     fun onClickBack(view: View) {
         finish()
     }
@@ -64,8 +65,8 @@ class NewEventActivity : AppCompatActivity(),
             InputTimeDialogView(currentStartTime, currentEndTime,this).show(supportFragmentManager, "TimeDialog")
         }
 
-        eventEndTimeField?.configureField(EventDataFieldType.DESCRIPTION)
-        eventEndTimeField?.inputField?.setOnClickListener {
+        eventDescriptionField?.configureField(EventDataFieldType.DESCRIPTION)
+        eventDescriptionField?.inputField?.setOnClickListener {
             HexSelectColorDialogView(this).show(supportFragmentManager, "HexDialog")
         }
     }
@@ -85,8 +86,8 @@ class NewEventActivity : AppCompatActivity(),
     override fun onDateOkClickListener(date: Date) {
         currentDate = date
 
-        val calendar = Calendar.getInstance(Locale.ENGLISH)
-        val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)
+        val calendar = Calendar.getInstance(Locale.UK)
+        val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.UK)
         calendar.time = date
 
         eventDateField?.inputField?.setText(dateFormat.format(calendar.time))
@@ -97,8 +98,8 @@ class NewEventActivity : AppCompatActivity(),
         currentStartTime = startTime
         currentEndTime = endTime
 
-        val calendar = Calendar.getInstance(Locale.ENGLISH)
-        val dateFormat = SimpleDateFormat("HH:mm", Locale.ENGLISH)
+        val calendar = Calendar.getInstance(Locale.UK)
+        val dateFormat = SimpleDateFormat("HH:mm", Locale.UK)
 
         calendar.time = startTime
         eventStartTimeField?.inputField?.setText(dateFormat.format(calendar.time))
@@ -107,9 +108,10 @@ class NewEventActivity : AppCompatActivity(),
         eventEndTimeField?.inputField?.setText(dateFormat.format(calendar.time))
     }
 
+
+
     override fun onHexOkClickListener() {
-
-
+        TODO("Not yet implemented")
     }
 }
 
