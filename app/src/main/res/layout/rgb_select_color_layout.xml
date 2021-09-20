@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_background_shape"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="18dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="38dp">
+
+        <View
+            android:id="@+id/viewHexColor"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/circle_event"
+            android:elevation="10dp" />
+
+        <SeekBar
+            android:id="@+id/seekBarRed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:elevation="6dp"
+            android:max="255"
+            android:maxHeight="6dp"
+            android:minHeight="6dp"
+            android:progressDrawable="@drawable/seek_bar_background_red" />
+
+        <SeekBar
+            android:id="@+id/seekBarGreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:elevation="6dp"
+            android:max="255"
+            android:maxHeight="6dp"
+            android:minHeight="6dp"
+            android:progressDrawable="@drawable/seek_bar_background_green" />
+
+        <SeekBar
+            android:id="@+id/seekBarBlue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:elevation="6dp"
+            android:max="255"
+            android:maxHeight="6dp"
+            android:minHeight="6dp"
+            android:progressDrawable="@drawable/seek_bar_background_blue" />
+
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="180dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:cursorVisible="false"
+            android:ems="10"
+            android:hint="Title new event"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:textSize="21dp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="150dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="-34dp"
+        android:layout_marginRight="19dp"
+        android:background="@drawable/circle_shape"
+        android:elevation="20dp"
+        android:fontFamily="@font/gill_sans_semibold"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>
