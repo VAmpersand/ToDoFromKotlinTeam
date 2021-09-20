@@ -19,8 +19,8 @@
 
     <View
         android:id="@+id/colorTheme"
-        android:layout_width="19dp"
-        android:layout_height="19dp"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
         android:layout_margin="10dp"
         android:background="@drawable/circle_shape" />
 

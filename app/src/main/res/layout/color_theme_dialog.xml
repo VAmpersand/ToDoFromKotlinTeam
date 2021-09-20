@@ -12,36 +12,41 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:background="@drawable/item_background_shape"
         android:gravity="right"
-        android:background="@drawable/item_background_shape">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:gravity="right"
             android:padding="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="View theme"
-                android:textIsSelectable="false"
-                android:textSize="29dp"
                 android:fontFamily="@font/gill_sans_regular"
-                android:textColor="@color/text_title"/>
-
+                android:text="View theme"
+                android:textColor="@color/text_title"
+                android:textIsSelectable="false"
+                android:textSize="29dp" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
                 android:layout_width="41dp"
                 android:layout_height="41dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/circle_shape"
+                android:backgroundTint="@color/main_orange"
+                android:elevation="0dp"
+                android:onClick="onClickAddEvent"
                 android:src="@drawable/ic_add"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                app:borderWidth="0dp"
+                app:fabCustomSize="41dp"
+                app:maxImageSize="20dp"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 
@@ -49,9 +54,7 @@
             android:id="@+id/rcView"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:padding="10dp"
-            />
-
+            android:padding="10dp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -62,6 +65,7 @@
         android:layout_marginTop="-37dp"
         android:layout_marginRight="19dp"
         android:background="@drawable/circle_shape"
+        android:backgroundTint="@color/main_orange"
         android:fontFamily="@font/gill_sans_semibold"
         android:text="@string/ok"
         android:textColor="@color/white"

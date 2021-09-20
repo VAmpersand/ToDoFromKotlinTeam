@@ -20,6 +20,7 @@
         android:layout_marginTop="-35dp"
         android:layout_marginRight="19dp"
         android:background="@drawable/circle_shape"
+        android:backgroundTint="@color/main_orange"
         android:elevation="18dp"
         android:fontFamily="@font/gill_sans_semibold"
         android:text="@string/ok"

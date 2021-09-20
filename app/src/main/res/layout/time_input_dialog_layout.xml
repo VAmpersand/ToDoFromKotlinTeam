@@ -117,6 +117,7 @@
         android:layout_marginTop="-37dp"
         android:layout_marginRight="19dp"
         android:background="@drawable/circle_shape"
+        android:backgroundTint="@color/main_orange"
         android:fontFamily="@font/gill_sans_semibold"
         android:text="@string/ok"
         android:textColor="@color/white"
