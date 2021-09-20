@@ -1,17 +1,13 @@
 package com.example.todofromkotlinteam.views
 
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
 import kotlinx.android.synthetic.main.time_input_dialog_layout.*
-import kotlinx.android.synthetic.main.type_input_dialog_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 import java.util.*
 

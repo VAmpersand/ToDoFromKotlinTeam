@@ -71,7 +71,7 @@ class EventsDataField: LinearLayout {
                 iconEvent?.setImageResource(R.drawable.ic_people)
             }
             EventDataFieldType.COLOR ->{
-                inputField?.hint = "Color tema"
+                inputField?.hint = "Color theme"
                 inputField?.isCursorVisible = false
                 inputField?.isFocusable = false
                 iconEvent?.setImageResource(R.drawable.circle_shape)
