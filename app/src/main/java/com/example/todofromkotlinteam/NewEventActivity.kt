@@ -1,6 +1,7 @@
 package com.example.todofromkotlinteam
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +15,9 @@ import java.util.*
 class NewEventActivity : AppCompatActivity(),
     OnTypeDialogButtonClickListener,
     OnDateDialogButtonClickListener,
-    OnTimeDialogButtonClickListener {
+    OnTimeDialogButtonClickListener,
+    OnHexDialogButtonClickListener
+{
 
     private var currentType: EventType? = null
     private var currentDate = Date()
@@ -27,6 +30,7 @@ class NewEventActivity : AppCompatActivity(),
 
         configureFields()
     }
+
 
     fun onClickBack(view: View) {
         finish()
@@ -66,6 +70,10 @@ class NewEventActivity : AppCompatActivity(),
             InputColorDialogView().show(supportFragmentManager, "ColorDialog")
         }
 
+        eventDescriptionField?.configureField(EventDataFieldType.DESCRIPTION)
+        eventDescriptionField?.inputField?.setOnClickListener {
+            HexSelectColorDialogView(this).show(supportFragmentManager, "HexDialog")
+        }
     }
 
     // MARK: - OnTypeDialogButtonClickListener
@@ -83,8 +91,8 @@ class NewEventActivity : AppCompatActivity(),
     override fun onDateOkClickListener(date: Date) {
         currentDate = date
 
-        val calendar = Calendar.getInstance(Locale.ENGLISH)
-        val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)
+        val calendar = Calendar.getInstance(Locale.UK)
+        val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.UK)
         calendar.time = date
 
         eventDateField?.inputField?.setText(dateFormat.format(calendar.time))
@@ -95,14 +103,18 @@ class NewEventActivity : AppCompatActivity(),
         currentStartTime = startTime
         currentEndTime = endTime
 
-        val calendar = Calendar.getInstance(Locale.ENGLISH)
-        val dateFormat = SimpleDateFormat("HH:mm", Locale.ENGLISH)
+        val calendar = Calendar.getInstance(Locale.UK)
+        val dateFormat = SimpleDateFormat("HH:mm", Locale.UK)
 
         calendar.time = startTime
         eventStartTimeField?.inputField?.setText(dateFormat.format(calendar.time))
 
         calendar.time = endTime
         eventEndTimeField?.inputField?.setText(dateFormat.format(calendar.time))
+    }
+
+    override fun onHexOkClickListener() {
+        TODO("Not yet implemented")
     }
 }
 

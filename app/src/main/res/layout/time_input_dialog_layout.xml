@@ -35,6 +35,8 @@
                 android:id="@+id/startHoursEditText"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:inputType="time"
                 android:layout_marginLeft="19dp"
                 android:background="@android:drawable/editbox_background_normal" />
 
@@ -47,6 +49,8 @@
                 android:id="@+id/startMinutesEditText"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:inputType="time"
                 android:layout_marginLeft="7dp"
                 android:background="@android:drawable/editbox_background_normal" />
 
@@ -77,7 +81,9 @@
             <EditText
                 android:id="@+id/endHoursEditText"
                 android:layout_width="50dp"
+                android:singleLine="true"
                 android:layout_height="wrap_content"
+                android:inputType="time"
                 android:layout_marginLeft="19dp"
                 android:background="@android:drawable/editbox_background_normal" />
 
@@ -90,6 +96,8 @@
                 android:id="@+id/endMinutesEditText"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:inputType="time"
                 android:layout_marginLeft="7dp"
                 android:background="@android:drawable/editbox_background_normal" />
 
