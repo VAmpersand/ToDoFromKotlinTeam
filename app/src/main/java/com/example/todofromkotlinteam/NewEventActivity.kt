@@ -1,7 +1,5 @@
 package com.example.todofromkotlinteam
 
-import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +14,8 @@ class NewEventActivity : AppCompatActivity(),
     OnTypeDialogButtonClickListener,
     OnDateDialogButtonClickListener,
     OnTimeDialogButtonClickListener,
-    OnHexDialogButtonClickListener
+    OnHexDialogButtonClickListener,
+    OnColorDialogButtonClickListener
 {
 
     private var currentType: EventType? = null
@@ -67,12 +66,12 @@ class NewEventActivity : AppCompatActivity(),
 
         buttonColor?.configureField(EventDataFieldType.COLOR)
         buttonColor?.inputField?.setOnClickListener {
-            InputColorDialogView().show(supportFragmentManager, "ColorDialog")
+            InputColorDialogView(this).show(supportFragmentManager, "ColorDialog")
         }
 
         eventDescriptionField?.configureField(EventDataFieldType.DESCRIPTION)
         eventDescriptionField?.inputField?.setOnClickListener {
-            HexSelectColorDialogView(this).show(supportFragmentManager, "HexDialog")
+            HexSelectColorDialogView().show(supportFragmentManager, "HexDialog")
         }
     }
 
@@ -113,8 +112,14 @@ class NewEventActivity : AppCompatActivity(),
         eventEndTimeField?.inputField?.setText(dateFormat.format(calendar.time))
     }
 
+    // MARK: - OnHexDialogButtonClickListener
     override fun onHexOkClickListener() {
         TODO("Not yet implemented")
+    }
+
+    // MARK: - OnColorDialogButtonClickListener
+    override fun onColorOkClickListener() {
+            HexSelectColorDialogView().show(supportFragmentManager, "HexDialog")
     }
 }
 

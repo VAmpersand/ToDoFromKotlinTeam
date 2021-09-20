@@ -9,10 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEventType
 import kotlinx.android.synthetic.main.color_theme_dialog.*
-import kotlinx.android.synthetic.main.plans_fragment.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 
-class InputColorDialogView : DialogFragment() {
+interface OnColorDialogButtonClickListener {
+    fun onColorOkClickListener()
+}
+
+class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogFragment(){
+    private val listener = listener
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -23,6 +27,7 @@ class InputColorDialogView : DialogFragment() {
         super.onStart()
         configureDialogAlert()
         configureListeners()
+      //  openHexFile()
     }
 
     private fun configureDialogAlert() {
@@ -42,9 +47,14 @@ class InputColorDialogView : DialogFragment() {
         rcView?.adapter = ColorAdapter(events, requireContext())
     }
 
-    private fun configureListeners() {
+   private fun configureListeners() {
         okButton?.setOnClickListener {
             dialog?.hide()
         }
+       newColorTheme?.setOnClickListener() {
+           val dialogHex = HexSelectColorDialogView()
+       }
     }
+
+
 }
