@@ -20,11 +20,8 @@ import java.util.*
 interface OnHexDialogButtonClickListener {
     fun onHexOkClickListener()
 }
-
 class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : DialogFragment() {
-
     private val listener = listener
-
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -34,26 +31,21 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
      override fun onStart() {
         super.onStart()
         configureDialogAlert()
-        updateColor()
-
-        seekBarRed?.setOnSeekBarChangeListener(seekBarChangeListener)
-        seekBarGreen?.setOnSeekBarChangeListener(seekBarChangeListener)
-        seekBarBlue?.setOnSeekBarChangeListener(seekBarChangeListener)
-
         configureListeners()
     }
 
     private fun configureDialogAlert() {
         dialog?.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-
+            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        updateColor()
     }
 
     private fun configureListeners() {
-
+        seekBarRed?.setOnSeekBarChangeListener(seekBarChangeListener)
+        seekBarGreen?.setOnSeekBarChangeListener(seekBarChangeListener)
+        seekBarBlue?.setOnSeekBarChangeListener(seekBarChangeListener)
         okButton?.setOnClickListener {
-          if (editTextTitle.text.isEmpty()){editTextTitle.setError("Enter the title new event")}
+          if (editTextTitle.text.isEmpty()) editTextTitle.setError("Enter the title new event")
           else dialog?.hide()
         }
     }

@@ -15,14 +15,13 @@ class NewEventActivity : AppCompatActivity(),
     OnTypeDialogButtonClickListener,
     OnDateDialogButtonClickListener,
     OnTimeDialogButtonClickListener,
-     OnHexDialogButtonClickListener
+    OnHexDialogButtonClickListener
 {
 
     private var currentType: EventType? = null
     private var currentDate = Date()
     private var currentStartTime: Date? = null
     private var currentEndTime: Date? = null
-    private var currentColor: Color? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,8 +106,6 @@ class NewEventActivity : AppCompatActivity(),
         calendar.time = endTime
         eventEndTimeField?.inputField?.setText(dateFormat.format(calendar.time))
     }
-
-
 
     override fun onHexOkClickListener() {
         TODO("Not yet implemented")
