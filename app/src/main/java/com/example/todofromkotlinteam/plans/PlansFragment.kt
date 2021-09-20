@@ -10,7 +10,6 @@ import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.model.ListEventType
-import com.example.todofromkotlinteam.views.customCalendarView.OnCalendarClickListener
 import kotlinx.android.synthetic.main.plans_fragment.*
 import java.util.*
 import kotlin.collections.ArrayList
