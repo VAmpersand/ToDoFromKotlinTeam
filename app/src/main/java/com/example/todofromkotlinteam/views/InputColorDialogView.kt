@@ -14,11 +14,7 @@ import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 
 class InputColorDialogView : DialogFragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.color_theme_dialog, container, false)
     }
@@ -27,6 +23,12 @@ class InputColorDialogView : DialogFragment() {
         super.onStart()
         configureDialogAlert()
         configureListeners()
+    }
+
+    private fun configureDialogAlert() {
+        dialog?.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+        )
 
         val events = ArrayList<ListEventType>()
 
@@ -38,12 +40,6 @@ class InputColorDialogView : DialogFragment() {
         rcView?.hasFixedSize()
         rcView?.layoutManager = LinearLayoutManager(context)
         rcView?.adapter = ColorAdapter(events, requireContext())
-    }
-
-    private fun configureDialogAlert() {
-        dialog?.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
-        )
     }
 
     private fun configureListeners() {
