@@ -1,6 +1,5 @@
 package com.example.todofromkotlinteam.ideas
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEventType
 import kotlinx.android.synthetic.main.ideas_fragment.*
 import kotlinx.android.synthetic.main.ideas_fragment.recycleView
-import kotlinx.android.synthetic.main.plans_fragment.*
 
 class IdeasFragment : Fragment() {
 

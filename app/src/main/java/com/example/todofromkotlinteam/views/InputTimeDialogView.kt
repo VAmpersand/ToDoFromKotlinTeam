@@ -52,6 +52,7 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
         okButton?.setOnClickListener {
             val calendar = Calendar.getInstance(Locale.UK)
 
+
             val startHours = startHoursEditText?.text
             calendar.get(Calendar.HOUR)
             calendar.get(Calendar.MINUTE)

@@ -28,7 +28,7 @@ class PlansFragment: Fragment()  {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#FF5252"),
+                ListEventType( "#FF5252","Doctor"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -41,7 +41,7 @@ class PlansFragment: Fragment()  {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#FF5252"),
+                ListEventType( "#FF5252","Doctor"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -54,7 +54,7 @@ class PlansFragment: Fragment()  {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#5263FF"),
+                ListEventType( "#FF5252","Doctor"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -67,7 +67,7 @@ class PlansFragment: Fragment()  {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#343D8F"),
+                ListEventType("#343D8F","Doctor"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -80,7 +80,7 @@ class PlansFragment: Fragment()  {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#FF8552"),
+                ListEventType( "#FF5252","Doctor"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -93,7 +93,7 @@ class PlansFragment: Fragment()  {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#55A738"),
+                ListEventType( "#55A738","Doctor"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
@@ -106,7 +106,7 @@ class PlansFragment: Fragment()  {
 
         events.add(
             ListEvent(
-                ListEventType("Doctor", "#FF5252"),
+                ListEventType("#FF5252","Doctor"),
                 "Virtual Doctors' Appointment",
                 "Regular virtual catchup with the doctor...",
                 "13:00",
