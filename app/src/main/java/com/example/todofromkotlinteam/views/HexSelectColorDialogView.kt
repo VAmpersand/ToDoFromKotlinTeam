@@ -15,7 +15,7 @@ import java.util.*
 interface OnHexDialogButtonClickListener {
     fun onHexOkClickListener()
 }
-class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : DialogFragment() {
+class HexSelectColorDialogView(listener:  OnColorDialogButtonClickListener) : DialogFragment() {
     private val listener = listener
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
@@ -41,7 +41,10 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
         seekBarBlue?.setOnSeekBarChangeListener(seekBarChangeListener)
         okButton?.setOnClickListener {
           if (editTextTitle.text.isEmpty()) editTextTitle.setError("Enter the title new event")
-          else dialog?.hide()
+          else {
+              InputColorDialogView(listener).show(childFragmentManager, "HexDialog")
+              dialog?.hide()
+          }
         }
     }
 

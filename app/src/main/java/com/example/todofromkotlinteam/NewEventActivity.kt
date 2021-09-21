@@ -71,7 +71,7 @@ class NewEventActivity : AppCompatActivity(),
 
         eventDescriptionField?.configureField(EventDataFieldType.DESCRIPTION)
         eventDescriptionField?.inputField?.setOnClickListener {
-            HexSelectColorDialogView().show(supportFragmentManager, "HexDialog")
+            HexSelectColorDialogView(this).show(supportFragmentManager, "HexDialog")
         }
     }
 
@@ -119,7 +119,7 @@ class NewEventActivity : AppCompatActivity(),
 
     // MARK: - OnColorDialogButtonClickListener
     override fun onColorOkClickListener() {
-            HexSelectColorDialogView().show(supportFragmentManager, "HexDialog")
+        TODO("Not yet implemented")
     }
 }
 

@@ -52,7 +52,8 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
             dialog?.hide()
         }
        newColorTheme?.setOnClickListener() {
-           val dialogHex = HexSelectColorDialogView()
+           HexSelectColorDialogView(listener).show(childFragmentManager, "HexDialog")
+           dialog?.hide()
        }
     }
 
