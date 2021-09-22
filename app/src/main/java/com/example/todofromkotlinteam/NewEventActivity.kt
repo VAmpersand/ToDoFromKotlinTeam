@@ -1,10 +1,13 @@
 package com.example.todofromkotlinteam
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.todofromkotlinteam.model.ListEventType
 import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
+import kotlinx.android.synthetic.main.event_list_layout.view.*
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import java.text.SimpleDateFormat
@@ -110,12 +113,17 @@ class NewEventActivity : AppCompatActivity(),
 
     // MARK: - OnHexDialogButtonClickListener
     override fun onHexOkClickListener() {
-        TODO("Not yet implemented")
+        InputColorDialogView(this).show(supportFragmentManager, "ColorDialog")
     }
 
     // MARK: - OnColorDialogButtonClickListener
-    override fun onColorOkClickListener() {
-        TODO("Not yet implemented")
+    override fun onColorOkClickListener(type: ListEventType) {
+        buttonColor?.inputField?.setText(type.title)
+        buttonColor?.colorView?.background?.setTint(Color.parseColor(type.color))
+    }
+
+    override fun onAddHexClickListener() {
+        HexSelectColorDialogView(this).show(supportFragmentManager, "HexSelectColor")
     }
 }
 

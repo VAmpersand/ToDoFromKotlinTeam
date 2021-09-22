@@ -11,6 +11,7 @@ import com.example.todofromkotlinteam.R
 import kotlinx.android.synthetic.main.time_input_dialog_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 import java.util.*
+import kotlin.collections.ArrayList
 
 interface OnTimeDialogButtonClickListener {
     fun onTimeOkClickListener(startTime: Date, endTime: Date)
@@ -21,7 +22,11 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
     private var startTime = startTime
     private var endTime = endTime
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.time_input_dialog_layout, container, false)
     }
@@ -34,7 +39,10 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
     }
 
     private fun configureDialogAlert() {
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog?.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
 
         val calendar = Calendar.getInstance(Locale.UK)
 
@@ -68,47 +76,29 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
             dialog?.hide()
         }
 
-        startHoursEditText?.setOnFocusChangeListener { view, isFocused ->
-            view as EditText
+        for (item in arrayOf(startHoursEditText, endHoursEditText)) {
+            item?.setOnFocusChangeListener { view, isFocused ->
+                view as EditText
 
-            if (!view.text.isEmpty()){
-                val value = view.text.toString().toInt()
+                if (!view.text.isEmpty()) {
+                    val value = view.text.toString().toInt()
 
-                if (!isFocused && value > 23) view.setText("23")
-                if (!isFocused && (value < 0 || value == null)) view.setText("0")
+                    if (!isFocused && value > 23) view.setText("23")
+                    if (!isFocused && (value < 0 || value == null)) view.setText("0")
+                }
             }
         }
 
-        endHoursEditText?.setOnFocusChangeListener { view, isFocused ->
-            view as EditText
+        for (item in arrayOf(startMinutesEditText, endMinutesEditText)) {
+            item?.setOnFocusChangeListener { view, isFocused ->
+                view as EditText
 
-            if (!view.text.isEmpty()){
-                val value = view.text.toString().toInt()
+                if (!view.text.isEmpty()) {
+                    val value = view.text.toString().toInt()
 
-                if (!isFocused && value > 23) view.setText("23")
-                if (!isFocused && (value < 0 || value == null)) view.setText("0")
-            }
-        }
-
-        startMinutesEditText?.setOnFocusChangeListener { view, isFocused ->
-            view as EditText
-
-            if (!view.text.isEmpty()){
-                val value = view.text.toString().toInt()
-
-                if (!isFocused && value > 59) view.setText("59")
-                if (!isFocused && (value < 0 || value == null)) view.setText("0")
-            }
-        }
-
-        endMinutesEditText?.setOnFocusChangeListener { view, isFocused ->
-            view as EditText
-
-            if (!view.text.isEmpty()){
-                val value = view.text.toString().toInt()
-
-                if (!isFocused && value > 59) view.setText("59")
-                if (!isFocused && (value < 0 || value == null)) view.setText("0")
+                    if (!isFocused && value > 59) view.setText("59")
+                    if (!isFocused && (value < 0 || value == null)) view.setText("0")
+                }
             }
         }
     }

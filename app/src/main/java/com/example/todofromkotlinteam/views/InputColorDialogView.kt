@@ -12,11 +12,14 @@ import kotlinx.android.synthetic.main.color_theme_dialog.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 
 interface OnColorDialogButtonClickListener {
-    fun onColorOkClickListener()
+    fun onColorOkClickListener(type: ListEventType)
+    fun onAddHexClickListener()
 }
 
 class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogFragment(){
     private val listener = listener
+    private var currentType : ListEventType? = null
+    private var adapter : ColorAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -27,7 +30,6 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
         super.onStart()
         configureDialogAlert()
         configureListeners()
-      //  openHexFile()
     }
 
     private fun configureDialogAlert() {
@@ -44,18 +46,22 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
 
         rcView?.hasFixedSize()
         rcView?.layoutManager = LinearLayoutManager(context)
+        adapter = ColorAdapter(events, requireContext())
         rcView?.adapter = ColorAdapter(events, requireContext())
     }
 
-   private fun configureListeners() {
+    private fun configureListeners() {
+        currentType = ListEventType("#FF5252", "Здаровье")
         okButton?.setOnClickListener {
+            if (currentType != null) {
+                listener.onColorOkClickListener(currentType!!)
+                dialog?.hide()
+            }
+        }
+
+        newColorTheme?.setOnClickListener {
+            listener.onAddHexClickListener()
             dialog?.hide()
         }
-       newColorTheme?.setOnClickListener() {
-           HexSelectColorDialogView(listener).show(childFragmentManager, "HexDialog")
-           dialog?.hide()
-       }
     }
-
-
 }
