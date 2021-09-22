@@ -33,7 +33,6 @@ class NewEventActivity : AppCompatActivity(),
         configureFields()
     }
 
-
     fun onClickBack(view: View) {
         finish()
     }
@@ -67,11 +66,10 @@ class NewEventActivity : AppCompatActivity(),
             InputTimeDialogView(currentStartTime, currentEndTime,this).show(supportFragmentManager, "TimeDialog")
         }
 
-        buttonColor?.configureField(EventDataFieldType.COLOR)
-        buttonColor?.inputField?.setOnClickListener {
+        itemColorField?.configureField(EventDataFieldType.COLOR)
+        itemColorField?.inputField?.setOnClickListener {
             InputColorDialogView(this).show(supportFragmentManager, "ColorDialog")
         }
-
     }
 
     // MARK: - OnTypeDialogButtonClickListener
@@ -118,8 +116,8 @@ class NewEventActivity : AppCompatActivity(),
 
     // MARK: - OnColorDialogButtonClickListener
     override fun onColorOkClickListener(type: ListEventType) {
-        buttonColor?.inputField?.setText(type.title)
-        buttonColor?.colorView?.background?.setTint(Color.parseColor(type.color))
+        itemColorField?.inputField?.setText(type.title)
+        itemColorField?.colorView?.background?.setTint(Color.parseColor(type.color))
     }
 
     override fun onAddHexClickListener() {

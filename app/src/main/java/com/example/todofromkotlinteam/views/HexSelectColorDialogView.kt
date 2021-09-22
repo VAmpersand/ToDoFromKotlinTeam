@@ -65,8 +65,6 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
 
         viewHexColor?.background?.setTint(-0x1000000 + redValue * 0x10000 + greenValue * 0x100 + blueValue)
     }
-
-
 }
 
 

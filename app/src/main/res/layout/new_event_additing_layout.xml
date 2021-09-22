@@ -83,7 +83,7 @@
                     android:layout_marginTop="41dp" />
 
                 <com.example.todofromkotlinteam.views.EventsDataField
-                    android:id="@+id/buttonColor"
+                    android:id="@+id/itemColorField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="41dp" />
