@@ -69,10 +69,6 @@ class NewEventActivity : AppCompatActivity(),
             InputColorDialogView(this).show(supportFragmentManager, "ColorDialog")
         }
 
-        eventDescriptionField?.configureField(EventDataFieldType.DESCRIPTION)
-        eventDescriptionField?.inputField?.setOnClickListener {
-            HexSelectColorDialogView(this).show(supportFragmentManager, "HexDialog")
-        }
     }
 
     // MARK: - OnTypeDialogButtonClickListener
