@@ -76,27 +76,16 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
             dialog?.hide()
         }
 
-        for (item in arrayOf(startHoursEditText, endHoursEditText)) {
+        for (item in arrayOf(startHoursEditText, endHoursEditText,startMinutesEditText, endMinutesEditText)) {
+            var maxTime = 23
+            if(item ==startMinutesEditText || item == endMinutesEditText)  maxTime=59
             item?.setOnFocusChangeListener { view, isFocused ->
                 view as EditText
 
                 if (!view.text.isEmpty()) {
                     val value = view.text.toString().toInt()
 
-                    if (!isFocused && value > 23) view.setText("23")
-                    if (!isFocused && (value < 0 || value == null)) view.setText("0")
-                }
-            }
-        }
-
-        for (item in arrayOf(startMinutesEditText, endMinutesEditText)) {
-            item?.setOnFocusChangeListener { view, isFocused ->
-                view as EditText
-
-                if (!view.text.isEmpty()) {
-                    val value = view.text.toString().toInt()
-
-                    if (!isFocused && value > 59) view.setText("59")
+                    if (!isFocused && value > maxTime) view.setText("$maxTime")
                     if (!isFocused && (value < 0 || value == null)) view.setText("0")
                 }
             }

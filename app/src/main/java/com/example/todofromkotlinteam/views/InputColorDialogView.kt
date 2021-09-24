@@ -52,6 +52,7 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
 
     private fun configureListeners() {
         currentType = ListEventType("#FF5252", "Здоровье")
+
         okButton?.setOnClickListener {
             if (currentType != null) {
                 listener.onColorOkClickListener(currentType!!)

@@ -42,8 +42,8 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
         okButton?.setOnClickListener {
           if (editTextTitle.text.isEmpty()) editTextTitle.setError("Enter the title new event")
           else {
-//              InputColorDialogView(listene).show(childFragmentManager, "HexDialog")
-             dialog?.hide()
+              listener.onHexOkClickListener()
+              dialog?.hide()
           }
         }
     }

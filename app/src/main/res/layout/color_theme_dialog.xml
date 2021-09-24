@@ -14,7 +14,8 @@
         android:layout_height="match_parent"
         android:background="@drawable/item_background_shape"
         android:gravity="right"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,7 +55,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:padding="10dp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
