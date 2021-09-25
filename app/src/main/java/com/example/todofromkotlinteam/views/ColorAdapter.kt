@@ -38,9 +38,16 @@ class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context, listen
 
     override fun onBindViewHolder(holder: ThemeViewHolder, position: Int) {
         holder.bind(events[position])
+        var posit = -1
+        if (posit == position) holder.itemView.setBackgroundColor(Color.parseColor("#8A817C"))
+        else holder.itemView.setBackgroundColor(Color.parseColor("#FFFFFFFF"))
+
         holder.itemView.setOnClickListener {
             listener.select(events[position])
+            posit = position
+            notifyDataSetChanged()
         }
+
     }
 
     override fun getItemCount(): Int {
