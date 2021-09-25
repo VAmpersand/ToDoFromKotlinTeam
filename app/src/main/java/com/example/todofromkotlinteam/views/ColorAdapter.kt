@@ -31,6 +31,11 @@ class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context) : Recy
 
     override fun onBindViewHolder(holder: ThemeViewHolder, position: Int) {
         holder.bind(events[position])
+        holder.itemView.setOnClickListener(View.OnClickListener {
+            fun  onClick(){
+
+            }
+        })
     }
 
     override fun getItemCount(): Int {

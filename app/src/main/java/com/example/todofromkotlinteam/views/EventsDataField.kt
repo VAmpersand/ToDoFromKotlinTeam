@@ -64,9 +64,6 @@ class EventsDataField: LinearLayout {
             }
             EventDataFieldType.DESCRIPTION -> {
                 inputField?.hint = "Describe the event"
-                inputField?.isCursorVisible = false
-                inputField?.isFocusable = false
-                inputField?.inputType = InputType.TYPE_NULL
                 iconEvent?.setImageResource(R.drawable.ic_forum)
             }
             EventDataFieldType.PARTNER -> {

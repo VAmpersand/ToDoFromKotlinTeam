@@ -5,11 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
 import kotlinx.android.synthetic.main.time_input_dialog_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 import java.util.*
+import kotlin.collections.ArrayList
 
 interface OnTimeDialogButtonClickListener {
     fun onTimeOkClickListener(startTime: Date, endTime: Date)
@@ -20,7 +22,11 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
     private var startTime = startTime
     private var endTime = endTime
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.time_input_dialog_layout, container, false)
     }
@@ -33,7 +39,10 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
     }
 
     private fun configureDialogAlert() {
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog?.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
 
         val calendar = Calendar.getInstance(Locale.UK)
 
@@ -52,7 +61,6 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
         okButton?.setOnClickListener {
             val calendar = Calendar.getInstance(Locale.UK)
 
-
             val startHours = startHoursEditText?.text
             calendar.get(Calendar.HOUR)
             calendar.get(Calendar.MINUTE)
@@ -68,9 +76,19 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
             dialog?.hide()
         }
 
-        endHoursEditText?.setOnFocusChangeListener { view, isFocused ->
+        for (item in arrayOf(startHoursEditText, endHoursEditText,startMinutesEditText, endMinutesEditText)) {
+            var maxTime = 23
+            if(item ==startMinutesEditText || item == endMinutesEditText)  maxTime=59
+            item?.setOnFocusChangeListener { view, isFocused ->
+                view as EditText
 
-            Log.d("FOCUS", isFocused.toString())
+                if (!view.text.isEmpty()) {
+                    val value = view.text.toString().toInt()
+
+                    if (!isFocused && value > maxTime) view.setText("$maxTime")
+                    if (!isFocused && (value < 0 || value == null)) view.setText("0")
+                }
+            }
         }
     }
 }

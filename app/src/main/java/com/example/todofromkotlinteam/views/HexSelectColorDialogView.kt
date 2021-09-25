@@ -41,7 +41,10 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
         seekBarBlue?.setOnSeekBarChangeListener(seekBarChangeListener)
         okButton?.setOnClickListener {
           if (editTextTitle.text.isEmpty()) editTextTitle.setError("Enter the title new event")
-          else dialog?.hide()
+          else {
+              listener.onHexOkClickListener()
+              dialog?.hide()
+          }
         }
     }
 
@@ -62,7 +65,6 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
 
         viewHexColor?.background?.setTint(-0x1000000 + redValue * 0x10000 + greenValue * 0x100 + blueValue)
     }
-
 }
 
 
