@@ -69,7 +69,6 @@ class CustomCalendarGridAdapter : ArrayAdapter<Date> {
         }
 
         dateTextView?.text = displayDay.toString()
-
         return view!!
     }
 

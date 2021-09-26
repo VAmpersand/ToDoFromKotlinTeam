@@ -2,6 +2,7 @@ package com.example.todofromkotlinteam.views
 
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +11,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEventType
 
-class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context) : RecyclerView.Adapter<ColorAdapter.ThemeViewHolder>() {
+interface ItemSelectionListener {
+    fun select(item: ListEventType)
+}
+
+class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context, listener: ItemSelectionListener) : RecyclerView.Adapter<ColorAdapter.ThemeViewHolder>(){
     private var events = listArray
     private var appContext = context
+    private var listener = listener
+    private var selectPosition : Int? = null
+
 
     class ThemeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val colorTheme = view.findViewById<View>(R.id.colorTheme)
@@ -31,11 +39,13 @@ class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context) : Recy
 
     override fun onBindViewHolder(holder: ThemeViewHolder, position: Int) {
         holder.bind(events[position])
-        holder.itemView.setOnClickListener(View.OnClickListener {
-            fun  onClick(){
+        if (selectPosition == position) holder.itemView.background = appContext.resources.getDrawable(android.R.drawable.editbox_background_normal)
+        else holder.itemView.background = null
 
-            }
-        })
+        holder.itemView.setOnClickListener {
+            listener.select(events[position])
+            selectPosition = position
+        }
     }
 
     override fun getItemCount(): Int {

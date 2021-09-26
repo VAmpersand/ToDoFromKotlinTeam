@@ -117,7 +117,7 @@ class NewEventActivity : AppCompatActivity(),
     // MARK: - OnColorDialogButtonClickListener
     override fun onColorOkClickListener(type: ListEventType) {
         itemColorField?.inputField?.setText(type.title)
-        itemColorField?.colorView?.background?.setTint(Color.parseColor(type.color))
+        itemColorField?.iconEvent?.background?.setTint(Color.parseColor(type.color))
     }
 
     override fun onAddHexClickListener() {
