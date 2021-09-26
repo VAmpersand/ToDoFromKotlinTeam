@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.model.ListEventType
 import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
-import kotlinx.android.synthetic.main.event_list_layout.view.*
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import java.text.SimpleDateFormat
@@ -18,8 +17,7 @@ class NewEventActivity : AppCompatActivity(),
     OnDateDialogButtonClickListener,
     OnTimeDialogButtonClickListener,
     OnHexDialogButtonClickListener,
-    OnColorDialogButtonClickListener
-{
+    OnColorDialogButtonClickListener {
 
     private var currentType: EventType? = null
     private var currentDate = Date()
