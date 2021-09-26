@@ -10,9 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.model.ListEventType
 
-class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context) : RecyclerView.Adapter<ColorAdapter.ThemeViewHolder>() {
+
+
+class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context) : RecyclerView.Adapter<ColorAdapter.ThemeViewHolder>()
+//    View.OnClickListener
+{
+
+
     private var events = listArray
     private var appContext = context
+    private var onItemClickListener: OnItemClickListener? = null
 
     class ThemeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val colorTheme = view.findViewById<View>(R.id.colorTheme)
@@ -31,14 +38,22 @@ class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context) : Recy
 
     override fun onBindViewHolder(holder: ThemeViewHolder, position: Int) {
         holder.bind(events[position])
-        holder.itemView.setOnClickListener(View.OnClickListener {
-            fun  onClick(){
-
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.OnItemClicked(events[position])
             }
-        })
     }
 
-    override fun getItemCount(): Int {
+     override fun getItemCount(): Int {
         return events.size
     }
+
+    interface OnItemClickListener {
+        fun OnItemClicked(item: ListEventType)
+    }
+
+    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
+
+        this.onItemClickListener = onItemClickListener
+    }
+
 }

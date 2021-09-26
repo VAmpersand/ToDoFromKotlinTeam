@@ -123,6 +123,8 @@ class NewEventActivity : AppCompatActivity(),
     override fun onAddHexClickListener() {
         HexSelectColorDialogView(this).show(supportFragmentManager, "HexSelectColor")
     }
+
+
 }
 
 
