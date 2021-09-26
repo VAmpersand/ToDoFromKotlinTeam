@@ -13,12 +13,13 @@ import com.example.todofromkotlinteam.model.ListEventType
 
 interface ItemSelectionListener {
     fun select(item: ListEventType)
-
 }
+
 class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context, listener: ItemSelectionListener) : RecyclerView.Adapter<ColorAdapter.ThemeViewHolder>(){
     private var events = listArray
     private var appContext = context
     private var listener = listener
+    private var selectPosition : Int? = null
 
 
     class ThemeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -38,16 +39,13 @@ class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context, listen
 
     override fun onBindViewHolder(holder: ThemeViewHolder, position: Int) {
         holder.bind(events[position])
-        var posit = -1
-        if (posit == position) holder.itemView.setBackgroundColor(Color.parseColor("#8A817C"))
-        else holder.itemView.setBackgroundColor(Color.parseColor("#FFFFFFFF"))
+        if (selectPosition == position) holder.itemView.background = appContext.resources.getDrawable(android.R.drawable.editbox_background_normal)
+        else holder.itemView.background = null
 
         holder.itemView.setOnClickListener {
             listener.select(events[position])
-            posit = position
-            notifyDataSetChanged()
+            selectPosition = position
         }
-
     }
 
     override fun getItemCount(): Int {

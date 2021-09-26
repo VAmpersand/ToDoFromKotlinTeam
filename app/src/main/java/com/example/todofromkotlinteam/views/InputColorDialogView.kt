@@ -68,5 +68,6 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
 
     override fun select(item: ListEventType) {
         currentType = item
+        rcView?.adapter?.notifyDataSetChanged()
     }
 }
