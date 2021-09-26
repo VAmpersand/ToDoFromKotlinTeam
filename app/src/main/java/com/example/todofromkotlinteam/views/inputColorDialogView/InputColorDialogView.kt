@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
@@ -17,14 +16,9 @@ interface OnColorDialogButtonClickListener {
     fun onAddHexClickListener()
 }
 
-
-class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogFragment(),
-    ColorAdapter.OnItemClickListener
-{
+class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogFragment(), ItemSelectionListener{
     private val listener = listener
     private var currentType : ListEventType? = null
-    private var adapter : ColorAdapter? = null
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -35,7 +29,6 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
         super.onStart()
         configureDialogAlert()
         configureListeners()
-
     }
 
     private fun configureDialogAlert() {
@@ -49,19 +42,17 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
         events.add(ListEventType("#343D8F", "Хобби"))
         events.add(ListEventType("#55A738", "Работа"))
         events.add(ListEventType("#FF5232", "Учеба"))
+        events.add(ListEventType("#FF5252", "Здоровье"))
+        events.add(ListEventType("#343D8F", "Хобби"))
+        events.add(ListEventType("#55A738", "Работа"))
+        events.add(ListEventType("#FF5232", "Учеба"))
 
         rcView?.hasFixedSize()
         rcView?.layoutManager = LinearLayoutManager(context)
-        adapter = ColorAdapter(events, requireContext())
-        rcView?.adapter = ColorAdapter(events, requireContext())
-        adapter?.setOnItemClickListener(this)
-
+        rcView?.adapter = ColorAdapter(events, requireContext(),this)
     }
 
     private fun configureListeners() {
-        currentType = ListEventType("#FF5252", "Здоровье")
-
-
         okButton?.setOnClickListener {
             if (currentType != null) {
                 listener.onColorOkClickListener(currentType!!)
@@ -75,9 +66,8 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
         }
     }
 
-    override fun OnItemClicked(item: ListEventType) {
-        Toast.makeText(activity, "Позиция", Toast.LENGTH_LONG).show()
+    override fun select(item: ListEventType) {
+        currentType = item
+        rcView?.adapter?.notifyDataSetChanged()
     }
-
-
 }
