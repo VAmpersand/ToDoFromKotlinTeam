@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.Log
@@ -37,7 +38,8 @@ class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context, listen
        return ThemeViewHolder(inflater.inflate(R.layout.color_theme_field_layout, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ThemeViewHolder, position: Int) {
+
+    override fun onBindViewHolder(holder: ThemeViewHolder, @SuppressLint("RecyclerView") position: Int) {
         holder.bind(events[position])
         if (selectPosition == position) holder.itemView.background = appContext.resources.getDrawable(android.R.drawable.editbox_background_normal)
         else holder.itemView.background = null
