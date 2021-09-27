@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
-import com.example.todofromkotlinteam.model.ListEventType
+import com.example.todofromkotlinteam.db.model.ListEventType
 import kotlinx.android.synthetic.main.color_theme_dialog.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 
@@ -38,14 +38,14 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
 
         val events = ArrayList<ListEventType>()
 
-        events.add(ListEventType("#FF5252", "Здоровье"))
-        events.add(ListEventType("#343D8F", "Хобби"))
-        events.add(ListEventType("#55A738", "Работа"))
-        events.add(ListEventType("#FF5232", "Учеба"))
-        events.add(ListEventType("#FF5252", "Здоровье"))
-        events.add(ListEventType("#343D8F", "Хобби"))
-        events.add(ListEventType("#55A738", "Работа"))
-        events.add(ListEventType("#FF5232", "Учеба"))
+        events.add(ListEventType(0,"#FF5252", "Здоровье"))
+        events.add(ListEventType(1,"#343D8F", "Хобби"))
+        events.add(ListEventType(2,"#55A738", "Работа"))
+        events.add(ListEventType(3,"#FF5232", "Учеба"))
+        events.add(ListEventType(4,"#FF5252", "Здоровье"))
+        events.add(ListEventType(5,"#343D8F", "Хобби"))
+        events.add(ListEventType(6,"#55A738", "Работа"))
+        events.add(ListEventType(7,"#FF5232", "Учеба"))
 
         rcView?.hasFixedSize()
         rcView?.layoutManager = LinearLayoutManager(context)
