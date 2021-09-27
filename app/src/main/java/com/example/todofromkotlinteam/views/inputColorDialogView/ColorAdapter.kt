@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.R
-import com.example.todofromkotlinteam.model.ListEventType
+import com.example.todofromkotlinteam.db.model.ListEventType
 
 interface ItemSelectionListener {
     fun select(item: ListEventType)

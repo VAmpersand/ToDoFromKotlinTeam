@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.R
-import com.example.todofromkotlinteam.model.ListEventType
+import com.example.todofromkotlinteam.db.model.ListEventType
 import kotlinx.android.synthetic.main.color_theme_dialog.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 

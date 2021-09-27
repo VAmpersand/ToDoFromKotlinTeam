@@ -4,12 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.todofromkotlinteam.model.ListEvent
-import com.example.todofromkotlinteam.model.ListEventType
+import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.db.model.ListEventType
 
 @Database(entities = [ListEvent::class, ListEventType::class], version = 1)
 abstract class RoomAppDB : RoomDatabase() {
     abstract fun listEventDao(): ListEventDao?
+    abstract fun listEventTypeDao(): ListEventTypeDao?
 
     companion object {
         private var INSTANCE: RoomAppDB? = null
