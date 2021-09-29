@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.plans
+package com.example.todofromkotlinteam.Plans
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.plans.PlansListAdapter
 import kotlinx.android.synthetic.main.color_theme_dialog.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 
@@ -72,6 +73,6 @@ class PlansFragment: Fragment()  {
     private fun getAllListEvent() {
         val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
         events = listEventDao?.getAllListEvent()
-        rcView?.adapter?.notifyDataSetChanged()
+        recycleView?.adapter?.notifyDataSetChanged()
     }
 }

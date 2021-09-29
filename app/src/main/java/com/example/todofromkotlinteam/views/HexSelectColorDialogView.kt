@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.views
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
+import com.example.todofromkotlinteam.db.RoomAppDB
+import com.example.todofromkotlinteam.db.model.ListEventType
 import kotlinx.android.synthetic.main.rgb_select_color_layout.*
-import kotlinx.android.synthetic.main.type_input_dialog_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
-import java.util.*
 
 interface OnHexDialogButtonClickListener {
     fun onHexOkClickListener()
@@ -35,14 +36,17 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
         updateColor()
     }
 
+    @SuppressLint("ResourceType")
     private fun configureListeners() {
         seekBarRed?.setOnSeekBarChangeListener(seekBarChangeListener)
         seekBarGreen?.setOnSeekBarChangeListener(seekBarChangeListener)
         seekBarBlue?.setOnSeekBarChangeListener(seekBarChangeListener)
-        okButton?.setOnClickListener {
-          if (editTextTitle.text.isEmpty()) editTextTitle.setError("Enter the title new event")
+        okHexButton?.setOnClickListener {
+          if (editTextTitle.text.isEmpty()) editTextTitle.error = "Enter the title new event"
           else {
-
+              val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
+                listEventTypeDao?.insertListEventType(
+                    ListEventType(color = resources.getString(R.color.main_orange), title = "Уроки"  ))
               listener.onHexOkClickListener()
               dialog?.hide()
           }
