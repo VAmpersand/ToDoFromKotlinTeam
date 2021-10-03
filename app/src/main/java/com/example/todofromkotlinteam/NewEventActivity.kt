@@ -39,13 +39,13 @@ class NewEventActivity : AppCompatActivity(),
     }
 
     fun onClickAddEvent(view: View) {
-        val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
+//        val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
 
-        if (currentType != null
-            && currentDate != null
-            && currentStartTime != null
-            && currentEndTime != null
-            && eventNameField?.textView?.text != null ) {
+//        if (currentType != null
+//            && currentDate != null
+//            && currentStartTime != null
+//            && currentEndTime != null
+//            && eventNameField?.textView?.text != null ) {
 
             val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
             listEventDao?.insertListEvent(
@@ -63,9 +63,9 @@ class NewEventActivity : AppCompatActivity(),
             )
 
             finish()
-        } else {
-
-        }
+//        } else {
+//
+//        }
 
     }
 
