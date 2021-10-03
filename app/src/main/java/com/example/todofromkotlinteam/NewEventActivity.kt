@@ -4,8 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.todofromkotlinteam.db.RoomAppDB
-import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.model.ListEventType
 import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
@@ -38,19 +36,6 @@ class NewEventActivity : AppCompatActivity(),
     }
 
     fun onClickAddEvent(view: View) {
-        val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
-        listEventDao?.insertListEvent(ListEvent(
-            id = 0,
-            eventType = 0,
-            title = "Тест",
-            description = "Test",
-            startTime = "12:00",
-            finishTime = "13:00",
-            isDone = false,
-            isPriority = false,
-            partner = "Test"
-        ))
-
         finish()
     }
 

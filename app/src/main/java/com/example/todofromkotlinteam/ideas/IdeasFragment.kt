@@ -25,104 +25,96 @@ class IdeasFragment : Fragment() {
 
         val events = ArrayList<ListEvent>()
 
-//        events.add(
-//            ListEvent(
-//                0,
-//                ListEventType(0, "#55A738","Doctor"),
-//                "Virtual Doctors' Appointment",
-//                "Regular virtual catchup with the doctor...",
-//                "13:00",
-//                "14:00",
-//                "Dr. Julian",
-//                false,
-//                false
-//            )
-//        )
-//
-//        events.add(
-//            ListEvent(
-//                1,
-//                ListEventType(1, "#55A738","Doctor"),
-//                "Guided group meditation",
-//                "Group meditation session at the office Group meditation session at the office Group meditation session at the office vGroup meditation session at the office",
-//                "13:00",
-//                "13:30",
-//                "Yoga instructor",
-//                false,
-//                true
-//            )
-//        )
-//
-//        events.add(
-//            ListEvent(
-//                2,
-//                ListEventType(2,"#5263FF","Doctor"),
-//                "Sprint planning",
-//                "Catchup to plan for next week's sprint",
-//                "14:00",
-//                "15:00",
-//                "Dev.Team",
-//                true,
-//                true
-//            )
-//        )
-//
-//        events.add(
-//            ListEvent(
-//                3,
-//                ListEventType(3,"#343D8F","Doctor"),
-//                "Virtual Doctors' Appointment",
-//                "Regular virtual catchup with the doctor...",
-//                "13:00",
-//                "14:00",
-//                "Dr. Julian",
-//                true,
-//                false
-//            )
-//        )
-//
-//        events.add(
-//            ListEvent(
-//                4,
-//                ListEventType(4,"#55A738","Doctor"),
-//                "Virtual Doctors' Appointment",
-//                "Regular virtual catchup with the doctor...",
-//                "13:00",
-//                "14:00",
-//                "Dr. Julian",
-//                false,
-//                false
-//            )
-//        )
-//
-//        events.add(
-//            ListEvent(
-//                5,
-//                ListEventType(5,"#55A738","Doctor"),
-//                "Virtual Doctors' Appointment",
-//                "Regular virtual catchup with the doctor...",
-//                "13:00",
-//                "14:00",
-//                "Dr. Julian",
-//                false,
-//                false
-//            )
-//        )
-//
-//        events.add(
-//            ListEvent(
-//                6,
-//                ListEventType(6,"#FF5252","Doctor"),
-//                "Virtual Doctors' Appointment",
-//                "Regular virtual catchup with the doctor...",
-//                "13:00",
-//                "14:00",
-//                "Dr. Julian",
-//                false,
-//                false
-//            )
-//        )
+        events.add(
+            ListEvent(
+                ListEventType("#55A738","Doctor"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                false,
+                false
+            )
+        )
 
+        events.add(
+            ListEvent(
+                ListEventType("#55A738","Doctor"),
+                "Guided group meditation",
+                "Group meditation session at the office Group meditation session at the office Group meditation session at the office vGroup meditation session at the office",
+                "13:00",
+                "13:30",
+                "Yoga instructor",
+                false,
+                true
+            )
+        )
+
+        events.add(
+            ListEvent(
+                ListEventType("#5263FF","Doctor"),
+                "Sprint planning",
+                "Catchup to plan for next week's sprint",
+                "14:00",
+                "15:00",
+                "Dev.Team",
+                true,
+                true
+            )
+        )
+
+        events.add(
+            ListEvent(
+                ListEventType("#343D8F","Doctor"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                true,
+                false
+            )
+        )
+
+        events.add(
+            ListEvent(
+                ListEventType("#55A738","Doctor"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                false,
+                false
+            )
+        )
+
+        events.add(
+            ListEvent(
+                ListEventType("#55A738","Doctor"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                false,
+                false
+            )
+        )
+
+        events.add(
+            ListEvent(
+                ListEventType("#FF5252","Doctor"),
+                "Virtual Doctors' Appointment",
+                "Regular virtual catchup with the doctor...",
+                "13:00",
+                "14:00",
+                "Dr. Julian",
+                false,
+                false
+            )
+        )
         recycleView?.hasFixedSize()
         recycleView?.layoutManager = LinearLayoutManager(context)
         recycleView?.adapter = IdeasListAdapter(events, requireContext())

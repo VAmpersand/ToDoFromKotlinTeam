@@ -13,7 +13,7 @@ import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarVie
 import java.util.*
 import kotlin.collections.ArrayList
 
-class PlansListAdapter(eventArray: List<ListEvent>, context: Context) : TDRecycleListAdapter() {
+class PlansListAdapter(eventArray: ArrayList<ListEvent>, context: Context) : TDRecycleListAdapter() {
     private var events = eventArray
     private var appContext = context
 
