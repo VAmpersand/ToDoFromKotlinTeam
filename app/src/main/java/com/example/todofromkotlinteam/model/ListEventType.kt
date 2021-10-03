@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.db.model
+package com.example.todofromkotlinteam.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -9,4 +9,6 @@ data class ListEventType(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Int = 0,
     @ColumnInfo(name = "color") val color: String,
     @ColumnInfo(name = "title") val title: String,
+//    var color: String, // hex #000000
+//    var title: String,
 )

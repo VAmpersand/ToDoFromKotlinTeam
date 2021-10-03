@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.NavigationBarActivity
-import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.R
-import com.example.todofromkotlinteam.db.model.ListEventType
+import com.example.todofromkotlinteam.model.ListEventType
 import kotlinx.android.synthetic.main.ideas_fragment.*
 import kotlinx.android.synthetic.main.ideas_fragment.recycleView
 

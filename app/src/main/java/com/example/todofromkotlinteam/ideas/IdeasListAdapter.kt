@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import kotlin.collections.ArrayList

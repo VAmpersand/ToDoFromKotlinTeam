@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
-import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.model.ListEvent
 import java.util.*
 
 open class TDRecycleListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
-import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.model.ListEvent
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
 import java.util.*
 import kotlin.collections.ArrayList

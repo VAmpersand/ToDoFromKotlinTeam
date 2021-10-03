@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
-import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.model.ListEvent
 import kotlinx.android.synthetic.main.color_theme_dialog.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 
@@ -26,6 +26,106 @@ class PlansFragment: Fragment()  {
         super.onViewCreated(view, savedInstanceState)
 
         getAllListEvent()
+
+//        val events = ArrayList<ListEvent>()
+//
+//        events.add(
+//            ListEvent(
+//                0,
+//                ListEventType( 0,"#FF5252","Doctor"),
+//                "Virtual Doctors' Appointment",
+//                "Regular virtual catchup with the doctor...",
+//                "13:00",
+//                "14:00",
+//                "Dr. Julian",
+//                false,
+//                true
+//            )
+//        )
+//
+//        events.add(
+//            ListEvent(
+//                1,
+//                ListEventType( 1,"#FF5252","Doctor"),
+//                "Virtual Doctors' Appointment",
+//                "Regular virtual catchup with the doctor...",
+//                "13:00",
+//                "14:00",
+//                "Dr. Julian",
+//                true,
+//                false
+//            )
+//        )
+//
+//        events.add(
+//            ListEvent(
+//                2,
+//                ListEventType( 2,"#FF5252","Doctor"),
+//                "Virtual Doctors' Appointment",
+//                "Regular virtual catchup with the doctor...",
+//                "13:00",
+//                "14:00",
+//                "Dr. Julian",
+//                false,
+//                false
+//            )
+//        )
+//
+//        events.add(
+//            ListEvent(
+//                3,
+//                ListEventType(3,"#343D8F","Doctor"),
+//                "Virtual Doctors' Appointment",
+//                "Regular virtual catchup with the doctor...",
+//                "13:00",
+//                "14:00",
+//                "Dr. Julian",
+//                false,
+//                false
+//            )
+//        )
+//
+//        events.add(
+//            ListEvent(
+//                4,
+//                ListEventType( 4,"#FF5252","Doctor"),
+//                "Virtual Doctors' Appointment",
+//                "Regular virtual catchup with the doctor...",
+//                "13:00",
+//                "14:00",
+//                "Dr. Julian",
+//                false,
+//                false
+//            )
+//        )
+//
+//        events.add(
+//            ListEvent(
+//                5,
+//                ListEventType( 5,"#55A738","Doctor"),
+//                "Virtual Doctors' Appointment",
+//                "Regular virtual catchup with the doctor...",
+//                "13:00",
+//                "14:00",
+//                "Dr. Julian",
+//                false,
+//                false
+//            )
+//        )
+//
+//        events.add(
+//            ListEvent(
+//                6,
+//                ListEventType(7,"#FF5252","Doctor"),
+//                "Virtual Doctors' Appointment",
+//                "Regular virtual catchup with the doctor...",
+//                "13:00",
+//                "14:00",
+//                "Dr. Julian",
+//                false,
+//                false
+//            )
+//        )
 
         recycleView?.hasFixedSize()
         recycleView?.layoutManager = LinearLayoutManager(context)
@@ -60,6 +160,7 @@ class PlansFragment: Fragment()  {
                     startDelay = 0
                     start()
                 }
+
             }
         }
     }
@@ -74,4 +175,5 @@ class PlansFragment: Fragment()  {
         events = listEventDao?.getAllListEvent()
         rcView?.adapter?.notifyDataSetChanged()
     }
+
 }

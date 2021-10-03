@@ -5,13 +5,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.db.RoomAppDB
-import com.example.todofromkotlinteam.db.model.ListEvent
-import com.example.todofromkotlinteam.db.model.ListEventType
+import com.example.todofromkotlinteam.model.ListEvent
+import com.example.todofromkotlinteam.model.ListEventType
 import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
-import kotlinx.android.synthetic.main.settings_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -40,33 +39,19 @@ class NewEventActivity : AppCompatActivity(),
 
     fun onClickAddEvent(view: View) {
         val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
+        listEventDao?.insertListEvent(ListEvent(
+            id = 0,
+            eventType = 0,
+            title = "Тест",
+            description = "Test",
+            startTime = "12:00",
+            finishTime = "13:00",
+            isDone = false,
+            isPriority = false,
+            partner = "Test"
+        ))
 
-        if (currentType != null
-            && currentDate != null
-            && currentStartTime != null
-            && currentEndTime != null
-            && eventNameField?.textView?.text != null ) {
-
-            val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
-            listEventDao?.insertListEvent(
-                ListEvent(
-                    id = 0,
-                    eventTypeId = 0,
-                    title = "Тест",
-                    description = "Test",
-                    startTime = "12:00",
-                    finishTime = "13:00",
-                    isDone = false,
-                    isPriority = false,
-                    partner = null
-                )
-            )
-
-            finish()
-        } else {
-
-        }
-
+        finish()
     }
 
     private fun configureFields() {

@@ -1,7 +1,7 @@
 package com.example.todofromkotlinteam.db
 
 import androidx.room.*
-import com.example.todofromkotlinteam.db.model.ListEventType
+import com.example.todofromkotlinteam.model.ListEventType
 @Dao
 interface ListEventTypeDao {
 
