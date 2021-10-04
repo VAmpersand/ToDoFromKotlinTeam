@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
+import com.example.todofromkotlinteam.db.RoomAppDB
+import com.example.todofromkotlinteam.db.model.ListEventType
 import kotlinx.android.synthetic.main.rgb_select_color_layout.*
-import kotlinx.android.synthetic.main.type_input_dialog_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
-import java.util.*
 
 interface OnHexDialogButtonClickListener {
     fun onHexOkClickListener()
@@ -43,11 +43,21 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
           if (editTextTitle.text.isEmpty()) editTextTitle.setError("Enter the title new event")
           else {
 
+              val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
+              listEventTypeDao?.insertListEventType(
+                  ListEventType(
+                      id = 0,
+                      color = "#55A738",
+                      title = "khgsdvk"
+                  )
+              )
+
               listener.onHexOkClickListener()
               dialog?.hide()
           }
         }
     }
+
 
     private val seekBarChangeListener: SeekBar.OnSeekBarChangeListener = object :
         SeekBar.OnSeekBarChangeListener {

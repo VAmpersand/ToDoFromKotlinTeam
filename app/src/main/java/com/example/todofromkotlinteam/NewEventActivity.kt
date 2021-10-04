@@ -11,7 +11,6 @@ import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
-import kotlinx.android.synthetic.main.settings_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 

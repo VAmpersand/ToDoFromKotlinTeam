@@ -21,6 +21,7 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
     private val listener = listener
     private var startTime = startTime
     private var endTime = endTime
+    val calendar = Calendar.getInstance(Locale.UK)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +45,7 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
-        val calendar = Calendar.getInstance(Locale.UK)
+   //     val calendar = Calendar.getInstance(Locale.UK)
 
         if (startTime != null && endTime != null) {
             calendar.time = startTime
@@ -59,7 +60,7 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
 
     private fun configureListeners() {
         okButton?.setOnClickListener {
-            val calendar = Calendar.getInstance(Locale.UK)
+//            val calendar = Calendar.getInstance(Locale.UK)
 
             calendar.get(Calendar.HOUR)
             calendar.get(Calendar.MINUTE)
@@ -70,6 +71,7 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
             calendar.get(Calendar.MINUTE)
 
             var endTime = calendar.time
+
 
             listener.onTimeOkClickListener(startTime, endTime)
             dialog?.hide()
