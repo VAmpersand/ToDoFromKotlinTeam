@@ -1,7 +1,6 @@
 package com.example.todofromkotlinteam.views
 
 import android.annotation.SuppressLint
-import android.graphics.Insets.add
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +16,7 @@ import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 interface OnColorDialogButtonClickListener {
     fun onColorOkClickListener(type: ListEventType)
     fun onAddHexClickListener()
+
 }
 
 class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogFragment(), ItemSelectionListener{
@@ -27,29 +27,31 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.color_theme_dialog, container, false)
-        getAllListEventType()
+
     }
 
     override fun onStart() {
         super.onStart()
         configureDialogAlert()
         configureListeners()
-    }
+      }
 
     override fun onResume() {
         super.onResume()
         getAllListEventType()
+       }
 
-    }
-
+    @SuppressLint("ResourceType")
     private fun configureDialogAlert() {
         dialog?.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
+
         events.add(ListEventType(0,"#FF5252", "Здоровье"))
         events.add(ListEventType(1,"#343D8F", "Хобби"))
         events.add(ListEventType(2,"#55A738", "Работа"))
+
 //        events.add(ListEventType(3,"#FF5232", "Учеба"))
 //        events.add(ListEventType(4,"#FF5252", "Здоровье"))
 //        events.add(ListEventType(5,"#343D8F", "Хобби"))
@@ -59,6 +61,8 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
         rcView?.hasFixedSize()
         rcView?.layoutManager = LinearLayoutManager(context)
         rcView?.adapter = ColorAdapter(events, requireContext(),this)
+
+
        }
 
     @SuppressLint("ResourceType")
@@ -81,16 +85,12 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
         rcView?.adapter?.notifyDataSetChanged()
     }
 
-   private fun getAllListEventType() {
+    private fun getAllListEventType() {
         val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
-        currentType = listEventTypeDao?.getAllListEventType()
-        rcView?.adapter?.notifyDataSetChanged()
+        val insertIndex = 0
+          events.addAll(insertIndex,listEventTypeDao?.getAllListEventType()!!)
+        rcView?.adapter?.notifyItemInserted(insertIndex)
+
     }
-//
-//    @SuppressLint("NotifyDataSetChanged")
-//    private fun addItem() {
-//        events.add()
-//        rcView?.adapter?.notifyDataSetChanged()
-//    }
 
 }

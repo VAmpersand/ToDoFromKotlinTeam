@@ -69,6 +69,7 @@
             android:background="@android:drawable/editbox_background_normal"
             android:cursorVisible="false"
             android:ems="10"
+            android:inputType="textCapSentences"
             android:hint="Title new event"
             android:imeOptions="actionDone"
             android:singleLine="true"

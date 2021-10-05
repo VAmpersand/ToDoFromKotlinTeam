@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -11,6 +12,7 @@ import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
+import kotlinx.android.synthetic.main.time_input_dialog_layout.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -126,22 +128,35 @@ class NewEventActivity : AppCompatActivity(),
         val calendar = Calendar.getInstance(Locale.UK)
         val dateFormat = SimpleDateFormat("HH:mm", Locale.UK)
 
+//        if(startHoursEditText == null || startMinutesEditText == null){
+//            startHoursEditText?.error = "Hours!!"
+//            startMinutesEditText?.error = "Minutes!!"
+//        }
+//        else {
+//            val startHours = startHoursEditText.text.toString()
+//            val startMinutes = startMinutesEditText.text.toString()
+//            eventStartTimeField?.inputField?.setText("$startHours:$startMinutes")
+//            }
+
         calendar.time = startTime
-        eventStartTimeField?.inputField?.setText(dateFormat.format(calendar.time))
+        eventStartTimeField?.inputField?.setText(dateFormat.format(startTime))
 
         calendar.time = endTime
-        eventEndTimeField?.inputField?.setText(dateFormat.format(calendar.time))
+        eventEndTimeField?.inputField?.setText(dateFormat.format(endTime))
     }
 
     // MARK: - OnHexDialogButtonClickListener
+    @SuppressLint("ResourceType")
     override fun onHexOkClickListener() {
         InputColorDialogView(this).show(supportFragmentManager, "ColorDialog")
+
     }
+
 
     // MARK: - OnColorDialogButtonClickListener
     override fun onColorOkClickListener(type: ListEventType) {
         itemColorField?.inputField?.setText(type.title)
-        itemColorField?.iconEvent?.background?.setTint(Color.parseColor(type.color))
+        itemColorField?.iconEvent?.background?.setTint(Color.parseColor(type.color.toString()))
     }
 
     override fun onAddHexClickListener() {
