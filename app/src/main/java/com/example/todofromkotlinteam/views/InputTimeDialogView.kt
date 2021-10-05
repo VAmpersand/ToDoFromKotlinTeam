@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
-import kotlinx.android.synthetic.main.new_event_additing_layout.*
-import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.time_input_dialog_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 import java.util.*
@@ -63,15 +61,10 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
         okButton?.setOnClickListener {
             val calendar = Calendar.getInstance(Locale.UK)
 
-
-            val startHours = Integer.parseInt(startHoursEditText.text.toString())
-            val startMinutes = Integer.parseInt(startMinutesEditText.text.toString())
-
             calendar.get(Calendar.HOUR)
             calendar.get(Calendar.MINUTE)
 
             var startTime = calendar.time
-
 
             calendar.get(Calendar.HOUR)
             calendar.get(Calendar.MINUTE)

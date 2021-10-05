@@ -43,22 +43,16 @@ class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context, listen
         if (selectPosition == position) holder.itemView.background = appContext.resources.getDrawable(android.R.drawable.editbox_background_normal)
         else holder.itemView.background = null
 
-
         holder.itemView.setOnClickListener {
             listener.select(events[position])
             selectPosition = position
         }
-
-     }
-
-   public fun addItems(listArray: ArrayList<ListEventType>) {
-        this.events.clear()
-        this.events.addAll(listArray)
     }
 
     override fun getItemCount(): Int {
         return events.size
     }
+
 
 
 }

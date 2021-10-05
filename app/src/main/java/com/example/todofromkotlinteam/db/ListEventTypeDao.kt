@@ -8,8 +8,8 @@ import com.example.todofromkotlinteam.views.EventsDataField
 interface ListEventTypeDao {
 
     @Query("SELECT * FROM listEventType ORDER BY id DESC")
-    fun getAllListEventType(): List<ListEventType>?
-
+    fun getAllListEventType(): ListEventType?
+//    fun getAllListEventType(): List<ListEventType>?
 
     @Insert
     fun insertListEventType(event: ListEventType?)

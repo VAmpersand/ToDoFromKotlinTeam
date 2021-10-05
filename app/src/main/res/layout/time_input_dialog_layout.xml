@@ -38,7 +38,6 @@
                 android:singleLine="true"
                 android:inputType="time"
                 android:layout_marginLeft="19dp"
-                android:maxLength="2"
                 android:background="@android:drawable/editbox_background_normal" />
 
             <TextView
@@ -52,7 +51,6 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:inputType="time"
-                android:maxLength="2"
                 android:layout_marginLeft="7dp"
                 android:background="@android:drawable/editbox_background_normal" />
 
@@ -86,7 +84,6 @@
                 android:singleLine="true"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:maxLength="2"
                 android:layout_marginLeft="19dp"
                 android:background="@android:drawable/editbox_background_normal" />
 
@@ -100,7 +97,6 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:maxLength="2"
                 android:inputType="time"
                 android:layout_marginLeft="7dp"
                 android:background="@android:drawable/editbox_background_normal" />

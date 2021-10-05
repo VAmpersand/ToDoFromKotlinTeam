@@ -3,7 +3,7 @@ package com.example.todofromkotlinteam.db.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+//import androidx.room.verifier.ColumnInfo
 
 @Entity(tableName = "listEvent")
 data class ListEvent(
