@@ -21,7 +21,7 @@ interface OnColorDialogButtonClickListener {
 class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogFragment(), ItemSelectionListener{
     private val listener = listener
     private var currentType : ListEventType? = null
-    private var events: List<ListEventType>? = null
+    private var events = ArrayList<ListEventType>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -39,18 +39,17 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
-        val events = ArrayList<ListEventType>()
-
-        events.add(ListEventType(0,"#FF5252", "Здоровье"))
-        events.add(ListEventType(1,"#343D8F", "Хобби"))
-        events.add(ListEventType(2,"#55A738", "Работа"))
-        events.add(ListEventType(3,"#FF5232", "Учеба"))
-        events.add(ListEventType(4,"#FF5252", "Здоровье"))
-        events.add(ListEventType(5,"#343D8F", "Хобби"))
-        events.add(ListEventType(6,"#55A738", "Работа"))
-        events.add(ListEventType(7,"#FF5232", "Учеба"))
-
         getAllListEventType()
+
+//        events.add(ListEventType(0,"#FF5252", "Здоровье"))
+//        events.add(ListEventType(1,"#343D8F", "Хобби"))
+//        events.add(ListEventType(2,"#55A738", "Работа"))
+//        events.add(ListEventType(3,"#FF5232", "Учеба"))
+//        events.add(ListEventType(4,"#FF5252", "Здоровье"))
+//        events.add(ListEventType(5,"#343D8F", "Хобби"))
+//        events.add(ListEventType(6,"#55A738", "Работа"))
+//        events.add(ListEventType(7,"#FF5232", "Учеба"))
+
 
         rcView?.hasFixedSize()
         rcView?.layoutManager = LinearLayoutManager(context)
@@ -78,8 +77,10 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
 
     private fun getAllListEventType() {
         val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
-        events = listEventTypeDao?.getAllListEventType()
-        // recycleView?.adapter?.notifyDataSetChanged()
+        val insertIndex = 0
+        if(listEventTypeDao?.getAllListEventType()?.isEmpty() == true) events.addAll(insertIndex, listEventTypeDao?.getAllListEventType()!!)
+
+        rcView?.adapter?.notifyDataSetChanged()
     }
 
 }

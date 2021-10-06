@@ -47,8 +47,10 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
               listEventTypeDao?.insertListEventType(
                   ListEventType(
                       id = 0,
-                      color = "#55A738",
-                      title = "khgsdvk"
+                      color ="#FF5252",
+                      title = "Здоровье"
+//                      color = viewHexColor.toString(),
+//                      title = editTextTitle.text.toString()
                   )
               )
 
