@@ -51,11 +51,6 @@ class ColorAdapter(listArray: ArrayList<ListEventType>, context: Context, listen
 
      }
 
-   public fun addItems(listArray: ArrayList<ListEventType>) {
-        this.events.clear()
-        this.events.addAll(listArray)
-    }
-
     override fun getItemCount(): Int {
         return events.size
     }

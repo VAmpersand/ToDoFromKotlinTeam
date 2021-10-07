@@ -48,12 +48,11 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
         okHexButton?.setOnClickListener {
           if (editTextTitle.text.isEmpty()) editTextTitle.error = "Enter the title new event"
           else {
-               val title = editTextTitle?.text.toString()
                val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
                 listEventTypeDao?.insertListEventType(
                         ListEventType(
                                 color = hexColor,
-                                title = title  ))
+                                title = editTextTitle?.text.toString()  ))
                     listener.onHexOkClickListener()
               dialog?.hide()
           }

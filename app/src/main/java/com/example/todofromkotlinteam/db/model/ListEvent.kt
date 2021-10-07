@@ -17,4 +17,5 @@ data class ListEvent(
     @ColumnInfo(name = "partner") val partner: String?,
     @ColumnInfo(name = "isDone") val isDone: Boolean,
     @ColumnInfo(name = "isPriority") val isPriority: Boolean,
-)
+//    @ColumnInfo(name = "colorEvent") val colorEvent: String
+    )

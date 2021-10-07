@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.time_input_dialog_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -47,6 +48,7 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
         )
 
         val calendar = Calendar.getInstance(Locale.UK)
+        val dateFormat = SimpleDateFormat("HH:mm", Locale.UK)
 
         if (startTime != null && endTime != null) {
             calendar.time = startTime
@@ -63,18 +65,17 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
         okButton?.setOnClickListener {
             val calendar = Calendar.getInstance(Locale.UK)
 
-
-            val startHours = Integer.parseInt(startHoursEditText.text.toString())
-            val startMinutes = Integer.parseInt(startMinutesEditText.text.toString())
-
-            calendar.get(Calendar.HOUR)
-            calendar.get(Calendar.MINUTE)
+            startHoursEditText?.text.toString()
+            startMinutesEditText?.text.toString()
+//            calendar.get(Calendar.HOUR)
+//            calendar.get(Calendar.MINUTE)
 
             var startTime = calendar.time
 
-
-            calendar.get(Calendar.HOUR)
-            calendar.get(Calendar.MINUTE)
+            endHoursEditText?.text.toString()
+            endMinutesEditText?.text.toString()
+//            calendar.get(Calendar.HOUR)
+//            calendar.get(Calendar.MINUTE)
 
             var endTime = calendar.time
 
