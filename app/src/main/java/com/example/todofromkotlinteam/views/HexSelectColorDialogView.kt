@@ -18,6 +18,7 @@ interface OnHexDialogButtonClickListener {
 class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : DialogFragment() {
     private val listener = listener
 
+
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.rgb_select_color_layout, container, false)
@@ -46,11 +47,11 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
               val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
               listEventTypeDao?.insertListEventType(
                   ListEventType(
-                      id = 0,
-                      color ="#FF5252",
-                      title = "Здоровье"
-//                      color = viewHexColor.toString(),
-//                      title = editTextTitle.text.toString()
+                      //                    id = 0,
+                      color = "#FF5252",
+                      title = "Работа"
+//(не подхоит)                      color = viewHexColor?.background.toString(),
+//                      title = editTextTitle?.text.toString()
                   )
               )
 

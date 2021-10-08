@@ -34,12 +34,15 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
         configureListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        getAllListEventType()
+    }
+
     private fun configureDialogAlert() {
         dialog?.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
         )
-
-        getAllListEventType()
 
 //        events.add(ListEventType(0,"#FF5252", "Здоровье"))
 //        events.add(ListEventType(1,"#343D8F", "Хобби"))
@@ -78,9 +81,10 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
     private fun getAllListEventType() {
         val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
         val insertIndex = 0
-        if(listEventTypeDao?.getAllListEventType()?.isEmpty() == true) events.addAll(insertIndex, listEventTypeDao?.getAllListEventType()!!)
+        if(listEventTypeDao?.getAllListEventType()?.isEmpty() == false) events.addAll(insertIndex, listEventTypeDao?.getAllListEventType()!!)
 
-        rcView?.adapter?.notifyDataSetChanged()
+        rcView?.adapter?.notifyItemInserted(insertIndex)
+
     }
 
 }
