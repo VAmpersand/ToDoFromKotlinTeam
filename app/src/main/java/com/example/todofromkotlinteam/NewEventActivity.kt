@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isEmpty
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.db.model.ListEventType
@@ -15,7 +14,6 @@ import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 import kotlinx.android.synthetic.main.settings_fragment.view.*
-import kotlinx.android.synthetic.main.time_input_dialog_layout.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -53,28 +51,17 @@ class NewEventActivity : AppCompatActivity(),
 
 
         if (currentType == null
-                && currentDate == null
-                && currentStartTime == null
-                && currentEndTime == null
+                && currentDate.toString() == ""
+                && currentStartTime.toString() == ""
+                && currentEndTime.toString() == ""
                 && eventNameField?.textView?.text?.isEmpty() == true
                 && eventDescriptionField?.textView?.text?.isEmpty() == true
                 && eventPartnerField?.textView?.text?.isEmpty() == true ){
 
                     eventNameField?.textView?.error = "Name!!"
                     eventDateField?.textView?.error = "Date!!"
-                            eventDescriptionField?.textView?.error = "Describe!!"
-                            eventPartnerField?.textView?.error = "Partner!!"
-//                            id = 0,
-//                            eventTypeId = 0,
-//                            title = eventNameField?.textView?.text.toString(),
-//                            date = currentDate.toString(),
-//                            description = eventDescriptionField?.textView?.text.toString(),
-//                            startTime = "12:00",
-//                            finishTime = "13:00",
-//                            isDone = false,
-//                            isPriority = false,
-//                            partner = eventPartnerField?.textView?.text.toString(),
-//                            colorEvent = currentType.toString()
+                    eventDescriptionField?.textView?.error = "Describe!!"
+                    eventPartnerField?.textView?.error = "Partner!!"
 
         }
         else {
@@ -159,16 +146,6 @@ class NewEventActivity : AppCompatActivity(),
 
         val calendar = Calendar.getInstance(Locale.UK)
         val dateFormat = SimpleDateFormat("HH:mm", Locale.UK)
-
-//        if(startHoursEditText == null || startMinutesEditText == null){
-//            startHoursEditText?.error = "Hours!!"
-//            startMinutesEditText?.error = "Minutes!!"
-//        }
-//        else {
-//            val startHours = startHoursEditText.text.toString()
-//            val startMinutes = startMinutesEditText.text.toString()
-//            eventStartTimeField?.inputField?.setText("$startHours:$startMinutes")
-//            }
 
         calendar.time = startTime
         eventStartTimeField?.inputField?.setText(dateFormat.format(startTime))
