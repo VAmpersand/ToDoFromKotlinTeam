@@ -47,14 +47,11 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
               val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
               listEventTypeDao?.insertListEventType(
                   ListEventType(
-                      //                    id = 0,
                       color = "#FF5252",
-                      title = "Работа"
 //(не подхоит)                      color = viewHexColor?.background.toString(),
-//                      title = editTextTitle?.text.toString()
+                      title = editTextTitle?.text.toString()
                   )
               )
-
               listener.onHexOkClickListener()
               dialog?.hide()
           }

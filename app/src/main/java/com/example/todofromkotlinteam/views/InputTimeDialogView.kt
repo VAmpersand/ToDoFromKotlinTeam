@@ -62,18 +62,20 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
         okButton?.setOnClickListener {
 //            val calendar = Calendar.getInstance(Locale.UK)
 
-            calendar.get(Calendar.HOUR)
-            calendar.get(Calendar.MINUTE)
+//            calendar.get(Calendar.HOUR)
+//            calendar.get(Calendar.MINUTE)
+//
+//            var startTime = calendar.time //(здесь назначаем время)
+//
+//            calendar.get(Calendar.HOUR)
+//            calendar.get(Calendar.MINUTE)
+//
+//            var endTime = calendar.time //(здесь назначаем время)
 
-            var startTime = calendar.time
-
-            calendar.get(Calendar.HOUR)
-            calendar.get(Calendar.MINUTE)
-
-            var endTime = calendar.time
 
 
-            listener.onTimeOkClickListener(startTime, endTime)
+
+//            listener.onTimeOkClickListener(startTime, endTime)
             dialog?.hide()
         }
 
