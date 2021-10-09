@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isEmpty
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.db.model.ListEventType
@@ -15,7 +14,6 @@ import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 import kotlinx.android.synthetic.main.settings_fragment.view.*
-import kotlinx.android.synthetic.main.time_input_dialog_layout.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,8 +26,8 @@ class NewEventActivity : AppCompatActivity(),
 
     private var currentType: EventType? = null
     private var currentDate = Date()
-    private var currentStartTime: Date? = null
-    private var currentEndTime: Date? = null
+    private var currentStartTime: String? = null
+    private var currentEndTime: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -153,28 +151,12 @@ class NewEventActivity : AppCompatActivity(),
     }
 
     // MARK: - OnTimeDialogButtonClickListener
-    override fun onTimeOkClickListener(startTime: Date, endTime: Date) {
+    override fun onTimeOkClickListener(startTime: String, endTime: String) {
         currentStartTime = startTime
         currentEndTime = endTime
 
-        val calendar = Calendar.getInstance(Locale.UK)
-        val dateFormat = SimpleDateFormat("HH:mm", Locale.UK)
-
-//        if(startHoursEditText == null || startMinutesEditText == null){
-//            startHoursEditText?.error = "Hours!!"
-//            startMinutesEditText?.error = "Minutes!!"
-//        }
-//        else {
-//            val startHours = startHoursEditText.text.toString()
-//            val startMinutes = startMinutesEditText.text.toString()
-//            eventStartTimeField?.inputField?.setText("$startHours:$startMinutes")
-//            }
-
-        calendar.time = startTime
-        eventStartTimeField?.inputField?.setText(dateFormat.format(startTime))
-
-        calendar.time = endTime
-        eventEndTimeField?.inputField?.setText(dateFormat.format(endTime))
+        eventStartTimeField?.inputField?.setText(startTime)
+        eventEndTimeField?.inputField?.setText(endTime)
     }
 
     // MARK: - OnHexDialogButtonClickListener
