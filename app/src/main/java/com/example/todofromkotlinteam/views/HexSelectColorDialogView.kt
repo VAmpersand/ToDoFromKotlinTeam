@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.views
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ interface OnHexDialogButtonClickListener {
 }
 class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : DialogFragment() {
     private val listener = listener
+    private lateinit var hexColor: String
 
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
@@ -70,11 +72,9 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
     }
 
     private fun updateColor() {
-        val redValue: Int = seekBarRed.progress
-        val greenValue: Int = seekBarGreen.progress
-        val blueValue: Int = seekBarBlue.progress
 
-        viewHexColor?.background?.setTint(-0x1000000 + redValue * 0x10000 + greenValue * 0x100 + blueValue)
+        viewHexColor?.background?.setTint(Color.argb(225,seekBarRed.progress,seekBarGreen.progress,seekBarBlue.progress))
+
     }
 }
 

@@ -126,8 +126,8 @@ class NewEventActivity : AppCompatActivity(),
         currentStartTime = startTime
         currentEndTime = endTime
 
-        val calendar = Calendar.getInstance(Locale.UK)
-        val dateFormat = SimpleDateFormat("HH:mm", Locale.UK)
+        val calendar = Calendar.getInstance(Locale.ROOT)
+        val dateFormat = SimpleDateFormat("HH:mm", Locale.ROOT)
 
         calendar.time = startTime
         eventStartTimeField?.inputField?.setText(dateFormat.format(calendar.time))

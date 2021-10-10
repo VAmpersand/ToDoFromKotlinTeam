@@ -1,7 +1,6 @@
 package com.example.todofromkotlinteam.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import com.example.todofromkotlinteam.R
 import kotlinx.android.synthetic.main.time_input_dialog_layout.*
 import kotlinx.android.synthetic.main.type_input_dialog_layout.okButton
 import java.util.*
-import kotlin.collections.ArrayList
 
 interface OnTimeDialogButtonClickListener {
     fun onTimeOkClickListener(startTime: Date, endTime: Date)
@@ -21,7 +19,7 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
     private val listener = listener
     private var startTime = startTime
     private var endTime = endTime
-    val calendar = Calendar.getInstance(Locale.UK)
+    val calendar = Calendar.getInstance(Locale.ROOT)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,18 +62,18 @@ class InputTimeDialogView(startTime: Date?, endTime: Date?, listener: OnTimeDial
 
 //            calendar.get(Calendar.HOUR)
 //            calendar.get(Calendar.MINUTE)
+
+            var startTime = calendar.time //(здесь назначаем время)
 //
-//            var startTime = calendar.time //(здесь назначаем время)
-//
-//            calendar.get(Calendar.HOUR)
+//            calendar.get(Calendar.HOUR)  //(ЗАЧЕМ ЭТО НУЖНО)
 //            calendar.get(Calendar.MINUTE)
 //
-//            var endTime = calendar.time //(здесь назначаем время)
+            var endTime = calendar.time //(здесь назначаем время)
 
 
 
 
-//            listener.onTimeOkClickListener(startTime, endTime)
+            listener.onTimeOkClickListener(startTime, endTime)
             dialog?.hide()
         }
 

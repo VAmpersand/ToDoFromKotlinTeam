@@ -80,10 +80,10 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
 
     private fun getAllListEventType() {
         val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
-        val insertIndex = 0
-        if(listEventTypeDao?.getAllListEventType()?.isEmpty() == false) events.addAll(insertIndex, listEventTypeDao?.getAllListEventType()!!)
+        if(listEventTypeDao?.getAllListEventType()?.isEmpty() == false) events.addAll(
+            0, listEventTypeDao?.getAllListEventType()!!)
 
-        rcView?.adapter?.notifyItemInserted(insertIndex)
+        rcView?.adapter?.notifyItemInserted(0)
 
     }
 
