@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
+import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
 import java.util.*
 
@@ -26,8 +27,12 @@ open class TDRecycleListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>()
         private val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
 
         fun bind(listEvent: ListEvent, context: Context) {
+//            val listEventTypeDao = RoomAppDB.getAppDB(context)?.listEventTypeDao()
+//            val color = listEventTypeDao?.getListEventType(listEvent.id)
+
+
             if (listEvent.isPriority) {
-//                eventView?.background?.setTint(Color.parseColor(listEvent.eventType.color))
+//                eventView?.background?.setTint(Color.parseColor(color))
                 colorView?.background?.setTint(context.resources.getColor(R.color.white, null))
 
                 titleTextView?.setTextColor(context.resources.getColor(R.color.white, null))
@@ -39,7 +44,7 @@ open class TDRecycleListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>()
                 partnerIcon?.setColorFilter(context.resources.getColor(R.color.white, null))
             } else {
                 eventView?.background?.setTint(context.resources.getColor(R.color.white, null))
-//                colorView?.background?.setTint(Color.parseColor(listEvent.eventType.color))
+//                colorView?.background?.setTint(Color.parseColor(color))
             }
 
             if (listEvent.isDone) eventView?.alpha = 0.5f

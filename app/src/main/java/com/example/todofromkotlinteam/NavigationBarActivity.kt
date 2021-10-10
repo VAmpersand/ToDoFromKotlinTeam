@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.todofromkotlinteam.plans.PlansFragment
+import com.example.todofromkotlinteam.Plans.PlansFragment
 import com.example.todofromkotlinteam.ideas.IdeasFragment
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
