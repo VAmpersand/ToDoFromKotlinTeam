@@ -3,6 +3,7 @@ package com.example.todofromkotlinteam
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.db.RoomAppDB
@@ -28,7 +29,8 @@ class NewEventActivity : AppCompatActivity(),
     private var currentDate = Date()
     private var currentStartTime: String? = null
     private var currentEndTime: String? = null
-
+    private var currentEventType: ListEventType? = null
+   
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
@@ -49,19 +51,44 @@ class NewEventActivity : AppCompatActivity(),
     @SuppressLint("NotifyDataSetChanged")
     fun onClickAddEvent(view: View) {
 
+        Log.d("currentType", "$currentType")
+        Log.d("currentDate", "$currentDate")
+        Log.d("currentStartTime", "$currentStartTime")
+        Log.d("currentEndTime", "$currentEndTime")
+        Log.d("currentEventType", "$currentEventType")
+        Log.d("eventNameField", "${eventNameField?.inputField?.text}")
+        if (currentType != null
+                && currentDate != null
+                && currentStartTime != null
+                && currentEndTime != null
+                && currentEventType?.id != null
+                && eventNameField?.inputField?.text?.isEmpty() == false) {
 
-        if (currentType == null
-                && currentDate == null
-                && currentStartTime == null
-                && currentEndTime == null
-                && eventNameField?.textView?.text?.isEmpty() == true
-                && eventDescriptionField?.textView?.text?.isEmpty() == true
-                && eventPartnerField?.textView?.text?.isEmpty() == true ){
+            val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
 
-                    eventNameField?.textView?.error = "Name!!"
-                    eventDateField?.textView?.error = "Date!!"
-                            eventDescriptionField?.textView?.error = "Describe!!"
-                            eventPartnerField?.textView?.error = "Partner!!"
+            listEventDao?.insertListEvent(
+                ListEvent(
+                    id = 0,
+                    eventTypeId = currentEventType?.id!!,
+                    title = eventNameField?.inputField?.text?.toString()!!,
+                    date = currentDate.toString()!!,
+                    description = eventDescriptionField?.textView?.text?.toString(),
+                    startTime = currentStartTime.toString()!!,
+                    finishTime = currentEndTime.toString()!!,
+                    isDone = false,
+                    isPriority = false,
+                    partner = eventPartnerField?.textView?.text?.toString()
+                )
+            )
+
+            finish()
+            recycleView?.adapter?.notifyDataSetChanged()
+        }
+
+//                    eventNameField?.textView?.error = "Name!!"
+//                    eventDateField?.textView?.error = "Date!!"
+//                            eventDescriptionField?.textView?.error = "Describe!!"
+//                            eventPartnerField?.textView?.error = "Partner!!"
 //                            id = 0,
 //                            eventTypeId = 0,
 //                            title = eventNameField?.textView?.text.toString(),
@@ -74,24 +101,9 @@ class NewEventActivity : AppCompatActivity(),
 //                            partner = eventPartnerField?.textView?.text.toString(),
 //                            colorEvent = currentType.toString()
 
-        }
-        else {
-            val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
-            listEventDao?.insertListEvent(
-                    ListEvent(
-                            id = 0,
-                            eventTypeId = 0,
-                            title = eventNameField?.textView?.text.toString(),
-                            date = currentDate.toString(),
-                            description = eventDescriptionField?.textView?.text.toString(),
-                            startTime = currentStartTime.toString(),
-                            finishTime = currentEndTime.toString(),
-                            isDone = false,
-                            isPriority = false,
-                            partner = eventPartnerField?.textView?.text.toString()))
-        }
-        finish()
-        recycleView?.adapter?.notifyDataSetChanged()
+
+
+
 
          }
 
@@ -169,6 +181,8 @@ class NewEventActivity : AppCompatActivity(),
 
     // MARK: - OnColorDialogButtonClickListener
     override fun onColorOkClickListener(type: ListEventType) {
+        currentEventType = type
+
         itemColorField?.inputField?.setText(type.title)
         itemColorField?.iconEvent?.background?.setTint(Color.parseColor(type.color.toString()))
     }

@@ -26,6 +26,7 @@ open class TDRecycleListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>()
         private val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
 
         fun bind(listEvent: ListEvent, context: Context) {
+
             if (listEvent.isPriority) {
 //                eventView?.background?.setTint(Color.parseColor(listEvent.eventType.color))
                 colorView?.background?.setTint(context.resources.getColor(R.color.white, null))
