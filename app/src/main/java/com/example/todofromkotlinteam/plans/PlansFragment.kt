@@ -11,7 +11,6 @@ import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.plans.PlansListAdapter
-import kotlinx.android.synthetic.main.color_theme_dialog.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 
 class PlansFragment: Fragment()  {

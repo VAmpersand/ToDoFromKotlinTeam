@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.db.model.ListEventType
 
-@Database(entities = [ListEvent::class, ListEventType::class], version = 1)
+@Database(entities = [ListEvent::class, ListEventType::class], version = 2)
 abstract class RoomAppDB : RoomDatabase() {
     abstract fun listEventDao(): ListEventDao?
     abstract fun listEventTypeDao(): ListEventTypeDao?
@@ -22,6 +22,7 @@ abstract class RoomAppDB : RoomDatabase() {
                     context.applicationContext, RoomAppDB::class.java, "AppDB"
                 )
                     .allowMainThreadQueries()
+                    .fallbackToDestructiveMigrationFrom(1,2)
                     .build()
             }
             return INSTANCE
