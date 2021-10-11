@@ -52,7 +52,9 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
                 listEventTypeDao?.insertListEventType(
                         ListEventType(
                                 color = hexColor,
-                                title = editTextTitle?.text.toString()  ))
+                                title = editTextTitle?.text.toString()
+                        )
+                )
                     listener.onHexOkClickListener()
               dialog?.hide()
           }
@@ -70,12 +72,9 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
     }
 
     private fun updateColor() {
-        val redValue: Int = seekBarRed.progress
-        val greenValue: Int = seekBarGreen.progress
-        val blueValue: Int = seekBarBlue.progress
 
-        viewHexColor?.background?.setTint(Color.argb(255,redValue,greenValue,blueValue))
-        hexColor = String.format("#%02x%02x%02x",redValue,greenValue,blueValue)
+        viewHexColor?.background?.setTint(Color.argb(255,seekBarRed.progress,seekBarGreen.progress,seekBarBlue.progress))
+        hexColor = String.format("#%02x%02x%02x",seekBarRed.progress,seekBarGreen.progress,seekBarBlue.progress)
     }
 }
 
