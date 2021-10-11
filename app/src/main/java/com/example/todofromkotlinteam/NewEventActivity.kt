@@ -30,7 +30,7 @@ class NewEventActivity : AppCompatActivity(),
     private var currentStartTime: String? = null
     private var currentEndTime: String? = null
     private var currentEventType: ListEventType? = null
-
+   
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
