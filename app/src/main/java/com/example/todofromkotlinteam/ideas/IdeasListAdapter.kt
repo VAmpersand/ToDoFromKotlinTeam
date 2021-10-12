@@ -9,7 +9,7 @@ import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import kotlin.collections.ArrayList
 
-class IdeasListAdapter(listArray:ArrayList<ListEvent>, context: Context) : TDRecycleListAdapter() {
+class IdeasListAdapter(listArray: List<ListEvent>, context: Context) : TDRecycleListAdapter() {
     private var events = listArray
     private var appContext = context
 

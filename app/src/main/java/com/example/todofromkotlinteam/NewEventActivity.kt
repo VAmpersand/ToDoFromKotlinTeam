@@ -65,46 +65,29 @@ class NewEventActivity : AppCompatActivity(),
 
             val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
 
-            listEventDao?.insertListEvent(
-                ListEvent(
-                    id = 0,
-                    eventTypeId = currentEventType?.id!!,
-                    title = eventNameField?.inputField?.text?.toString()!!,
-                    date = currentDate.toString()!!,
-                    description = eventDescriptionField?.textView?.text?.toString(),
-                    startTime = currentStartTime.toString()!!,
-                    finishTime = currentEndTime.toString()!!,
-                    isDone = false,
-                    isPriority = false,
-                    partner = eventPartnerField?.textView?.text?.toString()
+ //           if(currentType == EventType.PLANS) {
+
+                listEventDao?.insertListEvent(
+                    ListEvent(
+                        id = 0,
+                        eventTypeId = currentEventType?.id!!,
+                        title = eventNameField?.inputField?.text?.toString()!!,
+                        date = currentDate.toString()!!,
+                        description = eventDescriptionField?.textView?.text?.toString(),
+                        startTime = currentStartTime.toString()!!,
+                        finishTime = currentEndTime.toString()!!,
+                        isDone = false,
+                        isPriority = false,
+                        partner = eventPartnerField?.textView?.text?.toString()
+                    )
                 )
-            )
 
-            finish()
-            recycleView?.adapter?.notifyDataSetChanged()
-        }
+                finish()
+                recycleView?.adapter?.notifyDataSetChanged()
+            }
+  //      }
 
-//                    eventNameField?.textView?.error = "Name!!"
-//                    eventDateField?.textView?.error = "Date!!"
-//                            eventDescriptionField?.textView?.error = "Describe!!"
-//                            eventPartnerField?.textView?.error = "Partner!!"
-//                            id = 0,
-//                            eventTypeId = 0,
-//                            title = eventNameField?.textView?.text.toString(),
-//                            date = currentDate.toString(),
-//                            description = eventDescriptionField?.textView?.text.toString(),
-//                            startTime = "12:00",
-//                            finishTime = "13:00",
-//                            isDone = false,
-//                            isPriority = false,
-//                            partner = eventPartnerField?.textView?.text.toString(),
-//                            colorEvent = currentType.toString()
-
-
-
-
-
-         }
+    }
 
 
 
