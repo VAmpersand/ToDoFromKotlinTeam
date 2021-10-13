@@ -77,7 +77,8 @@ class NewEventActivity : AppCompatActivity(),
                         finishTime = currentEndTime.toString()!!,
                         isDone = false,
                         isPriority = false,
-                        partner = eventPartnerField?.inputField?.text?.toString()
+                        partner = eventPartnerField?.inputField?.text?.toString(),
+                        eventTypeName = currentType.toString()!!
                     )
                 )
 

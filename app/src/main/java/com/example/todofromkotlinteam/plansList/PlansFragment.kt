@@ -11,7 +11,7 @@ import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
-import com.example.todofromkotlinteam.plans.PlansListAdapter
+import com.example.todofromkotlinteam.plansList.PlansListAdapter
 import kotlinx.android.synthetic.main.plans_fragment.*
 
 class PlansFragment: Fragment()  {

@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.ideas
+package com.example.todofromkotlinteam.ideasList
 
 import android.annotation.SuppressLint
 import android.os.Bundle

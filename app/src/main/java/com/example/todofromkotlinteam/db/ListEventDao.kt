@@ -9,10 +9,10 @@ interface ListEventDao {
     @Query("SELECT * FROM listEvent ORDER BY id DESC")
     fun getAllListEvent(): List<ListEvent>?
 
-    @Query("SELECT * FROM listEvent WHERE eventType LIKE 'PLANS'")
+    @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'PLANS'")
     fun getPlansListEvent(): List<ListEvent>?
 
-    @Query("SELECT * FROM listEvent WHERE eventType LIKE 'IDEAS'")
+    @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'IDEAS'")
     fun getIdeasListEvent(): List<ListEvent>?
 
     @Insert

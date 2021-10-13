@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.ideas
+package com.example.todofromkotlinteam.ideasList
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
-import kotlin.collections.ArrayList
 
 class IdeasListAdapter(listArray: List<ListEvent>, context: Context) : TDRecycleListAdapter() {
     private var events = listArray
