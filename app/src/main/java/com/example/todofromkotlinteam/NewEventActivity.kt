@@ -11,10 +11,10 @@ import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.db.model.ListEventType
 import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
+import kotlinx.android.synthetic.main.ideas_fragment.*
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.plans_fragment.*
-import kotlinx.android.synthetic.main.settings_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -41,7 +41,8 @@ class NewEventActivity : AppCompatActivity(),
     @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
         super.onResume()
-        recycleView?.adapter?.notifyDataSetChanged()
+        recycleViewPlans?.adapter?.notifyDataSetChanged()
+        recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
 
     fun onClickBack(view: View) {
@@ -65,27 +66,25 @@ class NewEventActivity : AppCompatActivity(),
 
             val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
 
- //           if(currentType == EventType.PLANS) {
-
                 listEventDao?.insertListEvent(
                     ListEvent(
                         id = 0,
                         eventTypeId = currentEventType?.id!!,
                         title = eventNameField?.inputField?.text?.toString()!!,
                         date = currentDate.toString()!!,
-                        description = eventDescriptionField?.textView?.text?.toString(),
+                        description = eventDescriptionField?.inputField?.text?.toString(),
                         startTime = currentStartTime.toString()!!,
                         finishTime = currentEndTime.toString()!!,
                         isDone = false,
                         isPriority = false,
-                        partner = eventPartnerField?.textView?.text?.toString()
+                        partner = eventPartnerField?.inputField?.text?.toString()
                     )
                 )
 
                 finish()
-                recycleView?.adapter?.notifyDataSetChanged()
+                recycleViewPlans?.adapter?.notifyDataSetChanged()
+                recycleViewIdeas?.adapter?.notifyDataSetChanged()
             }
-  //      }
 
     }
 

@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.Plans
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,10 +28,10 @@ class PlansFragment: Fragment()  {
 
         getAllListEvent()
 
-        recycleView?.hasFixedSize()
-        recycleView?.layoutManager = LinearLayoutManager(context)
+        recycleViewPlans?.hasFixedSize()
+        recycleViewPlans?.layoutManager = LinearLayoutManager(context)
         if (events == null) events = emptyList()
-        recycleView?.adapter = PlansListAdapter(events!!, requireContext())
+        recycleViewPlans?.adapter = PlansListAdapter(events!!, requireContext())
 
         plansWeekView?.alpha = 0f
         plansWeekView?.setupParent(context as NavigationBarActivity)
@@ -46,7 +47,7 @@ class PlansFragment: Fragment()  {
     }
 
     private fun configureListener() {
-        recycleView?.setOnScrollChangeListener { _, _, _, _, dx ->
+        recycleViewPlans?.setOnScrollChangeListener { _, _, _, _, dx ->
             currentOffset -= dx
 
             if (weekViewIsVisible != (currentOffset > 785)) {
@@ -64,14 +65,16 @@ class PlansFragment: Fragment()  {
         }
     }
 
+    @SuppressLint
     fun configureFragment() {
-        recycleView?.adapter?.notifyDataSetChanged()
+        recycleViewPlans?.adapter?.notifyDataSetChanged()
         plansWeekView?.configureWeek()
     }
 
+    @SuppressLint
     private fun getAllListEvent() {
         val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
-        events = listEventDao?.getAllListEvent()
-        recycleView?.adapter?.notifyDataSetChanged()
+        events = listEventDao?.getPlansListEvent()
+        recycleViewPlans?.adapter?.notifyDataSetChanged()
     }
 }

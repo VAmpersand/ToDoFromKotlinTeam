@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.ideas
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,6 @@ import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import kotlinx.android.synthetic.main.ideas_fragment.*
-import kotlinx.android.synthetic.main.ideas_fragment.recycleView
 
 class IdeasFragment : Fragment() {
     private var events: List<ListEvent>? = null
@@ -26,21 +26,26 @@ class IdeasFragment : Fragment() {
 
         getAllListEvent()
 
-        recycleView?.hasFixedSize()
-        recycleView?.layoutManager = LinearLayoutManager(context)
+        recycleViewIdeas?.hasFixedSize()
+        recycleViewIdeas?.layoutManager = LinearLayoutManager(context)
         if(events == null) events= emptyList()
-        recycleView?.adapter = IdeasListAdapter(events!!,requireContext())
+        recycleViewIdeas?.adapter = IdeasListAdapter(events!!,requireContext())
 
         ideasWeekView?.setupParent(context as NavigationBarActivity)
     }
 
+    @SuppressLint
     fun configureFragment() {
-        recycleView?.adapter?.notifyDataSetChanged()
+        recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
 
+    @SuppressLint
     private fun getAllListEvent() {
         val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
-        events = listEventDao?.getAllListEvent()
-        recycleView?.adapter?.notifyDataSetChanged()
+        events = listEventDao?.getIdeasListEvent()
+        recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
 }
+
+
+
