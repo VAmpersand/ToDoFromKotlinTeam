@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.plans
+package com.example.todofromkotlinteam.plansList
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,8 +10,6 @@ import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
-import java.util.*
-import kotlin.collections.ArrayList
 
 class PlansListAdapter(eventArray: List<ListEvent>, context: Context) : TDRecycleListAdapter() {
     private var events = eventArray

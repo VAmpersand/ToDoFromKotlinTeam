@@ -11,24 +11,27 @@ import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEventType
-import kotlinx.android.synthetic.main.color_theme_dialog.*
 import kotlinx.android.synthetic.main.rgb_select_color_layout.*
 
 
 interface OnHexDialogButtonClickListener {
     fun onHexOkClickListener()
-  }
+}
 
-class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : DialogFragment(){
+class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : DialogFragment() {
     private val listener = listener
     lateinit var hexColor: String
 
-    override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.rgb_select_color_layout, container, false)
     }
 
-     override fun onStart() {
+    override fun onStart() {
         super.onStart()
         configureDialogAlert()
         configureListeners()
@@ -36,7 +39,8 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
 
     private fun configureDialogAlert() {
         dialog?.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         updateColor()
     }
 
@@ -46,18 +50,19 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
         seekBarGreen?.setOnSeekBarChangeListener(seekBarChangeListener)
         seekBarBlue?.setOnSeekBarChangeListener(seekBarChangeListener)
         okHexButton?.setOnClickListener {
-          if (editTextTitle.text.isEmpty()) editTextTitle.error = "Enter the title new event"
-          else {
-               val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
+            if (editTextTitle.text.isEmpty()) editTextTitle.error = "Enter the title new event"
+            else {
+                val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
                 listEventTypeDao?.insertListEventType(
-                        ListEventType(
-                                color = hexColor,
-                                title = editTextTitle?.text.toString()
-                        )
+                    ListEventType(
+                        id = 0,
+                        color = hexColor,
+                        title = editTextTitle?.text.toString()
+                    )
                 )
-                    listener.onHexOkClickListener()
-              dialog?.hide()
-          }
+                listener.onHexOkClickListener()
+                dialog?.hide()
+            }
         }
     }
 
@@ -73,8 +78,20 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
 
     private fun updateColor() {
 
-        viewHexColor?.background?.setTint(Color.argb(255,seekBarRed.progress,seekBarGreen.progress,seekBarBlue.progress))
-        hexColor = String.format("#%02x%02x%02x",seekBarRed.progress,seekBarGreen.progress,seekBarBlue.progress)
+        viewHexColor?.background?.setTint(
+            Color.argb(
+                255,
+                seekBarRed.progress,
+                seekBarGreen.progress,
+                seekBarBlue.progress
+            )
+        )
+        hexColor = String.format(
+            "#%02x%02x%02x",
+            seekBarRed.progress,
+            seekBarGreen.progress,
+            seekBarBlue.progress
+        )
     }
 }
 
