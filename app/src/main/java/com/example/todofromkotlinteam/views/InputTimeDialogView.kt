@@ -53,8 +53,8 @@ class InputTimeDialogView(startTime: String?, endTime: String?, listener: OnTime
 
 
         if (startTimeEditText?.text?.isEmpty() == true && endTimeEditText?.text?.isEmpty() == true) {
-          val start = startTime?.replace(":".toRegex(),"")
-            val end = endTime?.replace(":".toRegex(),"")
+          val start = startTime?.replace(" : ".toRegex(),"")
+            val end = endTime?.replace(" : ".toRegex(),"")
             startTimeEditText?.setText(start)
             endTimeEditText?.setText(end)
 
@@ -65,18 +65,18 @@ class InputTimeDialogView(startTime: String?, endTime: String?, listener: OnTime
         okButton?.setOnClickListener {
             if (startTimeEditText.text?.isEmpty() == true) startTimeEditText?.error = "Start event!!!"
             if (endTimeEditText.text?.isEmpty() == true)  endTimeEditText?.error = "End event!!!"
-            if(startTimeEditText.text?.toString() == endTimeEditText.text?.toString()){
+            if(startTimeEditText.text?.toString() == endTimeEditText.text?.toString()) {
                 startTimeEditText?.error = "Invalid time!!"
                 endTimeEditText?.error = "Invalid time!!"
             }
-             else
-            {
+             else {
                 val startTime = startTimeEditText?.text.toString()
-            val endTime = endTimeEditText?.text.toString()
+                val endTime = endTimeEditText?.text.toString()
 
-            listener.onTimeOkClickListener(startTime, endTime)
-            dialog?.hide()
-        }}
+                listener.onTimeOkClickListener(startTime, endTime)
+                dialog?.hide()
+            }
+        }
 
         for (item in arrayOf(startTimeEditText, endTimeEditText)) {
             var maxTime = "2359"

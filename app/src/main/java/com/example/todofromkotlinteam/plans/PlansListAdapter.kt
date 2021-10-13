@@ -38,8 +38,8 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context) : TDRecycl
                 val calendar = CustomCalendarView(appContext)
                 calendar.setupParent(appContext as NavigationBarActivity)
                 calendar.configureCalendar(
-                    (appContext as NavigationBarActivity)?.currentCalendar,
-                    (appContext as NavigationBarActivity)?.selectedDate
+                    (appContext as NavigationBarActivity).currentCalendar,
+                    (appContext as NavigationBarActivity).selectedDate
                 )
                 calendar.layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
