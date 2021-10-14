@@ -6,14 +6,12 @@ import com.example.todofromkotlinteam.db.model.ListEvent
 @Dao
 interface ListEventDao {
 
-    @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'PLANS' ORDER BY id ASC")
+    @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'PLANS'")
     fun getAllListEvent(): List<ListEvent>?
 
-    @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'IDEAS' ORDER BY id ASC")
+    @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'IDEAS'")
     fun getIdeasListEvent(): List<ListEvent>?
 
-//    @Query("SELECT listEventType.color,listEventType.id, listEvent.eventType FROM listEventType, listEvent WHERE listEvent.eventType == listEventType.color ")
-//    fun getColor(): List<ListEvent>?
 
     @Insert
     fun insertListEvent(event: ListEvent?)

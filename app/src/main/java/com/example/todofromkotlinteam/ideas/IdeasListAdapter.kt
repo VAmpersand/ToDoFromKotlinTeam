@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.ideasList
+package com.example.todofromkotlinteam.ideas
 
 import android.content.Context
 import android.view.LayoutInflater

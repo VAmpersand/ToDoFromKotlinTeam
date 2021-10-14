@@ -48,9 +48,9 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
         )
 
 
-//        events.add(ListEventType(0,"#FF5252", "Здоровье"))
-//        events.add(ListEventType(1,"#343D8F", "Хобби"))
-//        events.add(ListEventType(2,"#55A738", "Работа"))
+        events.add(ListEventType(0,"#FF5252", "Здоровье"))
+        events.add(ListEventType(1,"#343D8F", "Хобби"))
+        events.add(ListEventType(2,"#55A738", "Работа"))
 
 //        events.add(ListEventType(3,"#FF5232", "Учеба"))
 //        events.add(ListEventType(4,"#FF5252", "Здоровье"))

@@ -1,4 +1,4 @@
-package com.example.todofromkotlinteam.ideasList
+package com.example.todofromkotlinteam.ideas
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,8 +11,9 @@ import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
+import com.example.todofromkotlinteam.db.model.ListEventType
 import kotlinx.android.synthetic.main.ideas_fragment.*
-import kotlinx.android.synthetic.main.ideas_fragment.recycleViewIdeas
+import kotlinx.android.synthetic.main.ideas_fragment.recycleView
 
 class IdeasFragment : Fragment() {
     private var events: List<ListEvent>? = null
@@ -26,17 +27,12 @@ class IdeasFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getAllIdeasListEvent()
-        recycleViewIdeas?.hasFixedSize()
-        recycleViewIdeas?.layoutManager = LinearLayoutManager(context)
+        recycleView?.hasFixedSize()
+        recycleView?.layoutManager = LinearLayoutManager(context)
         if (events == null) events = emptyList()
-        recycleViewIdeas?.adapter = IdeasListAdapter(events as ArrayList<ListEvent>, requireContext())
+        recycleView?.adapter = IdeasListAdapter(events as ArrayList<ListEvent>, requireContext())
 
         ideasWeekView?.setupParent(context as NavigationBarActivity)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        getAllIdeasListEvent()
     }
 
     override fun onResume() {
@@ -47,12 +43,12 @@ class IdeasFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun configureFragment() {
-        recycleViewIdeas?.adapter?.notifyDataSetChanged()
+        recycleView?.adapter?.notifyDataSetChanged()
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private  fun getAllIdeasListEvent(){
         val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
         events = listEventDao?.getIdeasListEvent() as ArrayList<ListEvent>?
-        recycleViewIdeas?.adapter?.notifyDataSetChanged()}
+        recycleView?.adapter?.notifyDataSetChanged()}
 }
