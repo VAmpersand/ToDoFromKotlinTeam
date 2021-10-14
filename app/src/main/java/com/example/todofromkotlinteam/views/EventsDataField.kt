@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.text.InputType
 import android.util.AttributeSet
@@ -27,6 +28,7 @@ class EventsDataField: LinearLayout {
         inflater.inflate(R.layout.new_event_field_layout, this)
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     fun configureField(type: EventDataFieldType, title: String? = null) {
         inputField?.setText(title)
 
