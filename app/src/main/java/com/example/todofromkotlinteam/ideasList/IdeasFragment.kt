@@ -34,7 +34,7 @@ class IdeasFragment : Fragment() {
         ideasWeekView?.setupParent(context as NavigationBarActivity)
     }
 
-    @SuppressLint
+
     fun configureFragment() {
         recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }

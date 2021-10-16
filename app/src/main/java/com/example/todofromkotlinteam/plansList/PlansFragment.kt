@@ -65,7 +65,7 @@ class PlansFragment: Fragment()  {
         }
     }
 
-    @SuppressLint
+
     fun configureFragment() {
         recycleViewPlans?.adapter?.notifyDataSetChanged()
         plansWeekView?.configureWeek()

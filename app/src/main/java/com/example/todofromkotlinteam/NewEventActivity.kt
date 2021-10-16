@@ -41,6 +41,12 @@ class NewEventActivity : AppCompatActivity(),
     @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
         super.onResume()
+//        recycleViewPlans?.adapter?.notifyDataSetChanged()
+//        recycleViewIdeas?.adapter?.notifyDataSetChanged()
+    }
+
+    override fun onPause() {
+        super.onPause()
         recycleViewPlans?.adapter?.notifyDataSetChanged()
         recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
