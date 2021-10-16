@@ -69,7 +69,7 @@ class NewEventActivity : AppCompatActivity(),
         Log.d("currentEndTime", "$currentEndTime")
         Log.d("currentEventType", "$currentEventType")
         Log.d("eventNameField", "${eventNameField?.inputField?.text}")
-        Log.d("currentEventTypeID", "${currentEventType?.id}")
+        Log.d("currentEventTypeID", "${currentEventType?.color}")
 
         if (currentType != null
             && currentDate != null
@@ -79,22 +79,23 @@ class NewEventActivity : AppCompatActivity(),
             && eventNameField?.inputField?.text?.isEmpty() == false
         ) {
 
+
             val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
 
             listEventDao?.insertListEvent(
                 ListEvent(
                     id = 0,
-                    eventTypeId = currentEventType?.id!!,
+                    eventTypeId = currentEventType?.id!!, // 1
                     title = eventNameField?.inputField?.text?.toString()!!,
                     date = currentDate.toString()!!,
-                    description = eventDescriptionField?.textView?.text?.toString(),
+                    description = eventDescriptionField?.inputField?.text?.toString(),
                     startTime = currentStartTime.toString()!!,
                     finishTime = currentEndTime.toString()!!,
                     isDone = false,
                     isPriority = false,
-                    partner = eventPartnerField?.textView?.text?.toString(),
+                    partner = eventPartnerField?.inputField?.text?.toString(),
                     eventTypeName = currentType.toString()!!
-                )
+                    )
             )
 
         }
@@ -102,13 +103,6 @@ class NewEventActivity : AppCompatActivity(),
         recycleViewPlans?.adapter?.notifyDataSetChanged()
         recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
-
-//    @SuppressLint("NotifyDataSetChanged")
-//    fun getColorEventType() {
-//        val listEventTypeDao = RoomAppDB.getAppDB(application)?.listEventTypeDao()
-//        val colorType = listEventTypeDao?.getColorEventType(currentEventType?.id)
-//
-//    }
 
 
     private fun configureFields() {

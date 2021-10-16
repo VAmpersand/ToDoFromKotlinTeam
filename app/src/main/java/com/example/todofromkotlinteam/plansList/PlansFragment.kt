@@ -2,6 +2,7 @@ package com.example.todofromkotlinteam.plansList
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -79,6 +80,7 @@ class PlansFragment: Fragment()  {
     private fun getAllListEvent() {
         val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
         events = listEventDao?.getAllListEvent()
+        Log.d("ListEvent", "${listEventDao?.getAllListEvent()}")
         recycleViewPlans?.adapter?.notifyDataSetChanged()
     }
 }

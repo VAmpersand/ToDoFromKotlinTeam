@@ -2,6 +2,7 @@ package com.example.todofromkotlinteam.views
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -91,6 +92,7 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
             0,
             listEventTypeDao?.getAllListEventType()!!
         )
+        Log.d("ListEventType", "${ listEventTypeDao?.getAllListEventType()!!}")
         rcView?.adapter?.notifyItemInserted(0)
     }
 
