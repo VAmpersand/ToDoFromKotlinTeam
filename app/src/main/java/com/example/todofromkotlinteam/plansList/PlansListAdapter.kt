@@ -72,6 +72,8 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
                 holder.setIsRecyclable(false)
             }
         }
+
+
     }
 }
 

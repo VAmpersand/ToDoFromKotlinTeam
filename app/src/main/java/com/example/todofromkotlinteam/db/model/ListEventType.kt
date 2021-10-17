@@ -12,7 +12,3 @@ data class ListEventType(
         @ColumnInfo(name = "title") val title: String,
         )
 
-data class Color (
-
-        @ColumnInfo(name = "color") var color: String?
-)

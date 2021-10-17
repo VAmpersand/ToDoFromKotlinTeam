@@ -13,12 +13,6 @@ interface ListEventDao {
     @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'IDEAS' ORDER BY id DESC")
     fun getIdeasListEvent(): List<ListEvent>?
 
-//    @Query("SELECT * FROM listEvent WHERE Id IN (SELECT color FROM listEventType)")
-//    fun getColor(): List<ListEvent>?
-
-//    @Query("SELECT listEventType.color,listEventType.id, listEvent.eventType FROM listEventType, listEvent WHERE listEvent.eventType == listEventType.color ")
-//    fun getColor(): List<ListEvent>?
-
     @Insert
     fun insertListEvent(event: ListEvent?)
 
