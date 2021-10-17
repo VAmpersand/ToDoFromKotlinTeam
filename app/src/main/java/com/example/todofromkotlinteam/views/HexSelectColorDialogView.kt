@@ -53,8 +53,9 @@ class HexSelectColorDialogView(listener: OnHexDialogButtonClickListener) : Dialo
                val listEventTypeDao = RoomAppDB.getAppDB(requireContext())?.listEventTypeDao()
                 listEventTypeDao?.insertListEventType(
                         ListEventType(
-                                color = hexColor,
-                                title = editTextTitle?.text.toString()
+                            id = 0,
+                            color = hexColor,
+                            title = editTextTitle?.text.toString()
                         )
                 )
                     listener.onHexOkClickListener()

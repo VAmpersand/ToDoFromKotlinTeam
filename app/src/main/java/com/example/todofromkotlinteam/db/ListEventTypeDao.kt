@@ -10,8 +10,8 @@ interface ListEventTypeDao {
     @Query("SELECT * FROM listEventType ORDER BY id DESC")
     fun getAllListEventType(): List<ListEventType>?
 
-//    @Query("SELECT color FROM listEventType WHERE id =   ")
-//    fun getColorEventType(id: Int): List<ListEventType>?
+    @Query("SELECT * FROM listEventType WHERE id = :id ")
+    fun getColorEventType(id: Int): ListEventType?
 
     @Insert
     fun insertListEventType(event: ListEventType?)
