@@ -1,7 +1,9 @@
 package com.example.todofromkotlinteam
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todofromkotlinteam.db.RoomAppDB
@@ -9,10 +11,16 @@ import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.db.model.ListEventType
 import com.example.todofromkotlinteam.views.*
 import com.example.todofromkotlinteam.views.EventDataFieldType
+import kotlinx.android.synthetic.main.ideas_fragment.*
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
+import kotlinx.android.synthetic.main.plans_fragment.*
 import java.text.SimpleDateFormat
 import java.util.*
+
+interface OnNewEventAddListener {
+     fun onAddButtonTaped()
+}
 
 class NewEventActivity : AppCompatActivity(),
     OnTypeDialogButtonClickListener,
@@ -23,50 +31,78 @@ class NewEventActivity : AppCompatActivity(),
 
     private var currentType: EventType? = null
     private var currentDate = Date()
-    private var currentStartTime: Date? = null
-    private var currentEndTime: Date? = null
+    private var currentStartTime: String? = null
+    private var currentEndTime: String? = null
+    private var currentEventType: ListEventType? = null
+    private var listener: OnNewEventAddListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
-
+//        listener = getConte as NavigationBarActivity
         configureFields()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onResume() {
+        super.onResume()
+        recycleViewPlans?.adapter?.notifyDataSetChanged()
+        recycleViewIdeas?.adapter?.notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onPause() {
+        super.onPause()
+        recycleViewPlans?.adapter?.notifyDataSetChanged()
+        recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
 
     fun onClickBack(view: View) {
         finish()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun onClickAddEvent(view: View) {
-//        val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
 
-//        if (currentType != null
-//            && currentDate != null
-//            && currentStartTime != null
-//            && currentEndTime != null
-//            && eventNameField?.textView?.text != null ) {
+        Log.d("currentType", "$currentType")
+        Log.d("currentDate", "$currentDate")
+        Log.d("currentStartTime", "$currentStartTime")
+        Log.d("currentEndTime", "$currentEndTime")
+        Log.d("currentEventType", "$currentEventType")
+        Log.d("eventNameField", "${eventNameField?.inputField?.text}")
+        Log.d("currentEventTypeID", "${currentEventType?.color}")
+
+        if (currentType != null
+            && currentDate != null
+            && currentStartTime != null
+            && currentEndTime != null
+            && currentEventType?.id != null
+            && eventNameField?.inputField?.text?.isEmpty() == false
+        ) {
 
             val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
+
             listEventDao?.insertListEvent(
                 ListEvent(
                     id = 0,
-                    eventTypeId = 0,
-                    title = "Тест",
-                    description = "Test",
-                    startTime = "12:00",
-                    finishTime = "13:00",
+                    eventTypeId = currentEventType?.id!!, // 1
+                    title = eventNameField?.inputField?.text?.toString()!!,
+                    date = currentDate.toString()!!,
+                    description = eventDescriptionField?.inputField?.text?.toString(),
+                    startTime = currentStartTime.toString()!!,
+                    finishTime = currentEndTime.toString()!!,
                     isDone = false,
                     isPriority = false,
-                    partner = null
+                    partner = eventPartnerField?.inputField?.text?.toString(),
+                    eventTypeName = currentType.toString()!!
                 )
             )
-
-            finish()
-//        } else {
-//
-//        }
+        }
+        listener?.onAddButtonTaped()
+        finish()
 
     }
+
 
     private fun configureFields() {
         eventNameField?.configureField(EventDataFieldType.NAME)
@@ -85,12 +121,18 @@ class NewEventActivity : AppCompatActivity(),
 
         eventStartTimeField?.configureField(EventDataFieldType.START_TIME)
         eventStartTimeField?.inputField?.setOnClickListener {
-            InputTimeDialogView(currentStartTime, currentEndTime,this).show(supportFragmentManager, "TimeDialog")
+            InputTimeDialogView(currentStartTime, currentEndTime, this).show(
+                supportFragmentManager,
+                "TimeDialog"
+            )
         }
 
         eventEndTimeField?.configureField(EventDataFieldType.END_TIME)
         eventEndTimeField?.inputField?.setOnClickListener {
-            InputTimeDialogView(currentStartTime, currentEndTime,this).show(supportFragmentManager, "TimeDialog")
+            InputTimeDialogView(currentStartTime, currentEndTime, this).show(
+                supportFragmentManager,
+                "TimeDialog"
+            )
         }
 
         itemColorField?.configureField(EventDataFieldType.COLOR)
@@ -115,40 +157,43 @@ class NewEventActivity : AppCompatActivity(),
         currentDate = date
 
         val calendar = Calendar.getInstance(Locale.UK)
-        val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.UK)
+        val dateFormat = SimpleDateFormat("dd MM yyyy", Locale.UK)
         calendar.time = date
 
         eventDateField?.inputField?.setText(dateFormat.format(calendar.time))
     }
 
     // MARK: - OnTimeDialogButtonClickListener
-    override fun onTimeOkClickListener(startTime: Date, endTime: Date) {
+    override fun onTimeOkClickListener(startTime: String, endTime: String) {
         currentStartTime = startTime
         currentEndTime = endTime
 
-        val calendar = Calendar.getInstance(Locale.ROOT)
-        val dateFormat = SimpleDateFormat("HH:mm", Locale.ROOT)
+        eventStartTimeField?.inputField?.setText(startTime)
+        eventEndTimeField?.inputField?.setText(endTime)
 
-        calendar.time = startTime
-        eventStartTimeField?.inputField?.setText(dateFormat.format(calendar.time))
-
-        calendar.time = endTime
-        eventEndTimeField?.inputField?.setText(dateFormat.format(calendar.time))
     }
 
     // MARK: - OnHexDialogButtonClickListener
+    @SuppressLint("ResourceType")
     override fun onHexOkClickListener() {
         InputColorDialogView(this).show(supportFragmentManager, "ColorDialog")
+
     }
 
     // MARK: - OnColorDialogButtonClickListener
     override fun onColorOkClickListener(type: ListEventType) {
+
+        currentEventType = type
         itemColorField?.inputField?.setText(type.title)
         itemColorField?.iconEvent?.background?.setTint(Color.parseColor(type.color))
     }
 
     override fun onAddHexClickListener() {
         HexSelectColorDialogView(this).show(supportFragmentManager, "HexSelectColor")
+    }
+
+    fun setupListener(listener: OnNewEventAddListener) {
+        this.listener = listener
     }
 }
 

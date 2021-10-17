@@ -18,7 +18,7 @@ abstract class RoomAppDB : RoomDatabase() {
         fun getAppDB(context: Context): RoomAppDB? {
             if (INSTANCE == null) {
 
-                INSTANCE = Room.databaseBuilder<RoomAppDB>(
+                INSTANCE = Room.databaseBuilder(
                     context.applicationContext, RoomAppDB::class.java, "AppDB"
                 )
                     .allowMainThreadQueries()

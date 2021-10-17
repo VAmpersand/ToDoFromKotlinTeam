@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="right"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
@@ -31,33 +32,17 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/startHoursEditText"
-                android:layout_width="50dp"
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/startTimeEditText"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:inputType="time"
+                android:digits="0123456789"
+                app:mask="##:##"
                 android:layout_marginLeft="19dp"
+                android:maxLength="5"
                 android:background="@android:drawable/editbox_background_normal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="h" />
-
-            <EditText
-                android:id="@+id/startMinutesEditText"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:inputType="time"
-                android:layout_marginLeft="7dp"
-                android:background="@android:drawable/editbox_background_normal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="m" />
 
         </LinearLayout>
 
@@ -78,33 +63,17 @@
             android:orientation="horizontal"
             android:paddingBottom="20dp">
 
-            <EditText
-                android:id="@+id/endHoursEditText"
-                android:layout_width="50dp"
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/endTimeEditText"
+                android:layout_width="100dp"
                 android:singleLine="true"
                 android:layout_height="wrap_content"
                 android:inputType="time"
+                android:maxLength="5"
+               android:digits="0123456789"
+                app:mask="##:##"
                 android:layout_marginLeft="19dp"
                 android:background="@android:drawable/editbox_background_normal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="h" />
-
-            <EditText
-                android:id="@+id/endMinutesEditText"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:inputType="time"
-                android:layout_marginLeft="7dp"
-                android:background="@android:drawable/editbox_background_normal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="m" />
 
         </LinearLayout>
 

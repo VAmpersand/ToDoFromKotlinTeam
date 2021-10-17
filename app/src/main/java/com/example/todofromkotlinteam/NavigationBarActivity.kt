@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.todofromkotlinteam.plans.PlansFragment
-import com.example.todofromkotlinteam.ideas.IdeasFragment
+import com.example.todofromkotlinteam.plansList.PlansFragment
+import com.example.todofromkotlinteam.ideasList.IdeasFragment
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
 import com.example.todofromkotlinteam.views.customCalendarView.OnCalendarClickListener
@@ -14,7 +14,7 @@ import com.example.todofromkotlinteam.views.weekView.OnWeekTopClickListener
 import kotlinx.android.synthetic.main.navigation_bar_activity.*
 import java.util.*
 
-class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWeekTopClickListener {
+class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWeekTopClickListener, OnNewEventAddListener {
     private val plansFragment = PlansFragment()
     private val ideasFragment = IdeasFragment()
     private val profileFragment = ProfileFragment()
@@ -83,6 +83,11 @@ class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWe
     override fun onWeekDateClickListener(date: Date) {
         currentCalendar.time = date
         selectedDate = date
+        plansFragment.configureFragment()
+        ideasFragment.configureFragment()
+    }
+
+    override fun onAddButtonTaped() {
         plansFragment.configureFragment()
         ideasFragment.configureFragment()
     }

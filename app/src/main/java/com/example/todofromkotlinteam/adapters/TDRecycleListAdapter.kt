@@ -2,18 +2,24 @@ package com.example.todofromkotlinteam.adapters
 
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
+import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
 import java.util.*
+import kotlin.text.*
 
-open class TDRecycleListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+open class TDRecycleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+
 
     class EventsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
@@ -24,10 +30,19 @@ open class TDRecycleListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>()
         private val timeTextView = view.findViewById<TextView>(R.id.timeTextView)
         private val partnerIcon = view.findViewById<ImageView>(R.id.partnerIcon)
         private val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
+        private var colorType : String? = null
+
 
         fun bind(listEvent: ListEvent, context: Context) {
+
+            val listEventTypeDao = RoomAppDB.getAppDB(context)?.listEventTypeDao()
+            colorType = listEventTypeDao?.getColorType(listEvent.eventTypeId).toString()
+            var color = colorType?.replace("Color(color=","")
+            var colorT = color?.replace(")","")
+             Log.d("Color", "$colorT")
+
             if (listEvent.isPriority) {
-//                eventView?.background?.setTint(Color.parseColor(listEvent.eventType.color))
+                eventView?.background?.setTint(Color.parseColor(color))
                 colorView?.background?.setTint(context.resources.getColor(R.color.white, null))
 
                 titleTextView?.setTextColor(context.resources.getColor(R.color.white, null))
@@ -39,7 +54,8 @@ open class TDRecycleListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>()
                 partnerIcon?.setColorFilter(context.resources.getColor(R.color.white, null))
             } else {
                 eventView?.background?.setTint(context.resources.getColor(R.color.white, null))
-//                colorView?.background?.setTint(Color.parseColor(listEvent.eventType.color))
+                colorView?.background?.setTint(Color.parseColor(colorT))
+
             }
 
             if (listEvent.isDone) eventView?.alpha = 0.5f
@@ -54,7 +70,7 @@ open class TDRecycleListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>()
     class TitleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val title = view.findViewById<TextView>(R.id.titleTextView)
 
-        fun bind(context: Context){
+        fun bind(context: Context) {
             var calendar = Calendar.getInstance()
             val todayDay = calendar.get(Calendar.DAY_OF_MONTH)
             val todayMonth = calendar.get(Calendar.MONTH) + 1
