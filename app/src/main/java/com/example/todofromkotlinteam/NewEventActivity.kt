@@ -15,9 +15,12 @@ import kotlinx.android.synthetic.main.ideas_fragment.*
 import kotlinx.android.synthetic.main.new_event_additing_layout.*
 import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.plans_fragment.*
-import kotlinx.android.synthetic.main.settings_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+
+interface OnNewEventAddListener {
+     fun onAddButtonTaped()
+}
 
 class NewEventActivity : AppCompatActivity(),
     OnTypeDialogButtonClickListener,
@@ -31,19 +34,18 @@ class NewEventActivity : AppCompatActivity(),
     private var currentStartTime: String? = null
     private var currentEndTime: String? = null
     private var currentEventType: ListEventType? = null
+    private var listener: OnNewEventAddListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
-
+//        listener = getConte as NavigationBarActivity
         configureFields()
-//        getColorEventType()
     }
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
         super.onResume()
-//        getColorEventType()
         recycleViewPlans?.adapter?.notifyDataSetChanged()
         recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
@@ -51,7 +53,6 @@ class NewEventActivity : AppCompatActivity(),
     @SuppressLint("NotifyDataSetChanged")
     override fun onPause() {
         super.onPause()
-//        getColorEventType()
         recycleViewPlans?.adapter?.notifyDataSetChanged()
         recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
@@ -79,7 +80,6 @@ class NewEventActivity : AppCompatActivity(),
             && eventNameField?.inputField?.text?.isEmpty() == false
         ) {
 
-
             val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
 
             listEventDao?.insertListEvent(
@@ -95,13 +95,12 @@ class NewEventActivity : AppCompatActivity(),
                     isPriority = false,
                     partner = eventPartnerField?.inputField?.text?.toString(),
                     eventTypeName = currentType.toString()!!
-                    )
+                )
             )
-
         }
+        listener?.onAddButtonTaped()
         finish()
-        recycleViewPlans?.adapter?.notifyDataSetChanged()
-        recycleViewIdeas?.adapter?.notifyDataSetChanged()
+
     }
 
 
@@ -192,7 +191,9 @@ class NewEventActivity : AppCompatActivity(),
         HexSelectColorDialogView(this).show(supportFragmentManager, "HexSelectColor")
     }
 
-
+    fun setupListener(listener: OnNewEventAddListener) {
+        this.listener = listener
+    }
 }
 
 

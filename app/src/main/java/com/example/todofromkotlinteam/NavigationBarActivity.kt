@@ -14,7 +14,7 @@ import com.example.todofromkotlinteam.views.weekView.OnWeekTopClickListener
 import kotlinx.android.synthetic.main.navigation_bar_activity.*
 import java.util.*
 
-class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWeekTopClickListener {
+class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWeekTopClickListener, OnNewEventAddListener {
     private val plansFragment = PlansFragment()
     private val ideasFragment = IdeasFragment()
     private val profileFragment = ProfileFragment()
@@ -83,6 +83,11 @@ class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWe
     override fun onWeekDateClickListener(date: Date) {
         currentCalendar.time = date
         selectedDate = date
+        plansFragment.configureFragment()
+        ideasFragment.configureFragment()
+    }
+
+    override fun onAddButtonTaped() {
         plansFragment.configureFragment()
         ideasFragment.configureFragment()
     }

@@ -11,9 +11,14 @@ import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
 
-class PlansListAdapter(eventArray: List<ListEvent>, context: Context) : TDRecycleListAdapter() {
+interface ClickListener {
+    fun onItemClick()
+}
+
+class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: ClickListener  ) : TDRecycleListAdapter() {
     private var events = eventArray
     private var appContext = context
+    private val listener = listener
 
     class CalendarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
@@ -51,6 +56,11 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context) : TDRecycl
             R.id.titleListLayout ->  return TitleViewHolder(inflater.inflate(R.layout.title_list_layout, parent, false))
             else -> return EventsViewHolder(inflater.inflate(R.layout.event_list_layout, parent, false))
         }
+
+    }
+
+    fun click (){
+        listener.onItemClick()
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

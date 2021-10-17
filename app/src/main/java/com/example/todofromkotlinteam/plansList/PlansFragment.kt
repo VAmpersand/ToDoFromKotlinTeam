@@ -14,12 +14,17 @@ import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
 import kotlinx.android.synthetic.main.plans_fragment.*
 
-class PlansFragment: Fragment()  {
+class PlansFragment : Fragment(),
+    ClickListener {
     private var currentOffset = 0
     private var weekViewIsVisible = false
     private var events: List<ListEvent>? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.plans_fragment, container, false)
     }
 
@@ -31,7 +36,7 @@ class PlansFragment: Fragment()  {
         recycleViewPlans?.hasFixedSize()
         recycleViewPlans?.layoutManager = LinearLayoutManager(context)
         if (events == null) events = emptyList()
-        recycleViewPlans?.adapter = PlansListAdapter(events!!, requireContext())
+        recycleViewPlans?.adapter = PlansListAdapter(events!!, requireContext(), this)
 
         plansWeekView?.alpha = 0f
         plansWeekView?.setupParent(context as NavigationBarActivity)
@@ -68,7 +73,12 @@ class PlansFragment: Fragment()  {
                 }
             }
         }
-          }
+
+//        recycleViewPlans?.setOnClickListener{
+//
+//        }
+
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     fun configureFragment() {
@@ -83,4 +93,6 @@ class PlansFragment: Fragment()  {
         Log.d("ListEvent", "${listEventDao?.getAllListEvent()}")
         recycleViewPlans?.adapter?.notifyDataSetChanged()
     }
+
+     override fun onItemClick() {}
 }
