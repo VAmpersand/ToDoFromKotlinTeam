@@ -8,7 +8,7 @@ import com.example.todofromkotlinteam.db.model.ListEventType
 interface ListEventDao {
 
     @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'PLANS' ORDER BY id DESC")
-    fun getAllListEvent(): List<ListEvent>?
+    fun getPlansListEvent(): List<ListEvent>?
 
     @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'IDEAS' ORDER BY id DESC")
     fun getIdeasListEvent(): List<ListEvent>?

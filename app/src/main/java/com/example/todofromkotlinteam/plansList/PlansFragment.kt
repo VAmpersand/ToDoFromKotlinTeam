@@ -89,8 +89,8 @@ class PlansFragment : Fragment(),
     @SuppressLint("NotifyDataSetChanged")
     private fun getAllListEvent() {
         val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
-        events = listEventDao?.getAllListEvent()
-        Log.d("ListEvent", "${listEventDao?.getAllListEvent()}")
+        events = listEventDao?.getPlansListEvent()
+        Log.d("ListEvent", "${listEventDao?.getPlansListEvent()}")
         recycleViewPlans?.adapter?.notifyDataSetChanged()
     }
 
