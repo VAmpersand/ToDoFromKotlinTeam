@@ -20,7 +20,6 @@ import kotlin.text.*
 open class TDRecycleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
-
     class EventsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
         private val colorView = view.findViewById<View>(R.id.colorView)
@@ -30,19 +29,15 @@ open class TDRecycleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         private val timeTextView = view.findViewById<TextView>(R.id.timeTextView)
         private val partnerIcon = view.findViewById<ImageView>(R.id.partnerIcon)
         private val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
-        private var colorType : String? = null
-
 
         fun bind(listEvent: ListEvent, context: Context) {
 
             val listEventTypeDao = RoomAppDB.getAppDB(context)?.listEventTypeDao()
-            colorType = listEventTypeDao?.getColorType(listEvent.eventTypeId).toString()
-            var color = colorType?.replace("Color(color=","")
-            var colorT = color?.replace(")","")
-             Log.d("Color", "$colorT")
+            val type = listEventTypeDao?.getColorType(listEvent.eventTypeId)
+            Log.d("Color", "${type?.color}")
 
             if (listEvent.isPriority) {
-                eventView?.background?.setTint(Color.parseColor(color))
+                eventView?.background?.setTint(Color.parseColor(type?.color))
                 colorView?.background?.setTint(context.resources.getColor(R.color.white, null))
 
                 titleTextView?.setTextColor(context.resources.getColor(R.color.white, null))
@@ -54,7 +49,7 @@ open class TDRecycleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
                 partnerIcon?.setColorFilter(context.resources.getColor(R.color.white, null))
             } else {
                 eventView?.background?.setTint(context.resources.getColor(R.color.white, null))
-                colorView?.background?.setTint(Color.parseColor(colorT))
+                colorView?.background?.setTint(Color.parseColor(type?.color))
 
             }
 
