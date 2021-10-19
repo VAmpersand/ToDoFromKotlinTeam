@@ -1,6 +1,7 @@
 package com.example.todofromkotlinteam.plansList
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,16 +10,19 @@ import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.db.model.ListEventType
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
 
 interface ClickListener {
     fun onItemClick()
+    fun select(item: ListEvent)
 }
 
 class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: ClickListener  ) : TDRecycleListAdapter() {
     private var events = eventArray
     private var appContext = context
     private val listener = listener
+    private var selectPosition: Int? = null
 
     class CalendarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
@@ -71,6 +75,12 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
                 (holder as EventsViewHolder).bind(events[position - 2], appContext)
                 holder.setIsRecyclable(false)
             }
+        }
+
+        holder.itemView.setOnClickListener {
+            listener.select(events[position-2])
+            selectPosition = position-2
+            Log.d("prior","$selectPosition")
         }
 
 

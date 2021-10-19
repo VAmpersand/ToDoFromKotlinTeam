@@ -2,7 +2,6 @@ package com.example.todofromkotlinteam.plansList
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +18,8 @@ class PlansFragment : Fragment(),
     private var currentOffset = 0
     private var weekViewIsVisible = false
     private var events: List<ListEvent>? = null
+    private var currentEvent : ListEvent? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -74,10 +75,11 @@ class PlansFragment : Fragment(),
             }
         }
 
-//        recycleViewPlans?.setOnClickListener{
-//
-//        }
+//        val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
+//        if (currentEvent != null) listEventDao?.getPriorityListEvent()
 
+//        recycleViewPlans?.setOnClickListener{
+//        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -90,9 +92,12 @@ class PlansFragment : Fragment(),
     private fun getAllListEvent() {
         val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
         events = listEventDao?.getPlansListEvent()
-        Log.d("ListEvent", "${listEventDao?.getPlansListEvent()}")
         recycleViewPlans?.adapter?.notifyDataSetChanged()
     }
 
      override fun onItemClick() {}
+
+    override fun select(item: ListEvent) {
+        currentEvent = item
+    }
 }

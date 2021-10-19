@@ -2,7 +2,6 @@ package com.example.todofromkotlinteam.db
 
 import androidx.room.*
 import com.example.todofromkotlinteam.db.model.ListEvent
-import com.example.todofromkotlinteam.db.model.ListEventType
 
 @Dao
 interface ListEventDao {
@@ -12,6 +11,9 @@ interface ListEventDao {
 
     @Query("SELECT * FROM listEvent WHERE eventTypeName LIKE 'IDEAS' ORDER BY id DESC")
     fun getIdeasListEvent(): List<ListEvent>?
+
+    @Query("SELECT * FROM listEvent WHERE id = :id" )
+    fun getPriorityListEvent(id: Boolean): ListEvent?
 
     @Insert
     fun insertListEvent(event: ListEvent?)

@@ -48,15 +48,9 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
         dialog?.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
         )
-
-
-//        events.add(ListEventType(0,"#FF5252", "Здоровье"))
-
         rcView?.hasFixedSize()
         rcView?.layoutManager = LinearLayoutManager(context)
         rcView?.adapter = ColorAdapter(events, requireContext(),this)
-
-
        }
 
     @SuppressLint("ResourceType")
