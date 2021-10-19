@@ -133,6 +133,7 @@ class NewEventActivity : AppCompatActivity(),
         itemColorField?.configureField(EventDataFieldType.COLOR)
         itemColorField?.inputField?.setOnClickListener {
             InputColorDialogView(this).show(supportFragmentManager, "ColorDialog")
+
         }
     }
 

@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.todofromkotlinteam.R
+import kotlinx.android.synthetic.main.update_and_delete_dialog_layout.*
 
-class UpdateAndDeleteDialogView() : DialogFragment() {
+class UpdateAndDeleteDialogView : DialogFragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.update_and_delete_dialog_layout, container, false)
     }
