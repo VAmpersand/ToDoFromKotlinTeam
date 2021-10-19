@@ -19,6 +19,8 @@ interface ListEventDao {
     @Delete
     fun deleteListEvent(event: ListEvent?)
 
-    @Update
-    fun updateListEvent(event: ListEvent?)
+    @Update()
+    fun updateListEvent(event: ListEvent?){
+
+    }
 }

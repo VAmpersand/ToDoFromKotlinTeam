@@ -12,13 +12,16 @@ import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.views.UpdateAndDeleteDialogView
+import kotlinx.android.synthetic.main.navigation_bar_activity.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 
-class PlansFragment : Fragment(),
-    ClickListener {
+class PlansFragment : Fragment(), OnClickItemListEvent {
     private var currentOffset = 0
     private var weekViewIsVisible = false
     private var events: List<ListEvent>? = null
+    private var event: ListEvent? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,11 +47,13 @@ class PlansFragment : Fragment(),
         configureListener()
     }
 
+
     override fun onPause() {
         super.onPause()
         getAllListEvent()
     }
 
+    @SuppressLint("NewApi")
     override fun onResume() {
         super.onResume()
 
@@ -74,11 +79,8 @@ class PlansFragment : Fragment(),
             }
         }
 
-//        recycleViewPlans?.setOnClickListener{
-//
-//        }
-
     }
+
 
     @SuppressLint("NotifyDataSetChanged")
     fun configureFragment() {
@@ -94,5 +96,17 @@ class PlansFragment : Fragment(),
         recycleViewPlans?.adapter?.notifyDataSetChanged()
     }
 
-     override fun onItemClick() {}
+    @SuppressLint("NotifyDataSetChanged")
+    override fun clickItemListEvent(item: ListEvent) {
+        event = item
+        recycleViewPlans?.adapter?.notifyDataSetChanged()
+    }
+
+    override fun clickLongItemListEvent(item: ListEvent) {
+        event = item
+        UpdateAndDeleteDialogView().show(childFragmentManager, "WWWWW")
+
+    }
+
+
 }

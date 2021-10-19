@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.Log
@@ -8,27 +9,26 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
 import java.util.*
-import kotlin.text.*
 
-open class TDRecycleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
     class EventsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)
-        private val colorView = view.findViewById<View>(R.id.colorView)
-        private val titleTextView = view.findViewById<TextView>(R.id.titleTextView)
-        private val descriptionTextView = view.findViewById<TextView>(R.id.descriptionTextView)
-        private val timeIcon = view.findViewById<ImageView>(R.id.timeIcon)
-        private val timeTextView = view.findViewById<TextView>(R.id.timeTextView)
-        private val partnerIcon = view.findViewById<ImageView>(R.id.partnerIcon)
-        private val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)
+        val eventView = view.findViewById<ConstraintLayout>(R.id.eventItemView)!!
+        val colorView = view.findViewById<View>(R.id.colorView)!!
+        val titleTextView = view.findViewById<TextView>(R.id.titleTextView)!!
+        val descriptionTextView = view.findViewById<TextView>(R.id.descriptionTextView)!!
+        val timeIcon = view.findViewById<ImageView>(R.id.timeIcon)!!
+        val timeTextView = view.findViewById<TextView>(R.id.timeTextView)!!
+        val partnerIcon = view.findViewById<ImageView>(R.id.partnerIcon)!!
+        val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)!!
 
         fun bind(listEvent: ListEvent, context: Context) {
 
@@ -59,7 +59,10 @@ open class TDRecycleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
             descriptionTextView?.text = listEvent.description
             timeTextView?.text = "${listEvent.startTime} - ${listEvent.finishTime}"
             partnerTextView?.text = listEvent.partner
+
+
         }
+
     }
 
     class TitleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -88,8 +91,11 @@ open class TDRecycleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         TODO("Not yet implemented")
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        @SuppressLint("RecyclerView") position: Int
+    ) {
+
     }
 
     override fun getItemCount(): Int {

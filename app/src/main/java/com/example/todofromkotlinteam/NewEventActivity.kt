@@ -18,9 +18,6 @@ import kotlinx.android.synthetic.main.plans_fragment.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-interface OnNewEventAddListener {
-     fun onAddButtonTaped()
-}
 
 class NewEventActivity : AppCompatActivity(),
     OnTypeDialogButtonClickListener,
@@ -34,12 +31,11 @@ class NewEventActivity : AppCompatActivity(),
     private var currentStartTime: String? = null
     private var currentEndTime: String? = null
     private var currentEventType: ListEventType? = null
-    private var listener: OnNewEventAddListener? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
-//        listener = getConte as NavigationBarActivity
         configureFields()
     }
 
@@ -98,7 +94,6 @@ class NewEventActivity : AppCompatActivity(),
                 )
             )
         }
-        listener?.onAddButtonTaped()
         finish()
 
     }
@@ -191,9 +186,6 @@ class NewEventActivity : AppCompatActivity(),
         HexSelectColorDialogView(this).show(supportFragmentManager, "HexSelectColor")
     }
 
-    fun setupListener(listener: OnNewEventAddListener) {
-        this.listener = listener
-    }
 }
 
 

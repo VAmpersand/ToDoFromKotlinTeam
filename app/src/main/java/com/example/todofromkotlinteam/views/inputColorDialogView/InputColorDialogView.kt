@@ -48,17 +48,6 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
-
-//        events.add(ListEventType(0,"#FF5252", "Здоровье"))
-//        events.add(ListEventType(1,"#343D8F", "Хобби"))
-//        events.add(ListEventType(2,"#55A738", "Работа"))
-
-//        events.add(ListEventType(3,"#FF5232", "Учеба"))
-//        events.add(ListEventType(4,"#FF5252", "Здоровье"))
-//        events.add(ListEventType(5,"#343D8F", "Хобби"))
-//        events.add(ListEventType(6,"#55A738", "Работа"))
-//        events.add(ListEventType(7,"#FF5232", "Учеба"))
-
         rcView?.hasFixedSize()
         rcView?.layoutManager = LinearLayoutManager(context)
         rcView?.adapter = ColorAdapter(events, requireContext(),this)
