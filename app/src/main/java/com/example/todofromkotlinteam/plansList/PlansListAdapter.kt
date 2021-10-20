@@ -5,12 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.db.model.ListEventType
+import com.example.todofromkotlinteam.views.OnUpdateAndDeleteButtonClickListener
+import com.example.todofromkotlinteam.views.UpdateDeleteDialogView
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
 
 interface ClickListener {
@@ -18,7 +21,8 @@ interface ClickListener {
     fun select(item: ListEvent)
 }
 
-class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: ClickListener  ) : TDRecycleListAdapter() {
+class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: ClickListener  ) : TDRecycleListAdapter(),
+    OnUpdateAndDeleteButtonClickListener {
     private var events = eventArray
     private var appContext = context
     private val listener = listener
@@ -80,10 +84,15 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
         holder.itemView.setOnClickListener {
             listener.select(events[position-2])
             selectPosition = position-2
+            UpdateDeleteDialogView(this)
             Log.d("prior","$selectPosition")
         }
 
 
+    }
+
+    override fun onDeleteClickListener() {
+        TODO("Not yet implemented")
     }
 }
 
