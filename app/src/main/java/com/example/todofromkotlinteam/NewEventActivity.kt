@@ -63,15 +63,6 @@ class NewEventActivity : AppCompatActivity(),
 
     @SuppressLint("NotifyDataSetChanged")
     fun onClickAddEvent(view: View) {
-
-        Log.d("currentType", "$currentType")
-        Log.d("currentDate", "$currentDate")
-        Log.d("currentStartTime", "$currentStartTime")
-        Log.d("currentEndTime", "$currentEndTime")
-        Log.d("currentEventType", "$currentEventType")
-        Log.d("eventNameField", "${eventNameField?.inputField?.text}")
-        Log.d("currentEventTypeID", "${currentEventType?.color}")
-
         if (currentType != null
             && currentDate != null
             && currentStartTime != null
@@ -79,7 +70,6 @@ class NewEventActivity : AppCompatActivity(),
             && currentEventType?.id != null
             && eventNameField?.inputField?.text?.isEmpty() == false
         ) {
-
             val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
 
             listEventDao?.insertListEvent(
@@ -97,10 +87,10 @@ class NewEventActivity : AppCompatActivity(),
                     eventTypeName = currentType.toString()!!
                 )
             )
-        }
-        listener?.onAddButtonTaped()
-        finish()
 
+            listener?.onAddButtonTaped()
+            finish()
+        }
     }
 
 

@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.update_and_delete_layout.*
 interface OnUpdateAndDeleteButtonClickListener{
     fun onDeleteClickListener()
 }
-class UpdateDeleteDialogView(listener: OnUpdateAndDeleteButtonClickListener): DialogFragment() {
+class UpdateDeleteDialogView() : DialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -22,6 +22,7 @@ class UpdateDeleteDialogView(listener: OnUpdateAndDeleteButtonClickListener): Di
         super.onStart()
         configureUpdateDelete()
     }
+
 
     private fun configureUpdateDelete() {
         onUpdate.setOnClickListener {

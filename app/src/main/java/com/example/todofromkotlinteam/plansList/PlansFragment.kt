@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.views.UpdateDeleteDialogView
 import kotlinx.android.synthetic.main.plans_fragment.*
 
 class PlansFragment : Fragment(),
@@ -95,9 +97,11 @@ class PlansFragment : Fragment(),
         recycleViewPlans?.adapter?.notifyDataSetChanged()
     }
 
-     override fun onItemClick() {}
+     override fun onItemClick(item: ListEvent) {
+         currentEvent = item
+     }
 
-    override fun select(item: ListEvent) {
-        currentEvent = item
+    override fun onLongItemClick(item: ListEvent) {
+        UpdateDeleteDialogView().show((activity as AppCompatActivity).supportFragmentManager,"UpdateDelete")
     }
 }

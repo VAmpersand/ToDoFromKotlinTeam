@@ -5,20 +5,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import com.example.todofromkotlinteam.db.model.ListEvent
-import com.example.todofromkotlinteam.db.model.ListEventType
 import com.example.todofromkotlinteam.views.OnUpdateAndDeleteButtonClickListener
-import com.example.todofromkotlinteam.views.UpdateDeleteDialogView
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
 
 interface ClickListener {
-    fun onItemClick()
-    fun select(item: ListEvent)
+    fun onItemClick(item: ListEvent)
+    fun onLongItemClick(item: ListEvent)
 }
 
 class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: ClickListener  ) : TDRecycleListAdapter(),
@@ -67,10 +64,6 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
 
     }
 
-    fun click (){
-        listener.onItemClick()
-    }
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
             R.id.customCalendar -> println("Calendar is bind")
@@ -82,12 +75,15 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
         }
 
         holder.itemView.setOnClickListener {
-            listener.select(events[position-2])
+            listener.onItemClick(events[position-2])
             selectPosition = position-2
-            UpdateDeleteDialogView(this)
             Log.d("prior","$selectPosition")
         }
 
+        holder.itemView.setOnLongClickListener {
+            listener.onLongItemClick(events[position-2])
+            true
+        }
 
     }
 
