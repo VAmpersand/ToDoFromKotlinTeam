@@ -17,6 +17,7 @@ import com.example.todofromkotlinteam.db.model.ListEvent
 import java.util.*
 
 
+
 open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -97,7 +98,6 @@ open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
     ) {
 
     }
-
     override fun getItemCount(): Int {
         TODO("Not yet implemented")
     }

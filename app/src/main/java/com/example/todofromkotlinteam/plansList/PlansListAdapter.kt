@@ -1,40 +1,39 @@
 package com.example.todofromkotlinteam.plansList
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.app.ProgressDialog.show
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
-import androidx.fragment.app.Fragment
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
-import com.example.todofromkotlinteam.NewEventActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
+import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
-import com.example.todofromkotlinteam.views.InputColorDialogView
-import com.example.todofromkotlinteam.views.InputTimeDialogView
 import com.example.todofromkotlinteam.views.UpdateAndDeleteDialogView
+import com.example.todofromkotlinteam.views.UpdateAndDeleteEvent
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
+import kotlinx.android.synthetic.main.plans_fragment.*
 
 interface OnClickItemListEvent {
     fun clickItemListEvent(item: ListEvent)
     fun clickLongItemListEvent(item: ListEvent)
+
+
 }
 
 
-class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: OnClickItemListEvent) : TDRecycleListAdapter() {
+class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: OnClickItemListEvent
+
+) : TDRecycleListAdapter(), UpdateAndDeleteEvent {
     private var events = eventArray
     private var appContext = context
     private var listener = listener
-    private var selectPosition : Int? = null
+     var selectPosition : Int? = null
 
 
     class CalendarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -123,8 +122,16 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
 
         holder.itemView.setOnLongClickListener {
                 listener.clickLongItemListEvent(events[position - 2])
+                selectPosition = position
                 true
         }
+    }
+
+    override fun deleteEvent(item: ListEvent?) {
+        val listEventDao = RoomAppDB.getAppDB(appContext)?.listEventDao()
+        listEventDao?.deleteListEvent(item)
+        Log.d("Del", "${listEventDao?.deleteListEvent(item)}")
+
     }
 
 

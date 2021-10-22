@@ -11,14 +11,13 @@ import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
-import com.example.todofromkotlinteam.plansList.OnClickItemListEvent
 import kotlinx.android.synthetic.main.ideas_fragment.*
 import kotlinx.android.synthetic.main.ideas_fragment.recycleViewIdeas
 
 
-class IdeasFragment : Fragment(), OnClickItemListEvent {
+class IdeasFragment : Fragment() {
     private var events: List<ListEvent>? = null
-    private var event: ListEvent? = null
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.ideas_fragment, container, false)
@@ -32,7 +31,7 @@ class IdeasFragment : Fragment(), OnClickItemListEvent {
         recycleViewIdeas?.hasFixedSize()
         recycleViewIdeas?.layoutManager = LinearLayoutManager(context)
         if (events == null) events = emptyList()
-        recycleViewIdeas?.adapter = IdeasListAdapter(events as ArrayList<ListEvent>, requireContext(), this)
+        recycleViewIdeas?.adapter = IdeasListAdapter(events as ArrayList<ListEvent>, requireContext(), (context as NavigationBarActivity))
 
         ideasWeekView?.setupParent(context as NavigationBarActivity)
     }
@@ -59,13 +58,5 @@ class IdeasFragment : Fragment(), OnClickItemListEvent {
         events = listEventDao?.getIdeasListEvent() as ArrayList<ListEvent>?
         recycleViewIdeas?.adapter?.notifyDataSetChanged()}
 
-    override fun clickItemListEvent(item: ListEvent) {
-        event = item
-        recycleViewIdeas?.adapter?.notifyDataSetChanged()
-    }
-
-    override fun clickLongItemListEvent(item: ListEvent) {
-        TODO("Not yet implemented")
-    }
 
 }

@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.model.ListEventType
+import com.example.todofromkotlinteam.plansList.OnClickItemListEvent
 
 interface ItemSelectionListener {
     fun select(item: ListEventType)

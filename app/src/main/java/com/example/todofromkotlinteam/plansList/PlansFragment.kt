@@ -6,25 +6,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
-import com.example.todofromkotlinteam.views.UpdateAndDeleteDialogView
 import kotlinx.android.synthetic.main.plans_fragment.*
-import androidx.fragment.app.FragmentActivity
 
 
-class PlansFragment : Fragment(), OnClickItemListEvent {
+
+class PlansFragment() : Fragment() {
     private var currentOffset = 0
     private var weekViewIsVisible = false
     private var events: List<ListEvent>? = null
-    private var event: ListEvent? = null
-
-
 
 
 
@@ -44,7 +39,7 @@ class PlansFragment : Fragment(), OnClickItemListEvent {
         recycleViewPlans?.hasFixedSize()
         recycleViewPlans?.layoutManager = LinearLayoutManager(context)
         if (events == null) events = emptyList()
-        recycleViewPlans?.adapter = PlansListAdapter(events!!, requireContext(), this)
+        recycleViewPlans?.adapter = PlansListAdapter(events!!, requireContext(), (context as NavigationBarActivity))
 
         plansWeekView?.alpha = 0f
         plansWeekView?.setupParent(context as NavigationBarActivity)
@@ -99,17 +94,6 @@ class PlansFragment : Fragment(), OnClickItemListEvent {
         events = listEventDao?.getAllListEvent()
         Log.d("ListEvent", "${listEventDao?.getAllListEvent()}")
         recycleViewPlans?.adapter?.notifyDataSetChanged()
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    override fun clickItemListEvent(item: ListEvent) {
-        event = item
-        recycleViewPlans?.adapter?.notifyDataSetChanged()
-    }
-
-    override fun clickLongItemListEvent(item: ListEvent) {
-//         UpdateAndDeleteDialogView().show(childFragmentManager, "DeleteAndUpdate")
-           UpdateAndDeleteDialogView().show((activity as AppCompatActivity).supportFragmentManager, "DeleteAndUpdate")
     }
 
 }

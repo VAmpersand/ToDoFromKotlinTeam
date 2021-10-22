@@ -13,6 +13,7 @@ import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
 import com.example.todofromkotlinteam.plansList.OnClickItemListEvent
 import kotlin.collections.ArrayList
 
+
 class IdeasListAdapter(
     listArray: ArrayList<ListEvent>,
     context: Context, listener: OnClickItemListEvent
@@ -81,6 +82,11 @@ class IdeasListAdapter(
             listener.clickItemListEvent(events[position - 1])
             selectPosition = position
             Log.d("Click", "$selectPosition")
+        }
+
+        holder.itemView.setOnLongClickListener {
+            listener.clickLongItemListEvent(events[position - 1])
+            true
         }
     }
 }
