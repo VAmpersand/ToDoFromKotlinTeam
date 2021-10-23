@@ -19,8 +19,7 @@ interface ClickListener {
     fun onLongItemClick(item: ListEvent)
 }
 
-class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: ClickListener  ) : TDRecycleListAdapter(),
-    OnUpdateAndDeleteButtonClickListener {
+class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: ClickListener  ) : TDRecycleListAdapter(){
     private var events = eventArray
     private var appContext = context
     private val listener = listener
@@ -72,9 +71,9 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
             else -> {
                 (holder as EventsViewHolder).bind(events[position - 2], appContext)
                 holder.setIsRecyclable(false)
-                if ( selectPosition == position-2){
-
-                }
+//                if ( selectPosition == position-2){
+//
+//                }
             }
         }
 
@@ -91,14 +90,6 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
 
     }
 
-    override fun onDeleteClickListener(item: ListEvent?) {
-        val listEventDao = RoomAppDB.getAppDB(appContext)?.listEventDao()
-        listEventDao?.deleteListEvent(item)
-    }
-
-    override fun onUpdateClickListeber() {
-
-    }
 }
 
 

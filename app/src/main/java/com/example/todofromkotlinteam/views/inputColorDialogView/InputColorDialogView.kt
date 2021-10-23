@@ -79,7 +79,6 @@ class InputColorDialogView(listener: OnColorDialogButtonClickListener) : DialogF
             0,
             listEventTypeDao?.getAllListEventType()!!
         )
-        Log.d("ListEventType", "${ listEventTypeDao?.getAllListEventType()!!}")
         rcView?.adapter?.notifyItemInserted(0)
 
     }

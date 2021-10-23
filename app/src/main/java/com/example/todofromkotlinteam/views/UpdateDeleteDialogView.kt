@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.update_and_delete_layout.*
 
 interface OnUpdateAndDeleteButtonClickListener{
     fun onDeleteClickListener(item: ListEvent?)
-    fun onUpdateClickListeber()
+    fun onUpdateClickListener()
 }
 class UpdateDeleteDialogView(listener: OnUpdateAndDeleteButtonClickListener) : DialogFragment() {
 
@@ -31,7 +31,7 @@ class UpdateDeleteDialogView(listener: OnUpdateAndDeleteButtonClickListener) : D
 
     private fun configureUpdateDelete() {
         onUpdate.setOnClickListener {
-  //          listener.onUpdateClickListeber()
+  //          listener.onUpdateClickListener()
             dialog?.hide()
         }
 

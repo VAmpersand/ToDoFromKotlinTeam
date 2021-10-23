@@ -14,10 +14,11 @@ import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.views.OnUpdateAndDeleteButtonClickListener
 import com.example.todofromkotlinteam.views.UpdateDeleteDialogView
+import kotlinx.android.synthetic.main.ideas_fragment.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 
 class PlansFragment : Fragment(),
-    ClickListener {
+    ClickListener, OnUpdateAndDeleteButtonClickListener {
     private var currentOffset = 0
     private var weekViewIsVisible = false
     private var events: List<ListEvent>? = null
@@ -100,10 +101,23 @@ class PlansFragment : Fragment(),
 
      override fun onItemClick(item: ListEvent) {
          currentEvent = item
+         recycleViewIdeas?.adapter?.notifyDataSetChanged()
+         recycleViewPlans?.adapter?.notifyDataSetChanged()
      }
 
     override fun onLongItemClick(item: ListEvent) {
-        UpdateDeleteDialogView(this).show((activity as AppCompatActivity).supportFragmentManager,"UpdateDelete")
+        UpdateDeleteDialogView(this).show(childFragmentManager,"UpdateDelete")
+    }
+
+    override fun onDeleteClickListener(item: ListEvent?) {
+        val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
+         listEventDao?.deleteListEvent(currentEvent)
+        recycleViewIdeas?.adapter?.notifyDataSetChanged()
+        recycleViewPlans?.adapter?.notifyDataSetChanged()
+    }
+
+    override fun onUpdateClickListener() {
+
     }
 
 }

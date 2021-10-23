@@ -34,7 +34,6 @@ open class TDRecycleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
 
             val listEventTypeDao = RoomAppDB.getAppDB(context)?.listEventTypeDao()
             val type = listEventTypeDao?.getColorType(listEvent.eventTypeId)
-            Log.d("Color", "${type?.color}")
 
             if (listEvent.isPriority) {
                 eventView?.background?.setTint(Color.parseColor(type?.color))

@@ -182,9 +182,6 @@ class NewEventActivity : AppCompatActivity(),
         HexSelectColorDialogView(this).show(supportFragmentManager, "HexSelectColor")
     }
 
-    fun setupListener(listener: OnNewEventAddListener) {
-        this.listener = listener
-    }
 }
 
 
