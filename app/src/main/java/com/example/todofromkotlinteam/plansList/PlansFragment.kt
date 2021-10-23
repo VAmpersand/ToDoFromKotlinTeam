@@ -12,6 +12,7 @@ import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.views.OnUpdateAndDeleteButtonClickListener
 import com.example.todofromkotlinteam.views.UpdateDeleteDialogView
 import kotlinx.android.synthetic.main.plans_fragment.*
 
@@ -102,6 +103,7 @@ class PlansFragment : Fragment(),
      }
 
     override fun onLongItemClick(item: ListEvent) {
-        UpdateDeleteDialogView().show((activity as AppCompatActivity).supportFragmentManager,"UpdateDelete")
+        UpdateDeleteDialogView(this).show((activity as AppCompatActivity).supportFragmentManager,"UpdateDelete")
     }
+
 }

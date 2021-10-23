@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
+import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.views.OnUpdateAndDeleteButtonClickListener
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
@@ -71,6 +72,9 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
             else -> {
                 (holder as EventsViewHolder).bind(events[position - 2], appContext)
                 holder.setIsRecyclable(false)
+                if ( selectPosition == position-2){
+
+                }
             }
         }
 
@@ -87,8 +91,13 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
 
     }
 
-    override fun onDeleteClickListener() {
-        TODO("Not yet implemented")
+    override fun onDeleteClickListener(item: ListEvent?) {
+        val listEventDao = RoomAppDB.getAppDB(appContext)?.listEventDao()
+        listEventDao?.deleteListEvent(item)
+    }
+
+    override fun onUpdateClickListeber() {
+
     }
 }
 
