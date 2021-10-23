@@ -3,12 +3,13 @@ package com.example.todofromkotlinteam.db.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 
 @Entity(tableName = "listEvent")
 data class ListEvent(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Int = 0,
-    @ColumnInfo(name = "eventType") val eventTypeId: Int,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Int = 0,
+    @ColumnInfo(name = "eventType") var eventTypeId: Int,
     @ColumnInfo(name = "eventTypeName") val eventTypeName: String?,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "date") val date: String,
@@ -18,4 +19,4 @@ data class ListEvent(
     @ColumnInfo(name = "partner") val partner: String?,
     @ColumnInfo(name = "isDone") val isDone: Boolean,
     @ColumnInfo(name = "isPriority") val isPriority: Boolean
-)
+) : Serializable

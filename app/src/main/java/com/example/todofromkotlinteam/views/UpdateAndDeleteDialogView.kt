@@ -1,30 +1,38 @@
 package com.example.todofromkotlinteam.views
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import com.example.todofromkotlinteam.NewEventActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.model.ListEvent
-import kotlinx.android.synthetic.main.ideas_fragment.*
-import kotlinx.android.synthetic.main.plans_fragment.*
 import kotlinx.android.synthetic.main.update_and_delete_dialog_layout.*
 
-interface UpdateAndDeleteEvent{
+
+
+
+
+interface UpdateAndDeleteEvent {
     fun deleteEvent(item: ListEvent?)
+    fun updateEvent(item: ListEvent?)
 }
 
 
-class UpdateAndDeleteDialogView(listener: UpdateAndDeleteEvent) : DialogFragment(){
-
+class UpdateAndDeleteDialogView(listener: UpdateAndDeleteEvent) : DialogFragment() {
 
     private var listener = listener
     private var currentEvent: ListEvent? = null
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return inflater.inflate(R.layout.update_and_delete_dialog_layout, container, false)
     }
@@ -50,17 +58,16 @@ class UpdateAndDeleteDialogView(listener: UpdateAndDeleteEvent) : DialogFragment
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun configureListeners(){
-            deleteButton?.setOnClickListener{
+    private fun configureListeners() {
+        deleteButton?.setOnClickListener {
+            listener.deleteEvent(currentEvent)
+            dialog?.hide()
+        }
 
-                    listener.deleteEvent(currentEvent)
-                    dialog?.hide()
-              }
-
-        updateButton?.setOnClickListener{
-            recycleViewPlans?.adapter?.notifyDataSetChanged()
-            recycleViewIdeas?.adapter?.notifyDataSetChanged()
+        updateButton?.setOnClickListener {
+            listener.updateEvent(currentEvent)
             dialog?.hide()
         }
     }
+
 }

@@ -1,6 +1,7 @@
 package com.example.todofromkotlinteam.plansList
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,18 +10,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todofromkotlinteam.NavigationBarActivity
+import com.example.todofromkotlinteam.NewEventActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
+import com.example.todofromkotlinteam.views.UpdateAndDeleteDialogView
+import com.example.todofromkotlinteam.views.UpdateAndDeleteEvent
+import kotlinx.android.synthetic.main.ideas_fragment.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 
 
-
-class PlansFragment() : Fragment() {
+class PlansFragment() : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
     private var currentOffset = 0
     private var weekViewIsVisible = false
     private var events: List<ListEvent>? = null
-
+    private var currentEvent: ListEvent? = null
 
 
     override fun onCreateView(
@@ -39,7 +43,7 @@ class PlansFragment() : Fragment() {
         recycleViewPlans?.hasFixedSize()
         recycleViewPlans?.layoutManager = LinearLayoutManager(context)
         if (events == null) events = emptyList()
-        recycleViewPlans?.adapter = PlansListAdapter(events!!, requireContext(), (context as NavigationBarActivity))
+        recycleViewPlans?.adapter = PlansListAdapter(events!!, requireContext(), this)
 
         plansWeekView?.alpha = 0f
         plansWeekView?.setupParent(context as NavigationBarActivity)
@@ -94,6 +98,38 @@ class PlansFragment() : Fragment() {
         events = listEventDao?.getAllListEvent()
         Log.d("ListEvent", "${listEventDao?.getAllListEvent()}")
         recycleViewPlans?.adapter?.notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun clickItemListEvent(item: ListEvent) {
+        recycleViewPlans?.adapter?.notifyDataSetChanged()
+        recycleViewIdeas?.adapter?.notifyDataSetChanged()
+    }
+
+    override fun clickLongItemListEvent(item: ListEvent) {
+        UpdateAndDeleteDialogView(this).show(childFragmentManager, "DeleteAndUpdate")
+        currentEvent = item
+    }
+
+    override fun deleteEvent(item: ListEvent?) {
+        val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
+        listEventDao?.deleteListEvent(currentEvent)
+        getAllListEvent()
+    }
+
+    override fun updateEvent(item: ListEvent?) {
+
+        val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
+        listEventDao?.updateListEvent(currentEvent)
+        getAllListEvent()
+        intent()
+    }
+
+    private fun intent(){
+        val i = Intent(context, NewEventActivity::class.java)
+        i.putExtra("event", currentEvent)
+
+        startActivity(i)
     }
 
 }

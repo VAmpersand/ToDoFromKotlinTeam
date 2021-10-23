@@ -26,8 +26,8 @@ import java.util.*
 
 
 
-class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWeekTopClickListener,
-    OnClickItemListEvent{
+class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWeekTopClickListener
+    {
     private val plansFragment = PlansFragment()
     private val ideasFragment = IdeasFragment()
     private val profileFragment = ProfileFragment()
@@ -101,18 +101,6 @@ class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWe
         plansFragment.configureFragment()
         ideasFragment.configureFragment()
     }
-
-    @SuppressLint("NotifyDataSetChanged")
-    override fun clickItemListEvent(item: ListEvent) {
-        recycleViewPlans?.adapter?.notifyDataSetChanged()
-        recycleViewIdeas?.adapter?.notifyDataSetChanged()
-    }
-
-    override fun clickLongItemListEvent(item: ListEvent) {
-        UpdateAndDeleteDialogView().show(supportFragmentManager, "DeleteAndUpdate")
-
-    }
-
 
 
 }

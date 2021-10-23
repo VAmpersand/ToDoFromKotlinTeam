@@ -17,6 +17,10 @@ import kotlinx.android.synthetic.main.new_event_field_layout.view.*
 import kotlinx.android.synthetic.main.plans_fragment.*
 import java.text.SimpleDateFormat
 import java.util.*
+import android.content.Intent
+
+
+
 
 
 class NewEventActivity : AppCompatActivity(),
@@ -31,17 +35,25 @@ class NewEventActivity : AppCompatActivity(),
     private var currentStartTime: String? = null
     private var currentEndTime: String? = null
     private var currentEventType: ListEventType? = null
+    private var currentEvent: ListEvent? = null
+    
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
         configureFields()
+
+        currentEvent = this.intent.extras?.getSerializable("event") as ListEvent?
+        Log.d("event", "$currentEvent")
+
+
     }
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
         super.onResume()
+
         recycleViewPlans?.adapter?.notifyDataSetChanged()
         recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
@@ -59,14 +71,6 @@ class NewEventActivity : AppCompatActivity(),
 
     @SuppressLint("NotifyDataSetChanged")
     fun onClickAddEvent(view: View) {
-
-        Log.d("currentType", "$currentType")
-        Log.d("currentDate", "$currentDate")
-        Log.d("currentStartTime", "$currentStartTime")
-        Log.d("currentEndTime", "$currentEndTime")
-        Log.d("currentEventType", "$currentEventType")
-        Log.d("eventNameField", "${eventNameField?.inputField?.text}")
-        Log.d("currentEventTypeID", "${currentEventType?.color}")
 
         if (currentType != null
             && currentDate != null
@@ -95,8 +99,8 @@ class NewEventActivity : AppCompatActivity(),
             )
         }
         finish()
-
     }
+
 
 
     private fun configureFields() {

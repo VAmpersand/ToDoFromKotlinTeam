@@ -86,6 +86,7 @@ class IdeasListAdapter(
 
         holder.itemView.setOnLongClickListener {
             listener.clickLongItemListEvent(events[position - 1])
+            selectPosition = position
             true
         }
     }

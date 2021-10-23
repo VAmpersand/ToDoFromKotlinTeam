@@ -29,7 +29,7 @@ interface OnClickItemListEvent {
 
 class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: OnClickItemListEvent
 
-) : TDRecycleListAdapter(), UpdateAndDeleteEvent {
+) : TDRecycleListAdapter(){
     private var events = eventArray
     private var appContext = context
     private var listener = listener
@@ -123,15 +123,8 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
         holder.itemView.setOnLongClickListener {
                 listener.clickLongItemListEvent(events[position - 2])
                 selectPosition = position
-                true
+                 true
         }
-    }
-
-    override fun deleteEvent(item: ListEvent?) {
-        val listEventDao = RoomAppDB.getAppDB(appContext)?.listEventDao()
-        listEventDao?.deleteListEvent(item)
-        Log.d("Del", "${listEventDao?.deleteListEvent(item)}")
-
     }
 
 
