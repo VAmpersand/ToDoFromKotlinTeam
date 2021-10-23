@@ -1,19 +1,14 @@
 package com.example.todofromkotlinteam.views
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.example.todofromkotlinteam.NewEventActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.model.ListEvent
 import kotlinx.android.synthetic.main.update_and_delete_dialog_layout.*
-
-
-
 
 
 interface UpdateAndDeleteEvent {

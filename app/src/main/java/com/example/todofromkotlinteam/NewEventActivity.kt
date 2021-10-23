@@ -43,9 +43,10 @@ class NewEventActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
         configureFields()
-
         currentEvent = this.intent.extras?.getSerializable("event") as ListEvent?
-        Log.d("event", "$currentEvent")
+        Log.d("NewEvent", "$currentEvent")
+
+
 
 
     }
