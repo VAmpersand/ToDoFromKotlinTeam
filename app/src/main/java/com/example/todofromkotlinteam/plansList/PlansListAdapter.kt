@@ -79,8 +79,8 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
 
         holder.itemView.setOnClickListener {
             listener.onItemClick(events[position-2])
-            selectPosition = position-2
-            Log.d("prior","$selectPosition")
+            selectPosition = position
+            Log.d("prior","${events[position].id}")
         }
 
         holder.itemView.setOnLongClickListener {

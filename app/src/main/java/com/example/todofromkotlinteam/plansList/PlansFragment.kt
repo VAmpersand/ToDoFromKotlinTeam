@@ -2,6 +2,7 @@ package com.example.todofromkotlinteam.plansList
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,7 @@ class PlansFragment : Fragment(),
     private var weekViewIsVisible = false
     private var events: List<ListEvent>? = null
     private var currentEvent : ListEvent? = null
+
 
 
     override fun onCreateView(
@@ -80,7 +82,7 @@ class PlansFragment : Fragment(),
         }
 
 //        val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
-//        if (currentEvent != null) listEventDao?.getPriorityListEvent()
+//        if (currentEvent != null) currentEvent
 
 //        recycleViewPlans?.setOnClickListener{
 //        }
@@ -101,23 +103,25 @@ class PlansFragment : Fragment(),
 
      override fun onItemClick(item: ListEvent) {
          currentEvent = item
+         Log.d("cur","$currentEvent")
          recycleViewIdeas?.adapter?.notifyDataSetChanged()
          recycleViewPlans?.adapter?.notifyDataSetChanged()
      }
 
     override fun onLongItemClick(item: ListEvent) {
         UpdateDeleteDialogView(this).show(childFragmentManager,"UpdateDelete")
+        currentEvent = item
     }
 
-    override fun onDeleteClickListener(item: ListEvent?) {
+    override fun onDeleteClickListener() {
         val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
-         listEventDao?.deleteListEvent(currentEvent)
-        recycleViewIdeas?.adapter?.notifyDataSetChanged()
-        recycleViewPlans?.adapter?.notifyDataSetChanged()
+        listEventDao?.deleteListEvent(currentEvent)
+        val db = listEventDao?.getPlansListEvent()
     }
 
     override fun onUpdateClickListener() {
-
+        val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
+        listEventDao?.updateListEvent(currentEvent)
     }
 
 }

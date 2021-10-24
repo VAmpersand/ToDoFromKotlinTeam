@@ -10,7 +10,7 @@ import com.example.todofromkotlinteam.db.model.ListEvent
 import kotlinx.android.synthetic.main.update_and_delete_layout.*
 
 interface OnUpdateAndDeleteButtonClickListener{
-    fun onDeleteClickListener(item: ListEvent?)
+    fun onDeleteClickListener()
     fun onUpdateClickListener()
 }
 class UpdateDeleteDialogView(listener: OnUpdateAndDeleteButtonClickListener) : DialogFragment() {
@@ -31,12 +31,12 @@ class UpdateDeleteDialogView(listener: OnUpdateAndDeleteButtonClickListener) : D
 
     private fun configureUpdateDelete() {
         onUpdate.setOnClickListener {
-  //          listener.onUpdateClickListener()
+            listener.onUpdateClickListener()
             dialog?.hide()
         }
 
         onDelete.setOnClickListener {
-            listener.onDeleteClickListener(currentEvent)
+            listener.onDeleteClickListener()
             dialog?.hide()
         }
     }
