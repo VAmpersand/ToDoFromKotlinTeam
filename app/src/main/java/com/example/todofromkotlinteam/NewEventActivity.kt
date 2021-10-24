@@ -1,6 +1,7 @@
 package com.example.todofromkotlinteam
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -18,9 +19,8 @@ import kotlinx.android.synthetic.main.plans_fragment.*
 import java.text.SimpleDateFormat
 import java.util.*
 import android.content.Intent
-
-
-
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.example.todofromkotlinteam.plansList.PlansFragment
 
 
 class NewEventActivity : AppCompatActivity(),
@@ -36,18 +36,25 @@ class NewEventActivity : AppCompatActivity(),
     private var currentEndTime: String? = null
     private var currentEventType: ListEventType? = null
     private var currentEvent: ListEvent? = null
-    
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
         configureFields()
+
+
         currentEvent = this.intent.extras?.getSerializable("event") as ListEvent?
         Log.d("NewEvent", "$currentEvent")
-
-
-
+         if(currentEvent != null){
+        eventNameField?.inputField?.setText(currentEvent?.title)
+        eventTypeField?.inputField?.setText(currentEvent?.eventTypeName)
+        eventDateField?.inputField?.setText(currentEvent?.date)
+        eventStartTimeField?.inputField?.setText(currentEvent?.startTime)
+        eventEndTimeField?.inputField?.setText(currentEvent?.finishTime)
+        eventDescriptionField?.inputField?.setText(currentEvent?.description)
+        eventPartnerField?.inputField?.setText(currentEvent?.partner)
+         }
 
     }
 
@@ -70,8 +77,10 @@ class NewEventActivity : AppCompatActivity(),
         finish()
     }
 
+
     @SuppressLint("NotifyDataSetChanged")
     fun onClickAddEvent(view: View) {
+
 
         if (currentType != null
             && currentDate != null
@@ -82,26 +91,27 @@ class NewEventActivity : AppCompatActivity(),
         ) {
 
             val listEventDao = RoomAppDB.getAppDB(application)?.listEventDao()
-
-            listEventDao?.insertListEvent(
-                ListEvent(
-                    id = 0,
-                    eventTypeId = currentEventType?.id!!, // 1
-                    title = eventNameField?.inputField?.text?.toString()!!,
-                    date = currentDate.toString()!!,
-                    description = eventDescriptionField?.inputField?.text?.toString(),
-                    startTime = currentStartTime.toString()!!,
-                    finishTime = currentEndTime.toString()!!,
-                    isDone = false,
-                    isPriority = false,
-                    partner = eventPartnerField?.inputField?.text?.toString(),
-                    eventTypeName = currentType.toString()!!
-                )
+            val listEvent =  ListEvent(
+                id = 0,
+                eventTypeId = currentEventType?.id!!, // 1
+                title = eventNameField?.inputField?.text?.toString()!!,
+                date = currentDate.toString()!!,
+                description = eventDescriptionField?.inputField?.text?.toString(),
+                startTime = currentStartTime.toString()!!,
+                finishTime = currentEndTime.toString()!!,
+                isDone = false,
+                isPriority = false,
+                partner = eventPartnerField?.inputField?.text?.toString(),
+                eventTypeName = currentType.toString()!!
             )
-        }
-        finish()
-    }
+            listEventDao?.insertListEvent(listEvent)
+            if(currentEvent == null) listEventDao?.insertListEvent(listEvent)
+            else listEventDao?.updateListEvent(listEvent)
+            finish()
 
+          }
+
+    }
 
 
     private fun configureFields() {

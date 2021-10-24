@@ -60,8 +60,9 @@ class UpdateAndDeleteDialogView(listener: UpdateAndDeleteEvent) : DialogFragment
         }
 
         updateButton?.setOnClickListener {
-            listener.updateEvent(currentEvent)
             dialog?.hide()
+            listener.updateEvent(currentEvent)
+
         }
     }
 

@@ -26,7 +26,6 @@ class PlansFragment() : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
     private var events: List<ListEvent>? = null
     private var currentEvent: ListEvent? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -118,18 +117,13 @@ class PlansFragment() : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
     }
 
     override fun updateEvent(item: ListEvent?) {
+        routeToNewEventActivity()
+        }
 
-        val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
-        listEventDao?.updateListEvent(currentEvent)
-        getAllListEvent()
-        intent()
-    }
-
-    private fun intent(){
+    private fun routeToNewEventActivity(){
         val i = Intent(context, NewEventActivity::class.java)
         i.putExtra("event", currentEvent)
-
         startActivity(i)
-    }
 
+    }
 }
