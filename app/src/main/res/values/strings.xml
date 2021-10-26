@@ -25,5 +25,7 @@ Solar calendar will try to put you in sync with a more natural rest and work cyc
     <string name="event_name">Enter event name here</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
+    <string name="update_button">UPDATE EVENT</string>
+    <string name="update_title">UPDATE</string>
 
 </resources>

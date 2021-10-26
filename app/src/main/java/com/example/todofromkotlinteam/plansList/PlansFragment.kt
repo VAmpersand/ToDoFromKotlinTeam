@@ -32,6 +32,7 @@ class PlansFragment() : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.plans_fragment, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -81,9 +82,7 @@ class PlansFragment() : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
                 }
             }
         }
-
     }
-
 
     @SuppressLint("NotifyDataSetChanged")
     fun configureFragment() {
@@ -92,7 +91,7 @@ class PlansFragment() : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun getAllListEvent() {
+    fun getAllListEvent() {
         val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
         events = listEventDao?.getAllListEvent()
         Log.d("ListEvent", "${listEventDao?.getAllListEvent()}")
@@ -117,13 +116,11 @@ class PlansFragment() : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
     }
 
     override fun updateEvent(item: ListEvent?) {
-        routeToNewEventActivity()
-        }
 
-    private fun routeToNewEventActivity(){
         val i = Intent(context, NewEventActivity::class.java)
         i.putExtra("event", currentEvent)
         startActivity(i)
-
+        getAllListEvent()
     }
+
 }

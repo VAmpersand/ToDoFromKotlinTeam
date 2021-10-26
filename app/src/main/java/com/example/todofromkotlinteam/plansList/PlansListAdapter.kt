@@ -97,18 +97,16 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
             else -> {
                 (holder as EventsViewHolder).bind(events[position - 2], appContext)
                 // НЕ ЗАБЫТЬ ИЗМЕНИТЬ!!!
-                if (selectPosition == position) {
-                    holder.eventView?.background?.setTint(Color.parseColor("#FF8552"))
-                    holder.colorView?.background?.setTint(appContext.resources.getColor(R.color.white, null))
-
-                    holder.titleTextView?.setTextColor(appContext.resources.getColor(R.color.white, null))
-                    holder.descriptionTextView?.setTextColor(appContext.resources.getColor(R.color.white, null))
-                    holder.timeTextView?.setTextColor(appContext.resources.getColor(R.color.white, null))
-                    holder.partnerTextView?.setTextColor(appContext.resources.getColor(R.color.white, null))
-
-                    holder.timeIcon?.setColorFilter(appContext.resources.getColor(R.color.white, null))
-                    holder.partnerIcon?.setColorFilter(appContext.resources.getColor(R.color.white, null))
-                }
+//                if (selectPosition == position) {
+//                    holder.eventView?.background?.setTint(Color.parseColor("#FF8552"))
+//                    holder.colorView?.background?.setTint(appContext.resources.getColor(R.color.white, null))
+//                    holder.titleTextView?.setTextColor(appContext.resources.getColor(R.color.white, null))
+//                    holder.descriptionTextView?.setTextColor(appContext.resources.getColor(R.color.white, null))
+//                    holder.timeTextView?.setTextColor(appContext.resources.getColor(R.color.white, null))
+//                    holder.partnerTextView?.setTextColor(appContext.resources.getColor(R.color.white, null))
+//                    holder.timeIcon?.setColorFilter(appContext.resources.getColor(R.color.white, null))
+//                    holder.partnerIcon?.setColorFilter(appContext.resources.getColor(R.color.white, null))
+//                }
 //                if (selectPosition != position) holder.eventView?.alpha = 0.5f
                 holder.setIsRecyclable(false)
             }

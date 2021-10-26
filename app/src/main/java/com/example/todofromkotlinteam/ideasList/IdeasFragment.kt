@@ -3,7 +3,6 @@ package com.example.todofromkotlinteam.ideasList
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,10 +25,8 @@ class IdeasFragment : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
     private var events: List<ListEvent>? = null
     private  var currentEvent: ListEvent? = null
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.ideas_fragment, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -67,6 +64,7 @@ class IdeasFragment : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
         recycleViewIdeas?.adapter?.notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun clickItemListEvent(item: ListEvent) {
         recycleViewPlans?.adapter?.notifyDataSetChanged()
         recycleViewIdeas?.adapter?.notifyDataSetChanged()
@@ -87,11 +85,6 @@ class IdeasFragment : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
         val i = Intent(context, NewEventActivity::class.java)
         i.putExtra("event", currentEvent)
         startActivity(i)
-//        val listEventDao = RoomAppDB.getAppDB(requireContext())?.listEventDao()
-//        listEventDao?.updateListEvent(currentEvent)
         getAllIdeasListEvent()
-
     }
-
-
 }

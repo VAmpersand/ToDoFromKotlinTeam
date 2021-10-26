@@ -40,7 +40,6 @@ open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
             if (listEvent.isPriority) {
                 eventView?.background?.setTint(Color.parseColor(type?.color))
                 colorView?.background?.setTint(context.resources.getColor(R.color.white, null))
-
                 titleTextView?.setTextColor(context.resources.getColor(R.color.white, null))
                 descriptionTextView?.setTextColor(context.resources.getColor(R.color.white, null))
                 timeTextView?.setTextColor(context.resources.getColor(R.color.white, null))

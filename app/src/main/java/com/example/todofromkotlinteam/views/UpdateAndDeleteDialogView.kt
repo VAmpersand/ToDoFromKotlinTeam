@@ -17,11 +17,9 @@ interface UpdateAndDeleteEvent {
 }
 
 
-class UpdateAndDeleteDialogView(listener: UpdateAndDeleteEvent) : DialogFragment() {
+class UpdateAndDeleteDialogView(private var listener: UpdateAndDeleteEvent) : DialogFragment() {
 
-    private var listener = listener
     private var currentEvent: ListEvent? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,9 +59,8 @@ class UpdateAndDeleteDialogView(listener: UpdateAndDeleteEvent) : DialogFragment
 
         updateButton?.setOnClickListener {
             dialog?.hide()
+            dismiss()
             listener.updateEvent(currentEvent)
-
         }
     }
-
 }
