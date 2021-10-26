@@ -10,12 +10,10 @@ import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.db.model.ListEvent
 import kotlinx.android.synthetic.main.update_and_delete_dialog_layout.*
 
-
 interface UpdateAndDeleteEvent {
     fun deleteEvent(item: ListEvent?)
     fun updateEvent(item: ListEvent?)
 }
-
 
 class UpdateAndDeleteDialogView(private var listener: UpdateAndDeleteEvent) : DialogFragment() {
 

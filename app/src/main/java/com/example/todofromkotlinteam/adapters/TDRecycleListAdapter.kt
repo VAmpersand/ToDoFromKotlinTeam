@@ -17,7 +17,6 @@ import com.example.todofromkotlinteam.db.model.ListEvent
 import java.util.*
 
 
-
 open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -31,6 +30,7 @@ open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
         val partnerIcon = view.findViewById<ImageView>(R.id.partnerIcon)!!
         val partnerTextView = view.findViewById<TextView>(R.id.partnerTextView)!!
 
+        @SuppressLint("SetTextI18n")
         fun bind(listEvent: ListEvent, context: Context) {
 
             val listEventTypeDao = RoomAppDB.getAppDB(context)?.listEventTypeDao()
@@ -50,7 +50,6 @@ open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
             } else {
                 eventView?.background?.setTint(context.resources.getColor(R.color.white, null))
                 colorView?.background?.setTint(Color.parseColor(type?.color))
-
             }
 
             if (listEvent.isDone) eventView?.alpha = 0.5f
@@ -59,17 +58,14 @@ open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
             descriptionTextView?.text = listEvent.description
             timeTextView?.text = "${listEvent.startTime} - ${listEvent.finishTime}"
             partnerTextView?.text = listEvent.partner
-
-
         }
-
     }
 
     class TitleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val title = view.findViewById<TextView>(R.id.titleTextView)
 
         fun bind(context: Context) {
-            var calendar = Calendar.getInstance()
+            val calendar = Calendar.getInstance()
             val todayDay = calendar.get(Calendar.DAY_OF_MONTH)
             val todayMonth = calendar.get(Calendar.MONTH) + 1
             val todayYear = calendar.get(Calendar.YEAR)
@@ -80,9 +76,9 @@ open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
             val displayYear = calendar.get(Calendar.YEAR)
 
             if (displayDay == todayDay && displayMonth == todayMonth && displayYear == todayYear) {
-                title?.text = "Today's events"
+                title?.text = context.getString(R.string.title_new)
             } else {
-                title?.text = "Accepted events"
+                title?.text = context.getString(R.string.title_accept)
             }
         }
     }
@@ -95,8 +91,8 @@ open class TDRecycleListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
         holder: RecyclerView.ViewHolder,
         @SuppressLint("RecyclerView") position: Int
     ) {
-
     }
+
     override fun getItemCount(): Int {
         TODO("Not yet implemented")
     }

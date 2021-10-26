@@ -7,34 +7,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import com.example.todofromkotlinteam.adapters.TDRecycleListAdapter
-import com.example.todofromkotlinteam.db.RoomAppDB
 import com.example.todofromkotlinteam.db.model.ListEvent
-import com.example.todofromkotlinteam.views.UpdateAndDeleteDialogView
-import com.example.todofromkotlinteam.views.UpdateAndDeleteEvent
 import com.example.todofromkotlinteam.views.customCalendarView.CustomCalendarView
-import kotlinx.android.synthetic.main.plans_fragment.*
 
 interface OnClickItemListEvent {
     fun clickItemListEvent(item: ListEvent)
     fun clickLongItemListEvent(item: ListEvent)
-
-
 }
 
-
-class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: OnClickItemListEvent
-
+class PlansListAdapter(eventArray: List<ListEvent>, context: Context,
+                       private var listener: OnClickItemListEvent
 ) : TDRecycleListAdapter(){
     private var events = eventArray
     private var appContext = context
-    private var listener = listener
-     var selectPosition : Int? = null
-
+    var selectPosition : Int? = null
 
     class CalendarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
@@ -59,8 +49,8 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
                 val calendar = CustomCalendarView(appContext)
                 calendar.setupParent(appContext as NavigationBarActivity)
                 calendar.configureCalendar(
-                    (appContext as NavigationBarActivity)?.currentCalendar,
-                    (appContext as NavigationBarActivity)?.selectedDate
+                    (appContext as NavigationBarActivity).currentCalendar,
+                    (appContext as NavigationBarActivity).selectedDate
                 )
                 calendar.layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
@@ -86,7 +76,6 @@ class PlansListAdapter(eventArray: List<ListEvent>, context: Context, listener: 
             )
         }
     }
-
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, @SuppressLint("RecyclerView") position: Int) {

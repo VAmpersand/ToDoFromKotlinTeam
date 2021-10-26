@@ -1,9 +1,7 @@
 package com.example.todofromkotlinteam.db
 
-
 import androidx.room.*
 import com.example.todofromkotlinteam.db.model.ListEventType
-
 
 @Dao
 interface ListEventTypeDao {
@@ -17,13 +15,10 @@ interface ListEventTypeDao {
     @Insert
     fun insertListEventType(event: ListEventType?)
 
-
     @Delete
     fun deleteListEventType(event: ListEventType?)
 
     @Update
     fun updateListEventType(event: ListEventType?)
-
-
 
 }

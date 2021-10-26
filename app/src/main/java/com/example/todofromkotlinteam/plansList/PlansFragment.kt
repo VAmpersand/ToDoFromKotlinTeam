@@ -32,8 +32,7 @@ class PlansFragment() : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.plans_fragment, container, false)
-
-    }
+        }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,7 +49,6 @@ class PlansFragment() : Fragment(), OnClickItemListEvent, UpdateAndDeleteEvent {
 
         configureListener()
     }
-
 
     override fun onPause() {
         super.onPause()

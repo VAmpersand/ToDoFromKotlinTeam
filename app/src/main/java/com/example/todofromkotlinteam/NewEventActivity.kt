@@ -32,7 +32,6 @@ class NewEventActivity : AppCompatActivity(),
     private var currentEventType: ListEventType? = null
     private var currentEvent: ListEvent? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_event_additing_layout)
@@ -104,6 +103,8 @@ class NewEventActivity : AppCompatActivity(),
                 listEvent.id = currentEvent?.id!!
                 listEventDao?.updateListEvent(listEvent)
             } else listEventDao?.insertListEvent(listEvent)
+
+            recycleViewPlans?.adapter?.notifyDataSetChanged()
             finish()
         }
     }
