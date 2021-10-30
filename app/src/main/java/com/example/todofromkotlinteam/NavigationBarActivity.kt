@@ -1,27 +1,19 @@
 package com.example.todofromkotlinteam
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
-import com.example.todofromkotlinteam.db.RoomAppDB
-import com.example.todofromkotlinteam.db.model.ListEvent
 import com.example.todofromkotlinteam.plansList.PlansFragment
 import com.example.todofromkotlinteam.ideasList.IdeasFragment
 import com.example.todofromkotlinteam.managers.SharedPreferencesKey
 import com.example.todofromkotlinteam.managers.SharedPreferencesManager
-import com.example.todofromkotlinteam.plansList.OnClickItemListEvent
-import com.example.todofromkotlinteam.plansList.PlansListAdapter
-import com.example.todofromkotlinteam.views.UpdateAndDeleteDialogView
-import com.example.todofromkotlinteam.views.UpdateAndDeleteEvent
 import com.example.todofromkotlinteam.views.customCalendarView.OnCalendarClickListener
 import com.example.todofromkotlinteam.views.weekView.OnWeekTopClickListener
-import kotlinx.android.synthetic.main.ideas_fragment.*
+import kotlinx.android.synthetic.main.date_input_dialog_layout.*
 import kotlinx.android.synthetic.main.navigation_bar_activity.*
-import kotlinx.android.synthetic.main.plans_fragment.*
 import java.util.*
 
 
@@ -32,10 +24,8 @@ class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWe
     private val ideasFragment = IdeasFragment()
     private val profileFragment = ProfileFragment()
     private val settingsFragment = SettingsFragment()
-    private var currentEvent: ListEvent? = null
 
-
-    var currentCalendar = Calendar.getInstance(Locale.ENGLISH)
+    var currentCalendar = Calendar.getInstance(Locale.ENGLISH)!!
     var selectedDate = Date()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,15 +52,15 @@ class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWe
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, plansFragment).commit()
 
         navigationView.setOnItemSelectedListener { item ->
-            var seletedFragment: Fragment? = null
+            var selectedFragment: Fragment? = null
 
             when (item.itemId) {
-                R.id.plan -> seletedFragment = plansFragment
-                R.id.ideas -> seletedFragment = ideasFragment
-                R.id.profile -> seletedFragment = profileFragment
-                R.id.settings -> seletedFragment = settingsFragment
+                R.id.plan -> selectedFragment = plansFragment
+                R.id.ideas -> selectedFragment = ideasFragment
+                R.id.profile -> selectedFragment = profileFragment
+                R.id.settings -> selectedFragment = settingsFragment
             }
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, seletedFragment!!).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, selectedFragment!!).commit()
 
             true
         }
@@ -89,7 +79,8 @@ class NavigationBarActivity : AppCompatActivity(), OnCalendarClickListener, OnWe
     }
 
     override fun onSetCalendarClickListener(calendar: Calendar) {
-        currentCalendar = calendar
+         this.currentCalendar = calendar
+          Log.d("calendar","$currentCalendar")
         plansFragment.configureFragment()
         ideasFragment.configureFragment()
     }

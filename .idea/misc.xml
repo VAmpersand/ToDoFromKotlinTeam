@@ -8,13 +8,15 @@
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/circle_event.xml" value="0.2703125" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/circle_shape.xml" value="0.2703125" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/green_tumb_seek.xml" value="0.2703125" />
+        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/ic_plan.xml" value="0.2703125" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/item_background_shape.xml" value="0.20416666666666666" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/red_tumd_seek.xml" value="0.2703125" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/seek_bar_background_blue.xml" value="0.2703125" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/seek_bar_background_green.xml" value="0.2703125" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/seek_bar_background_red.xml" value="0.2703125" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/drawable/shadow_gradient_bottom.xml" value="0.20416666666666666" />
-        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_layout.xml" value="0.23489583333333333" />
+        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_date_layout.xml" value="0.151268115942029" />
+        <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/calendar_layout.xml" value="0.264" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/color_theme_dialog.xml" value="0.12360688956433637" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/date_input_dialog_layout.xml" value="0.1213768115942029" />
         <entry key="..\:/GitHub/ToDoFromKotlinTeam/app/src/main/res/layout/ef.xml" value="0.25416666666666665" />

@@ -1,5 +1,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/eventItemView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,9 +11,10 @@
     android:elevation="19dp">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="45dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="12dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
@@ -27,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gill_sans_regular"
-            android:text="textView"
+            android:text="TextView"
             android:textColor="@color/text_title"
             android:textSize="24sp" />
 
@@ -58,17 +60,18 @@
             <TextView
                 android:id="@+id/timeTextView"
                 android:layout_width="wrap_content"
-                android:layout_height="21dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/gill_sans_regular"
                 android:text="TextView"
                 android:textColor="@color/text_title"
-                android:textSize="18sp" />
-            
+                android:textSize="13sp" />
+
             <ImageView
                 android:id="@+id/partnerIcon"
-                android:layout_width="21dp"
+                android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_marginLeft="8dp"
                 app:srcCompat="@drawable/ic_people"
@@ -76,14 +79,15 @@
 
             <TextView
                 android:id="@+id/partnerTextView"
-                android:layout_width="120dp"
-                android:layout_height="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/gill_sans_regular"
                 android:text="TextView"
                 android:textColor="@color/text_title"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -91,10 +95,11 @@
         android:id="@+id/colorView"
         android:layout_width="19dp"
         android:layout_height="19dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginTop="7dp"
         android:background="@drawable/circle_shape"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

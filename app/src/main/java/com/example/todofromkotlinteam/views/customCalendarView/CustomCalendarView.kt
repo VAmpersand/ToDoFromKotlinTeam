@@ -23,9 +23,14 @@ class CustomCalendarView : LinearLayout {
     private val titleDateFormat = SimpleDateFormat("MMM yyyy", Locale.ENGLISH)
     private lateinit var gridAdapter: CustomCalendarGridAdapter
     private lateinit var listener: OnCalendarClickListener
+    private var month = Calendar.getInstance()
 
     constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
         initializeLayout()
@@ -44,8 +49,10 @@ class CustomCalendarView : LinearLayout {
 
         val monthCalendar = calendar.clone() as Calendar
         monthCalendar.set(Calendar.DAY_OF_MONTH, 1)
+
         val firstDayOfMonth = monthCalendar.get(Calendar.DAY_OF_WEEK) - 1
         monthCalendar.add(Calendar.DAY_OF_MONTH, -firstDayOfMonth)
+
 
         while (dates.size < maxDays) {
             dates.add(monthCalendar.time)
@@ -58,12 +65,14 @@ class CustomCalendarView : LinearLayout {
 
     private fun configureListeners() {
         prevButton.setOnClickListener {
-            calendar.add(Calendar.MONTH, -1)
+//            calendar.roll(Calendar.MONTH, -1)
+            calendar[Calendar.MONTH] -= 1
             listener.onSetCalendarClickListener(calendar)
         }
 
         nextButton.setOnClickListener {
-            calendar.add(Calendar.MONTH, 1)
+            calendar[Calendar.MONTH] += 1
+//            calendar.roll(Calendar.MONTH, 1)
             listener.onSetCalendarClickListener(calendar)
         }
 
@@ -76,7 +85,6 @@ class CustomCalendarView : LinearLayout {
 
     fun setupParent(listener: OnCalendarClickListener) {
         this.listener = listener
-
         configureListeners()
     }
 }

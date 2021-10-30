@@ -1,5 +1,6 @@
 package com.example.todofromkotlinteam.views.customCalendarView
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -7,24 +8,18 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.core.view.isVisible
-import com.example.todofromkotlinteam.NavigationBarActivity
 import com.example.todofromkotlinteam.R
 import java.util.*
 
-class CustomCalendarGridAdapter : ArrayAdapter<Date> {
-    private var dates: List<Date>
-    private var inflater: LayoutInflater
-    private var currentCalendar = Calendar.getInstance(Locale.ENGLISH)
-    private var selectedDate = Date()
+class CustomCalendarGridAdapter(
+    context: Context,
+    private var dates: List<Date>,
+    private var currentCalendar: Calendar,
+    private var selectedDate: Date
+) : ArrayAdapter<Date>(context, R.layout.calendar_date_layout) {
+    private var inflater: LayoutInflater = LayoutInflater.from(context)
 
-    constructor(context: Context, dates: List<Date>, currentCalendar: Calendar, selectedDate: Date) : super(context, R.layout.calendar_date_layout) {
-        this.dates = dates
-        this.currentCalendar = currentCalendar
-        this.selectedDate = selectedDate
-
-        inflater = LayoutInflater.from(context)
-    }
-
+    @SuppressLint("InflateParams")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var calendar = Calendar.getInstance()
         val todayDay = calendar.get(Calendar.DAY_OF_MONTH)
